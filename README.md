@@ -1,48 +1,14 @@
-# Florence X. Doo — Personal Research Site
+# Florence X. Doo — Personal Research Website
 
-A deliberately minimal GitHub Pages site organized around four homepage sections:
+Personal academic and research website for Florence X. Doo, MD, MA.
 
-1. Hero / research identity
-2. Three research pillars with selected work
-3. Current activity (upcoming talks + latest publications)
-4. About / professional profiles
+**Live site:** https://flo-doo.github.io/
 
-## Portrait
+Research areas:
+- Trustworthy Human–AI Systems
+- Frontier Clinical Intelligence
+- Sustainable AI & Medical Imaging
 
-Add the final portrait as:
+The site includes selected research, automatically updated publications, upcoming talks, and professional links.
 
-`assets/images/florence-doo.jpg`
-
-Do **not** place image files in `data/`.
-
-## Upcoming talks
-
-Edit `data/events.json`. Example:
-
-```json
-{
-  "events": [
-    {
-      "date": "2026-10-08",
-      "title": "Invited talk title",
-      "event": "Conference or institution",
-      "location": "City, State",
-      "url": "https://example.org/event"
-    }
-  ]
-}
-```
-
-The homepage automatically shows the next three future events and stops showing them after their date passes.
-
-## Publications
-
-`data/publications.json` powers the homepage latest-publications list and the publications browser. The scheduled GitHub Action in `.github/workflows/update-publications.yml` refreshes publication metadata.
-
-## Design
-
-The site intentionally uses a single system sans-serif stack:
-
-`Aptos → Segoe UI Variable → Segoe UI → Helvetica Neue → Arial`
-
-This avoids external font dependencies and preserves an Aptos-like visual tone across Windows, macOS, and mobile devices.
+Built as a lightweight static site hosted with GitHub Pages.
