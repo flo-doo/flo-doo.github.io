@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: "17 10 * * 1"
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/update_publications.py"
+      - ".github/workflows/update-publications.yml"
 
 permissions:
   contents: write

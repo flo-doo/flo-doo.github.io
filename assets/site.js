@@ -1,8 +1,31 @@
 const PUB_DATA = 'data/publications.json';
 const EVENTS_DATA = 'data/events.json';
+const THEME_KEY = 'florence-doo-theme';
 
 function esc(value = '') {
   return String(value).replace(/[&<>'"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
+}
+
+function setTheme(theme) {
+  const resolved = theme === 'light' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = resolved;
+  document.querySelectorAll('[data-theme-toggle]').forEach(button => {
+    button.textContent = resolved === 'dark' ? 'View in light mode' : 'View in dark mode';
+    button.setAttribute('aria-label', resolved === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+  });
+}
+
+function initTheme() {
+  let stored = null;
+  try { stored = localStorage.getItem(THEME_KEY); } catch (_) {}
+  setTheme(stored === 'light' ? 'light' : 'dark');
+  document.querySelectorAll('[data-theme-toggle]').forEach(button => {
+    button.addEventListener('click', () => {
+      const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+      try { localStorage.setItem(THEME_KEY, next); } catch (_) {}
+      setTheme(next);
+    });
+  });
 }
 
 function paperLink(p) {
@@ -27,7 +50,9 @@ function renderLatest(publications, target) {
 function renderAll(publications, target, countTarget, query = '') {
   const q = query.trim().toLowerCase();
   const filtered = publications.filter(p => [p.title, p.journal, p.year, (p.authors || []).join(' ')].join(' ').toLowerCase().includes(q));
-  countTarget.textContent = `${filtered.length} publication${filtered.length === 1 ? '' : 's'}`;
+  countTarget.textContent = q
+    ? `${filtered.length} matching publication${filtered.length === 1 ? '' : 's'} of ${publications.length}`
+    : `${publications.length} publications`;
   target.innerHTML = filtered.map(p => {
     const href = paperLink(p);
     const authors = Array.isArray(p.authors) && p.authors.length ? p.authors.join(', ') : '';
@@ -116,6 +141,7 @@ async function loadEvents() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
   document.querySelectorAll('#year').forEach(el => el.textContent = new Date().getFullYear());
   loadPublications();
   loadEvents();
