@@ -1,31 +1,48 @@
-# Florence X. Doo — personal research site
+# Florence X. Doo — Personal Research Site
 
-Static GitHub Pages site for Florence X. Doo, MD, MA.
+A deliberately minimal GitHub Pages site organized around four homepage sections:
 
-## Site structure
+1. Hero / research identity
+2. Three research pillars with selected work
+3. Current activity (upcoming talks + latest publications)
+4. About / professional profiles
 
-- `index.html` — homepage
-- `publications.html` — searchable publication record
-- `assets/styles.css` — site design
-- `assets/site.js` — publication rendering/search
-- `data/publications.json` — cached publication metadata
-- `scripts/update_publications.py` — Crossref/ORCID refresh script
-- `.github/workflows/update-publications.yml` — weekly publication refresh
+## Portrait
 
-## Research architecture
+Add the final portrait as:
 
-1. Trustworthy Human–AI Systems
-2. Frontier Clinical Intelligence
-3. Sustainable AI & Medical Imaging
+`assets/images/florence-doo.jpg`
 
-Clinical AI innovation and translation is presented as a cross-cutting capability rather than a fourth research pillar.
+Do **not** place image files in `data/`.
 
-## GitHub Pages
+## Upcoming talks
 
-Recommended repository name: `flo-doo.github.io` so the site lives at `https://flo-doo.github.io/`.
+Edit `data/events.json`. Example:
 
-The site has no build dependency: GitHub Pages can serve the repository directly from the `main` branch/root directory.
+```json
+{
+  "events": [
+    {
+      "date": "2026-10-08",
+      "title": "Invited talk title",
+      "event": "Conference or institution",
+      "location": "City, State",
+      "url": "https://example.org/event"
+    }
+  ]
+}
+```
 
-## Publication updates
+The homepage automatically shows the next three future events and stops showing them after their date passes.
 
-The scheduled workflow queries Crossref for DOI metadata associated with ORCID `0000-0001-6519-5222` and merges it with curated records already in `data/publications.json`. This prevents transient API failures or incomplete ORCID tagging from deleting older entries.
+## Publications
+
+`data/publications.json` powers the homepage latest-publications list and the publications browser. The scheduled GitHub Action in `.github/workflows/update-publications.yml` refreshes publication metadata.
+
+## Design
+
+The site intentionally uses a single system sans-serif stack:
+
+`Aptos → Segoe UI Variable → Segoe UI → Helvetica Neue → Arial`
+
+This avoids external font dependencies and preserves an Aptos-like visual tone across Windows, macOS, and mobile devices.
