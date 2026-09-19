@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://flo-doo.github.io/sitemap.xml

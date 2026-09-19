@@ -1,0 +1,124 @@
+{
+  "updated_at": "2026-09-19",
+  "source": "Curated seed from public faculty/PubMed records; scheduled Crossref ORCID refresh merges newer DOI metadata.",
+  "orcid": "0000-0001-6519-5222",
+  "publications": [
+    {
+      "title": "Effect of Deep Learning Training Policy on Greenhouse Gas Emissions and Carbon Efficiency for Chest Radiograph Classification",
+      "year": 2026,
+      "date": "2026-08-12",
+      "journal": "Canadian Association of Radiologists Journal",
+      "authors": ["Dietrich N", "McShannon D", "Huisman M", "Doo FX", "Hanneman K"],
+      "doi": "10.1177/08465371261475319",
+      "type": "journal-article"
+    },
+    {
+      "title": "Capturing the Clinician-Artificial Intelligence Interaction: A Missing Prerequisite for Human-Centered Artificial Intelligence",
+      "year": 2026,
+      "date": "2026-07-30",
+      "journal": "Journal of the American College of Radiology",
+      "authors": ["Goodman KE", "Doo FX", "Price WN", "Binkley CE"],
+      "doi": "10.1016/j.jacr.2026.07.014",
+      "type": "journal-article"
+    },
+    {
+      "title": "Alignment of Policy, Practice, and Patient Safety for Trustworthy AI in Radiology",
+      "year": 2026,
+      "date": "2026-07-01",
+      "journal": "Radiology: Artificial Intelligence",
+      "authors": ["Doo FX", "Davis MA", "Poff J", "Lui YW", "Haines K", "Towbin AJ"],
+      "doi": "10.1148/ryai.250982",
+      "type": "journal-article"
+    },
+    {
+      "title": "COMPASS: Comprehensive Multimodal Performance Assessment for Safe Vascular AI Systems Using Curie8, an LLM-Based Medical Imaging Data Pipeline",
+      "year": 2026,
+      "date": "2026-05-08",
+      "journal": "Journal of Clinical and Translational Science",
+      "authors": ["Doo F", "Doo FX", "Jeudy J", "Shah N", "Kulkarni P", "Suryavanshi A", "Davis EM", "Maron BA", "Huang H"],
+      "doi": "10.1017/cts.2026.10288",
+      "type": "journal-article"
+    },
+    {
+      "title": "From Artificial Intelligence to Robotics: How to Navigate Technological Innovation in Radiology With the Gartner Hype Cycle",
+      "year": 2026,
+      "date": "2026-03-01",
+      "journal": "Academic Radiology",
+      "authors": ["Dogra S", "Rifai S", "Hadi M", "Hanna T", "Rozenshtein A", "Retrouvey M", "Huang H", "Doo FX"],
+      "doi": "10.1016/j.acra.2025.11.018",
+      "type": "journal-article"
+    },
+    {
+      "title": "A RRA Perspective on AI and Machine Learning Applications in Radiology: From Experimental to Clinically Viable Solutions",
+      "year": 2026,
+      "date": "2026-03-01",
+      "journal": "Academic Radiology",
+      "authors": ["Brown J", "Dashevsky BD", "Polat D", "Doo F", "Straus C", "Rozenshtein A", "Retrouvey M"],
+      "doi": "10.1016/j.acra.2025.11.021",
+      "type": "journal-article"
+    },
+    {
+      "title": "Teleradiology, Edge Computing, and the Internet of Things in Radiology: A RRA Perspective on Decentralized Diagnostics",
+      "year": 2026,
+      "date": "2026-03-01",
+      "journal": "Academic Radiology",
+      "authors": ["Viswanathan VS", "Zhu D", "Polat D", "Doo F", "Straus C", "Rozenshtein A", "Retrouvey M"],
+      "doi": "10.1016/j.acra.2025.12.040",
+      "type": "journal-article"
+    },
+    {
+      "title": "Medical Imaging Contrast Media Use",
+      "year": 2025,
+      "date": "2025-12-01",
+      "journal": "JAMA Network Open",
+      "authors": ["Doo FX", "Lee R", "Rockall A", "Rula EY", "Moy L"],
+      "doi": "10.1001/jamanetworkopen.2025.47304",
+      "type": "journal-article"
+    },
+    {
+      "title": "Open-Source Large Language Models in Radiology: A Review and Tutorial for Practical Research and Clinical Deployment",
+      "year": 2025,
+      "date": "2025-01-01",
+      "journal": "Radiology",
+      "authors": ["Savage CH", "Kanhere A", "Parekh V", "Langlotz CP", "Joshi A", "Huang H", "Doo FX"],
+      "doi": "10.1148/radiol.241073",
+      "type": "journal-article"
+    },
+    {
+      "title": "Environmental Sustainability and AI in Radiology: A Double-Edged Sword",
+      "year": 2024,
+      "date": "2024-02-01",
+      "journal": "Radiology",
+      "authors": ["Doo FX", "Vosshenrich J", "Cook TS", "Moy L", "Almeida EPRP", "Woolen SA", "Gichoya JW", "Heye T", "Hanneman K"],
+      "doi": "10.1148/radiol.232030",
+      "type": "journal-article"
+    },
+    {
+      "title": "Evaluation of Climate-Aware Metrics Tools for Radiology Informatics and Artificial Intelligence: Toward a Potential Radiology Ecolabel",
+      "year": 2024,
+      "date": "2024-02-01",
+      "journal": "Journal of the American College of Radiology",
+      "authors": ["Doo FX", "Parekh VS", "Kanhere A", "Savani D", "Tejani AS", "Sapkota A", "Yi PH"],
+      "doi": "10.1016/j.jacr.2023.11.019",
+      "type": "journal-article"
+    },
+    {
+      "title": "Economic and Environmental Costs of Cloud Technologies for Medical Imaging and Radiology Artificial Intelligence",
+      "year": 2024,
+      "date": "2024-02-01",
+      "journal": "Journal of the American College of Radiology",
+      "authors": ["Doo FX", "Kulkarni P", "Siegel EL", "Toland M", "Yi PH", "Carlos RC", "Parekh VS"],
+      "doi": "10.1016/j.jacr.2023.11.011",
+      "type": "journal-article"
+    },
+    {
+      "title": "Exploring the Clinical Translation of Generative Models Like ChatGPT: Promise and Pitfalls in Radiology, From Patients to Population Health",
+      "year": 2023,
+      "date": "2023-09-01",
+      "journal": "Journal of the American College of Radiology",
+      "authors": ["Doo FX", "Cook TS", "Siegel EL", "et al."],
+      "doi": "10.1016/j.jacr.2023.07.007",
+      "type": "journal-article"
+    }
+  ]
+}
