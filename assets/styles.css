@@ -1644,3 +1644,18 @@ html[data-theme="light"] .hero-stage .site-header {
   .appointment-logo--umihc img { width: min(260px, 100%); }
   .appointment-logo--cmns img { width: min(295px, 100%); }
 }
+
+/* 2026-09-20i: center hero content within the full-width artwork stage. */
+.hero-stage .hero {
+  width: min(100%, calc(var(--max) + 2 * var(--pad)));
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--pad);
+  padding-right: var(--pad);
+}
+
+@media (max-width: 900px) {
+  .hero-stage .hero {
+    width: 100%;
+  }
+}
