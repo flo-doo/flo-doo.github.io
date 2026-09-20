@@ -17,6 +17,7 @@ ORCID = "0000-0001-6519-5222"
 ROOT = Path(__file__).resolve().parents[1]
 PUBS = ROOT / "data" / "publications.json"
 TOPICS = ROOT / "data" / "publication-topics.json"
+REVIEW = ROOT / "data" / "publication-topic-review.json"
 UA = "florence-doo-site/1.0 (mailto:fdoo@som.umaryland.edu)"
 
 
@@ -40,16 +41,53 @@ def load_existing():
     return json.loads(PUBS.read_text(encoding="utf-8")).get("publications", [])
 
 
-def apply_topic_overrides(items):
+def load_topic_config():
     try:
         cfg=json.loads(TOPICS.read_text(encoding="utf-8"))
-        overrides={k.lower():v for k,v in cfg.get("overrides",{}).items()}
     except Exception:
-        overrides={}
+        cfg={}
+    return {
+        "labels": cfg.get("labels", {}),
+        "overrides": {k.lower(): v for k, v in cfg.get("overrides", {}).items()},
+        "titleOverrides": cfg.get("titleOverrides", {}),
+        "reviewedUntagged": set(cfg.get("reviewedUntagged", [])),
+    }
+
+
+def topic_key(p):
+    d=norm_doi(p.get("doi"))
+    return f"doi:{d}" if d else f"title:{norm_title(p.get('title'))}"
+
+
+def apply_topic_overrides(items):
+    cfg=load_topic_config()
     for p in items:
         d=norm_doi(p.get("doi"))
-        if d in overrides: p["topics"]=overrides[d]
+        explicit=cfg["overrides"].get(d) if d else None
+        if explicit is None:
+            explicit=cfg["titleOverrides"].get(norm_title(p.get("title")))
+        p["topics"]=explicit or []
     return items
+
+
+def write_topic_review(items):
+    cfg=load_topic_config()
+    review=[]
+    for p in items:
+        if p.get("topics"):
+            continue
+        key=topic_key(p)
+        if key in cfg["reviewedUntagged"]:
+            continue
+        review.append({
+            "key": key,
+            "year": p.get("year"),
+            "title": p.get("title"),
+            "doi": norm_doi(p.get("doi")) or None,
+        })
+    review.sort(key=lambda x: ((x.get("year") or 0), x.get("title") or ""), reverse=True)
+    REVIEW.write_text(json.dumps({"count": len(review), "items": review}, indent=2, ensure_ascii=False)+"\n", encoding="utf-8")
+    return review
 
 
 def parse_orcid_group(group):
@@ -171,6 +209,9 @@ def main():
     merged.sort(key=lambda p: (p.get("year") or 0, p.get("title") or ""), reverse=True)
     out={"updated":__import__('datetime').date.today().isoformat(),"count":len(merged),"publications":merged}
     PUBS.write_text(json.dumps(out,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+    review=write_topic_review(merged)
     print(f"Wrote {len(merged)} publications ({len(existing)} cached, {len(orcid)} ORCID, {len(crossref)} Crossref).")
+    if review:
+        print(f"Topic review needed for {len(review)} publication(s). See data/publication-topic-review.json.")
 
 if __name__=="__main__": main()

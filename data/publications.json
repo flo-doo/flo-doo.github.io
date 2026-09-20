@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-12",
+  "updated": "2026-09-20",
   "count": 59,
   "publications": [
     {
@@ -10,9 +10,8 @@
       "doi": "10.1007/978-3-032-06004-4_24",
       "pmid": null,
       "topics": [
-        "trustworthy-human-ai",
         "frontier-clinical-intelligence",
-        "sustainable-ai-radiology",
+        "trustworthy-human-ai",
         "medical-imaging-informatics-data"
       ],
       "url": "https://doi.org/10.1007/978-3-032-06004-4_24",
@@ -38,8 +37,23 @@
       "year": 2026,
       "doi": "10.1016/j.jacr.2026.05.014",
       "pmid": "42107677",
-      "topics": [],
+      "topics": [
+        "medical-imaging-informatics-data"
+      ],
       "url": "https://doi.org/10.1016/j.jacr.2026.05.014",
+      "source": "CV (Sep 12, 2026)"
+    },
+    {
+      "id": "m48",
+      "title": "Human Judgment and the Limits of Artificial Intelligence for Automated Rank Order Lists in Diagnostic Radiology Residency Selection",
+      "citation": "Savage C, Hossain R, Tonascia J, Pavlou A, Resnik CS, Doo FX*, Smith EB* (co-senior). Human Judgment and the Limits of Artificial Intelligence for Automated Rank Order Lists in Diagnostic Radiology Residency Selection. Journal of the American College of Radiology, Accepted, in press.",
+      "year": 2026,
+      "doi": null,
+      "pmid": null,
+      "topics": [
+        "trustworthy-human-ai"
+      ],
+      "url": null,
       "source": "CV (Sep 12, 2026)"
     },
     {
@@ -49,7 +63,10 @@
       "year": 2026,
       "doi": "10.1016/j.acra.2026.01.039",
       "pmid": null,
-      "topics": [],
+      "topics": [
+        "frontier-clinical-intelligence",
+        "medical-imaging-informatics-data"
+      ],
       "url": "https://doi.org/10.1016/j.acra.2026.01.039",
       "source": "CV (Sep 12, 2026)"
     },
@@ -74,7 +91,8 @@
       "doi": null,
       "pmid": null,
       "topics": [
-        "sustainable-ai-radiology"
+        "sustainable-ai-radiology",
+        "medical-imaging-informatics-data"
       ],
       "url": null,
       "source": "CV (Sep 12, 2026)"
@@ -86,7 +104,9 @@
       "year": 2026,
       "doi": null,
       "pmid": null,
-      "topics": [],
+      "topics": [
+        "medical-imaging-informatics-data"
+      ],
       "url": null,
       "source": "CV (Sep 12, 2026)"
     },
@@ -110,7 +130,10 @@
       "year": 2026,
       "doi": "10.1109/ISBI61048.2026.11515421",
       "pmid": null,
-      "topics": [],
+      "topics": [
+        "frontier-clinical-intelligence",
+        "medical-imaging-informatics-data"
+      ],
       "url": "https://doi.org/10.1109/ISBI61048.2026.11515421",
       "source": "CV (Sep 12, 2026)"
     },
@@ -121,7 +144,10 @@
       "year": 2026,
       "doi": "10.1148/ryai.250671",
       "pmid": "42089795",
-      "topics": [],
+      "topics": [
+        "trustworthy-human-ai",
+        "medical-imaging-informatics-data"
+      ],
       "url": "https://doi.org/10.1148/ryai.250671",
       "source": "CV (Sep 12, 2026)"
     },
@@ -160,14 +186,15 @@
       "doi": null,
       "pmid": null,
       "topics": [
-        "frontier-clinical-intelligence"
+        "frontier-clinical-intelligence",
+        "medical-imaging-informatics-data"
       ],
       "url": null,
       "source": "CV (Sep 12, 2026)"
     },
     {
       "id": "m46",
-      "title": "AMPLIFAI: A Multiphase CT Dataset for Benchmarking Clinical Reasoning in LI- RADS Assessment of Liver Lesions",
+      "title": "AMPLIFAI: A Multiphase CT Dataset for Benchmarking Clinical Reasoning in LI-RADS Assessment of Liver Lesions",
       "citation": "Kulkarni P, Shah N, Suryavanshi A, Delfino J, Tonascia J, Wong J, Lane BF, Chirico J, Hirsch JD, Li A, Huang H, Doo FX. AMPLIFAI: A Multiphase CT Dataset for Benchmarking Clinical Reasoning in LI- RADS Assessment of Liver Lesions. Preprint 14 Aug 2026: https://arxiv.org/abs/2608.14778v2",
       "year": 2026,
       "doi": null,
@@ -186,7 +213,10 @@
       "year": 2026,
       "doi": "10.1016/j.acra.2025.11.021",
       "pmid": null,
-      "topics": [],
+      "topics": [
+        "frontier-clinical-intelligence",
+        "medical-imaging-informatics-data"
+      ],
       "url": "https://doi.org/10.1016/j.acra.2025.11.021",
       "source": "CV (Sep 12, 2026)"
     },
@@ -224,8 +254,8 @@
       "doi": "10.1007/s10278-025-01541-3",
       "pmid": "40442564",
       "topics": [
-        "frontier-clinical-intelligence",
-        "medical-imaging-informatics-data"
+        "medical-imaging-informatics-data",
+        "frontier-clinical-intelligence"
       ],
       "url": "https://doi.org/10.1007/s10278-025-01541-3",
       "source": "CV (Sep 12, 2026)"
@@ -306,6 +336,7 @@
       "doi": "10.37765/ajmc.2025.89695",
       "pmid": "40053403",
       "topics": [
+        "trustworthy-human-ai",
         "frontier-clinical-intelligence"
       ],
       "url": "https://doi.org/10.37765/ajmc.2025.89695",
@@ -327,13 +358,16 @@
     },
     {
       "id": "c3",
-      "title": "Digital health and artificial intelligence innovations for oncology in sub- Saharan Africa",
+      "title": "Digital health and artificial intelligence innovations for oncology in sub-Saharan Africa",
       "citation": "Dako F, Moraes FY, Doo F, Abed M, Anazodo U, Patrick L, Favorito FM, Fouad E, Alabi A, Avery S, Scott A, Ngwa W, Hricak H. Digital health and artificial intelligence innovations for oncology in sub- Saharan Africa. Lancet Oncol. 2025 Oct;26(10):e547-e557. doi: 10.1016/S1470-2045(25)00360-2. PMID: 41038203.",
       "year": 2025,
-      "doi": "10.1016/S1470-2045(25",
+      "doi": "10.1016/S1470-2045(25)00360-2",
       "pmid": "41038203",
-      "topics": [],
-      "url": "https://doi.org/10.1016/S1470-2045(25",
+      "topics": [
+        "frontier-clinical-intelligence",
+        "medical-imaging-informatics-data"
+      ],
+      "url": "https://doi.org/10.1016/S1470-2045(25)00360-2",
       "source": "CV (Sep 12, 2026)"
     },
     {
@@ -344,6 +378,7 @@
       "doi": null,
       "pmid": null,
       "topics": [
+        "trustworthy-human-ai",
         "frontier-clinical-intelligence"
       ],
       "url": null,
@@ -376,13 +411,29 @@
       "source": "CV (Sep 12, 2026)"
     },
     {
+      "id": "m27",
+      "title": "Optimal Large Language Model Characteristics to Balance Accuracy and Energy Use for Sustainable Medical Applications",
+      "citation": "Doo FX*, Savani D*, Kanhere A, Carlos RC, Joshi A, Yi PH, Parekh VS. (*co-first) Optimal Large Language Model Characteristics to Balance Accuracy and Energy Use for Sustainable Medical Applications. Radiology. 2024 Aug;312(2):e240320. doi: 10.1148/radiol.240320. PMID: 39189909.",
+      "year": 2024,
+      "doi": "10.1148/radiol.240320",
+      "pmid": "39189909",
+      "topics": [
+        "sustainable-ai-radiology",
+        "frontier-clinical-intelligence"
+      ],
+      "url": "https://doi.org/10.1148/radiol.240320",
+      "source": "CV (Sep 12, 2026)"
+    },
+    {
       "id": "m26",
       "title": "Imaging the acute complications of gender-affirming surgeries: a primer for radiologists in the emergency setting",
       "citation": "Hegde S, Carroll EF, Doo FX, Drzewiecki B, Jensen KK, Sertic M, Pierce TT. Imaging the acute complications of gender-affirming surgeries: a primer for radiologists in the emergency setting. Abdom Radiol (NY). 2024 Jun 4. doi: 10.1007/s00261-024-04385-7. PMID: 38832942. (project conceptualization, participated in primary draft, supervision of first author)",
       "year": 2024,
       "doi": "10.1007/s00261-024-04385-7",
       "pmid": "38832942",
-      "topics": [],
+      "topics": [
+        "medical-imaging-informatics-data"
+      ],
       "url": "https://doi.org/10.1007/s00261-024-04385-7",
       "source": "CV (Sep 12, 2026)"
     },
@@ -447,27 +498,15 @@
       "year": 2024,
       "doi": "10.1016/j.jacr.2024.07.028",
       "pmid": "39197697",
-      "topics": [],
+      "topics": [
+        "sustainable-ai-radiology"
+      ],
       "url": "https://doi.org/10.1016/j.jacr.2024.07.028",
       "source": "CV (Sep 12, 2026)"
     },
     {
-      "id": "m27",
-      "title": "(*co-first) Optimal Large Language Model Characteristics to Balance Accuracy and Energy Use for Sustainable Medical Applications",
-      "citation": "Doo FX*, Savani D*, Kanhere A, Carlos RC, Joshi A, Yi PH, Parekh VS. (*co-first) Optimal Large Language Model Characteristics to Balance Accuracy and Energy Use for Sustainable Medical Applications. Radiology. 2024 Aug;312(2):e240320. doi: 10.1148/radiol.240320. PMID: 39189909.",
-      "year": 2024,
-      "doi": "10.1148/radiol.240320",
-      "pmid": "39189909",
-      "topics": [
-        "frontier-clinical-intelligence",
-        "sustainable-ai-radiology"
-      ],
-      "url": "https://doi.org/10.1148/radiol.240320",
-      "source": "CV (Sep 12, 2026)"
-    },
-    {
       "id": "m29",
-      "title": "(*co-first)",
+      "title": "Children Are Not Small Adults: Addressing Limited Generalizability of an Adult Deep Learning CT Organ Segmentation Model to the Pediatric Population",
       "citation": "Chatterjee D*, Kanhere A*, Doo FX, Zhao J, Chan A, Welsh A, Kulkarni P, Trang A, Parekh VS, Yi PH. (*co-first). Children Are Not Small Adults: Addressing Limited Generalizability of an Adult Deep Learning CT Organ Segmentation Model to the Pediatric Population. J Imaging Inform Med. 2024 Sep 19. doi: 10.1007/s10278-024-01273-w. PMID: 39299957. (participated in primary draft, provided statistical interpretation, supervision of first author)",
       "year": 2024,
       "doi": "10.1007/s10278-024-01273-w",
@@ -486,7 +525,9 @@
       "year": 2023,
       "doi": "10.1016/j.jacr.2022.11.005",
       "pmid": "36436778",
-      "topics": [],
+      "topics": [
+        "medical-imaging-informatics-data"
+      ],
       "url": "https://doi.org/10.1016/j.jacr.2022.11.005",
       "source": "CV (Sep 12, 2026)"
     },
@@ -497,7 +538,9 @@
       "year": 2023,
       "doi": "10.1016/j.jacr.2023.02.027",
       "pmid": "37028498",
-      "topics": [],
+      "topics": [
+        "sustainable-ai-radiology"
+      ],
       "url": "https://doi.org/10.1016/j.jacr.2023.02.027",
       "source": "CV (Sep 12, 2026)"
     },
@@ -508,7 +551,9 @@
       "year": 2023,
       "doi": "10.1097/SAP.0000000000003404",
       "pmid": "36752536",
-      "topics": [],
+      "topics": [
+        "medical-imaging-informatics-data"
+      ],
       "url": "https://doi.org/10.1097/SAP.0000000000003404",
       "source": "CV (Sep 12, 2026)"
     },
@@ -560,7 +605,9 @@
       "year": 2023,
       "doi": "10.1067/j.cpradiol.2022.07.004",
       "pmid": "36050135",
-      "topics": [],
+      "topics": [
+        "medical-imaging-informatics-data"
+      ],
       "url": "https://doi.org/10.1067/j.cpradiol.2022.07.004",
       "source": "CV (Sep 12, 2026)"
     },
@@ -571,7 +618,9 @@
       "year": 2023,
       "doi": "10.1016/j.jacr.2023.06.014",
       "pmid": "37453602",
-      "topics": [],
+      "topics": [
+        "trustworthy-human-ai"
+      ],
       "url": "https://doi.org/10.1016/j.jacr.2023.06.014",
       "source": "CV (Sep 12, 2026)"
     },
@@ -582,7 +631,9 @@
       "year": 2023,
       "doi": "10.1177/2732501623117161",
       "pmid": null,
-      "topics": [],
+      "topics": [
+        "medical-imaging-informatics-data"
+      ],
       "url": "https://doi.org/10.1177/2732501623117161",
       "source": "CV (Sep 12, 2026)"
     },
@@ -593,7 +644,9 @@
       "year": 2022,
       "doi": "10.2214/AJR.22.27536",
       "pmid": "35417186",
-      "topics": [],
+      "topics": [
+        "medical-imaging-informatics-data"
+      ],
       "url": "https://doi.org/10.2214/AJR.22.27536",
       "source": "CV (Sep 12, 2026)"
     },
@@ -604,9 +657,7 @@
       "year": 2022,
       "doi": "10.1016/j.clinimag.2022.05.012",
       "pmid": "36064645",
-      "topics": [
-        "trustworthy-human-ai"
-      ],
+      "topics": [],
       "url": "https://doi.org/10.1016/j.clinimag.2022.05.012",
       "source": "CV (Sep 12, 2026)"
     },
@@ -618,7 +669,8 @@
       "doi": "10.1016/j.jacr.2022.06.008",
       "pmid": "35964688",
       "topics": [
-        "trustworthy-human-ai"
+        "trustworthy-human-ai",
+        "medical-imaging-informatics-data"
       ],
       "url": "https://doi.org/10.1016/j.jacr.2022.06.008",
       "source": "CV (Sep 12, 2026)"
@@ -643,7 +695,9 @@
       "year": 2021,
       "doi": "10.1016/j.clinimag.2020.07.007",
       "pmid": "32707411",
-      "topics": [],
+      "topics": [
+        "medical-imaging-informatics-data"
+      ],
       "url": "https://doi.org/10.1016/j.clinimag.2020.07.007",
       "source": "CV (Sep 12, 2026)"
     },
@@ -654,7 +708,9 @@
       "year": 2021,
       "doi": "10.1016/j.clinimag.2020.11.023",
       "pmid": "33307372",
-      "topics": [],
+      "topics": [
+        "medical-imaging-informatics-data"
+      ],
       "url": "https://doi.org/10.1016/j.clinimag.2020.11.023",
       "source": "CV (Sep 12, 2026)"
     },
@@ -665,7 +721,9 @@
       "year": 2020,
       "doi": "10.1016/j.echo.2020.08.014",
       "pmid": "32919857",
-      "topics": [],
+      "topics": [
+        "medical-imaging-informatics-data"
+      ],
       "url": "https://doi.org/10.1016/j.echo.2020.08.014",
       "source": "CV (Sep 12, 2026)"
     },
@@ -689,7 +747,9 @@
       "year": 2019,
       "doi": "10.2214/AJR.19.21686",
       "pmid": "31414889",
-      "topics": [],
+      "topics": [
+        "medical-imaging-informatics-data"
+      ],
       "url": "https://doi.org/10.2214/AJR.19.21686",
       "source": "CV (Sep 12, 2026)"
     },
@@ -724,19 +784,6 @@
       "pmid": "25238889",
       "topics": [],
       "url": "https://pubmed.ncbi.nlm.nih.gov/25238889/",
-      "source": "CV (Sep 12, 2026)"
-    },
-    {
-      "id": "m48",
-      "title": "Human Judgment and the Limits of Artificial Intelligence for Automated Rank Order Lists in Diagnostic Radiology Residency Selection",
-      "citation": "Savage C, Hossain R, Tonascia J, Pavlou A, Resnik CS, Doo FX*, Smith EB* (co-senior). Human Judgment and the Limits of Artificial Intelligence for Automated Rank Order Lists in Diagnostic Radiology Residency Selection. Journal of the American College of Radiology, Accepted, in press.",
-      "year": null,
-      "doi": null,
-      "pmid": null,
-      "topics": [
-        "trustworthy-human-ai"
-      ],
-      "url": null,
       "source": "CV (Sep 12, 2026)"
     }
   ]

@@ -25,29 +25,64 @@
     return r.json();
   }
 
+  function eventDateEnd(date) {
+    return new Date(`${date}T23:59:59`);
+  }
+
   async function renderHomepage() {
     const eventsEl = document.getElementById('upcoming-events');
     const pubsEl = document.getElementById('latest-publications');
+    const countsEl = document.getElementById('speaking-counts');
+    const venuesEl = document.getElementById('speaking-venues');
 
-    if (eventsEl) {
+    if (eventsEl || countsEl || venuesEl) {
       try {
         const data = await loadJSON('data/events.json');
         const today = new Date(); today.setHours(0,0,0,0);
-        const events = (data.events || []).filter(e => new Date(`${e.date}T23:59:59`) >= today).sort((a,b) => a.date.localeCompare(b.date)).slice(0,5);
-        if (!events.length) eventsEl.innerHTML = '<p class="empty-state">No upcoming public appearances currently listed.</p>';
-        else eventsEl.innerHTML = events.map(e => {
-          const inner = `<div class="event-date">${esc(e.displayDate || e.date)}</div><span class="event-title">${esc(e.title)}</span><div class="event-type">${esc(e.type || '')}${e.event ? ` · ${esc(e.event)}` : ''}</div>${e.time || e.location ? `<div class="event-meta">${[e.time,e.location].filter(Boolean).map(esc).join(' · ')}</div>` : ''}`;
-          return e.url ? `<a class="event-item" href="${esc(e.url)}" target="_blank" rel="noreferrer">${inner}</a>` : `<div class="event-item">${inner}</div>`;
-        }).join('');
+        const events = (data.events || []).slice().sort((a,b) => a.date.localeCompare(b.date));
+        const upcoming = events.filter(e => eventDateEnd(e.date) >= today);
+
+        if (eventsEl) {
+          if (!upcoming.length) {
+            eventsEl.innerHTML = '<p class="empty-state">No upcoming public appearances currently listed.</p>';
+          } else {
+            eventsEl.innerHTML = upcoming.map(e => {
+              const details = [e.type && e.event ? `${e.type} · ${e.event}` : (e.type || e.event), e.note, e.time, e.location]
+                .filter(Boolean).map(esc);
+              const inner = `<div class="event-date">${esc(e.displayDate || e.date)}</div><span class="event-title">${esc(e.title)}</span>${details.length ? `<div class="event-meta">${details.join('<br>')}</div>` : ''}`;
+              return e.url ? `<a class="event-item" href="${esc(e.url)}" target="_blank" rel="noreferrer">${inner}</a>` : `<div class="event-item">${inner}</div>`;
+            }).join('');
+          }
+        }
+
+        if (countsEl) {
+          const baseline = data.baseline || {asOf: '2026-09-19', counts: {local:0,national:0,international:0}};
+          const counts = {
+            local: Number(baseline.counts?.local || 0),
+            national: Number(baseline.counts?.national || 0),
+            international: Number(baseline.counts?.international || 0)
+          };
+          for (const e of events) {
+            if (!e.scope || !(e.scope in counts)) continue;
+            if (e.date > baseline.asOf && eventDateEnd(e.date) < today) counts[e.scope] += 1;
+          }
+          const labels = {local:'Local', national:'National', international:'International'};
+          countsEl.innerHTML = ['local','national','international'].map(k => `<div class="speaking-stat"><strong>${counts[k]}</strong><span>${labels[k]}</span></div>`).join('');
+        }
+
+        if (venuesEl) {
+          const venues = data.selectedVenues || [];
+          venuesEl.textContent = venues.length ? `Selected venues: ${venues.join(' · ')}` : '';
+        }
       } catch (_) {
-        eventsEl.innerHTML = '<p class="empty-state">Upcoming appearances are available on the appearances page.</p>';
+        if (eventsEl) eventsEl.innerHTML = '<p class="empty-state">Upcoming appearances could not be loaded.</p>';
       }
     }
 
     if (pubsEl) {
       try {
         const data = await loadJSON('data/publications.json');
-        const pubs = (data.publications || []).slice().sort((a,b) => (b.year||0)-(a.year||0)).slice(0,5);
+        const pubs = (data.publications || []).slice().sort((a,b) => (b.year||0)-(a.year||0) || String(a.title).localeCompare(String(b.title))).slice(0,6);
         pubsEl.innerHTML = pubs.map(p => {
           const url = urlForPub(p);
           const inner = `<div class="latest-meta">${esc(p.year || '')}</div><span class="latest-title">${esc(p.title)}</span>`;
@@ -69,11 +104,13 @@
       const [data, topicData] = await Promise.all([loadJSON('data/publications.json'), loadJSON('data/publication-topics.json')]);
       const labels = topicData.labels || {};
       const overrides = topicData.overrides || {};
+      const titleOverrides = topicData.titleOverrides || {};
+      const normTitle = s => String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, '');
       let activeTopic = new URLSearchParams(location.search).get('topic') || 'all';
       const pubs = (data.publications || []).map(p => {
-        const key = (p.doi || '').toLowerCase();
-        const override = overrides[key];
-        return {...p, topics: override || p.topics || []};
+        const doiKey = (p.doi || '').toLowerCase();
+        const topics = overrides[doiKey] || titleOverrides[normTitle(p.title)] || [];
+        return {...p, topics};
       });
 
       filters.innerHTML = [`<button class="topic-filter" data-topic="all">All</button>`]
@@ -105,63 +142,11 @@
       });
       search.addEventListener('input', render);
       render();
-    } catch (err) {
-      list.innerHTML = '<p class="empty-state">The publication index could not be loaded.</p>';
-    }
-  }
-
-  async function renderAppearances() {
-    const upcomingEl = document.getElementById('upcoming-appearances');
-    const pastEl = document.getElementById('past-appearances');
-    if (!upcomingEl && !pastEl) return;
-    const filters = document.getElementById('appearance-filters');
-    const count = document.getElementById('appearance-count');
-    const scopeLabels = {
-      institutional: 'Institutional',
-      national: 'National',
-      international: 'International'
-    };
-    try {
-      const data = await loadJSON('data/events.json');
-      const today = new Date(); today.setHours(0,0,0,0);
-      const events = (data.events || []).slice();
-      const isFuture = e => new Date(`${e.date}T23:59:59`) >= today;
-      const upcoming = events.filter(isFuture).sort((a,b) => a.date.localeCompare(b.date));
-      const past = events.filter(e => !isFuture(e)).sort((a,b) => b.date.localeCompare(a.date));
-
-      const eventHTML = e => {
-        const details = [e.time, e.location, e.note].filter(Boolean).map(esc).join(' · ');
-        const title = e.url ? `<a href="${esc(e.url)}" target="_blank" rel="noreferrer">${esc(e.title)} ↗</a>` : esc(e.title);
-        const scope = e.scope && scopeLabels[e.scope] ? `<span class="appearance-scope">${esc(scopeLabels[e.scope])}</span>` : '';
-        return `<article class="appearance-item"><div><div class="event-date">${esc(e.displayDate || e.date)}</div><div class="appearance-type">${esc(e.type || '')}</div>${scope}</div><div><h3>${title}</h3><p>${esc(e.event || '')}${details ? ` · ${details}` : ''}</p></div></article>`;
-      };
-
-      if (upcomingEl) {
-        upcomingEl.innerHTML = upcoming.length ? upcoming.map(eventHTML).join('') : '<p class="empty-state">No upcoming public appearances currently listed.</p>';
-      }
-
-      if (pastEl) {
-        let activeScope = 'all';
-        function renderPast() {
-          const shown = activeScope === 'all' ? past : past.filter(e => e.scope === activeScope);
-          if (count) count.textContent = `${shown.length} selected prior appearance${shown.length === 1 ? '' : 's'}`;
-          if (filters) filters.querySelectorAll('[data-scope]').forEach(b => b.classList.toggle('active', b.dataset.scope === activeScope));
-          pastEl.innerHTML = shown.length ? shown.map(eventHTML).join('') : '<p class="empty-state">No prior appearances match this filter.</p>';
-        }
-        filters?.addEventListener('click', e => {
-          const b = e.target.closest('[data-scope]'); if (!b) return;
-          activeScope = b.dataset.scope;
-          renderPast();
-        });
-        renderPast();
-      }
     } catch (_) {
-      if (upcomingEl) upcomingEl.innerHTML = '<p class="empty-state">Appearances could not be loaded.</p>';
-      if (pastEl) pastEl.innerHTML = '<p class="empty-state">Prior appearances could not be loaded.</p>';
+      list.innerHTML = '<p class="empty-state">The publication index could not be loaded.</p>';
     }
   }
 
   renderHomepage();
   renderPublications();
-  renderAppearances();
 })();

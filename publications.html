@@ -4,38 +4,49 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Publications | Florence X. Doo, MD, MA</title>
-  <meta name="description" content="Publications by Florence X. Doo across trustworthy human-AI systems, frontier clinical intelligence, sustainable AI and radiology, and medical imaging informatics and data systems." />
+  <meta name="description" content="Publication record for Florence X. Doo, MD, MA, organized by trustworthy human-AI systems, frontier clinical intelligence, sustainable AI and radiology, and medical imaging, informatics, and data systems." />
+  <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://flo-doo.github.io/publications.html" />
-  <script>try { if (localStorage.getItem('florence-doo-theme') === 'light') document.documentElement.dataset.theme='light'; } catch (_) {}</script>
+  <script>
+    try { if (localStorage.getItem('florence-doo-theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (_) {}
+  </script>
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
-<body class="publications-page">
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <a class="wordmark" href="index.html">Florence X. Doo</a>
     <div class="header-actions">
-      <nav class="nav" aria-label="Primary navigation"><a href="index.html#research">Research</a><a class="active" href="publications.html">Publications</a><a href="index.html#now">Now</a><a href="index.html#about">About</a></nav>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="index.html#research">Research</a>
+        <a class="active" href="publications.html">Publications</a>
+        <a href="index.html#now">Now</a>
+        <a href="index.html#about">About</a>
+      </nav>
       <button class="theme-toggle" type="button" data-theme-toggle>View in light mode</button>
     </div>
   </header>
-  <main class="publications-main">
+
+  <main id="main" class="publications-main">
     <section class="publications-hero">
-      <p class="section-label">Scholarship</p>
-      <h1>Publications</h1>
-      <p>Selected work is organized by research theme; the complete publication record appears below.</p>
-      <div class="hero-links"><a href="https://orcid.org/0000-0001-6519-5222" target="_blank" rel="noreferrer">ORCID ↗</a><a href="index.html">← Home</a></div>
+      <p class="section-label">PUBLICATIONS</p>
+      <h1>Research record</h1>
+      <p>Please <a class="inline-link" href="mailto:fdoo@som.umaryland.edu">contact me</a> if you'd like a copy of a paper or are interested in collaborating.</p>
     </section>
-    <section class="publications-browser">
+
+    <section class="publications-browser" aria-label="Publication index">
       <div class="browser-tools">
         <label for="pub-search">Search publications</label>
-        <input id="pub-search" type="search" placeholder="Topic, title, journal, year…" autocomplete="off" />
-        <div id="topic-filters" class="topic-filters" aria-label="Publication topics"></div>
+        <input id="pub-search" type="search" autocomplete="off" placeholder="Title, journal, year…" />
+        <div id="topic-filters" class="topic-filters" aria-label="Filter publications by research area"></div>
         <p id="pub-count" class="pub-count"></p>
       </div>
-      <div id="all-publications" class="all-publications"><p class="loading">Loading publications…</p></div>
-      <div class="publication-contact">Need access to a paper for educational use, or interested in collaborating? <a class="inline-link" href="mailto:fdoo@som.umaryland.edu">Please get in touch.</a><p class="metadata-note">Publication metadata is synchronized with public scholarly records when available; the site also retains a curated CV-based index.</p></div>
+      <div id="all-publications" aria-live="polite"><p class="loading">Loading publications…</p></div>
+      <p class="metadata-note">Publication metadata is synchronized with public scholarly records; research-area tags are curated for this site.</p>
     </section>
   </main>
-  <footer><p>© <span id="year"></span> Florence X. Doo</p><p><a href="https://orcid.org/0000-0001-6519-5222" target="_blank" rel="noreferrer">ORCID ↗</a></p></footer>
+
+  <footer><p>© <span id="year"></span> Florence X. Doo</p><p><a href="index.html">Home</a></p></footer>
   <script src="assets/site.js" defer></script>
 </body>
 </html>

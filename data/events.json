@@ -1,4 +1,22 @@
 {
+  "baseline": {
+    "asOf": "2026-09-19",
+    "counts": {
+      "local": 25,
+      "national": 86,
+      "international": 16
+    }
+  },
+  "selectedVenues": [
+    "RSNA",
+    "ACR",
+    "AAR",
+    "ECR",
+    "MICCAI",
+    "RANZCR",
+    "AAMC",
+    "EuSoMII"
+  ],
   "events": [
     {
       "date": "2026-09-27",
@@ -29,7 +47,7 @@
       "type": "Keynote",
       "title": "Sustainable Intelligence: Can Radiology AI be Green, Global, and Generational?",
       "time": "14:00–14:45 keynote · 14:45–15:30 roundtable",
-      "url": " https://www.eusomii-annualmeeting2026.com/",
+      "url": "https://www.eusomii-annualmeeting2026.com/",
       "scope": "international"
     },
     {
@@ -39,7 +57,7 @@
       "type": "Grand Rounds",
       "title": "Grand Rounds",
       "note": "Faculty and resident sessions",
-      "scope": "institutional"
+      "scope": "national"
     },
     {
       "date": "2026-12-01",
@@ -68,7 +86,7 @@
       "event": "Johns Hopkins",
       "type": "Grand Rounds",
       "title": "Grand Rounds",
-      "scope": "institutional"
+      "scope": "national"
     },
     {
       "date": "2027-03-01",
@@ -85,6 +103,7 @@
       "date": "2027-04-14",
       "displayDate": "Apr 14, 2027",
       "event": "Association for Academic Radiology (AAR) Annual Meeting",
+      "location": "Salt Lake City, UT",
       "type": "Invited session",
       "title": "When AI Fails, Who Is Accountable?",
       "time": "9:30–10:30 AM",
@@ -95,6 +114,7 @@
       "date": "2027-04-14",
       "displayDate": "Apr 14, 2027",
       "event": "Association for Academic Radiology (AAR) Annual Meeting",
+      "location": "Salt Lake City, UT",
       "type": "Invited session",
       "title": "AI for Coding and Data Analysis: From Dataset to Insight",
       "time": "4:30–6:00 PM",
@@ -105,10 +125,11 @@
       "date": "2027-04-16",
       "displayDate": "Apr 16, 2027",
       "event": "Association for Academic Radiology (AAR) Annual Meeting",
+      "location": "Salt Lake City, UT",
       "type": "Robert Novelline Lecture",
       "title": "Did the Patient Get Better?",
-      "url": "https://www.aur.org/annual-meeting",
       "time": "9:30–10:30 AM",
+      "url": "https://www.aur.org/annual-meeting",
       "scope": "national"
     },
     {
@@ -117,228 +138,7 @@
       "event": "Brown University",
       "type": "Grand Rounds",
       "title": "Grand Rounds",
-      "scope": "institutional"
-    },
-    {
-      "date": "2023-03-15",
-      "displayDate": "Mar 15, 2023",
-      "event": "University of Pennsylvania",
-      "type": "Invited lecture",
-      "title": "Mapping the AI-Human Loop in Radiology: Informatics Drives the Socio(technical) Determinants of Health",
-      "scope": "institutional"
-    },
-    {
-      "date": "2023-10-03",
-      "displayDate": "Oct 3, 2023",
-      "event": "Johns Hopkins inHealth Precision Medicine Symposium",
-      "location": "Baltimore, MD",
-      "type": "Invited lecture",
-      "title": "ChatGPT vs. Clinician",
-      "scope": "institutional"
-    },
-    {
-      "date": "2023-07-20",
-      "displayDate": "Jul 20, 2023",
-      "event": "CRDF Global / Ghanaian Ministry of Health",
-      "location": "Accra, Ghana",
-      "type": "Invited lecture",
-      "title": "Digital Workflows",
-      "scope": "international"
-    },
-    {
-      "date": "2024-04-02",
-      "displayDate": "Apr 2, 2024",
-      "event": "AAMC Professional Development Conference",
-      "location": "Arlington, VA",
-      "type": "Opening plenary",
-      "title": "AI Literacy: The Competency You Didn't Know You Need",
       "scope": "national"
-    },
-    {
-      "date": "2024-09-12",
-      "displayDate": "Sep 12, 2024",
-      "event": "Oakland University William Beaumont School of Medicine",
-      "location": "Royal Oak, MI",
-      "type": "Grand Rounds",
-      "title": "Clinical AI 101: Applications & Future Directions in Emergency Care",
-      "scope": "institutional"
-    },
-    {
-      "date": "2024-09-13",
-      "displayDate": "Sep 13, 2024",
-      "event": "University of Michigan Rogel Cancer Center",
-      "location": "Ann Arbor, MI",
-      "type": "Invited lecture",
-      "title": "Climate-Conscious Precision Medicine: AI, Climate Change, and Imaging Care Delivery for Cancer",
-      "scope": "institutional"
-    },
-    {
-      "date": "2024-10-05",
-      "displayDate": "Oct 5, 2024",
-      "event": "Society for Advanced Body Imaging Annual Meeting",
-      "location": "Washington, DC",
-      "type": "Invited talk",
-      "title": "Radiology Artificial Intelligence for a Sustainable Future",
-      "scope": "national"
-    },
-    {
-      "date": "2024-11-26",
-      "displayDate": "Nov 26, 2024",
-      "event": "THIS Space, The Healthcare Improvement Studies Institute",
-      "location": "Cambridge, United Kingdom · virtual",
-      "type": "Invited lecture",
-      "title": "Sustainable Diagnosis: Environmental Impact of Imaging AI",
-      "scope": "international"
-    },
-    {
-      "date": "2025-02-26",
-      "displayDate": "Feb 26, 2025",
-      "event": "European Congress of Radiology",
-      "location": "Vienna, Austria",
-      "type": "Invited session",
-      "title": "Energy, Water, and Hidden Costs: Sustainability Impacts of (Generative) AI in Radiology",
-      "scope": "international"
-    },
-    {
-      "date": "2025-03-12",
-      "displayDate": "Mar 12, 2025",
-      "event": "Association of Academic Radiologists Annual Meeting",
-      "location": "Los Angeles, CA",
-      "type": "Invited talk",
-      "title": "Cost of Cloud: Strategic Considerations for Medical Imaging & Radiology AI",
-      "scope": "national"
-    },
-    {
-      "date": "2025-07-18",
-      "displayDate": "Jul 18, 2025",
-      "event": "Society of Cardiovascular Computed Tomography Annual Scientific Meeting",
-      "location": "Montreal, Canada",
-      "type": "Invited talk",
-      "title": "Environmental Impact of Data Storage and AI in Cardiac CT",
-      "scope": "international"
-    },
-    {
-      "date": "2025-08-19",
-      "displayDate": "Aug 19, 2025",
-      "event": "Michigan State University Department of Radiology",
-      "location": "East Lansing, MI",
-      "type": "Visiting Professor Grand Rounds",
-      "title": "AI & AI: Artificial Intelligence, Academic Impact, and Career Thoughts",
-      "scope": "institutional"
-    },
-    {
-      "date": "2025-09-11",
-      "displayDate": "Sep 11, 2025",
-      "event": "American College of Radiology Quality, Safety, Informatics Annual Conference",
-      "location": "San Diego, CA",
-      "type": "Keynote",
-      "title": "Between Worlds: Radiologists Leading Human-AI Ecosystems",
-      "scope": "national"
-    },
-    {
-      "date": "2025-09-23",
-      "displayDate": "Sep 23, 2025",
-      "event": "MICCAI Workshop on Multimodal Large Language Models in Clinical Practice",
-      "location": "Daejeon, South Korea",
-      "type": "Spotlight oral presentation",
-      "title": "Trustworthy Clinical Thinking in MLLMs: Hierarchical Energy-based Reasoning for interpretable MEdical Scans (HERMES)",
-      "scope": "international"
-    },
-    {
-      "date": "2025-11-30",
-      "displayDate": "Nov 30, 2025",
-      "event": "RSNA Annual Meeting",
-      "location": "Chicago, IL",
-      "type": "Invited session",
-      "title": "The (Not So) Ugly: Beyond the Hype—Practical Tips for Assessing Radiologic Innovation",
-      "scope": "national"
-    },
-    {
-      "date": "2026-02-06",
-      "displayDate": "Feb 6, 2026",
-      "event": "Columbia University Vagelos College of Physicians and Surgeons",
-      "type": "Grand Rounds",
-      "title": "Real-World AI: Practical Tools Across the Radiology Workflow",
-      "scope": "institutional"
-    },
-    {
-      "date": "2026-02-09",
-      "displayDate": "Feb 9, 2026",
-      "event": "Columbia University Data Science Institute",
-      "type": "Invited workshop talk",
-      "title": "AI Is Not the Human Eye—and What That Means for Radiology Patient Care",
-      "scope": "institutional"
-    },
-    {
-      "date": "2026-02-18",
-      "displayDate": "Feb 18, 2026",
-      "event": "European Society of Radiology Master Class in AI",
-      "location": "Virtual",
-      "type": "Invited lecture",
-      "title": "Sustainable and Responsible Use of LLMs in Radiology AI Ecosystems",
-      "scope": "international"
-    },
-    {
-      "date": "2026-03-07",
-      "displayDate": "Mar 7, 2026",
-      "event": "European Congress of Radiology",
-      "location": "Vienna, Austria",
-      "type": "Invited talk",
-      "title": "LLMs and Gen AI: Big Impact with Big Gains?",
-      "scope": "international"
-    },
-    {
-      "date": "2026-03-18",
-      "displayDate": "Mar 18, 2026",
-      "event": "Association of Academic Radiologists Annual Meeting",
-      "location": "Pittsburgh, PA",
-      "type": "Invited session",
-      "title": "Sustainable Artificial Intelligence: Co-Creating a Greener Future for Radiology",
-      "scope": "national"
-    },
-    {
-      "date": "2026-04-13",
-      "displayDate": "Apr 13, 2026",
-      "event": "American Roentgen Ray Society Categorical Course on Clinical AI in Radiology",
-      "location": "Pittsburgh, PA",
-      "type": "Invited talk",
-      "title": "Radiologist-AI Collaboration/Teaming",
-      "scope": "national"
-    },
-    {
-      "date": "2026-05-02",
-      "displayDate": "May 2, 2026",
-      "event": "American College of Radiology Annual Meeting",
-      "location": "Washington, DC",
-      "type": "Invited talk",
-      "title": "The AI-Era Radiologist: Practical Cases for the Upcoming Decade",
-      "scope": "national"
-    },
-    {
-      "date": "2026-05-27",
-      "displayDate": "May 27, 2026",
-      "event": "European Union / Affidea Group",
-      "type": "Invited session",
-      "title": "Real-World AI in Radiology: What Works, What Hurts, and What’s Next",
-      "scope": "international"
-    },
-    {
-      "date": "2026-06-01",
-      "displayDate": "Jun 1, 2026",
-      "event": "University of Alabama at Birmingham",
-      "location": "Birmingham, AL",
-      "type": "Grand Rounds",
-      "title": "Infrastructure to Impact: Radiology Is the Health System Model for Trustworthy AI",
-      "scope": "institutional"
-    },
-    {
-      "date": "2026-07-24",
-      "displayDate": "Jul 24, 2026",
-      "event": "RANZCR AI Conference — Intelligence26",
-      "location": "Sydney, Australia",
-      "type": "Invited talk",
-      "title": "Sustainable Intelligence — Is Your AI Worth Its Watts?",
-      "scope": "international"
     }
   ]
 }

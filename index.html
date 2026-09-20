@@ -166,22 +166,39 @@
     </section>
 
     <section class="section" id="now">
-      <div class="section-intro section-intro-row">
-        <div><p class="section-label">02 /</p><h2>Now</h2></div>
-        <a class="section-link" href="appearances.html">All appearances →</a>
+      <div class="section-intro">
+        <p class="section-label">02 /</p>
+        <h2>Now</h2>
       </div>
-      <div class="now-grid">
-        <section class="now-panel" aria-labelledby="upcoming-title">
-          <header class="panel-header"><h3 id="upcoming-title">Upcoming</h3><p>External talks, panels, and invited appearances.</p></header>
-          <div id="upcoming-events" class="event-list" aria-live="polite"><p class="loading">Loading upcoming appearances…</p></div>
-        </section>
-        <section class="now-panel" aria-labelledby="latest-title">
-          <header class="panel-header panel-header-row">
-            <div><h3 id="latest-title">Latest publications</h3><p>Recent scholarly work.</p></div>
+
+      <section class="now-block" aria-labelledby="upcoming-title">
+        <header class="now-subhead">
+          <h3 id="upcoming-title">Upcoming</h3>
+          <p>External talks, panels, and invited appearances.</p>
+        </header>
+        <div id="upcoming-events" class="event-grid" aria-live="polite"><p class="loading">Loading upcoming appearances…</p></div>
+      </section>
+
+      <div class="now-secondary-grid">
+        <section class="now-block latest-block" aria-labelledby="latest-title">
+          <header class="now-subhead now-subhead-row">
+            <div>
+              <h3 id="latest-title">Latest publications</h3>
+              <p>Please <a href="mailto:fdoo@som.umaryland.edu">contact me</a> if you'd like a copy of a paper or are interested in collaborating.</p>
+            </div>
             <a class="inline-link" href="publications.html">All publications →</a>
           </header>
-          <div id="latest-publications" class="latest-list" aria-live="polite"><p class="loading">Loading recent publications…</p></div>
+          <div id="latest-publications" class="latest-grid" aria-live="polite"><p class="loading">Loading recent publications…</p></div>
         </section>
+
+        <aside class="now-block speaking-block" aria-labelledby="speaking-title">
+          <header class="now-subhead">
+            <h3 id="speaking-title">Invited speaking</h3>
+            <p>Prior invited talks and appearances, using the Local / National / International categories in my CV.</p>
+          </header>
+          <div id="speaking-counts" class="speaking-counts" aria-live="polite"></div>
+          <p id="speaking-venues" class="speaking-venues"></p>
+        </aside>
       </div>
     </section>
 
