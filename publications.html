@@ -4,27 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Publications | Florence X. Doo, MD, MA</title>
-  <meta name="description" content="Publications by Florence X. Doo on clinical AI, trustworthy human-AI systems, generative and agentic AI, medical imaging, clinical informatics, and sustainability." />
+  <meta name="description" content="Publications by Florence X. Doo across trustworthy human-AI systems, frontier clinical intelligence, sustainable AI and radiology, and medical imaging informatics and data systems." />
   <link rel="canonical" href="https://flo-doo.github.io/publications.html" />
-  <script>
-    try {
-      if (localStorage.getItem('florence-doo-theme') === 'light') {
-        document.documentElement.dataset.theme = 'light';
-      }
-    } catch (_) {}
-  </script>
+  <script>try { if (localStorage.getItem('florence-doo-theme') === 'light') document.documentElement.dataset.theme='light'; } catch (_) {}</script>
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body class="publications-page">
   <header class="site-header">
     <a class="wordmark" href="index.html">Florence X. Doo</a>
     <div class="header-actions">
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="index.html#research">Research</a>
-        <a class="active" href="publications.html">Publications</a>
-        <a href="index.html#now">Now</a>
-        <a href="index.html#about">About</a>
-      </nav>
+      <nav class="nav" aria-label="Primary navigation"><a href="index.html#research">Research</a><a class="active" href="publications.html">Publications</a><a href="index.html#now">Now</a><a href="index.html#about">About</a></nav>
       <button class="theme-toggle" type="button" data-theme-toggle>View in light mode</button>
     </div>
   </header>
@@ -32,22 +21,21 @@
     <section class="publications-hero">
       <p class="section-label">Scholarship</p>
       <h1>Publications</h1>
-      <p>Research across trustworthy human–AI systems, frontier clinical intelligence, medical imaging, clinical informatics, and sustainability. This index is built from the public works on my ORCID record and enriched with DOI metadata when available.</p>
-      <div class="hero-links">
-        <a href="https://orcid.org/0000-0001-6519-5222" target="_blank" rel="noreferrer">Complete ORCID record ↗</a>
-        <a href="index.html">← Home</a>
-      </div>
+      <p>Selected work is organized by research theme; the complete publication record appears below.</p>
+      <div class="hero-links"><a href="https://orcid.org/0000-0001-6519-5222" target="_blank" rel="noreferrer">ORCID ↗</a><a href="index.html">← Home</a></div>
     </section>
     <section class="publications-browser">
       <div class="browser-tools">
         <label for="pub-search">Search publications</label>
         <input id="pub-search" type="search" placeholder="Topic, title, journal, year…" autocomplete="off" />
+        <div id="topic-filters" class="topic-filters" aria-label="Publication topics"></div>
         <p id="pub-count" class="pub-count"></p>
       </div>
       <div id="all-publications" class="all-publications"><p class="loading">Loading publications…</p></div>
+      <div class="publication-contact">Need access to a paper for educational use, or interested in collaborating? <a class="inline-link" href="mailto:fdoo@som.umaryland.edu">Please get in touch.</a><p class="metadata-note">Publication metadata is synchronized with public scholarly records when available; the site also retains a curated CV-based index.</p></div>
     </section>
   </main>
-  <footer><p>© <span id="year"></span> Florence X. Doo.</p><p><a href="https://orcid.org/0000-0001-6519-5222" target="_blank" rel="noreferrer">ORCID ↗</a></p></footer>
+  <footer><p>© <span id="year"></span> Florence X. Doo</p><p><a href="https://orcid.org/0000-0001-6519-5222" target="_blank" rel="noreferrer">ORCID ↗</a></p></footer>
   <script src="assets/site.js" defer></script>
 </body>
 </html>

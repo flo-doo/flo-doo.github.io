@@ -2,28 +2,51 @@
 
 ## Normal update workflow
 
-From the local `flo-doo.github.io` repository:
+From the repository in VS Code:
 
 ```powershell
+git pull --rebase origin main
 git add .
 git commit -m "Update personal website"
 git push origin main
 ```
 
-GitHub Pages redeploys automatically.
+Pull first because the weekly publication workflow can create a remote commit.
 
-## Upcoming talks
+## Upcoming appearances
 
-Edit `data/events.json`. The homepage shows the next three future events and stops showing each event after its date passes.
+Edit `data/events.json`. The homepage shows the next five future external appearances; `appearances.html` shows the full list in date order.
 
-## Portrait
+## Publication categories
 
-The homepage portrait is `assets/images/florence-doo.jpg`.
+`data/publication-topics.json` contains the public labels and DOI-based topic overrides. A publication can have more than one research topic.
 
-## Publications
+Topic keys:
+- `trustworthy-human-ai`
+- `frontier-clinical-intelligence`
+- `sustainable-ai-radiology`
+- `medical-imaging-informatics-data`
 
-`data/publications.json` powers both the homepage and the publications browser.
+## Publication refresh
 
-The GitHub Action `.github/workflows/update-publications.yml` runs the updater in `scripts/update_publications.py`. The updater first reads the public works shown on the ORCID record, enriches works with Crossref DOI metadata when available, and merges those results with the existing cached records. This avoids relying only on Crossref's ORCID field, which can omit older publications.
+The repository includes a weekly GitHub Action. To refresh locally:
 
-The workflow runs weekly, can be run manually from **GitHub → Actions → Refresh publications → Run workflow**, and also runs when the updater itself changes.
+```powershell
+python scripts/update_publications.py
+```
+
+The updater preserves the curated CV-based cache and tries ORCID and Crossref for new public works. It never intentionally deletes the cache when a network source is unavailable.
+
+## Portrait and affiliation logos
+
+- `assets/images/florence-doo.jpg`
+- `assets/images/umsom-logo-white.png`
+- `assets/images/umihc-logo-white.png`
+
+## Appearances
+
+`data/events.json` powers both the homepage upcoming list and `appearances.html`. Future events are shown under Upcoming; past curated events appear under Selected prior appearances and can be filtered by `scope` (`institutional`, `national`, `international`).
+
+## Affiliation logos
+
+Dark mode uses `*-logo-white.png`; light mode uses `*-logo-color.png`. Keep both variants when updating institutional branding.

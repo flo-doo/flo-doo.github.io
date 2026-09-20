@@ -1,148 +1,167 @@
-const PUB_DATA = 'data/publications.json';
-const EVENTS_DATA = 'data/events.json';
-const THEME_KEY = 'florence-doo-theme';
+(() => {
+  const root = document.documentElement;
+  const toggle = document.querySelector('[data-theme-toggle]');
 
-function esc(value = '') {
-  return String(value).replace(/[&<>'"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
-}
-
-function setTheme(theme) {
-  const resolved = theme === 'light' ? 'light' : 'dark';
-  document.documentElement.dataset.theme = resolved;
-  document.querySelectorAll('[data-theme-toggle]').forEach(button => {
-    button.textContent = resolved === 'dark' ? 'View in light mode' : 'View in dark mode';
-    button.setAttribute('aria-label', resolved === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+  function themeText() {
+    if (!toggle) return;
+    toggle.textContent = root.dataset.theme === 'light' ? 'View in dark mode' : 'View in light mode';
+  }
+  themeText();
+  toggle?.addEventListener('click', () => {
+    const next = root.dataset.theme === 'light' ? 'dark' : 'light';
+    root.dataset.theme = next;
+    try { localStorage.setItem('florence-doo-theme', next); } catch (_) {}
+    themeText();
   });
-}
 
-function initTheme() {
-  let stored = null;
-  try { stored = localStorage.getItem(THEME_KEY); } catch (_) {}
-  setTheme(stored === 'light' ? 'light' : 'dark');
-  document.querySelectorAll('[data-theme-toggle]').forEach(button => {
-    button.addEventListener('click', () => {
-      const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
-      try { localStorage.setItem(THEME_KEY, next); } catch (_) {}
-      setTheme(next);
-    });
-  });
-}
-
-function paperLink(p) {
-  if (p.doi) return `https://doi.org/${encodeURI(p.doi)}`;
-  if (p.url) return p.url;
-  return '';
-}
-
-function renderLatest(publications, target) {
-  const items = publications.slice(0, 4);
-  target.innerHTML = items.map(p => {
-    const href = paperLink(p);
-    return `<article class="latest-item">
-      <span class="year">${esc(p.year || '')}</span>
-      <div><h4>${esc(p.title)}</h4></div>
-      <p>${esc(p.journal || p.type || '')}</p>
-      ${href ? `<a href="${esc(href)}" target="_blank" rel="noreferrer" aria-label="Open ${esc(p.title)}">↗</a>` : '<span></span>'}
-    </article>`;
-  }).join('');
-}
-
-function renderAll(publications, target, countTarget, query = '') {
-  const q = query.trim().toLowerCase();
-  const filtered = publications.filter(p => [p.title, p.journal, p.year, (p.authors || []).join(' ')].join(' ').toLowerCase().includes(q));
-  countTarget.textContent = q
-    ? `${filtered.length} matching publication${filtered.length === 1 ? '' : 's'} of ${publications.length}`
-    : `${publications.length} publications`;
-  target.innerHTML = filtered.map(p => {
-    const href = paperLink(p);
-    const authors = Array.isArray(p.authors) && p.authors.length ? p.authors.join(', ') : '';
-    return `<article class="all-pub-item">
-      <span class="year">${esc(p.year || '')}</span>
-      <div><h2>${esc(p.title)}</h2><p>${esc([authors, p.journal].filter(Boolean).join(' · '))}</p></div>
-      <div class="pub-links">${href ? `<a href="${esc(href)}" target="_blank" rel="noreferrer">DOI / article ↗</a>` : ''}</div>
-    </article>`;
-  }).join('') || '<p class="loading">No matching publications.</p>';
-}
-
-function formatEventDate(dateString) {
-  const date = new Date(`${dateString}T12:00:00`);
-  if (Number.isNaN(date.getTime())) return dateString;
-  return new Intl.DateTimeFormat('en-US', { month: 'short', day: '2-digit' }).format(date);
-}
-
-function renderUpcoming(events, target) {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  const upcoming = events
-    .filter(event => {
-      const d = new Date(`${event.date}T12:00:00`);
-      return !Number.isNaN(d.getTime()) && d >= today;
-    })
-    .sort((a, b) => a.date.localeCompare(b.date))
-    .slice(0, 3);
-
-  if (!upcoming.length) {
-    target.innerHTML = '<p class="empty-state">Upcoming talks and appearances will be posted here.</p>';
-    return;
-  }
-
-  target.innerHTML = upcoming.map(event => {
-    const meta = [event.event, event.location].filter(Boolean).join(' · ');
-    const body = `<span class="event-date">${esc(formatEventDate(event.date))}</span>
-      <div><h4>${esc(event.title || event.event || 'Upcoming event')}</h4><p>${esc(meta)}</p></div>`;
-    if (event.url) {
-      return `<a class="event-item" href="${esc(event.url)}" target="_blank" rel="noreferrer">${body}<span class="arrow">↗</span></a>`;
-    }
-    return `<article class="event-item">${body}<span></span></article>`;
-  }).join('');
-}
-
-async function loadPublications() {
-  try {
-    const response = await fetch(PUB_DATA, {cache: 'no-store'});
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const payload = await response.json();
-    const publications = Array.isArray(payload) ? payload : payload.publications || [];
-    publications.sort((a,b) => (b.date || String(b.year || '')).localeCompare(a.date || String(a.year || '')));
-
-    const latest = document.querySelector('#latest-publications');
-    if (latest) renderLatest(publications, latest);
-
-    const all = document.querySelector('#all-publications');
-    const count = document.querySelector('#pub-count');
-    const search = document.querySelector('#pub-search');
-    if (all && count) {
-      const params = new URLSearchParams(window.location.search);
-      const initialQuery = params.get('q') || '';
-      if (search) search.value = initialQuery;
-      renderAll(publications, all, count, initialQuery);
-      if (search) search.addEventListener('input', () => renderAll(publications, all, count, search.value));
-    }
-  } catch (err) {
-    document.querySelectorAll('#latest-publications, #all-publications').forEach(el => {
-      el.innerHTML = '<p class="loading">Publication metadata is temporarily unavailable. The complete record remains available on ORCID.</p>';
-    });
-  }
-}
-
-async function loadEvents() {
-  const target = document.querySelector('#upcoming-events');
-  if (!target) return;
-  try {
-    const response = await fetch(EVENTS_DATA, {cache: 'no-store'});
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const payload = await response.json();
-    const events = Array.isArray(payload) ? payload : payload.events || [];
-    renderUpcoming(events, target);
-  } catch (err) {
-    target.innerHTML = '<p class="empty-state">Upcoming talks and appearances will be posted here.</p>';
-  }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  initTheme();
   document.querySelectorAll('#year').forEach(el => el.textContent = new Date().getFullYear());
-  loadPublications();
-  loadEvents();
-});
+
+  const esc = (s='') => String(s).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+  const urlForPub = p => p.url || (p.doi ? `https://doi.org/${p.doi}` : (p.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${p.pmid}/` : ''));
+
+  async function loadJSON(path) {
+    const r = await fetch(path, {cache: 'no-cache'});
+    if (!r.ok) throw new Error(`${r.status} ${path}`);
+    return r.json();
+  }
+
+  async function renderHomepage() {
+    const eventsEl = document.getElementById('upcoming-events');
+    const pubsEl = document.getElementById('latest-publications');
+
+    if (eventsEl) {
+      try {
+        const data = await loadJSON('data/events.json');
+        const today = new Date(); today.setHours(0,0,0,0);
+        const events = (data.events || []).filter(e => new Date(`${e.date}T23:59:59`) >= today).sort((a,b) => a.date.localeCompare(b.date)).slice(0,5);
+        if (!events.length) eventsEl.innerHTML = '<p class="empty-state">No upcoming public appearances currently listed.</p>';
+        else eventsEl.innerHTML = events.map(e => {
+          const inner = `<div class="event-date">${esc(e.displayDate || e.date)}</div><span class="event-title">${esc(e.title)}</span><div class="event-type">${esc(e.type || '')}${e.event ? ` · ${esc(e.event)}` : ''}</div>${e.time || e.location ? `<div class="event-meta">${[e.time,e.location].filter(Boolean).map(esc).join(' · ')}</div>` : ''}`;
+          return e.url ? `<a class="event-item" href="${esc(e.url)}" target="_blank" rel="noreferrer">${inner}</a>` : `<div class="event-item">${inner}</div>`;
+        }).join('');
+      } catch (_) {
+        eventsEl.innerHTML = '<p class="empty-state">Upcoming appearances are available on the appearances page.</p>';
+      }
+    }
+
+    if (pubsEl) {
+      try {
+        const data = await loadJSON('data/publications.json');
+        const pubs = (data.publications || []).slice().sort((a,b) => (b.year||0)-(a.year||0)).slice(0,5);
+        pubsEl.innerHTML = pubs.map(p => {
+          const url = urlForPub(p);
+          const inner = `<div class="latest-meta">${esc(p.year || '')}</div><span class="latest-title">${esc(p.title)}</span>`;
+          return url ? `<a class="latest-item" href="${esc(url)}" target="_blank" rel="noreferrer">${inner}</a>` : `<div class="latest-item">${inner}</div>`;
+        }).join('');
+      } catch (_) {
+        pubsEl.innerHTML = '<p class="empty-state">See the full publications index.</p>';
+      }
+    }
+  }
+
+  async function renderPublications() {
+    const list = document.getElementById('all-publications');
+    if (!list) return;
+    const search = document.getElementById('pub-search');
+    const count = document.getElementById('pub-count');
+    const filters = document.getElementById('topic-filters');
+    try {
+      const [data, topicData] = await Promise.all([loadJSON('data/publications.json'), loadJSON('data/publication-topics.json')]);
+      const labels = topicData.labels || {};
+      const overrides = topicData.overrides || {};
+      let activeTopic = new URLSearchParams(location.search).get('topic') || 'all';
+      const pubs = (data.publications || []).map(p => {
+        const key = (p.doi || '').toLowerCase();
+        const override = overrides[key];
+        return {...p, topics: override || p.topics || []};
+      });
+
+      filters.innerHTML = [`<button class="topic-filter" data-topic="all">All</button>`]
+        .concat(Object.entries(labels).map(([k,v]) => `<button class="topic-filter" data-topic="${esc(k)}">${esc(v)}</button>`)).join('');
+
+      function render() {
+        const q = (search.value || '').trim().toLowerCase();
+        const shown = pubs.filter(p => {
+          const topicOK = activeTopic === 'all' || (p.topics || []).includes(activeTopic);
+          const hay = `${p.title || ''} ${p.citation || ''} ${p.year || ''}`.toLowerCase();
+          return topicOK && (!q || hay.includes(q));
+        }).sort((a,b) => (b.year||0)-(a.year||0) || String(a.title).localeCompare(String(b.title)));
+        count.textContent = `${shown.length} publication${shown.length === 1 ? '' : 's'}`;
+        document.querySelectorAll('.topic-filter').forEach(b => b.classList.toggle('active', b.dataset.topic === activeTopic));
+        list.innerHTML = shown.length ? shown.map(p => {
+          const url = urlForPub(p);
+          const tags = (p.topics || []).filter(t => labels[t]).map(t => `<span class="pub-tag">${esc(labels[t])}</span>`).join('');
+          const title = url ? `<a href="${esc(url)}" target="_blank" rel="noreferrer">${esc(p.title)} ↗</a>` : esc(p.title);
+          return `<article class="pub-item"><div class="pub-year">${esc(p.year || '')}</div><div><h3 class="pub-title">${title}</h3><p class="pub-citation">${esc(p.citation || '')}</p>${tags ? `<div class="pub-tags">${tags}</div>` : ''}</div></article>`;
+        }).join('') : '<p class="empty-state">No publications match this filter.</p>';
+      }
+      filters.addEventListener('click', e => {
+        const b = e.target.closest('[data-topic]'); if (!b) return;
+        activeTopic = b.dataset.topic;
+        const u = new URL(location.href);
+        if (activeTopic === 'all') u.searchParams.delete('topic'); else u.searchParams.set('topic', activeTopic);
+        history.replaceState({},'',u);
+        render();
+      });
+      search.addEventListener('input', render);
+      render();
+    } catch (err) {
+      list.innerHTML = '<p class="empty-state">The publication index could not be loaded.</p>';
+    }
+  }
+
+  async function renderAppearances() {
+    const upcomingEl = document.getElementById('upcoming-appearances');
+    const pastEl = document.getElementById('past-appearances');
+    if (!upcomingEl && !pastEl) return;
+    const filters = document.getElementById('appearance-filters');
+    const count = document.getElementById('appearance-count');
+    const scopeLabels = {
+      institutional: 'Institutional',
+      national: 'National',
+      international: 'International'
+    };
+    try {
+      const data = await loadJSON('data/events.json');
+      const today = new Date(); today.setHours(0,0,0,0);
+      const events = (data.events || []).slice();
+      const isFuture = e => new Date(`${e.date}T23:59:59`) >= today;
+      const upcoming = events.filter(isFuture).sort((a,b) => a.date.localeCompare(b.date));
+      const past = events.filter(e => !isFuture(e)).sort((a,b) => b.date.localeCompare(a.date));
+
+      const eventHTML = e => {
+        const details = [e.time, e.location, e.note].filter(Boolean).map(esc).join(' · ');
+        const title = e.url ? `<a href="${esc(e.url)}" target="_blank" rel="noreferrer">${esc(e.title)} ↗</a>` : esc(e.title);
+        const scope = e.scope && scopeLabels[e.scope] ? `<span class="appearance-scope">${esc(scopeLabels[e.scope])}</span>` : '';
+        return `<article class="appearance-item"><div><div class="event-date">${esc(e.displayDate || e.date)}</div><div class="appearance-type">${esc(e.type || '')}</div>${scope}</div><div><h3>${title}</h3><p>${esc(e.event || '')}${details ? ` · ${details}` : ''}</p></div></article>`;
+      };
+
+      if (upcomingEl) {
+        upcomingEl.innerHTML = upcoming.length ? upcoming.map(eventHTML).join('') : '<p class="empty-state">No upcoming public appearances currently listed.</p>';
+      }
+
+      if (pastEl) {
+        let activeScope = 'all';
+        function renderPast() {
+          const shown = activeScope === 'all' ? past : past.filter(e => e.scope === activeScope);
+          if (count) count.textContent = `${shown.length} selected prior appearance${shown.length === 1 ? '' : 's'}`;
+          if (filters) filters.querySelectorAll('[data-scope]').forEach(b => b.classList.toggle('active', b.dataset.scope === activeScope));
+          pastEl.innerHTML = shown.length ? shown.map(eventHTML).join('') : '<p class="empty-state">No prior appearances match this filter.</p>';
+        }
+        filters?.addEventListener('click', e => {
+          const b = e.target.closest('[data-scope]'); if (!b) return;
+          activeScope = b.dataset.scope;
+          renderPast();
+        });
+        renderPast();
+      }
+    } catch (_) {
+      if (upcomingEl) upcomingEl.innerHTML = '<p class="empty-state">Appearances could not be loaded.</p>';
+      if (pastEl) pastEl.innerHTML = '<p class="empty-state">Prior appearances could not be loaded.</p>';
+    }
+  }
+
+  renderHomepage();
+  renderPublications();
+  renderAppearances();
+})();

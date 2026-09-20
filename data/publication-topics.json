@@ -1,0 +1,24 @@
+{
+  "labels": {
+    "trustworthy-human-ai": "Trustworthy Human–AI Systems",
+    "frontier-clinical-intelligence": "Frontier Clinical Intelligence",
+    "sustainable-ai-radiology": "Sustainable AI & Radiology",
+    "medical-imaging-informatics-data": "Medical Imaging, Informatics, & Data Systems"
+  },
+  "overrides": {
+    "10.1148/ryai.250982": ["trustworthy-human-ai"],
+    "10.1016/j.jacr.2026.07.014": ["trustworthy-human-ai"],
+    "10.1007/s10278-024-01273-w": ["trustworthy-human-ai", "medical-imaging-informatics-data"],
+    "10.1016/j.clon.2025.103758": ["trustworthy-human-ai", "medical-imaging-informatics-data"],
+    "10.1148/radiol.241073": ["frontier-clinical-intelligence", "medical-imaging-informatics-data"],
+    "10.1016/j.jacr.2023.07.007": ["frontier-clinical-intelligence"],
+    "10.1177/08465371241247043": ["frontier-clinical-intelligence", "medical-imaging-informatics-data"],
+    "10.1007/978-3-032-06004-4_24": ["frontier-clinical-intelligence", "trustworthy-human-ai", "medical-imaging-informatics-data"],
+    "10.1148/radiol.232030": ["sustainable-ai-radiology"],
+    "10.1148/radiol.240320": ["sustainable-ai-radiology", "frontier-clinical-intelligence"],
+    "10.1016/j.jacr.2023.11.019": ["sustainable-ai-radiology"],
+    "10.1016/j.jacr.2023.11.011": ["sustainable-ai-radiology", "medical-imaging-informatics-data"],
+    "10.1016/j.athoracsur.2025.07.001": ["medical-imaging-informatics-data"],
+    "10.1007/s10278-025-01541-3": ["medical-imaging-informatics-data", "frontier-clinical-intelligence"]
+  }
+}
