@@ -22,7 +22,7 @@
     try { if (localStorage.getItem('florence-doo-theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (_) {}
   </script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <link rel="stylesheet" href="assets/styles.css?v=20260920b" />
+  <link rel="stylesheet" href="assets/styles.css?v=20260920c" />
   <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -151,6 +151,7 @@
         <h2>Research</h2>
       </div>
 
+      <div class="research-overview-grid">
       <section class="research-recent" aria-labelledby="recent-publications-title">
         <header class="research-recent-head">
           <div>
@@ -172,10 +173,11 @@
         </div>
       </section>
 
-      <div class="research-areas-head">
-        <p class="small-label">Research areas</p>
-      </div>
-      <div class="research-grid">
+      <section class="research-areas-panel" aria-labelledby="research-areas-title">
+        <div class="research-areas-head">
+          <h3 id="research-areas-title">Research areas</h3>
+        </div>
+        <div class="research-grid">
         <article class="research-column">
           <div class="research-top">
             <h3>Trustworthy Human–AI Systems</h3>
@@ -231,6 +233,8 @@
             <a class="column-link" href="publications.html?topic=medical-imaging-informatics-data">Related publications →</a>
           </div>
         </article>
+        </div>
+      </section>
       </div>
     </section>
 
@@ -247,7 +251,7 @@
           <div class="speaking-map-block">
             <div class="speaking-map-heading">
               <span>Speaking footprint</span>
-              <span class="speaking-map-note">selected past + upcoming locations</span>
+              <span class="speaking-map-note">selected past + upcoming locations · drag / zoom</span>
             </div>
             <div id="speaking-map" class="speaking-map" role="region" aria-label="Interactive map of selected speaking locations"></div>
           </div>
@@ -323,6 +327,6 @@
 
   <footer><p>© <span id="year"></span> Florence X. Doo</p><p>Clinical AI · Radiology · Informatics</p></footer>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
-  <script src="assets/site.js?v=20260920b" defer></script>
+  <script src="assets/site.js?v=20260920c" defer></script>
 </body>
 </html>

@@ -2,7 +2,7 @@
   const root = document.documentElement;
   const toggle = document.querySelector('[data-theme-toggle]');
   let speakingMap = null;
-  let speakingTileLayer = null;
+  let speakingLandLayer = null;
   let speakingMarkers = [];
 
   function themeText() {
@@ -14,31 +14,28 @@
     return getComputedStyle(root).getPropertyValue(name).trim();
   }
 
-  function tileConfig() {
-    // OpenStreetMap's standard tile service does not require an API key.
-    return {
-      url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-      attribution: '&copy; OpenStreetMap contributors'
-    };
-  }
-
   function updateMapTheme() {
     if (!speakingMap || !window.L) return;
-    const cfg = tileConfig();
-    if (speakingTileLayer) speakingMap.removeLayer(speakingTileLayer);
-    speakingTileLayer = L.tileLayer(cfg.url, {
-      attribution: cfg.attribution,
-      maxZoom: 18
-    }).addTo(speakingMap);
-    speakingTileLayer.bringToBack();
-
     const accent = cssVar('--accent');
     const accentStrong = cssVar('--accent-strong');
+    const bgSoft = cssVar('--bg-soft');
+    const rule = cssVar('--rule');
+    const mapEl = document.getElementById('speaking-map');
+    if (mapEl) mapEl.style.background = bgSoft;
+    if (speakingLandLayer) {
+      speakingLandLayer.setStyle({
+        color: rule,
+        weight: 0.8,
+        fillColor: cssVar('--muted'),
+        fillOpacity: root.dataset.theme === 'light' ? 0.10 : 0.12
+      });
+    }
     speakingMarkers.forEach(({marker, upcoming}) => {
       marker.setStyle({
         color: upcoming ? accentStrong : accent,
         fillColor: upcoming ? accentStrong : accent,
-        fillOpacity: upcoming ? 0.95 : 0.70
+        fillOpacity: upcoming ? 1 : 0.82,
+        opacity: 1
       });
     });
   }
@@ -68,16 +65,37 @@
     return new Date(`${date}T23:59:59`);
   }
 
-  function renderSpeakingMap(data, upcoming) {
+  async function renderSpeakingMap(data, upcoming) {
     const el = document.getElementById('speaking-map');
     if (!el || !window.L) return;
 
+    // Tile-free Leaflet map: local Natural Earth land geometry + vector markers.
+    // This avoids API keys, third-party tile branding, and tile-service overlays.
     speakingMap = L.map(el, {
       zoomControl: true,
       scrollWheelZoom: false,
-      worldCopyJump: true,
-      minZoom: 1
+      worldCopyJump: false,
+      minZoom: 1,
+      maxZoom: 8,
+      attributionControl: true
     });
+    speakingMap.attributionControl.setPrefix(false);
+    speakingMap.attributionControl.addAttribution('Map geometry: Natural Earth');
+
+    try {
+      const land = await loadJSON('assets/ne_land_lowres.geojson');
+      speakingLandLayer = L.geoJSON(land, {
+        interactive: false,
+        style: {
+          color: cssVar('--rule'),
+          weight: 0.8,
+          fillColor: cssVar('--muted'),
+          fillOpacity: root.dataset.theme === 'light' ? 0.10 : 0.12
+        }
+      }).addTo(speakingMap);
+    } catch (err) {
+      console.warn('World outline could not be loaded; showing speaking markers only.', err);
+    }
 
     const points = [];
     const seen = new Set();
@@ -89,32 +107,37 @@
       points.push({lat: Number(lat), lng: Number(lng), label, scope, upcoming: isUpcoming, title});
     };
 
-    (data.speakingLocations || []).forEach(p => addPoint(p.lat, p.lng, p.label, p.scope, false, ''));
+    // Add upcoming first so a city that also appears historically is highlighted as upcoming.
     upcoming.forEach(e => addPoint(e.lat, e.lng, e.location || e.event, e.scope, true, e.title || e.event));
+    // Keep dated events on the footprint after they pass; they simply lose the upcoming emphasis.
+    (data.events || []).forEach(e => addPoint(e.lat, e.lng, e.location || e.event, e.scope, false, e.title || e.event));
+    (data.speakingLocations || []).forEach(p => addPoint(p.lat, p.lng, p.label, p.scope, false, ''));
 
     speakingMarkers = points.map(p => {
       const marker = L.circleMarker([p.lat, p.lng], {
-        radius: p.upcoming ? 6 : 4,
-        weight: p.upcoming ? 2 : 1,
+        radius: p.upcoming ? 7 : 5,
+        weight: p.upcoming ? 2.5 : 1.5,
         color: cssVar(p.upcoming ? '--accent-strong' : '--accent'),
         fillColor: cssVar(p.upcoming ? '--accent-strong' : '--accent'),
-        fillOpacity: p.upcoming ? 0.95 : 0.70
+        fillOpacity: p.upcoming ? 1 : 0.82,
+        opacity: 1,
+        bubblingMouseEvents: false
       }).addTo(speakingMap);
       const label = p.title ? `<strong>${esc(p.label)}</strong><br>${esc(p.title)}` : esc(p.label);
       marker.bindTooltip(label, {direction: 'top', opacity: 1});
       return {marker, upcoming: p.upcoming};
     });
 
-    updateMapTheme();
-
+    // Fit to the actual speaking footprint while retaining useful world context.
     if (points.length) {
       const bounds = L.latLngBounds(points.map(p => [p.lat, p.lng]));
-      speakingMap.fitBounds(bounds, {padding: [22, 22], maxZoom: 3});
+      speakingMap.fitBounds(bounds, {padding: [26, 26], maxZoom: 2.35});
     } else {
-      speakingMap.setView([25, 0], 2);
+      speakingMap.setView([24, 0], 1.55);
     }
 
-    window.setTimeout(() => speakingMap?.invalidateSize(), 80);
+    updateMapTheme();
+    window.setTimeout(() => speakingMap?.invalidateSize(), 100);
   }
 
   async function renderHomepageEvents() {
