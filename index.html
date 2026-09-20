@@ -115,7 +115,7 @@
       <nav class="nav" aria-label="Primary navigation">
         <a href="#research">Research</a>
         <a href="publications.html">Publications</a>
-        <a href="#now">Now</a>
+        <a href="#speaking">Speaking</a>
         <a href="#about">About</a>
       </nav>
       <button class="theme-toggle" type="button" data-theme-toggle>View in light mode</button>
@@ -140,15 +140,39 @@
     </section>
 
     <section class="section" id="research">
-      <div class="section-intro">
+      <div class="section-intro section-intro--inline">
         <p class="section-label">01 /</p>
         <h2>Research</h2>
       </div>
 
+      <section class="research-recent" aria-labelledby="recent-publications-title">
+        <header class="research-recent-head">
+          <div>
+            <h3 id="recent-publications-title">Recent publications</h3>
+            <p>Please <a class="inline-link" href="mailto:fdoo@som.umaryland.edu">contact me</a> if you'd like a copy of a paper or are interested in collaborating.</p>
+          </div>
+          <div class="research-recent-links">
+            <a href="publications.html">All publications →</a>
+            <a href="https://scholar.google.com/citations?user=B7Ig9cwAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">Google Scholar ↗</a>
+          </div>
+        </header>
+        <div id="latest-publications" class="latest-list latest-list--research" aria-live="polite">
+<!-- AUTO:INDEX-LATEST-PUBLICATIONS:START -->
+<a class="latest-item" href="https://doi.org/10.1007/978-3-032-06004-4_24" target="_blank" rel="noreferrer"><div class="latest-meta">2026</div><span class="latest-title">Trustworthy Clinical Thinking in MLLMs: Hierarchical Energy-based Reasoning for interpretable MEdical Scans (HERMES)</span><div class="latest-authors"><span class="self-author">Doo FX</span>, Han H, Maron BA, Huang H</div></a>
+<a class="latest-item" href="https://doi.org/10.1016/j.acra.2025.12.040" target="_blank" rel="noreferrer"><div class="latest-meta">2026</div><span class="latest-title">Teleradiology, Edge Computing, and the Internet of Things in Radiology: A RRA Perspective on Decentralized Diagnostics</span><div class="latest-authors">Viswanathan VS, Zhu D, Polat D, <span class="self-author">Doo F</span>, Straus C, Rozenshtein A, Retrouvey M</div></a>
+<a class="latest-item" href="https://doi.org/10.1016/j.jacr.2026.05.014" target="_blank" rel="noreferrer"><div class="latest-meta">2026</div><span class="latest-title">Mapping the Complexity of Cancer Screening and Multi-Disciplinary Care Coordination in Safety-Net Systems</span><div class="latest-authors">Tupper HI, <span class="self-author">Doo FX</span>, Lin Y, Flores EJ, Salinas DA, Cummings AL, Ryan GW, Revels SL</div></a>
+<div class="latest-item"><div class="latest-meta">2026</div><span class="latest-title">Human Judgment and the Limits of Artificial Intelligence for Automated Rank Order Lists in Diagnostic Radiology Residency Selection</span><div class="latest-authors">Savage C, Hossain R, Tonascia J, Pavlou A, Resnik CS, <span class="self-author">Doo FX</span>*, Smith EB* (co-senior)</div></div>
+<a class="latest-item" href="https://doi.org/10.1016/j.acra.2026.01.039" target="_blank" rel="noreferrer"><div class="latest-meta">2026</div><span class="latest-title">From Hype to Implementation: RRA Perspective on Strategies for Adapting Radiology Departments to Emerging Technologies</span><div class="latest-authors">Brofman N, Langman E, Sin JM, Hadi M, Brown J, <span class="self-author">Doo F</span>, Rozenshtein A, Retrouvey M</div></a>
+<!-- AUTO:INDEX-LATEST-PUBLICATIONS:END -->
+        </div>
+      </section>
+
+      <div class="research-areas-head">
+        <p class="small-label">Research areas</p>
+      </div>
       <div class="research-grid">
         <article class="research-column">
           <div class="research-top">
-            <p class="pillar-number">01</p>
             <h3>Trustworthy Human–AI Systems</h3>
             <p class="research-question">How can AI systems work reliably with clinicians in real clinical environments?</p>
             <p class="topics">evaluation · reliability · human–AI interaction · clinician reliance · fairness · validation · safety · monitoring</p>
@@ -163,7 +187,6 @@
 
         <article class="research-column">
           <div class="research-top">
-            <p class="pillar-number">02</p>
             <h3>Frontier Clinical Intelligence</h3>
             <p class="research-question">How can emerging AI capabilities expand clinical reasoning, prediction, and care?</p>
             <p class="topics">multimodal AI · generative AI · foundation models · agents · predictive models · digital twins</p>
@@ -178,7 +201,6 @@
 
         <article class="research-column">
           <div class="research-top">
-            <p class="pillar-number">03</p>
             <h3>Sustainable AI &amp; Radiology</h3>
             <p class="research-question">How can AI, imaging, and radiology workflows become more computationally and environmentally efficient?</p>
             <p class="topics">efficiency · compute · energy · water · cloud infrastructure · contrast media · imaging sustainability · resource use</p>
@@ -193,7 +215,6 @@
 
         <article class="research-column">
           <div class="research-top">
-            <p class="pillar-number">04</p>
             <h3>Medical Imaging, Informatics, &amp; Data Systems</h3>
             <p class="research-question">How can imaging and multimodal clinical data be structured, connected, and used more effectively?</p>
             <p class="topics">imaging informatics · multimodal health data · datasets · interoperability · annotation · benchmarking · workflow</p>
@@ -208,55 +229,41 @@
       </div>
     </section>
 
-    <section class="section" id="now">
+    <section class="section" id="speaking">
       <div class="section-intro section-intro--inline">
         <p class="section-label">02 /</p>
-        <h2>Now</h2>
+        <h2>Speaking</h2>
       </div>
 
-      <div class="now-columns">
-        <section class="now-column" aria-labelledby="upcoming-title">
-          <header class="now-subhead">
-            <h3 id="upcoming-title">Upcoming appearances</h3>
-            <div id="speaking-counts" class="speaking-counts speaking-counts--compact" aria-label="Invited speaking counts" aria-live="polite"></div>
-          </header>
+      <div class="speaking-layout">
+        <aside class="speaking-overview" aria-labelledby="speaking-record-title">
+          <h3 id="speaking-record-title">Invited speaking to date</h3>
+          <div id="speaking-counts" class="speaking-counts" aria-label="Cumulative invited speaking counts" aria-live="polite"></div>
+          <div class="speaking-map" aria-label="Selected speaking footprint">
+            <div class="speaking-map-title">Selected speaking footprint</div>
+            <svg viewBox="0 0 520 260" role="img" aria-label="Stylized world map showing selected speaking locations across North America, Europe, Africa, Asia, and Australia">
+              <g class="map-land">
+                <path d="M42 72 82 43 129 49 153 75 140 98 110 103 96 128 67 120 49 98Z"/>
+                <path d="M128 133 151 143 164 172 153 213 134 232 118 199 120 164Z"/>
+                <path d="M235 61 270 49 302 59 318 81 301 96 275 94 256 107 231 92Z"/>
+                <path d="M267 109 300 112 321 143 307 190 280 211 257 177 252 138Z"/>
+                <path d="M317 67 372 48 432 61 467 89 445 111 401 107 372 126 337 110 313 91Z"/>
+                <path d="M419 181 451 173 477 191 465 215 432 218 410 201Z"/>
+              </g>
+              <g class="map-dot">
+                <circle cx="93" cy="88" r="4"/><circle cx="111" cy="92" r="4"/><circle cx="124" cy="102" r="4"/>
+                <circle cx="77" cy="103" r="4"/><circle cx="65" cy="90" r="4"/><circle cx="140" cy="87" r="4"/>
+                <circle cx="255" cy="79" r="4"/><circle cx="273" cy="78" r="4"/><circle cx="291" cy="89" r="4"/>
+                <circle cx="279" cy="144" r="4"/><circle cx="393" cy="97" r="4"/><circle cx="429" cy="197" r="4"/>
+              </g>
+            </svg>
+          </div>
+          <p id="speaking-venues" class="speaking-venues"></p>
+        </aside>
 
+        <section class="speaking-upcoming" aria-labelledby="upcoming-title">
+          <h3 id="upcoming-title">Upcoming appearances</h3>
           <div id="upcoming-events" class="event-list" aria-live="polite"><p class="loading">Loading upcoming appearances&hellip;</p></div>
-        </section>
-
-        <section class="now-column now-column--publications" aria-labelledby="latest-title">
-          <header class="now-subhead">
-            <div class="now-title-row">
-              <h3 id="latest-title">Latest publications</h3>
-              <a class="inline-link" href="publications.html">All publications &#8594;</a>
-            </div>
-            <div class="publication-meta-line">
-              <span><strong id="publication-count">59</strong> publications</span>
-              <span aria-hidden="true">·</span>
-              <a href="https://scholar.google.com/citations?user=B7Ig9cwAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">Google Scholar &#8599;</a>
-              <span aria-hidden="true">·</span>
-              <a href="https://orcid.org/0000-0001-6519-5222" target="_blank" rel="noreferrer">ORCID &#8599;</a>
-              <span aria-hidden="true">·</span>
-              <a href="https://www.researchgate.net/profile/Florence-Doo" target="_blank" rel="noreferrer">ResearchGate &#8599;</a>
-              <span aria-hidden="true">·</span>
-              <a href="mailto:fdoo@som.umaryland.edu">contact for a copy / collaboration</a>
-            </div>
-          </header>
-
-          <div id="latest-publications" class="latest-list" aria-live="polite">
-<!-- AUTO:INDEX-LATEST-PUBLICATIONS:START -->
-<a class="latest-item" href="https://doi.org/10.1007/978-3-032-06004-4_24" target="_blank" rel="noreferrer"><div class="latest-meta">2026</div><span class="latest-title">Trustworthy Clinical Thinking in MLLMs: Hierarchical Energy-based Reasoning for interpretable MEdical Scans (HERMES)</span><div class="latest-authors"><span class="self-author">Doo FX</span>, Han H, Maron BA, Huang H</div></a>
-<a class="latest-item" href="https://doi.org/10.1016/j.acra.2025.12.040" target="_blank" rel="noreferrer"><div class="latest-meta">2026</div><span class="latest-title">Teleradiology, Edge Computing, and the Internet of Things in Radiology: A RRA Perspective on Decentralized Diagnostics</span><div class="latest-authors">Viswanathan VS, Zhu D, Polat D, <span class="self-author">Doo F</span>, Straus C, Rozenshtein A, Retrouvey M</div></a>
-<a class="latest-item" href="https://doi.org/10.1016/j.jacr.2026.05.014" target="_blank" rel="noreferrer"><div class="latest-meta">2026</div><span class="latest-title">Mapping the Complexity of Cancer Screening and Multi-Disciplinary Care Coordination in Safety-Net Systems</span><div class="latest-authors">Tupper HI, <span class="self-author">Doo FX</span>, Lin Y, Flores EJ, Salinas DA, Cummings AL, Ryan GW, Revels SL</div></a>
-<div class="latest-item"><div class="latest-meta">2026</div><span class="latest-title">Human Judgment and the Limits of Artificial Intelligence for Automated Rank Order Lists in Diagnostic Radiology Residency Selection</span><div class="latest-authors">Savage C, Hossain R, Tonascia J, Pavlou A, Resnik CS, <span class="self-author">Doo FX</span>*, Smith EB* (co-senior)</div></div>
-<a class="latest-item" href="https://doi.org/10.1016/j.acra.2026.01.039" target="_blank" rel="noreferrer"><div class="latest-meta">2026</div><span class="latest-title">From Hype to Implementation: RRA Perspective on Strategies for Adapting Radiology Departments to Emerging Technologies</span><div class="latest-authors">Brofman N, Langman E, Sin JM, Hadi M, Brown J, <span class="self-author">Doo F</span>, Rozenshtein A, Retrouvey M</div></a>
-<a class="latest-item" href="https://doi.org/10.1016/j.acra.2025.11.018" target="_blank" rel="noreferrer"><div class="latest-meta">2026</div><span class="latest-title">From Artificial Intelligence to Robotics: How to Navigate Technological Innovation in Radiology With the Gartner Hype Cycle</span><div class="latest-authors">Dogra S, Rifai S, Hadi M, Hanna T, Rozenshtein A, Retrouvey M, Huang H, <span class="self-author">Doo FX</span></div></a>
-<div class="latest-item"><div class="latest-meta">2026</div><span class="latest-title">Effect of Deep Learning Training Policy on Greenhouse Gas Emissions and Carbon Efficiency for Chest Radiograph Classification</span><div class="latest-authors">Dietrich N, McShannon DM, Huisman M, <span class="self-author">Doo FX</span>, Hanneman K</div></div>
-<div class="latest-item"><div class="latest-meta">2026</div><span class="latest-title">Decoding the Image: Finding Diagnostic Signals in Multi-Modality Abdominal Artifacts</span><div class="latest-authors">Dickerson G, Chirico J, Loening AM, Wong-You-Cheong J, Lane BF, <span class="self-author">Doo FX</span></div></div>
-<a class="latest-item" href="https://doi.org/10.1016/j.jacr.2026.07.014" target="_blank" rel="noreferrer"><div class="latest-meta">2026</div><span class="latest-title">Capturing the Clinician-Artificial Intelligence Interaction: A Missing Prerequisite for Human-Centered Artificial Intelligence</span><div class="latest-authors">Goodman KE, <span class="self-author">Doo FX</span>, Price WN 2nd, Binkley CE</div></a>
-<a class="latest-item" href="https://doi.org/10.1109/ISBI61048.2026.11515421" target="_blank" rel="noreferrer"><div class="latest-meta">2026</div><span class="latest-title">CRESTomics: Analyzing Carotid Plaques in the CREST-2 Trial with a New Additive Classification Model</span><div class="latest-authors">Kulkarni P, Lal B, Jreij G, Vallamchetla S, Green L, Voeks JH, Huston J, Edwards L, Howard G, Maron BA, Brott TG, James M, <span class="self-author">Doo FX</span>*, Huang H* (*co-senior)</div></a>
-<!-- AUTO:INDEX-LATEST-PUBLICATIONS:END -->
-</div>
         </section>
       </div>
     </section>

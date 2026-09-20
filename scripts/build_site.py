@@ -171,7 +171,7 @@ def main() -> None:
         count=1,
         flags=re.S,
     )
-    latest_html = "\n".join(latest_item(p) for p in pubs[:10])
+    latest_html = "\n".join(latest_item(p) for p in pubs[:5])
     index = replace_block(index, "INDEX-LATEST-PUBLICATIONS", latest_html)
     INDEX.write_text(index, encoding="utf-8")
 
