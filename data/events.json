@@ -21,7 +21,7 @@
     {
       "date": "2026-09-27",
       "displayDate": "Sep 27, 2026",
-      "event": "FAIMI–BRIDGE–EPIMI Workshop at MICCAI 2026",
+      "event": "FAIMI–BRIDGE–EPIMI Workshop",
       "location": "Strasbourg, France",
       "type": "Keynote + panel",
       "title": "Surviving the Real World: Can AI Fairness, Ethics, and Safety Make It to the Bedside?",
@@ -45,7 +45,8 @@
       "lat": 48.5734,
       "lng": 7.7521,
       "conference": "MICCAI 2026",
-      "conferenceLocation": "Strasbourg, France"
+      "conferenceLocation": "Strasbourg, France",
+      "time": "8:00–8:50 AM"
     },
     {
       "date": "2026-10-09",
@@ -66,7 +67,6 @@
       "date": "2026-11-06",
       "displayDate": "Nov 6, 2026",
       "event": "University of Vermont",
-      "type": "Grand Rounds",
       "title": "Grand Rounds",
       "note": "Faculty and resident sessions",
       "scope": "national",
@@ -110,7 +110,6 @@
       "date": "2027-02-11",
       "displayDate": "Feb 11, 2027",
       "event": "Johns Hopkins",
-      "type": "Grand Rounds",
       "title": "Grand Rounds",
       "scope": "national",
       "location": "Baltimore, MD",
@@ -138,7 +137,7 @@
       "displayDate": "Apr 14, 2027",
       "event": "Association for Academic Radiology (AAR) Annual Meeting",
       "location": "Salt Lake City, UT",
-      "type": "Invited session",
+      "type": "Moderator, invited session",
       "title": "When AI Fails, Who Is Accountable?",
       "time": "9:30–10:30 AM",
       "url": "https://www.aur.org/annual-meeting",
@@ -182,7 +181,6 @@
       "date": "2027-05-12",
       "displayDate": "May 12, 2027",
       "event": "Brown University",
-      "type": "Grand Rounds",
       "title": "Grand Rounds",
       "scope": "national",
       "location": "Providence, RI",

@@ -159,21 +159,6 @@
         if (!upcoming.length) {
           eventsEl.innerHTML = '<p class="empty-state">No upcoming public appearances currently listed.</p>';
         } else {
-          const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-          const shortDate = (iso, includeYear = false) => {
-            const [y,m,d] = iso.split('-').map(Number);
-            return `${monthNames[m - 1]} ${d}${includeYear ? `, ${y}` : ''}`;
-          };
-          const groupDateLabel = (items) => {
-            const first = items[0].date;
-            const last = items[items.length - 1].date;
-            if (first === last) return shortDate(first, true);
-            const [fy,fm,fd] = first.split('-').map(Number);
-            const [ly,lm,ld] = last.split('-').map(Number);
-            if (fy === ly && fm === lm) return `${monthNames[fm - 1]} ${fd}–${ld}, ${fy}`;
-            if (fy === ly) return `${monthNames[fm - 1]} ${fd}–${monthNames[lm - 1]} ${ld}, ${fy}`;
-            return `${shortDate(first, true)}–${shortDate(last, true)}`;
-          };
 
           const groups = [];
           const byName = new Map();
@@ -192,13 +177,24 @@
           eventsEl.innerHTML = groups.map(group => {
             const items = group.items.slice().sort((a,b) => a.date.localeCompare(b.date));
             const locations = [...new Set(items.map(e => e.conferenceLocation || e.location).filter(Boolean))];
-            const groupMeta = [groupDateLabel(items), locations.join(' / ')].filter(Boolean).map(esc).join(' · ');
+            const groupMeta = locations.map(location => `<span class="event-location-tag">${esc(location)}</span>`).join('');
             const groupName = group.url
               ? `<a class="event-conference-link" href="${esc(group.url)}" target="_blank" rel="noreferrer">${esc(group.name)} ↗</a>`
               : esc(group.name);
 
+            const normalizeEventLabel = (value = '') => value
+              .toLowerCase()
+              .replace(/\b20\d{2}\b/g, '')
+              .replace(/[^a-z0-9]+/g, ' ')
+              .trim();
+            const normalizedGroup = normalizeEventLabel(group.name);
+
             const sessions = items.map(e => {
-              const eventLabel = e.event && e.event !== group.name ? e.event : '';
+              const candidateEvent = e.event || '';
+              const normalizedEvent = normalizeEventLabel(candidateEvent);
+              const duplicateConferenceLabel = normalizedEvent && normalizedGroup &&
+                (normalizedEvent === normalizedGroup || normalizedGroup.includes(normalizedEvent) || normalizedEvent.includes(normalizedGroup));
+              const eventLabel = candidateEvent && !duplicateConferenceLabel ? candidateEvent : '';
               const details = [
                 e.type && eventLabel ? `${e.type} · ${eventLabel}` : (e.type || eventLabel),
                 e.note,

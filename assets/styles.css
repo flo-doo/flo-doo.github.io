@@ -2662,10 +2662,25 @@ html[data-theme="light"] .hero-particles { opacity: .46; }
 }
 .event-conference-link { color: inherit; }
 .event-group-meta {
-  color: var(--faint);
-  font-size: 12.75px;
-  line-height: 1.35;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 6px;
   text-align: right;
+}
+.event-location-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  padding: 2px 8px;
+  border: 1px solid color-mix(in srgb, var(--accent) 42%, var(--rule));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+  color: var(--accent-strong);
+  font-size: 11.5px;
+  line-height: 1.2;
+  font-weight: 620;
+  letter-spacing: .01em;
   white-space: nowrap;
 }
 .event-group-sessions {
@@ -2705,6 +2720,6 @@ html[data-theme="light"] .hero-particles { opacity: .46; }
 }
 @media (max-width: 600px) {
   .event-group-head { grid-template-columns: 1fr; gap: 3px; }
-  .event-group-meta { text-align: left; white-space: normal; }
+  .event-group-meta { justify-content: flex-start; text-align: left; }
   .event-session { grid-template-columns: 74px minmax(0,1fr); gap: 10px; padding-left: 11px; }
 }
