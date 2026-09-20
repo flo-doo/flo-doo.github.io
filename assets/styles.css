@@ -1101,3 +1101,152 @@ html[data-theme="light"] .leaflet-tile-pane {
   .pub-citation { font-size: 14.2px; }
   .pub-tag { font-size: 11.8px; }
 }
+
+
+/* 2026-09-20d: profile links, institution-grouped appointments, AcademicPages-style talk map */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+.hero-connect {
+  margin-top: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.hero-connect-label {
+  color: var(--faint);
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+.profile-icon-links { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; justify-content: flex-end; }
+.profile-icon-links a {
+  width: 31px;
+  height: 31px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--rule);
+  color: var(--accent-strong);
+  background: color-mix(in srgb, var(--bg-soft) 88%, transparent);
+  border-radius: 50%;
+  font-size: 14px;
+  text-decoration: none;
+}
+.profile-icon-links a:hover,
+.profile-icon-links a:focus-visible {
+  color: var(--text);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* About is organized by institution so the logo and appointments read as one unit. */
+.appointment-groups { border-top: 1px solid var(--rule); }
+.appointment-group {
+  display: grid;
+  grid-template-columns: minmax(210px, .44fr) minmax(0, 1fr);
+  gap: clamp(26px, 4vw, 48px);
+  align-items: center;
+  padding: 25px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.appointment-logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 0;
+  text-decoration: none;
+}
+.appointment-logo img {
+  display: block;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: left center;
+  max-width: 100%;
+  max-height: 55px;
+}
+.appointment-logo--umsom img { max-width: 235px; max-height: 49px; }
+.appointment-logo--umihc img { max-width: 250px; max-height: 56px; }
+.appointment-logo--cmns img { max-width: 285px; max-height: 58px; }
+.appointment-group-body { min-width: 0; }
+.appointment-role + .appointment-role { margin-top: 13px; padding-top: 13px; border-top: 1px dotted var(--rule); }
+.appointment-role .appointment-title { margin-bottom: 3px; }
+.appointment-role .appointment-org { line-height: 1.45; }
+.appointment-group .appointment-links { margin-top: 12px; }
+
+/* Leaflet/OSM speaking footprint modeled after the common AcademicPages talk-map pattern. */
+.speaking-map .leaflet-tile-pane { display: block !important; }
+.speaking-map .leaflet-pane { z-index: auto; }
+.speaking-map .leaflet-tile-pane { z-index: 200; }
+.speaking-map .leaflet-overlay-pane { z-index: 400; }
+.speaking-map .leaflet-marker-pane { z-index: 600; }
+.speaking-map .leaflet-tooltip-pane { z-index: 650; }
+.speaking-map .leaflet-control-container { position: relative; z-index: 800; }
+html[data-theme="dark"] .speaking-map .leaflet-tile-pane { filter: brightness(.72) saturate(.55) contrast(1.02); }
+html[data-theme="light"] .speaking-map .leaflet-tile-pane { filter: saturate(.78) contrast(.96); }
+.speaking-dot-wrap { background: transparent; border: 0; }
+.speaking-dot {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--accent);
+  border: 2px solid color-mix(in srgb, var(--bg) 82%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 60%, transparent);
+}
+.speaking-dot--upcoming {
+  width: 14px;
+  height: 14px;
+  background: var(--accent-strong);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-strong) 32%, transparent);
+}
+.speaking-cluster-wrap { background: transparent; border: 0; }
+.speaking-cluster {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent-strong) 90%, var(--bg));
+  color: var(--bg);
+  border: 2px solid color-mix(in srgb, var(--text) 80%, transparent);
+  font-size: 11px;
+  font-weight: 760;
+  box-shadow: 0 1px 4px rgba(0,0,0,.2);
+}
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: var(--bg-soft) !important;
+  color: var(--text) !important;
+}
+.leaflet-popup-content { font: 13px/1.4 var(--font); }
+
+/* Publication chronology: compact citation typography. */
+.publications-main h2.pub-title,
+.pub-title { font-size: 14.4px !important; line-height: 1.38 !important; font-weight: 650 !important; }
+.pub-citation { font-size: 14.0px !important; line-height: 1.47 !important; }
+.pub-item { padding: 16px 0 17px; }
+
+@media (max-width: 900px) {
+  .appointment-group { grid-template-columns: 1fr; gap: 15px; align-items: start; }
+  .appointment-logo img { max-width: min(100%, 300px); }
+}
+@media (max-width: 600px) {
+  .hero-connect { align-items: flex-start; flex-direction: column; }
+  .profile-icon-links { justify-content: flex-start; }
+  .publications-main h2.pub-title,
+  .pub-title { font-size: 14.1px !important; }
+  .pub-citation { font-size: 13.8px !important; }
+}

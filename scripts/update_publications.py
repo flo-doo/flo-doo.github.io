@@ -36,6 +36,32 @@ def norm_doi(s: str | None) -> str:
     return re.sub(r"^https?://(?:dx\.)?doi\.org/", "", s.strip(), flags=re.I).lower().rstrip(".")
 
 
+CONTRIBUTION_NOTE_RE = re.compile(
+    r"primary draft|supervision|project conceptualization|primary data gathering|"
+    r"statistical interpretation|IRB primary investigator|ran analyses|co-wrote|edited primary draft",
+    re.I,
+)
+
+def clean_citation(value):
+    text=str(value or "").strip()
+    while True:
+        m=re.search(r"\s*\(([^()]*)\)\s*\.?\s*$", text)
+        if not m or not CONTRIBUTION_NOTE_RE.search(m.group(1)):
+            break
+        text=text[:m.start()].rstrip()
+        if text and not text.endswith("."):
+            text += "."
+    return text
+
+def iso_from_parts(parts):
+    try:
+        vals=list(parts or [])
+        y=int(vals[0]); m=int(vals[1]) if len(vals)>1 and vals[1] else 1; d=int(vals[2]) if len(vals)>2 and vals[2] else 1
+        return f"{y:04d}-{m:02d}-{d:02d}"
+    except Exception:
+        return None
+
+
 def load_existing():
     if not PUBS.exists(): return []
     return json.loads(PUBS.read_text(encoding="utf-8")).get("publications", [])
@@ -97,9 +123,13 @@ def parse_orcid_group(group):
     if not summaries: return None
     w=summaries[0]
     title=((w.get("title") or {}).get("title") or {}).get("value") or ""
-    year=(((w.get("publication-date") or {}).get("year") or {}).get("value"))
+    pubdate=w.get("publication-date") or {}
+    year=((pubdate.get("year") or {}).get("value"))
+    month=((pubdate.get("month") or {}).get("value"))
+    day=((pubdate.get("day") or {}).get("value"))
     try: year=int(year) if year else None
     except: year=None
+    date=iso_from_parts([year, month, day]) if year else None
     doi=pmid=None
     for eid in (group.get("external-ids") or {}).get("external-id", []) or []:
         typ=(eid.get("external-id-type") or "").lower()
@@ -107,7 +137,7 @@ def parse_orcid_group(group):
         if typ=="doi" and val: doi=norm_doi(val)
         if typ in ("pmid","pubmed") and val: pmid=str(val)
     url=(f"https://doi.org/{doi}" if doi else (f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/" if pmid else None))
-    return {"title":title,"year":year,"doi":doi or None,"pmid":pmid,"url":url,"citation":title,"source":"ORCID","tags":[]}
+    return {"title":title,"year":year,"date":date,"doi":doi or None,"pmid":pmid,"url":url,"citation":title,"source":"ORCID","tags":[]}
 
 
 def fetch_orcid():
@@ -147,7 +177,7 @@ def fetch_orcid():
                 if typ=="doi" and val: doi=norm_doi(str(val))
                 if typ in ("pmid","pubmed") and val: pmid=str(val)
             if title:
-                out.append({"title":title,"year":year,"doi":doi or None,"pmid":pmid,"url":f"https://doi.org/{doi}" if doi else None,"citation":title,"source":"ORCID","tags":[]})
+                out.append({"title":title,"year":year,"date":f"{year:04d}-01-01" if year else None,"doi":doi or None,"pmid":pmid,"url":f"https://doi.org/{doi}" if doi else None,"citation":title,"source":"ORCID","tags":[]})
         return out, "ORCID web record"
     except Exception as e:
         errors.append(str(e))
@@ -167,11 +197,13 @@ def fetch_crossref():
         if not any((a.get("family") or "").lower()=="doo" for a in authors): continue
         title=(w.get("title") or [""])[0]
         doi=norm_doi(w.get("DOI"))
-        date=(w.get("published-print") or w.get("published-online") or w.get("issued") or {}).get("date-parts", [[None]])
-        year=date[0][0] if date and date[0] else None
+        dateparts=(w.get("published-print") or w.get("published-online") or w.get("issued") or {}).get("date-parts", [[None]])
+        parts=dateparts[0] if dateparts and dateparts[0] else []
+        year=parts[0] if parts else None
+        exact_date=iso_from_parts(parts)
         journal=(w.get("container-title") or [""])[0]
         citation=(title + (f". {journal}." if journal else "")).strip()
-        out.append({"title":title,"year":year,"doi":doi or None,"pmid":None,"url":f"https://doi.org/{doi}" if doi else w.get("URL"),"citation":citation,"source":"Crossref","tags":[]})
+        out.append({"title":title,"year":year,"date":exact_date,"doi":doi or None,"pmid":None,"url":f"https://doi.org/{doi}" if doi else w.get("URL"),"citation":citation,"source":"Crossref","status":"published","tags":[]})
     return out
 
 
@@ -184,7 +216,7 @@ def merge(existing, discovered):
         old=(by_doi.get(keyd) if keyd else None) or by_title.get(keyt)
         if old:
             # Enrich without replacing curated citation/tags.
-            for k in ("year","doi","pmid","url"):
+            for k in ("year","date","doi","pmid","url","status"):
                 if not old.get(k) and n.get(k): old[k]=n[k]
             if old.get("source","" ).startswith("CV") and n.get("source"):
                 old["source"] = old["source"] + " + " + n["source"]
@@ -208,7 +240,9 @@ def main():
     crossref=fetch_crossref()
     merged=merge(existing, orcid+crossref)
     merged=apply_tag_overrides(merged)
-    merged.sort(key=lambda p: (p.get("year") or 0, p.get("title") or ""), reverse=True)
+    for p in merged:
+        p["citation"] = clean_citation(p.get("citation") or "")
+    merged.sort(key=lambda p: (p.get("year") or 0, p.get("date") or "", p.get("title") or ""), reverse=True)
     out={"updated":__import__('datetime').date.today().isoformat(),"count":len(merged),"publications":merged}
     PUBS.write_text(json.dumps(out,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
     review=write_topic_review(merged)

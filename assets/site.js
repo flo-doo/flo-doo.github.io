@@ -2,8 +2,7 @@
   const root = document.documentElement;
   const toggle = document.querySelector('[data-theme-toggle]');
   let speakingMap = null;
-  let speakingLandLayer = null;
-  let speakingMarkers = [];
+  let speakingMarkerLayer = null;
 
   function themeText() {
     if (!toggle) return;
@@ -15,29 +14,7 @@
   }
 
   function updateMapTheme() {
-    if (!speakingMap || !window.L) return;
-    const accent = cssVar('--accent');
-    const accentStrong = cssVar('--accent-strong');
-    const bgSoft = cssVar('--bg-soft');
-    const rule = cssVar('--rule');
-    const mapEl = document.getElementById('speaking-map');
-    if (mapEl) mapEl.style.background = bgSoft;
-    if (speakingLandLayer) {
-      speakingLandLayer.setStyle({
-        color: rule,
-        weight: 0.8,
-        fillColor: cssVar('--muted'),
-        fillOpacity: root.dataset.theme === 'light' ? 0.10 : 0.12
-      });
-    }
-    speakingMarkers.forEach(({marker, upcoming}) => {
-      marker.setStyle({
-        color: upcoming ? accentStrong : accent,
-        fillColor: upcoming ? accentStrong : accent,
-        fillOpacity: upcoming ? 1 : 0.82,
-        opacity: 1
-      });
-    });
+    if (speakingMap) window.setTimeout(() => speakingMap.invalidateSize(), 40);
   }
 
   themeText();
@@ -69,75 +46,100 @@
     const el = document.getElementById('speaking-map');
     if (!el || !window.L) return;
 
-    // Tile-free Leaflet map: local Natural Earth land geometry + vector markers.
-    // This avoids API keys, third-party tile branding, and tile-service overlays.
+    if (speakingMap) {
+      speakingMap.remove();
+      speakingMap = null;
+    }
+
     speakingMap = L.map(el, {
       zoomControl: true,
       scrollWheelZoom: false,
-      worldCopyJump: false,
+      worldCopyJump: true,
       minZoom: 1,
-      maxZoom: 8,
+      maxZoom: 10,
       attributionControl: true
     });
-    speakingMap.attributionControl.setPrefix(false);
-    speakingMap.attributionControl.addAttribution('Map geometry: Natural Earth');
 
+    // AcademicPages' talk-map approach uses Leaflet with geocoded talk locations.
+    // We store coordinates directly in events.json, avoiding runtime geocoding/API keys.
+    const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(speakingMap);
+
+    // Local Natural Earth geometry gives a graceful background if raster tiles are slow or blocked.
     try {
       const land = await loadJSON('assets/ne_land_lowres.geojson');
-      speakingLandLayer = L.geoJSON(land, {
+      L.geoJSON(land, {
         interactive: false,
         style: {
           color: cssVar('--rule'),
-          weight: 0.8,
+          weight: 0.45,
+          opacity: 0.22,
           fillColor: cssVar('--muted'),
-          fillOpacity: root.dataset.theme === 'light' ? 0.10 : 0.12
+          fillOpacity: 0.025
         }
       }).addTo(speakingMap);
-    } catch (err) {
-      console.warn('World outline could not be loaded; showing speaking markers only.', err);
-    }
+    } catch (_) {}
 
     const points = [];
-    const seen = new Set();
+    const historicalSeen = new Set();
     const addPoint = (lat, lng, label, scope, isUpcoming = false, title = '') => {
-      if (!Number.isFinite(Number(lat)) || !Number.isFinite(Number(lng))) return;
-      const key = `${Number(lat).toFixed(3)},${Number(lng).toFixed(3)},${label}`;
-      if (seen.has(key)) return;
-      seen.add(key);
-      points.push({lat: Number(lat), lng: Number(lng), label, scope, upcoming: isUpcoming, title});
+      const y = Number(lat), x = Number(lng);
+      if (!Number.isFinite(y) || !Number.isFinite(x)) return;
+      // Historical footprint is one dot per city; upcoming events may share a city and cluster.
+      const historicalKey = `${y.toFixed(3)},${x.toFixed(3)}`;
+      if (!isUpcoming && historicalSeen.has(historicalKey)) return;
+      if (!isUpcoming) historicalSeen.add(historicalKey);
+      points.push({lat: y, lng: x, label, scope, upcoming: isUpcoming, title});
     };
 
-    // Add upcoming first so a city that also appears historically is highlighted as upcoming.
-    upcoming.forEach(e => addPoint(e.lat, e.lng, e.location || e.event, e.scope, true, e.title || e.event));
-    // Keep dated events on the footprint after they pass; they simply lose the upcoming emphasis.
-    (data.events || []).forEach(e => addPoint(e.lat, e.lng, e.location || e.event, e.scope, false, e.title || e.event));
     (data.speakingLocations || []).forEach(p => addPoint(p.lat, p.lng, p.label, p.scope, false, ''));
+    upcoming.forEach(e => addPoint(e.lat, e.lng, e.location || e.event, e.scope, true, e.title || e.event));
 
-    speakingMarkers = points.map(p => {
-      const marker = L.circleMarker([p.lat, p.lng], {
-        radius: p.upcoming ? 7 : 5,
-        weight: p.upcoming ? 2.5 : 1.5,
-        color: cssVar(p.upcoming ? '--accent-strong' : '--accent'),
-        fillColor: cssVar(p.upcoming ? '--accent-strong' : '--accent'),
-        fillOpacity: p.upcoming ? 1 : 0.82,
-        opacity: 1,
-        bubblingMouseEvents: false
-      }).addTo(speakingMap);
-      const label = p.title ? `<strong>${esc(p.label)}</strong><br>${esc(p.title)}` : esc(p.label);
-      marker.bindTooltip(label, {direction: 'top', opacity: 1});
-      return {marker, upcoming: p.upcoming};
+    const dotIcon = (upcomingFlag) => L.divIcon({
+      className: 'speaking-dot-wrap',
+      html: `<span class="speaking-dot${upcomingFlag ? ' speaking-dot--upcoming' : ''}"></span>`,
+      iconSize: upcomingFlag ? [14, 14] : [10, 10],
+      iconAnchor: upcomingFlag ? [7, 7] : [5, 5]
     });
 
-    // Fit to the actual speaking footprint while retaining useful world context.
+    const clusterAvailable = typeof L.markerClusterGroup === 'function';
+    speakingMarkerLayer = clusterAvailable
+      ? L.markerClusterGroup({
+          showCoverageOnHover: false,
+          spiderfyOnMaxZoom: true,
+          zoomToBoundsOnClick: true,
+          maxClusterRadius: 34,
+          iconCreateFunction: cluster => L.divIcon({
+            html: `<span class="speaking-cluster">${cluster.getChildCount()}</span>`,
+            className: 'speaking-cluster-wrap',
+            iconSize: [30, 30],
+            iconAnchor: [15, 15]
+          })
+        })
+      : L.layerGroup();
+
+    points.forEach(p => {
+      const marker = L.marker([p.lat, p.lng], {icon: dotIcon(p.upcoming), keyboard: true});
+      const status = p.upcoming ? '<br><em>Upcoming</em>' : '';
+      const body = p.title
+        ? `<strong>${esc(p.label)}</strong><br>${esc(p.title)}${status}`
+        : `<strong>${esc(p.label)}</strong>${status}`;
+      marker.bindTooltip(body, {direction: 'top', opacity: 1});
+      marker.bindPopup(body);
+      speakingMarkerLayer.addLayer(marker);
+    });
+    speakingMarkerLayer.addTo(speakingMap);
+
     if (points.length) {
       const bounds = L.latLngBounds(points.map(p => [p.lat, p.lng]));
-      speakingMap.fitBounds(bounds, {padding: [26, 26], maxZoom: 2.35});
+      speakingMap.fitBounds(bounds, {padding: [26, 26], maxZoom: 2});
     } else {
-      speakingMap.setView([24, 0], 1.55);
+      speakingMap.setView([25, 0], 1.5);
     }
 
-    updateMapTheme();
-    window.setTimeout(() => speakingMap?.invalidateSize(), 100);
+    window.setTimeout(() => speakingMap?.invalidateSize(), 180);
   }
 
   async function renderHomepageEvents() {

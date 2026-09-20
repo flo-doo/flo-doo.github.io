@@ -54,9 +54,105 @@ def highlight_self(value: str) -> str:
     return "".join(out)
 
 
+
+MONTHS = {
+    "jan": 1, "january": 1, "feb": 2, "february": 2, "mar": 3, "march": 3,
+    "apr": 4, "april": 4, "may": 5, "jun": 6, "june": 6, "jul": 7, "july": 7,
+    "aug": 8, "august": 8, "sep": 9, "sept": 9, "september": 9, "oct": 10,
+    "october": 10, "nov": 11, "november": 11, "dec": 12, "december": 12,
+}
+CONTRIBUTION_NOTE_RE = re.compile(
+    r"primary draft|supervision|project conceptualization|primary data gathering|"
+    r"statistical interpretation|IRB primary investigator|ran analyses|co-wrote|edited primary draft",
+    re.I,
+)
+
+def clean_citation(value: str) -> str:
+    """Remove CV-only contribution annotations while preserving citation/status notes."""
+    text = str(value or "").strip()
+    while True:
+        m = re.search(r"\s*\(([^()]*)\)\s*\.?\s*$", text)
+        if not m or not CONTRIBUTION_NOTE_RE.search(m.group(1)):
+            break
+        text = text[:m.start()].rstrip()
+        if text and not text.endswith("."):
+            text += "."
+    return text
+
+def _date(y: int, m: int = 1, d: int = 1) -> dt.date:
+    try:
+        return dt.date(int(y), int(m), int(d))
+    except Exception:
+        return dt.date(int(y), int(m), 1)
+
+def publication_sort_meta(pub: dict) -> tuple[int, dt.date]:
+    """Return (accepted/in-press priority, best available publication/acceptance date)."""
+    citation = clean_citation(pub.get("citation") or "")
+    year = int(pub.get("year") or 0)
+    status = str(pub.get("status") or "").lower()
+    accepted = status in {"accepted", "in press", "in-press"} or (
+        status != "published" and bool(re.search(r"\bAccepted\b|\bin press\b", citation, re.I))
+    )
+    # 'Epub ahead of print' is a published electronic record, not merely accepted.
+    if re.search(r"Epub ahead of print", citation, re.I):
+        accepted = False
+
+    explicit = str(pub.get("date") or pub.get("published_date") or "").strip()
+    if re.fullmatch(r"\d{4}-\d{2}-\d{2}", explicit):
+        try:
+            parsed = dt.date.fromisoformat(explicit)
+            return (1 if accepted else 0, parsed)
+        except ValueError:
+            pass
+
+    # Prefer an explicit acceptance date for in-press records.
+    if accepted:
+        m = re.search(r"Accepted\s+([A-Za-z]+)\s+(\d{1,2})[,]?\s+(\d{4})", citation, re.I)
+        if m and m.group(1).lower() in MONTHS:
+            return (1, _date(int(m.group(3)), MONTHS[m.group(1).lower()], int(m.group(2))))
+        m = re.search(r"Accepted\s+(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})", citation, re.I)
+        if m and m.group(2).lower() in MONTHS:
+            return (1, _date(int(m.group(3)), MONTHS[m.group(2).lower()], int(m.group(1))))
+        m = re.search(r"Accepted\s+([A-Za-z]+)\s+(\d{4})", citation, re.I)
+        if m and m.group(1).lower() in MONTHS:
+            return (1, _date(int(m.group(2)), MONTHS[m.group(1).lower()], 1))
+        return (1, _date(year or 1900, 12, 31))
+
+    # Common citation forms: 2026 Jul 30; 2026 May; Aug 14 2026; 14 Aug 2026.
+    for pat, order in [
+        (r"\b(\d{4})\s+([A-Za-z]+)\s+(\d{1,2})\b", "ymd"),
+        (r"\b([A-Za-z]+)\s+(\d{1,2})[,]?\s+(\d{4})\b", "mdy"),
+        (r"\b(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})\b", "dmy"),
+    ]:
+        m = re.search(pat, citation)
+        if not m:
+            continue
+        try:
+            if order == "ymd":
+                y, mon, day = int(m.group(1)), MONTHS[m.group(2).lower()], int(m.group(3))
+            elif order == "mdy":
+                mon, day, y = MONTHS[m.group(1).lower()], int(m.group(2)), int(m.group(3))
+            else:
+                day, mon, y = int(m.group(1)), MONTHS[m.group(2).lower()], int(m.group(3))
+            return (0, _date(y, mon, day))
+        except (KeyError, ValueError):
+            pass
+
+    m = re.search(r"\b(\d{4})\s+([A-Za-z]+)\b", citation)
+    if m and m.group(2).lower() in MONTHS:
+        return (0, _date(int(m.group(1)), MONTHS[m.group(2).lower()], 1))
+    m = re.search(r"\b([A-Za-z]+)\s+(\d{4})\b", citation)
+    if m and m.group(1).lower() in MONTHS:
+        return (0, _date(int(m.group(2)), MONTHS[m.group(1).lower()], 1))
+    return (0, _date(year or 1900, 1, 1))
+
+def publication_sort_key(pub: dict):
+    priority, parsed = publication_sort_meta(pub)
+    return (priority, parsed.toordinal(), str(pub.get("title") or "").casefold())
+
 def author_line(pub: dict) -> str:
     """Extract the author portion of a citation for compact homepage display."""
-    citation = str(pub.get("citation") or "").strip()
+    citation = clean_citation(pub.get("citation") or "")
     title = str(pub.get("title") or "").strip()
     if not citation:
         return ""
@@ -112,7 +208,7 @@ def pub_article(pub: dict, labels: dict[str, str]) -> str:
         f'<article class="pub-item" id="pub-{esc(ident)}" data-tags="{esc(data_tags)}">'
         f'<div class="pub-year"><time datetime="{esc(pub.get("year"))}">{esc(pub.get("year"))}</time></div>'
         f'<div><h2 class="pub-title">{title_html}</h2>'
-        f'<p class="pub-citation">{highlight_self(pub.get("citation") or "")}</p>'
+        f'<p class="pub-citation">{highlight_self(clean_citation(pub.get("citation") or ""))}</p>'
         f'{f"<div class=\"pub-tags\">{tag_html}</div>" if tag_html else ""}'
         f'</div></article>'
     )
@@ -131,10 +227,11 @@ def latest_item(pub: dict) -> str:
 
 
 def scholarly_item(pub: dict, position: int) -> dict:
+    priority, parsed = publication_sort_meta(pub)
     item = {
         "@type": "ScholarlyArticle",
         "headline": pub.get("title"),
-        "datePublished": str(pub.get("year")) if pub.get("year") else None,
+        "datePublished": (str(pub.get("year")) if priority else parsed.isoformat()) if pub.get("year") else None,
         "author": {"@id": "https://flo-doo.github.io/#florence-doo"},
     }
     url = pub_url(pub)
@@ -153,7 +250,7 @@ def main() -> None:
     pubs = list(data.get("publications") or [])
     for p in pubs:
         p["_tags"] = effective_tags(p, cfg)
-    pubs.sort(key=lambda p: ((p.get("year") or 0), p.get("title") or ""), reverse=True)
+    pubs.sort(key=publication_sort_key, reverse=True)
 
     # Homepage: static latest publications and static publication count.
     index = INDEX.read_text(encoding="utf-8")
