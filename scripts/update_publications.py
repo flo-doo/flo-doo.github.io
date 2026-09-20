@@ -10,7 +10,7 @@ The script never deletes the existing cache when a network source fails. Existin
 curated topic tags are preserved. It uses only the Python standard library.
 """
 from __future__ import annotations
-import json, re, sys, urllib.parse, urllib.request
+import json, re, subprocess, sys, urllib.parse, urllib.request
 from pathlib import Path
 
 ORCID = "0000-0001-6519-5222"
@@ -211,6 +211,7 @@ def main():
     PUBS.write_text(json.dumps(out,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
     review=write_topic_review(merged)
     print(f"Wrote {len(merged)} publications ({len(existing)} cached, {len(orcid)} ORCID, {len(crossref)} Crossref).")
+    subprocess.run([sys.executable, str(ROOT / 'scripts' / 'build_site.py')], check=True)
     if review:
         print(f"Topic review needed for {len(review)} publication(s). See data/publication-topic-review.json.")
 
