@@ -21,7 +21,8 @@
   <script>
     try { if (localStorage.getItem('florence-doo-theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (_) {}
   </script>
-  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="assets/styles.css?v=20260919e" />
   <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -149,11 +150,10 @@
         <header class="research-recent-head">
           <div>
             <h3 id="recent-publications-title">Recent publications</h3>
-            <p>Please <a class="inline-link" href="mailto:fdoo@som.umaryland.edu">contact me</a> if you'd like a copy of a paper or are interested in collaborating.</p>
+            <p>Please <a class="inline-link" href="#connect">contact me</a> if you'd like a copy of a paper or are interested in collaborating.</p>
           </div>
           <div class="research-recent-links">
             <a href="publications.html">All publications →</a>
-            <a href="https://scholar.google.com/citations?user=B7Ig9cwAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">Google Scholar ↗</a>
           </div>
         </header>
         <div id="latest-publications" class="latest-list latest-list--research" aria-live="polite">
@@ -239,31 +239,21 @@
         <aside class="speaking-overview" aria-labelledby="speaking-record-title">
           <h3 id="speaking-record-title">Invited speaking to date</h3>
           <div id="speaking-counts" class="speaking-counts" aria-label="Cumulative invited speaking counts" aria-live="polite"></div>
-          <div class="speaking-map" aria-label="Selected speaking footprint">
-            <div class="speaking-map-title">Selected speaking footprint</div>
-            <svg viewBox="0 0 520 260" role="img" aria-label="Stylized world map showing selected speaking locations across North America, Europe, Africa, Asia, and Australia">
-              <g class="map-land">
-                <path d="M42 72 82 43 129 49 153 75 140 98 110 103 96 128 67 120 49 98Z"/>
-                <path d="M128 133 151 143 164 172 153 213 134 232 118 199 120 164Z"/>
-                <path d="M235 61 270 49 302 59 318 81 301 96 275 94 256 107 231 92Z"/>
-                <path d="M267 109 300 112 321 143 307 190 280 211 257 177 252 138Z"/>
-                <path d="M317 67 372 48 432 61 467 89 445 111 401 107 372 126 337 110 313 91Z"/>
-                <path d="M419 181 451 173 477 191 465 215 432 218 410 201Z"/>
-              </g>
-              <g class="map-dot">
-                <circle cx="93" cy="88" r="4"/><circle cx="111" cy="92" r="4"/><circle cx="124" cy="102" r="4"/>
-                <circle cx="77" cy="103" r="4"/><circle cx="65" cy="90" r="4"/><circle cx="140" cy="87" r="4"/>
-                <circle cx="255" cy="79" r="4"/><circle cx="273" cy="78" r="4"/><circle cx="291" cy="89" r="4"/>
-                <circle cx="279" cy="144" r="4"/><circle cx="393" cy="97" r="4"/><circle cx="429" cy="197" r="4"/>
-              </g>
-            </svg>
+          <div class="speaking-map-block">
+            <div class="speaking-map-heading">
+              <span>Speaking footprint</span>
+              <span class="speaking-map-note">selected past + upcoming locations</span>
+            </div>
+            <div id="speaking-map" class="speaking-map" role="region" aria-label="Interactive map of selected speaking locations"></div>
           </div>
-          <p id="speaking-venues" class="speaking-venues"></p>
         </aside>
 
         <section class="speaking-upcoming" aria-labelledby="upcoming-title">
-          <h3 id="upcoming-title">Upcoming appearances</h3>
-          <div id="upcoming-events" class="event-list" aria-live="polite"><p class="loading">Loading upcoming appearances&hellip;</p></div>
+          <div class="speaking-upcoming-head">
+            <h3 id="upcoming-title">Upcoming appearances</h3>
+            <span>scroll to view all</span>
+          </div>
+          <div id="upcoming-events" class="event-list event-list--scroll" aria-live="polite"><p class="loading">Loading upcoming appearances&hellip;</p></div>
         </section>
       </div>
     </section>
@@ -306,11 +296,14 @@
             </div>
           </div>
 
-          <div class="connect-block">
+          <div class="connect-block" id="connect">
             <h3 class="about-subhead">Connect</h3>
-            <nav class="profile-links" aria-label="Personal professional links">
+            <nav class="profile-links" aria-label="Professional and research profiles">
               <a href="mailto:fdoo@som.umaryland.edu">Email</a>
               <a href="https://www.linkedin.com/in/flodoo/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+              <a href="https://scholar.google.com/citations?user=B7Ig9cwAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">Google Scholar ↗</a>
+              <a href="https://orcid.org/0000-0001-6519-5222" target="_blank" rel="noreferrer">ORCID ↗</a>
+              <a href="https://www.researchgate.net/profile/Florence-Doo" target="_blank" rel="noreferrer">ResearchGate ↗</a>
               <a href="https://twitter.com/flo_doo" target="_blank" rel="noreferrer">X / Twitter ↗</a>
             </nav>
           </div>
@@ -320,6 +313,7 @@
   </main>
 
   <footer><p>© <span id="year"></span> Florence X. Doo</p><p>Clinical AI · Radiology · Informatics</p></footer>
-  <script src="assets/site.js" defer></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+  <script src="assets/site.js?v=20260919e" defer></script>
 </body>
 </html>

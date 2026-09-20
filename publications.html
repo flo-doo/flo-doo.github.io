@@ -17,7 +17,7 @@
   <script>
     try { if (localStorage.getItem('florence-doo-theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (_) {}
   </script>
-  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/styles.css?v=20260919e" />
   <!-- AUTO:PUBLICATIONS-JSONLD:START -->
 <script type="application/ld+json">
 {
@@ -864,7 +864,7 @@
     <section class="publications-hero">
       <p class="section-label">PUBLICATIONS</p>
       <h1>Research record</h1>
-      <p>Please <a class="inline-link" href="mailto:fdoo@som.umaryland.edu">contact me</a> if you'd like a copy of a paper or are interested in collaborating.</p>
+      <p>Please <a class="inline-link" href="index.html#connect">contact me</a> if you'd like a copy of a paper or are interested in collaborating.</p>
       <nav class="research-profile-links publications-profile-links" aria-label="Research profiles">
         <a href="https://scholar.google.com/citations?user=B7Ig9cwAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">Google Scholar &#8599;</a>
         <a href="https://orcid.org/0000-0001-6519-5222" target="_blank" rel="noreferrer">ORCID &#8599;</a>
@@ -878,11 +878,11 @@
         <input id="pub-search" type="search" autocomplete="off" placeholder="Title, journal, year…" />
         <div id="topic-filters" class="topic-filters" aria-label="Filter publications by research area">
 <!-- AUTO:PUBLICATION-FILTERS:START -->
-<button class="topic-filter" type="button" data-topic="all">All</button>
-<button class="topic-filter" type="button" data-topic="trustworthy-human-ai">Trustworthy Human–AI Systems</button>
-<button class="topic-filter" type="button" data-topic="frontier-clinical-intelligence">Frontier Clinical Intelligence</button>
-<button class="topic-filter" type="button" data-topic="sustainable-ai-radiology">Sustainable AI &amp; Radiology</button>
-<button class="topic-filter" type="button" data-topic="medical-imaging-informatics-data">Medical Imaging, Informatics, &amp; Data Systems</button>
+<a class="topic-filter" href="publications.html" data-topic="all">All</a>
+<a class="topic-filter" href="publications.html?topic=trustworthy-human-ai" data-topic="trustworthy-human-ai">Trustworthy Human–AI Systems</a>
+<a class="topic-filter" href="publications.html?topic=frontier-clinical-intelligence" data-topic="frontier-clinical-intelligence">Frontier Clinical Intelligence</a>
+<a class="topic-filter" href="publications.html?topic=sustainable-ai-radiology" data-topic="sustainable-ai-radiology">Sustainable AI &amp; Radiology</a>
+<a class="topic-filter" href="publications.html?topic=medical-imaging-informatics-data" data-topic="medical-imaging-informatics-data">Medical Imaging, Informatics, &amp; Data Systems</a>
 <!-- AUTO:PUBLICATION-FILTERS:END -->
         </div>
         <p id="pub-count" class="pub-count">59 publications</p>
@@ -955,6 +955,6 @@
   </main>
 
   <footer><p>© <span id="year"></span> Florence X. Doo</p><p><a href="index.html">Home</a></p></footer>
-  <script src="assets/site.js" defer></script>
+  <script src="assets/site.js?v=20260919e" defer></script>
 </body>
 </html>

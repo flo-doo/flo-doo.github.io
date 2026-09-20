@@ -178,10 +178,10 @@ def main() -> None:
     # Publications page: filters, complete publication list, and scholarly JSON-LD.
     page = PUBLICATIONS.read_text(encoding="utf-8")
     filter_html = [
-        '<button class="topic-filter" type="button" data-topic="all">All</button>'
+        '<a class="topic-filter" href="publications.html" data-topic="all">All</a>'
     ]
     filter_html += [
-        f'<button class="topic-filter" type="button" data-topic="{esc(key)}">{esc(label)}</button>'
+        f'<a class="topic-filter" href="publications.html?topic={esc(key)}" data-topic="{esc(key)}">{esc(label)}</a>'
         for key, label in labels.items()
     ]
     page = replace_block(page, "PUBLICATION-FILTERS", "\n".join(filter_html))

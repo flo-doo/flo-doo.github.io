@@ -1,17 +1,58 @@
 (() => {
   const root = document.documentElement;
   const toggle = document.querySelector('[data-theme-toggle]');
+  let speakingMap = null;
+  let speakingTileLayer = null;
+  let speakingMarkers = [];
 
   function themeText() {
     if (!toggle) return;
     toggle.textContent = root.dataset.theme === 'light' ? 'View in dark mode' : 'View in light mode';
   }
+
+  function cssVar(name) {
+    return getComputedStyle(root).getPropertyValue(name).trim();
+  }
+
+  function tileConfig() {
+    const light = root.dataset.theme === 'light';
+    return {
+      url: light
+        ? 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
+        : 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+      attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+    };
+  }
+
+  function updateMapTheme() {
+    if (!speakingMap || !window.L) return;
+    const cfg = tileConfig();
+    if (speakingTileLayer) speakingMap.removeLayer(speakingTileLayer);
+    speakingTileLayer = L.tileLayer(cfg.url, {
+      attribution: cfg.attribution,
+      maxZoom: 18,
+      subdomains: 'abcd'
+    }).addTo(speakingMap);
+    speakingTileLayer.bringToBack();
+
+    const accent = cssVar('--accent');
+    const accentStrong = cssVar('--accent-strong');
+    speakingMarkers.forEach(({marker, upcoming}) => {
+      marker.setStyle({
+        color: upcoming ? accentStrong : accent,
+        fillColor: upcoming ? accentStrong : accent,
+        fillOpacity: upcoming ? 0.95 : 0.70
+      });
+    });
+  }
+
   themeText();
   toggle?.addEventListener('click', () => {
     const next = root.dataset.theme === 'light' ? 'dark' : 'light';
     root.dataset.theme = next;
     try { localStorage.setItem('florence-doo-theme', next); } catch (_) {}
     themeText();
+    updateMapTheme();
   });
 
   document.querySelectorAll('#year').forEach(el => { el.textContent = new Date().getFullYear(); });
@@ -30,11 +71,60 @@
     return new Date(`${date}T23:59:59`);
   }
 
+  function renderSpeakingMap(data, upcoming) {
+    const el = document.getElementById('speaking-map');
+    if (!el || !window.L) return;
+
+    speakingMap = L.map(el, {
+      zoomControl: true,
+      scrollWheelZoom: false,
+      worldCopyJump: true,
+      minZoom: 1
+    });
+
+    const points = [];
+    const seen = new Set();
+    const addPoint = (lat, lng, label, scope, isUpcoming = false, title = '') => {
+      if (!Number.isFinite(Number(lat)) || !Number.isFinite(Number(lng))) return;
+      const key = `${Number(lat).toFixed(3)},${Number(lng).toFixed(3)},${label}`;
+      if (seen.has(key)) return;
+      seen.add(key);
+      points.push({lat: Number(lat), lng: Number(lng), label, scope, upcoming: isUpcoming, title});
+    };
+
+    (data.speakingLocations || []).forEach(p => addPoint(p.lat, p.lng, p.label, p.scope, false, ''));
+    upcoming.forEach(e => addPoint(e.lat, e.lng, e.location || e.event, e.scope, true, e.title || e.event));
+
+    speakingMarkers = points.map(p => {
+      const marker = L.circleMarker([p.lat, p.lng], {
+        radius: p.upcoming ? 6 : 4,
+        weight: p.upcoming ? 2 : 1,
+        color: cssVar(p.upcoming ? '--accent-strong' : '--accent'),
+        fillColor: cssVar(p.upcoming ? '--accent-strong' : '--accent'),
+        fillOpacity: p.upcoming ? 0.95 : 0.70
+      }).addTo(speakingMap);
+      const label = p.title ? `<strong>${esc(p.label)}</strong><br>${esc(p.title)}` : esc(p.label);
+      marker.bindTooltip(label, {direction: 'top', opacity: 1});
+      return {marker, upcoming: p.upcoming};
+    });
+
+    updateMapTheme();
+
+    if (points.length) {
+      const bounds = L.latLngBounds(points.map(p => [p.lat, p.lng]));
+      speakingMap.fitBounds(bounds, {padding: [22, 22], maxZoom: 3});
+    } else {
+      speakingMap.setView([25, 0], 2);
+    }
+
+    window.setTimeout(() => speakingMap?.invalidateSize(), 80);
+  }
+
   async function renderHomepageEvents() {
     const eventsEl = document.getElementById('upcoming-events');
     const countsEl = document.getElementById('speaking-counts');
-    const venuesEl = document.getElementById('speaking-venues');
-    if (!eventsEl && !countsEl && !venuesEl) return;
+    const mapEl = document.getElementById('speaking-map');
+    if (!eventsEl && !countsEl && !mapEl) return;
 
     try {
       const data = await loadJSON('data/events.json');
@@ -81,12 +171,11 @@
           .join('');
       }
 
-      if (venuesEl) {
-        const venues = data.selectedVenues || [];
-        venuesEl.textContent = venues.length ? `Selected venues: ${venues.join(' · ')}` : '';
-      }
-    } catch (_) {
+      renderSpeakingMap(data, upcoming);
+    } catch (err) {
+      console.error(err);
       if (eventsEl) eventsEl.innerHTML = '<p class="empty-state">Upcoming appearances could not be loaded.</p>';
+      if (mapEl) mapEl.innerHTML = '<p class="empty-state">Speaking map could not be loaded.</p>';
     }
   }
 
@@ -98,42 +187,61 @@
     const count = document.getElementById('pub-count');
     const filters = document.getElementById('topic-filters');
     const items = Array.from(list.querySelectorAll('.pub-item'));
-    let activeTopic = new URLSearchParams(location.search).get('topic') || 'all';
+    const filterEls = Array.from(filters?.querySelectorAll('[data-topic]') || []);
+    const availableTopics = new Set(filterEls.map(el => el.dataset.topic));
 
-    const availableTopics = new Set(
-      Array.from(filters?.querySelectorAll('[data-topic]') || []).map(b => b.dataset.topic)
-    );
-    if (!availableTopics.has(activeTopic)) activeTopic = 'all';
+    function currentTopic() {
+      const requested = new URLSearchParams(location.search).get('topic') || 'all';
+      return availableTopics.has(requested) ? requested : 'all';
+    }
+
+    let activeTopic = currentTopic();
 
     function render() {
       const q = (search?.value || '').trim().toLowerCase();
       let shown = 0;
+
       items.forEach(item => {
-        const topics = (item.dataset.topics || '').split(',').filter(Boolean);
+        const topics = (item.dataset.topics || '').split(',').map(x => x.trim()).filter(Boolean);
         const topicOK = activeTopic === 'all' || topics.includes(activeTopic);
         const textOK = !q || item.textContent.toLowerCase().includes(q);
         const visible = topicOK && textOK;
+
         item.hidden = !visible;
+        item.style.display = visible ? '' : 'none';
+        item.setAttribute('aria-hidden', visible ? 'false' : 'true');
         if (visible) shown += 1;
       });
+
       if (count) count.textContent = `${shown} publication${shown === 1 ? '' : 's'}`;
-      filters?.querySelectorAll('[data-topic]').forEach(b => {
-        b.classList.toggle('active', b.dataset.topic === activeTopic);
-        b.setAttribute('aria-pressed', b.dataset.topic === activeTopic ? 'true' : 'false');
+      filterEls.forEach(el => {
+        const isActive = el.dataset.topic === activeTopic;
+        el.classList.toggle('active', isActive);
+        el.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        if (isActive) el.setAttribute('aria-current', 'true');
+        else el.removeAttribute('aria-current');
       });
     }
 
     filters?.addEventListener('click', e => {
-      const b = e.target.closest('[data-topic]');
-      if (!b) return;
-      activeTopic = b.dataset.topic;
+      const el = e.target.closest('[data-topic]');
+      if (!el) return;
+      e.preventDefault();
+      activeTopic = el.dataset.topic || 'all';
       const u = new URL(location.href);
       if (activeTopic === 'all') u.searchParams.delete('topic');
       else u.searchParams.set('topic', activeTopic);
-      history.replaceState({}, '', u);
+      history.pushState({topic: activeTopic}, '', u);
+      render();
+      list.scrollIntoView({block: 'start', behavior: 'smooth'});
+    });
+
+    search?.addEventListener('input', render);
+    window.addEventListener('popstate', () => {
+      activeTopic = currentTopic();
       render();
     });
-    search?.addEventListener('input', render);
+
     render();
   }
 

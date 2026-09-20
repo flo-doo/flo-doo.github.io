@@ -27,7 +27,9 @@
       "title": "Surviving the Real World: Can AI Fairness, Ethics, and Safety Make It to the Bedside?",
       "time": "13:30–14:10 keynote · 16:50–17:50 round table",
       "url": "https://faimi-workshop.github.io/2026-miccai/",
-      "scope": "international"
+      "scope": "international",
+      "lat": 48.5734,
+      "lng": 7.7521
     },
     {
       "date": "2026-10-01",
@@ -37,7 +39,9 @@
       "type": "Opening keynote",
       "title": "AMPLIFAI: Annotated Multi-Phase Liver Imaging For Artificial Intelligence",
       "url": "https://um-ihc-ca2i.github.io/amplifai-challenge/timeline.html",
-      "scope": "international"
+      "scope": "international",
+      "lat": 48.5734,
+      "lng": 7.7521
     },
     {
       "date": "2026-10-09",
@@ -48,7 +52,9 @@
       "title": "Sustainable Intelligence: Can Radiology AI be Green, Global, and Generational?",
       "time": "14:00–14:45 keynote · 14:45–15:30 roundtable",
       "url": "https://www.eusomii-annualmeeting2026.com/",
-      "scope": "international"
+      "scope": "international",
+      "lat": 35.2401,
+      "lng": 24.8093
     },
     {
       "date": "2026-11-06",
@@ -68,7 +74,9 @@
       "title": "Integrating Research into Your Career",
       "note": "Introduction to Academic Radiology Course for Junior Faculty (ITARJF)",
       "time": "1:15–2:15 PM",
-      "scope": "national"
+      "scope": "national",
+      "lat": 41.8781,
+      "lng": -87.6298
     },
     {
       "date": "2026-12-03",
@@ -78,7 +86,9 @@
       "type": "Invited session",
       "title": "Contested Ground: Debating the Future of Artificial Intelligence in Radiology",
       "time": "1:30–2:30 PM",
-      "scope": "national"
+      "scope": "national",
+      "lat": 41.8781,
+      "lng": -87.6298
     },
     {
       "date": "2027-02-11",
@@ -97,7 +107,9 @@
       "title": "You vs. the Machine: A Case-based Introduction to Trustworthy Abdominal Imaging AI",
       "time": "11:45 AM–12:15 PM",
       "url": "https://abdominalradiology.org/sar-subpages/annual-meeting/",
-      "scope": "national"
+      "scope": "national",
+      "lat": 33.1581,
+      "lng": -117.3506
     },
     {
       "date": "2027-04-14",
@@ -108,7 +120,9 @@
       "title": "When AI Fails, Who Is Accountable?",
       "time": "9:30–10:30 AM",
       "url": "https://www.aur.org/annual-meeting",
-      "scope": "national"
+      "scope": "national",
+      "lat": 40.7608,
+      "lng": -111.891
     },
     {
       "date": "2027-04-14",
@@ -119,7 +133,9 @@
       "title": "AI for Coding and Data Analysis: From Dataset to Insight",
       "time": "4:30–6:00 PM",
       "url": "https://www.aur.org/annual-meeting",
-      "scope": "national"
+      "scope": "national",
+      "lat": 40.7608,
+      "lng": -111.891
     },
     {
       "date": "2027-04-16",
@@ -130,7 +146,9 @@
       "title": "Did the Patient Get Better?",
       "time": "9:30–10:30 AM",
       "url": "https://www.aur.org/annual-meeting",
-      "scope": "national"
+      "scope": "national",
+      "lat": 40.7608,
+      "lng": -111.891
     },
     {
       "date": "2027-05-12",
@@ -138,6 +156,194 @@
       "event": "Brown University",
       "type": "Grand Rounds",
       "title": "Grand Rounds",
+      "scope": "national"
+    }
+  ],
+  "speakingLocations": [
+    {
+      "label": "New York, NY",
+      "lat": 40.7128,
+      "lng": -74.006,
+      "scope": "national"
+    },
+    {
+      "label": "Palo Alto, CA",
+      "lat": 37.4419,
+      "lng": -122.143,
+      "scope": "national"
+    },
+    {
+      "label": "Baltimore, MD",
+      "lat": 39.2904,
+      "lng": -76.6122,
+      "scope": "local"
+    },
+    {
+      "label": "North Bethesda, MD",
+      "lat": 39.0446,
+      "lng": -77.1189,
+      "scope": "local"
+    },
+    {
+      "label": "Washington, DC",
+      "lat": 38.9072,
+      "lng": -77.0369,
+      "scope": "national"
+    },
+    {
+      "label": "San Diego, CA",
+      "lat": 32.7157,
+      "lng": -117.1611,
+      "scope": "national"
+    },
+    {
+      "label": "Chicago, IL",
+      "lat": 41.8781,
+      "lng": -87.6298,
+      "scope": "national"
+    },
+    {
+      "label": "Austin, TX",
+      "lat": 30.2672,
+      "lng": -97.7431,
+      "scope": "national"
+    },
+    {
+      "label": "Birmingham, AL",
+      "lat": 33.5186,
+      "lng": -86.8104,
+      "scope": "national"
+    },
+    {
+      "label": "Miami, FL",
+      "lat": 25.7617,
+      "lng": -80.1918,
+      "scope": "national"
+    },
+    {
+      "label": "Boston, MA",
+      "lat": 42.3601,
+      "lng": -71.0589,
+      "scope": "national"
+    },
+    {
+      "label": "Pleasanton, CA",
+      "lat": 37.6624,
+      "lng": -121.8747,
+      "scope": "national"
+    },
+    {
+      "label": "Richmond, VA",
+      "lat": 37.5407,
+      "lng": -77.436,
+      "scope": "national"
+    },
+    {
+      "label": "Royal Oak, MI",
+      "lat": 42.4895,
+      "lng": -83.1446,
+      "scope": "national"
+    },
+    {
+      "label": "Ann Arbor, MI",
+      "lat": 42.2808,
+      "lng": -83.743,
+      "scope": "national"
+    },
+    {
+      "label": "Atlanta, GA",
+      "lat": 33.749,
+      "lng": -84.388,
+      "scope": "national"
+    },
+    {
+      "label": "Los Angeles, CA",
+      "lat": 34.0522,
+      "lng": -118.2437,
+      "scope": "national"
+    },
+    {
+      "label": "Pittsburgh, PA",
+      "lat": 40.4406,
+      "lng": -79.9959,
+      "scope": "national"
+    },
+    {
+      "label": "East Lansing, MI",
+      "lat": 42.73698,
+      "lng": -84.48387,
+      "scope": "national"
+    },
+    {
+      "label": "Nashville, TN",
+      "lat": 36.1627,
+      "lng": -86.7816,
+      "scope": "national"
+    },
+    {
+      "label": "Accra, Ghana",
+      "lat": 5.6037,
+      "lng": -0.187,
+      "scope": "international"
+    },
+    {
+      "label": "Toronto, Canada",
+      "lat": 43.6532,
+      "lng": -79.3832,
+      "scope": "international"
+    },
+    {
+      "label": "Cambridge, United Kingdom",
+      "lat": 52.2053,
+      "lng": 0.1218,
+      "scope": "international"
+    },
+    {
+      "label": "Vienna, Austria",
+      "lat": 48.2082,
+      "lng": 16.3738,
+      "scope": "international"
+    },
+    {
+      "label": "Montreal, Canada",
+      "lat": 45.5017,
+      "lng": -73.5673,
+      "scope": "international"
+    },
+    {
+      "label": "Daejeon, South Korea",
+      "lat": 36.3504,
+      "lng": 127.3845,
+      "scope": "international"
+    },
+    {
+      "label": "Sydney, Australia",
+      "lat": -33.8688,
+      "lng": 151.2093,
+      "scope": "international"
+    },
+    {
+      "label": "Strasbourg, France",
+      "lat": 48.5734,
+      "lng": 7.7521,
+      "scope": "international"
+    },
+    {
+      "label": "Crete, Greece",
+      "lat": 35.2401,
+      "lng": 24.8093,
+      "scope": "international"
+    },
+    {
+      "label": "Carlsbad, CA",
+      "lat": 33.1581,
+      "lng": -117.3506,
+      "scope": "national"
+    },
+    {
+      "label": "Salt Lake City, UT",
+      "lat": 40.7608,
+      "lng": -111.891,
       "scope": "national"
     }
   ]
