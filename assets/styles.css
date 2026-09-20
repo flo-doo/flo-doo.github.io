@@ -1659,3 +1659,980 @@ html[data-theme="light"] .hero-stage .site-header {
     width: 100%;
   }
 }
+
+/* 2026-09-20j: ambient flowing-particle hero + mobile-preserving artwork composition */
+.hero-stage-background {
+  z-index: 0 !important;
+  background: #071626;
+}
+.hero-stage-background::before {
+  content: "";
+  position: absolute;
+  inset: -5%;
+  z-index: -1;
+  background: url("images/clinical-ai-background.webp") center center / cover no-repeat;
+  opacity: .24;
+  filter: blur(16px) saturate(.92);
+  transform: scale(1.06);
+}
+.hero-stage::after {
+  z-index: 1 !important;
+  background:
+    linear-gradient(90deg,
+      rgba(7,22,38,.78) 0%,
+      rgba(7,22,38,.69) 32%,
+      rgba(7,22,38,.48) 58%,
+      rgba(7,22,38,.29) 80%,
+      rgba(7,22,38,.25) 100%),
+    linear-gradient(180deg, rgba(7,22,38,.13) 0%, rgba(7,22,38,.34) 100%) !important;
+}
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+  opacity: .82;
+  mix-blend-mode: screen;
+}
+.hero-stage .site-header,
+.hero-stage .hero {
+  z-index: 3 !important;
+}
+
+html[data-theme="light"] .hero-stage-background::before {
+  opacity: .18;
+  filter: blur(17px) saturate(.70) brightness(1.08);
+}
+html[data-theme="light"] .hero-stage::after {
+  background:
+    linear-gradient(90deg,
+      rgba(248,251,255,.88) 0%,
+      rgba(248,251,255,.79) 36%,
+      rgba(248,251,255,.59) 64%,
+      rgba(248,251,255,.43) 84%,
+      rgba(248,251,255,.40) 100%),
+    linear-gradient(180deg, rgba(248,251,255,.12) 0%, rgba(248,251,255,.30) 100%) !important;
+}
+html[data-theme="light"] .hero-particles {
+  opacity: .38;
+  mix-blend-mode: multiply;
+}
+
+@media (max-width: 900px) {
+  /* A wide 16:9 hero cannot cover a tall phone layout without severe cropping.
+     Keep an almost-complete copy across the top, then fade it into a softly
+     zoomed continuation so the source artwork remains recognizable. */
+  .hero-stage-background::before {
+    inset: -7%;
+    background-position: 58% 24%;
+    opacity: .38;
+    filter: blur(18px) saturate(.96);
+    transform: scale(1.10);
+  }
+  .hero-stage-background picture {
+    position: absolute;
+    inset: 0 0 auto;
+    height: clamp(245px, 67vw, 390px);
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 67%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 67%, transparent 100%);
+  }
+  .hero-stage-background img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 112%;
+    max-width: none;
+    height: auto;
+    min-height: 0;
+    transform: translateX(-50%);
+    object-fit: contain;
+    object-position: center top;
+    opacity: .88;
+  }
+  .hero-stage::after {
+    background:
+      linear-gradient(180deg,
+        rgba(7,22,38,.62) 0%,
+        rgba(7,22,38,.69) 28%,
+        rgba(7,22,38,.58) 58%,
+        rgba(7,22,38,.47) 100%) !important;
+  }
+  .hero-particles {
+    opacity: .70;
+  }
+  html[data-theme="light"] .hero-stage-background::before { opacity: .25; }
+  html[data-theme="light"] .hero-stage-background img { opacity: .56; }
+  html[data-theme="light"] .hero-stage::after {
+    background: linear-gradient(180deg,
+      rgba(248,251,255,.82) 0%,
+      rgba(248,251,255,.79) 30%,
+      rgba(248,251,255,.68) 64%,
+      rgba(248,251,255,.62) 100%) !important;
+  }
+  html[data-theme="light"] .hero-particles { opacity: .27; }
+}
+
+@media (max-width: 560px) {
+  .hero-stage-background picture {
+    height: clamp(235px, 72vw, 315px);
+  }
+  .hero-stage-background img {
+    width: 116%;
+  }
+  .hero-particles { opacity: .60; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-particles { display: none !important; }
+}
+
+/* Ensure the soft-fill artwork sits above the stage background but below the primary art. */
+.hero-stage-background::before { z-index: 0; }
+.hero-stage-background picture { position: relative; z-index: 1; }
+
+
+/* 2026-09-20k: two-column About architecture with compact leadership and date-aware editorships */
+.about-section .section-intro { margin-bottom: 28px; }
+.about-columns {
+  display: grid;
+  grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr);
+  gap: clamp(44px, 6vw, 82px);
+  align-items: start;
+}
+.about-column { min-width: 0; }
+.about-panel + .about-panel { margin-top: 38px; }
+.about-panel .about-subhead {
+  margin-bottom: 13px;
+  font-size: 18px;
+  letter-spacing: -0.012em;
+}
+
+.leadership-list,
+.editorial-group,
+.credential-list { border-top: 1px solid var(--rule); }
+.leadership-item {
+  padding: 13px 0 14px;
+  border-bottom: 1px solid var(--rule);
+}
+.leadership-org,
+.editorial-org {
+  display: inline-block;
+  color: var(--accent-strong);
+  font-size: 13px;
+  line-height: 1.35;
+  font-weight: 690;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+}
+.leadership-item > p,
+.leadership-lines p,
+.editorial-main p {
+  margin: 5px 0 0;
+  font-size: 15.5px;
+  line-height: 1.42;
+}
+.leadership-item strong,
+.editorial-main strong { font-weight: 680; }
+.role-separator { color: var(--faint); padding: 0 .18em; }
+.leadership-lines { margin-top: 5px; }
+.leadership-lines p { margin-top: 2px; }
+.leadership-lines p::before {
+  content: "—";
+  color: var(--faint);
+  margin-right: 7px;
+}
+
+.editorial-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: start;
+  padding: 13px 0 14px;
+  border-bottom: 1px solid var(--rule);
+}
+.editorial-status {
+  color: var(--faint);
+  font-size: 12.5px;
+  line-height: 1.35;
+  white-space: nowrap;
+  padding-top: 1px;
+}
+.editorial-prior-block { margin-top: 18px; }
+.editorial-prior-block h4,
+.education-group h4 {
+  margin: 0 0 8px;
+  color: var(--faint);
+  font-size: 12px;
+  line-height: 1.3;
+  font-weight: 680;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.editorial-group--prior .editorial-item { opacity: .74; }
+.editorial-prior-block[hidden] { display: none !important; }
+
+/* Appointments remain visually anchored by institution, but are compressed for the right column. */
+.appointment-groups--compact .appointment-group {
+  grid-template-columns: 178px minmax(0, 1fr);
+  gap: 23px;
+  min-height: 0;
+  padding: 19px 0;
+  align-items: center;
+}
+.appointment-groups--compact .appointment-logo {
+  width: 178px;
+  min-height: 58px;
+  justify-content: center;
+}
+.appointment-groups--compact .appointment-logo--umsom img { width: 158px; max-width: 158px; }
+.appointment-groups--compact .appointment-logo--umihc img { width: 163px; max-width: 163px; }
+.appointment-groups--compact .appointment-logo--cmns img { width: 175px; max-width: 175px; }
+.appointment-groups--compact .appointment-title { font-size: 15.5px; line-height: 1.35; }
+.appointment-groups--compact .appointment-org { font-size: 14px; line-height: 1.43; }
+.appointment-groups--compact .appointment-links { gap: 10px; margin-top: 8px; }
+.appointment-groups--compact .appointment-links a { font-size: 13.5px; }
+
+.education-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
+}
+.credential {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.credential-year {
+  color: var(--faint);
+  font-size: 12.5px;
+  line-height: 1.45;
+  font-variant-numeric: tabular-nums;
+}
+.credential strong,
+.credential span:not(.credential-year),
+.credential a {
+  display: block;
+  font-size: 13.5px;
+  line-height: 1.38;
+}
+.credential strong { font-weight: 650; }
+.credential span:not(.credential-year) { color: var(--muted); margin-top: 2px; }
+.credential a { color: var(--muted); margin-top: 2px; }
+.credential a:hover { color: var(--accent-strong); }
+
+@media (max-width: 1080px) {
+  .about-columns { grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: 42px; }
+  .appointment-groups--compact .appointment-group { grid-template-columns: 1fr; gap: 10px; }
+  .appointment-groups--compact .appointment-logo { width: min(100%, 220px); min-height: 46px; justify-content: flex-start; }
+  .appointment-groups--compact .appointment-logo img { object-position: left center; }
+  .appointment-groups--compact .appointment-logo--umsom img { width: min(158px, 100%); }
+  .appointment-groups--compact .appointment-logo--umihc img { width: min(163px, 100%); }
+  .appointment-groups--compact .appointment-logo--cmns img { width: min(175px, 100%); }
+  .education-columns { grid-template-columns: 1fr; gap: 24px; }
+}
+
+@media (max-width: 780px) {
+  .about-columns { grid-template-columns: 1fr; gap: 48px; }
+  .about-panel + .about-panel { margin-top: 32px; }
+  .about-column--appointments { padding-top: 0; }
+  .appointment-groups--compact .appointment-group { grid-template-columns: 150px minmax(0, 1fr); gap: 20px; }
+  .appointment-groups--compact .appointment-logo { width: 150px; justify-content: center; }
+  .appointment-groups--compact .appointment-logo--umsom img { width: min(142px, 100%); }
+  .appointment-groups--compact .appointment-logo--umihc img { width: min(145px, 100%); }
+  .appointment-groups--compact .appointment-logo--cmns img { width: min(150px, 100%); }
+  .education-columns { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+}
+
+@media (max-width: 560px) {
+  .appointment-groups--compact .appointment-group { grid-template-columns: 1fr; gap: 10px; }
+  .appointment-groups--compact .appointment-logo { width: min(100%, 210px); justify-content: flex-start; }
+  .education-columns { grid-template-columns: 1fr; }
+  .editorial-item { grid-template-columns: 1fr; gap: 6px; }
+  .editorial-status { white-space: normal; }
+}
+
+/* 2026-09-20m: editorial About refinement — 38/62 split, CV-style leadership, lighter appointment rhythm */
+.about-columns {
+  grid-template-columns: minmax(0, 38fr) minmax(0, 62fr);
+  gap: clamp(42px, 5vw, 72px);
+}
+.about-panel + .about-panel { margin-top: 30px; }
+.about-panel .about-subhead {
+  margin: 0 0 14px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid var(--rule);
+  font-size: 17px;
+}
+
+/* Leadership reads like a compact CV rather than a stack of cards. */
+.leadership-list--cv,
+.editorial-group--compact { border-top: 0; }
+.leadership-list--cv .leadership-item {
+  padding: 6px 0 7px;
+  border-bottom: 0;
+}
+.leadership-cvline,
+.editorial-cvline {
+  margin: 0;
+  font-size: 14.2px;
+  line-height: 1.48;
+}
+.leadership-cvline .leadership-org,
+.editorial-cvline .editorial-org {
+  display: inline;
+  color: var(--accent-strong);
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: 680;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.leadership-cvline strong,
+.editorial-cvline strong { font-weight: 680; }
+.leadership-dash,
+.leadership-dot { color: var(--faint); }
+.leadership-dot { padding: 0 .24em; }
+
+.editorial-group--compact .editorial-item {
+  display: block;
+  padding: 6px 0 7px;
+  border-bottom: 0;
+}
+.editorial-cvline .editorial-status {
+  display: inline;
+  margin-left: .38em;
+  padding: 0;
+  color: var(--faint);
+  font-size: 12.5px;
+  line-height: inherit;
+  font-style: italic;
+  white-space: nowrap;
+}
+.editorial-prior-block { margin-top: 13px; }
+.editorial-prior-block h4 { margin-bottom: 4px; }
+.editorial-group--prior .editorial-item { opacity: .70; }
+
+/* Keep logos to the left, but give them a compact fixed visual slot and remove row dividers. */
+.appointment-groups--compact { border-top: 0; }
+.appointment-groups--compact .appointment-group {
+  grid-template-columns: 136px minmax(0, 1fr);
+  gap: 20px;
+  min-height: 0;
+  padding: 11px 0 13px;
+  border-bottom: 0;
+  align-items: center;
+}
+.appointment-groups--compact .appointment-logo {
+  width: 136px;
+  min-height: 62px;
+  justify-content: center;
+}
+.appointment-groups--compact .appointment-logo img {
+  width: auto;
+  max-width: 132px;
+  height: auto;
+  max-height: 64px;
+  object-fit: contain;
+}
+.appointment-groups--compact .appointment-logo--umsom img {
+  width: auto;
+  height: 66px;
+  max-width: 46px;
+  max-height: 66px;
+}
+.appointment-groups--compact .appointment-logo--umihc img {
+  width: 130px;
+  max-width: 130px;
+  max-height: 46px;
+}
+.appointment-groups--compact .appointment-logo--cmns img {
+  width: 132px;
+  max-width: 132px;
+  max-height: 42px;
+}
+.appointment-groups--compact .appointment-title { font-size: 15.2px; }
+.appointment-groups--compact .appointment-org { font-size: 13.8px; line-height: 1.42; }
+.appointment-groups--compact .appointment-links { margin-top: 6px; }
+
+/* Keep the compact education table; certificate belongs with additional postgraduate training. */
+.education-columns { gap: 22px; }
+.education-group h4 { margin-bottom: 7px; }
+.credential { padding: 9px 0; }
+
+@media (max-width: 1120px) {
+  .about-columns { grid-template-columns: minmax(0, 40fr) minmax(0, 60fr); gap: 38px; }
+  .appointment-groups--compact .appointment-group { grid-template-columns: 122px minmax(0, 1fr); gap: 17px; }
+  .appointment-groups--compact .appointment-logo { width: 122px; }
+  .appointment-groups--compact .appointment-logo--umihc img { width: 116px; }
+  .appointment-groups--compact .appointment-logo--cmns img { width: 120px; }
+}
+
+@media (max-width: 900px) {
+  .about-columns { grid-template-columns: 1fr; gap: 42px; }
+  .appointment-groups--compact .appointment-group { grid-template-columns: 150px minmax(0, 1fr); gap: 20px; }
+  .appointment-groups--compact .appointment-logo { width: 150px; justify-content: center; }
+  .appointment-groups--compact .appointment-logo--umihc img { width: 140px; }
+  .appointment-groups--compact .appointment-logo--cmns img { width: 145px; }
+  .education-columns { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+}
+
+@media (max-width: 560px) {
+  .leadership-cvline,
+  .editorial-cvline { font-size: 14px; }
+  .appointment-groups--compact .appointment-group { grid-template-columns: 92px minmax(0, 1fr); gap: 14px; align-items: start; }
+  .appointment-groups--compact .appointment-logo { width: 92px; min-height: 48px; justify-content: flex-start; }
+  .appointment-groups--compact .appointment-logo--umsom img { height: 54px; max-height: 54px; }
+  .appointment-groups--compact .appointment-logo--umihc img { width: 88px; max-width: 88px; }
+  .appointment-groups--compact .appointment-logo--cmns img { width: 92px; max-width: 92px; }
+  .education-columns { grid-template-columns: 1fr; }
+  .editorial-cvline .editorial-status { white-space: normal; }
+}
+
+
+/* 2026-09-20n: visual hierarchy refinements — boxed leadership/recent publications and centered hero actions */
+
+/* About: appointments/education lead on the left; compact leadership becomes a distinct right-side panel. */
+.about-columns {
+  grid-template-columns: minmax(0, 62fr) minmax(0, 38fr);
+  gap: clamp(42px, 5vw, 72px);
+}
+.about-column--boxed {
+  padding: clamp(20px, 2.2vw, 28px);
+  border: 1px solid color-mix(in srgb, var(--rule) 88%, transparent);
+  background: color-mix(in srgb, var(--bg-soft) 72%, transparent);
+  box-shadow: 0 16px 38px rgba(0,0,0,.07);
+}
+html[data-theme="light"] .about-column--boxed {
+  background: color-mix(in srgb, var(--bg-soft) 86%, white 14%);
+  box-shadow: 0 14px 34px rgba(19,43,68,.045);
+}
+.about-column--boxed .about-panel:first-child .about-subhead { margin-top: 0; }
+
+/* Recent publications uses the same quiet panel language, without becoming a heavy card. */
+.research-recent {
+  padding: clamp(18px, 2vw, 24px);
+  border: 1px solid color-mix(in srgb, var(--rule) 88%, transparent);
+  background: color-mix(in srgb, var(--bg-soft) 72%, transparent);
+  box-shadow: 0 16px 38px rgba(0,0,0,.055);
+}
+html[data-theme="light"] .research-recent {
+  background: color-mix(in srgb, var(--bg-soft) 86%, white 14%);
+  box-shadow: 0 14px 34px rgba(19,43,68,.04);
+}
+.latest-list--research .latest-item:last-child { border-bottom: 0; }
+
+/* Center the primary hero action within the left field and the Connect module beneath the portrait. */
+.hero-links {
+  justify-content: center;
+  width: 100%;
+}
+.hero-explore {
+  min-width: 176px;
+  justify-content: center;
+  text-align: center;
+}
+.hero-connect {
+  text-align: center;
+}
+.hero-connect-label {
+  width: max-content;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--text);
+  font-weight: 690;
+  text-decoration-line: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent-strong) 72%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+}
+.profile-icon-links {
+  max-width: 330px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 1120px) {
+  .about-columns { grid-template-columns: minmax(0, 60fr) minmax(0, 40fr); gap: 38px; }
+}
+
+@media (max-width: 900px) {
+  .about-columns { grid-template-columns: 1fr; gap: 38px; }
+  .about-column--boxed { padding: 22px; }
+  .hero-links { justify-content: flex-start; }
+  .hero-connect { text-align: left; }
+  .hero-connect-label { margin-left: 0; margin-right: 0; }
+  .profile-icon-links { margin-left: 0; margin-right: 0; }
+}
+
+@media (max-width: 560px) {
+  .research-recent { padding: 17px 16px; }
+  .about-column--boxed { padding: 18px 16px; }
+}
+
+/* 2026-09-20o: unify Explore + Connect into a centered action bar beneath the hero identity/portrait row. */
+.hero-stage .hero {
+  row-gap: clamp(30px, 4vw, 46px);
+}
+.hero-action-bar {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: min(100%, 860px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(28px, 4vw, 54px);
+  padding: 17px clamp(20px, 3vw, 34px);
+  border-top: 1px solid color-mix(in srgb, var(--rule) 82%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--rule) 58%, transparent);
+  background: color-mix(in srgb, var(--bg) 34%, transparent);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+.hero-action-bar .hero-links {
+  width: auto;
+  margin: 0;
+  flex: 0 0 auto;
+  justify-content: center;
+}
+.hero-action-bar .hero-connect {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  text-align: center;
+}
+.hero-action-bar .hero-connect-label {
+  margin: 0;
+  flex: 0 0 auto;
+  font-size: 13px;
+  letter-spacing: .10em;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+}
+.hero-action-bar .profile-icon-links {
+  max-width: none;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+.hero-action-bar .profile-icon-links a {
+  gap: 6px;
+}
+.hero-action-bar .connect-icon {
+  width: 28px;
+  height: 28px;
+  flex-basis: 28px;
+}
+
+@media (max-width: 900px) {
+  .hero-action-bar {
+    width: min(100%, 700px);
+    flex-direction: column;
+    gap: 16px;
+    padding: 18px;
+  }
+  .hero-action-bar .hero-links,
+  .hero-action-bar .hero-connect {
+    justify-content: center;
+    text-align: center;
+  }
+  .hero-action-bar .hero-connect-label,
+  .hero-action-bar .profile-icon-links {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero-action-bar {
+    margin-top: 4px;
+    padding: 16px 10px;
+    background: color-mix(in srgb, var(--bg) 26%, transparent);
+  }
+  .hero-action-bar .hero-connect {
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .hero-action-bar .profile-icon-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(100%, 320px);
+    gap: 8px 12px;
+  }
+}
+
+/* 2026-09-20p: clarify Connect direction and enforce intentional 3 x 2 link grid. */
+.hero-action-bar .hero-connect-label {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--text);
+}
+.hero-action-bar .connect-direction {
+  color: var(--accent);
+  font-size: 1.15em;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+.hero-action-bar .profile-icon-links {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  column-gap: clamp(12px, 1.6vw, 20px);
+  row-gap: 9px;
+  align-items: center;
+  justify-content: center;
+}
+.hero-action-bar .profile-icon-links a {
+  min-width: 0;
+}
+@media (max-width: 720px) {
+  .hero-action-bar .hero-connect {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .hero-action-bar .connect-direction {
+    transform: rotate(90deg);
+  }
+  .hero-action-bar .profile-icon-links {
+    grid-template-columns: repeat(3, max-content);
+    column-gap: 14px;
+  }
+}
+@media (max-width: 480px) {
+  .hero-action-bar .profile-icon-links {
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 8px;
+  }
+  .hero-action-bar .profile-icon-links a {
+    justify-content: center;
+    gap: 5px;
+  }
+  .hero-action-bar .connect-icon {
+    width: 25px;
+    height: 25px;
+    flex-basis: 25px;
+  }
+  .hero-action-bar .connect-text {
+    font-size: 11.5px;
+  }
+}
+
+/* 2026-09-20q: preserve full hero artwork across aspect ratios; compact icon-only appointment marks. */
+.hero-stage-background picture {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.hero-stage-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center top;
+}
+.hero-stage-background::before {
+  opacity: .34;
+  filter: blur(18px) saturate(1.02);
+  transform: scale(1.08);
+}
+.hero-stage::after {
+  background:
+    linear-gradient(90deg,
+      rgba(7,22,38,.72) 0%,
+      rgba(7,22,38,.64) 31%,
+      rgba(7,22,38,.44) 58%,
+      rgba(7,22,38,.25) 81%,
+      rgba(7,22,38,.22) 100%),
+    linear-gradient(180deg, rgba(7,22,38,.10) 0%, rgba(7,22,38,.34) 100%) !important;
+}
+
+/* On truly wide viewports, cover is safe because it crops vertically rather than
+   hiding the meaningful left grid or right graph frame. */
+@media (min-width: 901px) and (min-aspect-ratio: 17/10) {
+  .hero-stage-background img {
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-stage-background picture {
+    inset: 0 0 auto;
+    height: clamp(220px, 56.25vw, 520px);
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 70%, transparent 100%);
+  }
+  .hero-stage-background img {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: contain;
+    object-position: center top;
+    transform: none;
+    opacity: .94;
+  }
+  .hero-stage-background::before {
+    inset: -6%;
+    opacity: .40;
+    filter: blur(20px) saturate(.98);
+    transform: scale(1.10);
+  }
+}
+
+@media (max-width: 560px) {
+  .hero-stage-background picture {
+    height: clamp(218px, 56.25vw, 320px);
+  }
+  .hero-stage-background img { width: 100%; }
+}
+
+html[data-theme="light"] .hero-stage-background::before { opacity: .20; }
+html[data-theme="light"] .hero-stage::after {
+  background:
+    linear-gradient(90deg,
+      rgba(248,251,255,.84) 0%,
+      rgba(248,251,255,.77) 34%,
+      rgba(248,251,255,.57) 62%,
+      rgba(248,251,255,.39) 84%,
+      rgba(248,251,255,.36) 100%),
+    linear-gradient(180deg, rgba(248,251,255,.10) 0%, rgba(248,251,255,.27) 100%) !important;
+}
+
+/* Icon-only appointment marks: equal visual weight, less logo-wall effect. */
+.appointment-groups--compact .appointment-group {
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 18px;
+}
+.appointment-groups--compact .appointment-logo {
+  width: 92px;
+  min-height: 62px;
+  justify-content: center;
+}
+.appointment-groups--compact .appointment-logo--umsom img {
+  width: auto;
+  height: 62px;
+  max-width: 52px;
+  max-height: 62px;
+}
+.appointment-groups--compact .appointment-logo--umihc img,
+.appointment-groups--compact .appointment-logo--cmns img {
+  width: 62px;
+  height: 62px;
+  max-width: 62px;
+  max-height: 62px;
+  object-fit: contain;
+}
+.appointment-institution-link {
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 58%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.appointment-institution-link:hover,
+.appointment-institution-link:focus-visible {
+  color: var(--accent-strong);
+  text-decoration-color: currentColor;
+}
+
+@media (max-width: 900px) {
+  .appointment-groups--compact .appointment-group {
+    grid-template-columns: 82px minmax(0, 1fr);
+    gap: 16px;
+  }
+  .appointment-groups--compact .appointment-logo { width: 82px; }
+  .appointment-groups--compact .appointment-logo--umsom img { height: 56px; max-height: 56px; }
+  .appointment-groups--compact .appointment-logo--umihc img,
+  .appointment-groups--compact .appointment-logo--cmns img {
+    width: 56px;
+    height: 56px;
+    max-width: 56px;
+    max-height: 56px;
+  }
+}
+
+@media (max-width: 560px) {
+  .appointment-groups--compact .appointment-group {
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 13px;
+  }
+  .appointment-groups--compact .appointment-logo { width: 64px; min-height: 48px; }
+  .appointment-groups--compact .appointment-logo--umsom img { height: 48px; max-height: 48px; }
+  .appointment-groups--compact .appointment-logo--umihc img,
+  .appointment-groups--compact .appointment-logo--cmns img {
+    width: 48px;
+    height: 48px;
+    max-width: 48px;
+    max-height: 48px;
+  }
+}
+
+
+/* 2026-09-20r: Research Variant A + quieter About hierarchy */
+/* Treat Recent publications and Research areas as two peer panels. */
+.research-areas-panel {
+  min-width: 0;
+  padding: clamp(18px, 2vw, 24px);
+  border: 1px solid color-mix(in srgb, var(--rule) 88%, transparent);
+  background: color-mix(in srgb, var(--bg-soft) 72%, transparent);
+  box-shadow: 0 16px 38px rgba(0,0,0,.055);
+}
+html[data-theme="light"] .research-areas-panel {
+  background: color-mix(in srgb, var(--bg-soft) 86%, white 14%);
+  box-shadow: 0 14px 34px rgba(19,43,68,.04);
+}
+.research-areas-head {
+  margin: 0;
+  padding: 0 0 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.research-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  border: 0;
+}
+.research-column {
+  border: 0;
+  padding: 17px 18px 18px;
+  background: transparent;
+  box-shadow: none;
+  gap: 12px;
+}
+.research-column:nth-child(even) {
+  border-left: 1px solid var(--rule);
+}
+.research-column:nth-child(n+3) {
+  border-top: 1px solid var(--rule);
+}
+.research-column h3 {
+  font-size: 15.7px;
+  line-height: 1.22;
+}
+.research-question { font-size: 13.15px; }
+.topics { font-size: 12.1px; }
+.work-title { font-size: 12.25px; }
+
+/* Make the route to the complete bibliography unmistakable but restrained. */
+.research-recent-links {
+  margin-top: 10px;
+}
+.research-recent-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 7px 11px;
+  border: 1px solid color-mix(in srgb, var(--accent-strong) 60%, var(--rule));
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+  color: var(--accent-strong);
+  font-weight: 650;
+  letter-spacing: .005em;
+  text-decoration: none;
+}
+.research-recent-links a:hover,
+.research-recent-links a:focus-visible {
+  border-color: var(--accent-strong);
+  background: color-mix(in srgb, var(--accent) 13%, transparent);
+}
+
+/* The leadership sidebar should read as supporting information, not a second headline column. */
+.about-column--boxed .leadership-cvline,
+.about-column--boxed .editorial-cvline {
+  font-size: 13.25px;
+  line-height: 1.44;
+}
+.about-column--boxed .leadership-cvline .leadership-org,
+.about-column--boxed .editorial-cvline .editorial-org {
+  font-size: 12.35px;
+  line-height: 1.35;
+  font-weight: 690;
+  letter-spacing: .025em;
+  text-transform: uppercase;
+}
+.about-column--boxed .leadership-cvline strong,
+.about-column--boxed .editorial-cvline strong {
+  font-size: 13.45px;
+  font-weight: 680;
+}
+.about-column--boxed .editorial-cvline .editorial-status {
+  font-size: 11.8px;
+}
+
+@media (max-width: 1090px) {
+  .research-overview-grid {
+    grid-template-columns: minmax(300px, .88fr) minmax(0, 1.12fr);
+    gap: 30px;
+  }
+  .research-column { padding: 15px 14px 16px; }
+}
+
+@media (max-width: 900px) {
+  .research-overview-grid { grid-template-columns: 1fr; gap: 26px; }
+  .research-recent,
+  .research-areas-panel { max-width: none; }
+}
+
+@media (max-width: 640px) {
+  .research-grid { grid-template-columns: 1fr; }
+  .research-column { padding: 16px 0 17px; }
+  .research-column:nth-child(even) { border-left: 0; }
+  .research-column:nth-child(n+2) { border-top: 1px solid var(--rule); }
+  .research-column:first-child { border-top: 0; }
+}
+
+/* 2026-09-20s: make the artwork-specific shimmer legible without turning the hero into an animation demo. */
+.hero-particles { opacity: .96; }
+html[data-theme="light"] .hero-particles { opacity: .46; }
+@media (max-width: 900px) {
+  .hero-particles { opacity: .80; }
+  html[data-theme="light"] .hero-particles { opacity: .34; }
+}
+
+/* 2026-09-20t: compact tag-filter navigation within each research area. */
+.selected-work-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.selected-work-head .small-label {
+  margin: 0;
+}
+.related-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 25px;
+  padding: 3px 8px 4px;
+  border: 1px solid color-mix(in srgb, var(--accent-strong) 47%, var(--rule));
+  background: color-mix(in srgb, var(--accent) 5%, transparent);
+  color: var(--accent-strong);
+  font-size: 10.9px;
+  font-weight: 680;
+  line-height: 1;
+  letter-spacing: .018em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.related-button:hover,
+.related-button:focus-visible {
+  border-color: var(--accent-strong);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+@media (max-width: 420px) {
+  .selected-work-head { align-items: baseline; }
+  .related-button { font-size: 10.4px; padding-inline: 7px; }
+}

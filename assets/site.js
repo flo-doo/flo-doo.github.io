@@ -268,6 +268,43 @@
     window.florencePublicationFilter = { render, setTopic: (topic) => { activeTopic = availableTopics.has(topic) ? topic : 'all'; render(); } };
   }
 
+
+  function organizeTimedEditorships() {
+    const current = document.getElementById('current-editorships');
+    const prior = document.getElementById('prior-editorships');
+    const priorBlock = document.getElementById('prior-editorships-block');
+    if (!current || !prior) return;
+
+    const roles = Array.from(document.querySelectorAll('[data-editorial-role][data-end]'));
+    if (!roles.length) return;
+
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+    const currentRoles = [];
+    const priorRoles = [];
+
+    roles.forEach(role => {
+      const end = new Date(`${role.dataset.end}T23:59:59`);
+      const isPrior = end < today;
+      const display = role.dataset.endDisplay || role.dataset.end;
+      const status = role.querySelector('.editorial-status');
+      if (status) status.textContent = `${isPrior ? 'ended' : 'through'} ${display}`;
+      (isPrior ? priorRoles : currentRoles).push(role);
+    });
+
+    currentRoles
+      .sort((a, b) => (a.dataset.end || '').localeCompare(b.dataset.end || ''))
+      .forEach(role => current.appendChild(role));
+    priorRoles
+      .sort((a, b) => (b.dataset.end || '').localeCompare(a.dataset.end || ''))
+      .forEach(role => prior.appendChild(role));
+
+    current.hidden = current.children.length === 0;
+    if (priorBlock) priorBlock.hidden = prior.children.length === 0;
+  }
+
+  organizeTimedEditorships();
   renderHomepageEvents();
   enablePublicationBrowser();
 })();
