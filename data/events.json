@@ -63,7 +63,10 @@
       "type": "Grand Rounds",
       "title": "Grand Rounds",
       "note": "Faculty and resident sessions",
-      "scope": "national"
+      "scope": "national",
+      "location": "Burlington, VT",
+      "lat": 44.4759,
+      "lng": -73.2121
     },
     {
       "date": "2026-12-01",
@@ -76,7 +79,8 @@
       "time": "1:15–2:15 PM",
       "scope": "national",
       "lat": 41.8781,
-      "lng": -87.6298
+      "lng": -87.6298,
+      "url": "https://cattendee.abstractsonline.com/meeting/21552/meeting-info"
     },
     {
       "date": "2026-12-03",
@@ -88,7 +92,8 @@
       "time": "1:30–2:30 PM",
       "scope": "national",
       "lat": 41.8781,
-      "lng": -87.6298
+      "lng": -87.6298,
+      "url": "https://cattendee.abstractsonline.com/meeting/21552/meeting-info"
     },
     {
       "date": "2027-02-11",
@@ -96,7 +101,10 @@
       "event": "Johns Hopkins",
       "type": "Grand Rounds",
       "title": "Grand Rounds",
-      "scope": "national"
+      "scope": "national",
+      "location": "Baltimore, MD",
+      "lat": 39.2904,
+      "lng": -76.6122
     },
     {
       "date": "2027-03-01",
@@ -156,7 +164,10 @@
       "event": "Brown University",
       "type": "Grand Rounds",
       "title": "Grand Rounds",
-      "scope": "national"
+      "scope": "national",
+      "location": "Providence, RI",
+      "lat": 41.824,
+      "lng": -71.4128
     }
   ],
   "speakingLocations": [

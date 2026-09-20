@@ -15,12 +15,10 @@
   }
 
   function tileConfig() {
-    const light = root.dataset.theme === 'light';
+    // OpenStreetMap's standard tile service does not require an API key.
     return {
-      url: light
-        ? 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
-        : 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-      attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+      url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+      attribution: '&copy; OpenStreetMap contributors'
     };
   }
 
@@ -30,8 +28,7 @@
     if (speakingTileLayer) speakingMap.removeLayer(speakingTileLayer);
     speakingTileLayer = L.tileLayer(cfg.url, {
       attribution: cfg.attribution,
-      maxZoom: 18,
-      subdomains: 'abcd'
+      maxZoom: 18
     }).addTo(speakingMap);
     speakingTileLayer.bringToBack();
 
@@ -202,8 +199,8 @@
       let shown = 0;
 
       items.forEach(item => {
-        const topics = (item.dataset.topics || '').split(',').map(x => x.trim()).filter(Boolean);
-        const topicOK = activeTopic === 'all' || topics.includes(activeTopic);
+        const tags = (item.dataset.tags || '').split(',').map(x => x.trim()).filter(Boolean);
+        const topicOK = activeTopic === 'all' || tags.includes(activeTopic);
         const textOK = !q || item.textContent.toLowerCase().includes(q);
         const visible = topicOK && textOK;
 
@@ -243,6 +240,7 @@
     });
 
     render();
+    window.florencePublicationFilter = { render, setTopic: (topic) => { activeTopic = availableTopics.has(topic) ? topic : 'all'; render(); } };
   }
 
   renderHomepageEvents();

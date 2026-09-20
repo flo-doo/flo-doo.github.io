@@ -7,7 +7,7 @@ Sources attempted:
   3. Crossref author search as a secondary discovery source
 
 The script never deletes the existing cache when a network source fails. Existing
-curated topic tags are preserved. It uses only the Python standard library.
+curated research tags are preserved. It uses only the Python standard library.
 """
 from __future__ import annotations
 import json, re, subprocess, sys, urllib.parse, urllib.request
@@ -59,14 +59,16 @@ def topic_key(p):
     return f"doi:{d}" if d else f"title:{norm_title(p.get('title'))}"
 
 
-def apply_topic_overrides(items):
+def apply_tag_overrides(items):
     cfg=load_topic_config()
     for p in items:
         d=norm_doi(p.get("doi"))
+        existing_tags=list(p.get("tags") or p.get("topics") or [])
         explicit=cfg["overrides"].get(d) if d else None
         if explicit is None:
             explicit=cfg["titleOverrides"].get(norm_title(p.get("title")))
-        p["topics"]=explicit or []
+        p["tags"]=list(explicit) if explicit is not None else existing_tags
+        p.pop("topics", None)
     return items
 
 
@@ -74,7 +76,7 @@ def write_topic_review(items):
     cfg=load_topic_config()
     review=[]
     for p in items:
-        if p.get("topics"):
+        if p.get("tags") or p.get("topics"):
             continue
         key=topic_key(p)
         if key in cfg["reviewedUntagged"]:
@@ -105,7 +107,7 @@ def parse_orcid_group(group):
         if typ=="doi" and val: doi=norm_doi(val)
         if typ in ("pmid","pubmed") and val: pmid=str(val)
     url=(f"https://doi.org/{doi}" if doi else (f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/" if pmid else None))
-    return {"title":title,"year":year,"doi":doi or None,"pmid":pmid,"url":url,"citation":title,"source":"ORCID","topics":[]}
+    return {"title":title,"year":year,"doi":doi or None,"pmid":pmid,"url":url,"citation":title,"source":"ORCID","tags":[]}
 
 
 def fetch_orcid():
@@ -145,7 +147,7 @@ def fetch_orcid():
                 if typ=="doi" and val: doi=norm_doi(str(val))
                 if typ in ("pmid","pubmed") and val: pmid=str(val)
             if title:
-                out.append({"title":title,"year":year,"doi":doi or None,"pmid":pmid,"url":f"https://doi.org/{doi}" if doi else None,"citation":title,"source":"ORCID","topics":[]})
+                out.append({"title":title,"year":year,"doi":doi or None,"pmid":pmid,"url":f"https://doi.org/{doi}" if doi else None,"citation":title,"source":"ORCID","tags":[]})
         return out, "ORCID web record"
     except Exception as e:
         errors.append(str(e))
@@ -169,7 +171,7 @@ def fetch_crossref():
         year=date[0][0] if date and date[0] else None
         journal=(w.get("container-title") or [""])[0]
         citation=(title + (f". {journal}." if journal else "")).strip()
-        out.append({"title":title,"year":year,"doi":doi or None,"pmid":None,"url":f"https://doi.org/{doi}" if doi else w.get("URL"),"citation":citation,"source":"Crossref","topics":[]})
+        out.append({"title":title,"year":year,"doi":doi or None,"pmid":None,"url":f"https://doi.org/{doi}" if doi else w.get("URL"),"citation":citation,"source":"Crossref","tags":[]})
     return out
 
 
@@ -181,13 +183,13 @@ def merge(existing, discovered):
         keyd=norm_doi(n.get("doi")); keyt=norm_title(n.get("title"))
         old=(by_doi.get(keyd) if keyd else None) or by_title.get(keyt)
         if old:
-            # Enrich without replacing curated citation/topics.
+            # Enrich without replacing curated citation/tags.
             for k in ("year","doi","pmid","url"):
                 if not old.get(k) and n.get(k): old[k]=n[k]
             if old.get("source","" ).startswith("CV") and n.get("source"):
                 old["source"] = old["source"] + " + " + n["source"]
         else:
-            n.setdefault("topics",[])
+            n.setdefault("tags",[])
             items.append(n)
             if keyd: by_doi[keyd]=n
             if keyt: by_title[keyt]=n
@@ -205,7 +207,7 @@ def main():
     orcid, source=fetch_orcid()
     crossref=fetch_crossref()
     merged=merge(existing, orcid+crossref)
-    merged=apply_topic_overrides(merged)
+    merged=apply_tag_overrides(merged)
     merged.sort(key=lambda p: (p.get("year") or 0, p.get("title") or ""), reverse=True)
     out={"updated":__import__('datetime').date.today().isoformat(),"count":len(merged),"publications":merged}
     PUBS.write_text(json.dumps(out,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")

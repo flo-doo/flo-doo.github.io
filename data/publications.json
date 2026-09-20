@@ -5,17 +5,17 @@
     {
       "id": "m38",
       "title": "Trustworthy Clinical Thinking in MLLMs: Hierarchical Energy-based Reasoning for interpretable MEdical Scans (HERMES)",
-      "citation": "Doo FX, Han H, Maron BA, Huang H. Trustworthy Clinical Thinking in MLLMs: Hierarchical Energy- based Reasoning for interpretable MEdical Scans (HERMES). In: Qiu, J, et al. AI for Clinical Applications. International Workshop on Multimodal Large Language Models in Clinical Practice @ The Medical Image Computing and Computer Assisted Interventions (MICCAI) Society. Lecture Notes in Computer Science, vol 16147. Springer. 2026. https://doi.org/10.1007/978-3-032-06004-4_24",
-      "year": 2026,
+      "citation": "Doo FX, Han H, Maron BA, Huang H. Trustworthy Clinical Thinking in MLLMs: Hierarchical Energy- based Reasoning for interpretable MEdical Scans (HERMES). In: Qiu, J, et al. AI for Clinical Applications. International Workshop on Multimodal Large Language Models in Clinical Practice @ The Medical Image Computing and Computer Assisted Interventions (MICCAI) Society. Lecture Notes in Computer Science, vol 16147. Springer. 2025. https://doi.org/10.1007/978-3-032-06004-4_24",
+      "year": 2025,
       "doi": "10.1007/978-3-032-06004-4_24",
       "pmid": null,
-      "topics": [
+      "url": "https://doi.org/10.1007/978-3-032-06004-4_24",
+      "source": "MICCAI 2025 / Springer proceedings; CV index",
+      "tags": [
         "frontier-clinical-intelligence",
         "trustworthy-human-ai",
         "medical-imaging-informatics-data"
-      ],
-      "url": "https://doi.org/10.1007/978-3-032-06004-4_24",
-      "source": "CV (Sep 12, 2026)"
+      ]
     },
     {
       "id": "c8",
@@ -24,11 +24,11 @@
       "year": 2026,
       "doi": "10.1016/j.acra.2025.12.040",
       "pmid": null,
-      "topics": [
-        "medical-imaging-informatics-data"
-      ],
       "url": "https://doi.org/10.1016/j.acra.2025.12.040",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "medical-imaging-informatics-data"
+      ]
     },
     {
       "id": "m43",
@@ -37,11 +37,11 @@
       "year": 2026,
       "doi": "10.1016/j.jacr.2026.05.014",
       "pmid": "42107677",
-      "topics": [
-        "medical-imaging-informatics-data"
-      ],
       "url": "https://doi.org/10.1016/j.jacr.2026.05.014",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "medical-imaging-informatics-data"
+      ]
     },
     {
       "id": "m48",
@@ -50,11 +50,11 @@
       "year": 2026,
       "doi": null,
       "pmid": null,
-      "topics": [
-        "trustworthy-human-ai"
-      ],
       "url": null,
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "trustworthy-human-ai"
+      ]
     },
     {
       "id": "c6",
@@ -63,12 +63,12 @@
       "year": 2026,
       "doi": "10.1016/j.acra.2026.01.039",
       "pmid": null,
-      "topics": [
+      "url": "https://doi.org/10.1016/j.acra.2026.01.039",
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
         "frontier-clinical-intelligence",
         "medical-imaging-informatics-data"
-      ],
-      "url": "https://doi.org/10.1016/j.acra.2026.01.039",
-      "source": "CV (Sep 12, 2026)"
+      ]
     },
     {
       "id": "c4",
@@ -77,11 +77,11 @@
       "year": 2026,
       "doi": "10.1016/j.acra.2025.11.018",
       "pmid": "41781096",
-      "topics": [
-        "frontier-clinical-intelligence"
-      ],
       "url": "https://doi.org/10.1016/j.acra.2025.11.018",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "frontier-clinical-intelligence"
+      ]
     },
     {
       "id": "m44",
@@ -90,12 +90,12 @@
       "year": 2026,
       "doi": null,
       "pmid": null,
-      "topics": [
+      "url": null,
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
         "sustainable-ai-radiology",
         "medical-imaging-informatics-data"
-      ],
-      "url": null,
-      "source": "CV (Sep 12, 2026)"
+      ]
     },
     {
       "id": "m47",
@@ -104,11 +104,11 @@
       "year": 2026,
       "doi": null,
       "pmid": null,
-      "topics": [
-        "medical-imaging-informatics-data"
-      ],
       "url": null,
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "medical-imaging-informatics-data"
+      ]
     },
     {
       "id": "m45",
@@ -117,11 +117,11 @@
       "year": 2026,
       "doi": "10.1016/j.jacr.2026.07.014",
       "pmid": "42532247",
-      "topics": [
-        "trustworthy-human-ai"
-      ],
       "url": "https://doi.org/10.1016/j.jacr.2026.07.014",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "trustworthy-human-ai"
+      ]
     },
     {
       "id": "m42",
@@ -130,12 +130,12 @@
       "year": 2026,
       "doi": "10.1109/ISBI61048.2026.11515421",
       "pmid": null,
-      "topics": [
+      "url": "https://doi.org/10.1109/ISBI61048.2026.11515421",
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
         "frontier-clinical-intelligence",
         "medical-imaging-informatics-data"
-      ],
-      "url": "https://doi.org/10.1109/ISBI61048.2026.11515421",
-      "source": "CV (Sep 12, 2026)"
+      ]
     },
     {
       "id": "c9",
@@ -144,12 +144,12 @@
       "year": 2026,
       "doi": "10.1148/ryai.250671",
       "pmid": "42089795",
-      "topics": [
+      "url": "https://doi.org/10.1148/ryai.250671",
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
         "trustworthy-human-ai",
         "medical-imaging-informatics-data"
-      ],
-      "url": "https://doi.org/10.1148/ryai.250671",
-      "source": "CV (Sep 12, 2026)"
+      ]
     },
     {
       "id": "c5",
@@ -158,12 +158,12 @@
       "year": 2026,
       "doi": "10.1016/j.acra.2026.01.034",
       "pmid": null,
-      "topics": [
+      "url": "https://doi.org/10.1016/j.acra.2026.01.034",
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
         "frontier-clinical-intelligence",
         "medical-imaging-informatics-data"
-      ],
-      "url": "https://doi.org/10.1016/j.acra.2026.01.034",
-      "source": "CV (Sep 12, 2026)"
+      ]
     },
     {
       "id": "c10",
@@ -172,11 +172,11 @@
       "year": 2026,
       "doi": "10.1148/ryai.250982",
       "pmid": "42200797",
-      "topics": [
-        "trustworthy-human-ai"
-      ],
       "url": "https://doi.org/10.1148/ryai.250982",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "trustworthy-human-ai"
+      ]
     },
     {
       "id": "c11",
@@ -185,12 +185,12 @@
       "year": 2026,
       "doi": null,
       "pmid": null,
-      "topics": [
+      "url": null,
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
         "frontier-clinical-intelligence",
         "medical-imaging-informatics-data"
-      ],
-      "url": null,
-      "source": "CV (Sep 12, 2026)"
+      ]
     },
     {
       "id": "m46",
@@ -199,12 +199,12 @@
       "year": 2026,
       "doi": null,
       "pmid": null,
-      "topics": [
+      "url": "https://arxiv.org/abs/2608.14778v2",
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
         "frontier-clinical-intelligence",
         "medical-imaging-informatics-data"
-      ],
-      "url": "https://arxiv.org/abs/2608.14778v2",
-      "source": "CV (Sep 12, 2026)"
+      ]
     },
     {
       "id": "c7",
@@ -213,12 +213,12 @@
       "year": 2026,
       "doi": "10.1016/j.acra.2025.11.021",
       "pmid": null,
-      "topics": [
+      "url": "https://doi.org/10.1016/j.acra.2025.11.021",
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
         "frontier-clinical-intelligence",
         "medical-imaging-informatics-data"
-      ],
-      "url": "https://doi.org/10.1016/j.acra.2025.11.021",
-      "source": "CV (Sep 12, 2026)"
+      ]
     },
     {
       "id": "m39",
@@ -227,11 +227,11 @@
       "year": 2025,
       "doi": "10.1016/j.jacr.2025.09.027",
       "pmid": "41046992",
-      "topics": [
-        "sustainable-ai-radiology"
-      ],
       "url": "https://doi.org/10.1016/j.jacr.2025.09.027",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "sustainable-ai-radiology"
+      ]
     },
     {
       "id": "m41",
@@ -240,11 +240,11 @@
       "year": 2025,
       "doi": "10.1016/j.jacr.2025.09.019",
       "pmid": "41338714",
-      "topics": [
-        "medical-imaging-informatics-data"
-      ],
       "url": "https://doi.org/10.1016/j.jacr.2025.09.019",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "medical-imaging-informatics-data"
+      ]
     },
     {
       "id": "m34",
@@ -253,12 +253,12 @@
       "year": 2025,
       "doi": "10.1007/s10278-025-01541-3",
       "pmid": "40442564",
-      "topics": [
+      "url": "https://doi.org/10.1007/s10278-025-01541-3",
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
         "medical-imaging-informatics-data",
         "frontier-clinical-intelligence"
-      ],
-      "url": "https://doi.org/10.1007/s10278-025-01541-3",
-      "source": "CV (Sep 12, 2026)"
+      ]
     },
     {
       "id": "m30",
@@ -267,12 +267,12 @@
       "year": 2025,
       "doi": "10.1016/j.clon.2025.103758",
       "pmid": "39874747",
-      "topics": [
+      "url": "https://doi.org/10.1016/j.clon.2025.103758",
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
         "trustworthy-human-ai",
         "medical-imaging-informatics-data"
-      ],
-      "url": "https://doi.org/10.1016/j.clon.2025.103758",
-      "source": "CV (Sep 12, 2026)"
+      ]
     },
     {
       "id": "m31",
@@ -281,12 +281,12 @@
       "year": 2025,
       "doi": "10.1148/radiol.241073",
       "pmid": "39873598",
-      "topics": [
+      "url": "https://doi.org/10.1148/radiol.241073",
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
         "frontier-clinical-intelligence",
         "medical-imaging-informatics-data"
-      ],
-      "url": "https://doi.org/10.1148/radiol.241073",
-      "source": "CV (Sep 12, 2026)"
+      ]
     },
     {
       "id": "m33",
@@ -295,12 +295,12 @@
       "year": 2025,
       "doi": null,
       "pmid": null,
-      "topics": [
+      "url": null,
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
         "trustworthy-human-ai",
         "frontier-clinical-intelligence"
-      ],
-      "url": null,
-      "source": "CV (Sep 12, 2026)"
+      ]
     },
     {
       "id": "m40",
@@ -309,11 +309,11 @@
       "year": 2025,
       "doi": "10.1001/jamanetworkopen.2025.47304",
       "pmid": "41348361",
-      "topics": [
-        "sustainable-ai-radiology"
-      ],
       "url": "https://doi.org/10.1001/jamanetworkopen.2025.47304",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "sustainable-ai-radiology"
+      ]
     },
     {
       "id": "m37",
@@ -322,11 +322,11 @@
       "year": 2025,
       "doi": "10.1016/j.athoracsur.2025.07.001",
       "pmid": "40691924",
-      "topics": [
-        "medical-imaging-informatics-data"
-      ],
       "url": "https://doi.org/10.1016/j.athoracsur.2025.07.001",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "medical-imaging-informatics-data"
+      ]
     },
     {
       "id": "m32",
@@ -335,12 +335,12 @@
       "year": 2025,
       "doi": "10.37765/ajmc.2025.89695",
       "pmid": "40053403",
-      "topics": [
+      "url": "https://doi.org/10.37765/ajmc.2025.89695",
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
         "trustworthy-human-ai",
         "frontier-clinical-intelligence"
-      ],
-      "url": "https://doi.org/10.37765/ajmc.2025.89695",
-      "source": "CV (Sep 12, 2026)"
+      ]
     },
     {
       "id": "m36",
@@ -349,12 +349,12 @@
       "year": 2025,
       "doi": null,
       "pmid": null,
-      "topics": [
+      "url": null,
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
         "frontier-clinical-intelligence",
         "medical-imaging-informatics-data"
-      ],
-      "url": null,
-      "source": "CV (Sep 12, 2026)"
+      ]
     },
     {
       "id": "c3",
@@ -363,12 +363,12 @@
       "year": 2025,
       "doi": "10.1016/S1470-2045(25)00360-2",
       "pmid": "41038203",
-      "topics": [
+      "url": "https://doi.org/10.1016/S1470-2045(25)00360-2",
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
         "frontier-clinical-intelligence",
         "medical-imaging-informatics-data"
-      ],
-      "url": "https://doi.org/10.1016/S1470-2045(25)00360-2",
-      "source": "CV (Sep 12, 2026)"
+      ]
     },
     {
       "id": "m35",
@@ -377,12 +377,12 @@
       "year": 2025,
       "doi": null,
       "pmid": null,
-      "topics": [
+      "url": null,
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
         "trustworthy-human-ai",
         "frontier-clinical-intelligence"
-      ],
-      "url": null,
-      "source": "CV (Sep 12, 2026)"
+      ]
     },
     {
       "id": "c2",
@@ -391,11 +391,11 @@
       "year": 2024,
       "doi": "10.1016/j.jacr.2024.01.024",
       "pmid": "38354844",
-      "topics": [
-        "trustworthy-human-ai"
-      ],
       "url": "https://doi.org/10.1016/j.jacr.2024.01.024",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "trustworthy-human-ai"
+      ]
     },
     {
       "id": "m24",
@@ -404,11 +404,11 @@
       "year": 2024,
       "doi": "10.1148/radiol.240219",
       "pmid": "38652030",
-      "topics": [
-        "sustainable-ai-radiology"
-      ],
       "url": "https://doi.org/10.1148/radiol.240219",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "sustainable-ai-radiology"
+      ]
     },
     {
       "id": "m27",
@@ -417,12 +417,12 @@
       "year": 2024,
       "doi": "10.1148/radiol.240320",
       "pmid": "39189909",
-      "topics": [
+      "url": "https://doi.org/10.1148/radiol.240320",
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
         "sustainable-ai-radiology",
         "frontier-clinical-intelligence"
-      ],
-      "url": "https://doi.org/10.1148/radiol.240320",
-      "source": "CV (Sep 12, 2026)"
+      ]
     },
     {
       "id": "m26",
@@ -431,11 +431,11 @@
       "year": 2024,
       "doi": "10.1007/s00261-024-04385-7",
       "pmid": "38832942",
-      "topics": [
-        "medical-imaging-informatics-data"
-      ],
       "url": "https://doi.org/10.1007/s00261-024-04385-7",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "medical-imaging-informatics-data"
+      ]
     },
     {
       "id": "m21",
@@ -444,12 +444,12 @@
       "year": 2024,
       "doi": "10.2214/AJR.23.30573",
       "pmid": "38230901",
-      "topics": [
+      "url": "https://doi.org/10.2214/AJR.23.30573",
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
         "frontier-clinical-intelligence",
         "medical-imaging-informatics-data"
-      ],
-      "url": "https://doi.org/10.2214/AJR.23.30573",
-      "source": "CV (Sep 12, 2026)"
+      ]
     },
     {
       "id": "m25",
@@ -458,12 +458,12 @@
       "year": 2024,
       "doi": "10.1177/08465371241247043",
       "pmid": "38581353",
-      "topics": [
+      "url": "https://doi.org/10.1177/08465371241247043",
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
         "frontier-clinical-intelligence",
         "medical-imaging-informatics-data"
-      ],
-      "url": "https://doi.org/10.1177/08465371241247043",
-      "source": "CV (Sep 12, 2026)"
+      ]
     },
     {
       "id": "m22",
@@ -472,11 +472,11 @@
       "year": 2024,
       "doi": "10.1148/radiol.232030",
       "pmid": "38411520",
-      "topics": [
-        "sustainable-ai-radiology"
-      ],
       "url": "https://doi.org/10.1148/radiol.232030",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "sustainable-ai-radiology"
+      ]
     },
     {
       "id": "m23",
@@ -485,11 +485,11 @@
       "year": 2024,
       "doi": null,
       "pmid": null,
-      "topics": [
-        "medical-imaging-informatics-data"
-      ],
       "url": null,
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "medical-imaging-informatics-data"
+      ]
     },
     {
       "id": "m28",
@@ -498,11 +498,11 @@
       "year": 2024,
       "doi": "10.1016/j.jacr.2024.07.028",
       "pmid": "39197697",
-      "topics": [
-        "sustainable-ai-radiology"
-      ],
       "url": "https://doi.org/10.1016/j.jacr.2024.07.028",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "sustainable-ai-radiology"
+      ]
     },
     {
       "id": "m29",
@@ -511,12 +511,12 @@
       "year": 2024,
       "doi": "10.1007/s10278-024-01273-w",
       "pmid": "39299957",
-      "topics": [
+      "url": "https://doi.org/10.1007/s10278-024-01273-w",
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
         "trustworthy-human-ai",
         "medical-imaging-informatics-data"
-      ],
-      "url": "https://doi.org/10.1007/s10278-024-01273-w",
-      "source": "CV (Sep 12, 2026)"
+      ]
     },
     {
       "id": "m13",
@@ -525,11 +525,11 @@
       "year": 2023,
       "doi": "10.1016/j.jacr.2022.11.005",
       "pmid": "36436778",
-      "topics": [
-        "medical-imaging-informatics-data"
-      ],
       "url": "https://doi.org/10.1016/j.jacr.2022.11.005",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "medical-imaging-informatics-data"
+      ]
     },
     {
       "id": "m15",
@@ -538,11 +538,11 @@
       "year": 2023,
       "doi": "10.1016/j.jacr.2023.02.027",
       "pmid": "37028498",
-      "topics": [
-        "sustainable-ai-radiology"
-      ],
       "url": "https://doi.org/10.1016/j.jacr.2023.02.027",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "sustainable-ai-radiology"
+      ]
     },
     {
       "id": "m14",
@@ -551,11 +551,11 @@
       "year": 2023,
       "doi": "10.1097/SAP.0000000000003404",
       "pmid": "36752536",
-      "topics": [
-        "medical-imaging-informatics-data"
-      ],
       "url": "https://doi.org/10.1097/SAP.0000000000003404",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "medical-imaging-informatics-data"
+      ]
     },
     {
       "id": "m18",
@@ -564,11 +564,11 @@
       "year": 2023,
       "doi": "10.1016/j.jacr.2023.07.007",
       "pmid": "37467871",
-      "topics": [
-        "frontier-clinical-intelligence"
-      ],
       "url": "https://doi.org/10.1016/j.jacr.2023.07.007",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "frontier-clinical-intelligence"
+      ]
     },
     {
       "id": "m19",
@@ -577,12 +577,12 @@
       "year": 2023,
       "doi": "10.1016/j.jacr.2023.11.019",
       "pmid": "38043630",
-      "topics": [
+      "url": "https://doi.org/10.1016/j.jacr.2023.11.019",
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
         "sustainable-ai-radiology",
         "medical-imaging-informatics-data"
-      ],
-      "url": "https://doi.org/10.1016/j.jacr.2023.11.019",
-      "source": "CV (Sep 12, 2026)"
+      ]
     },
     {
       "id": "m20",
@@ -591,12 +591,12 @@
       "year": 2023,
       "doi": "10.1016/j.jacr.2023.11.011",
       "pmid": "38072221",
-      "topics": [
+      "url": "https://doi.org/10.1016/j.jacr.2023.11.011",
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
         "sustainable-ai-radiology",
         "medical-imaging-informatics-data"
-      ],
-      "url": "https://doi.org/10.1016/j.jacr.2023.11.011",
-      "source": "CV (Sep 12, 2026)"
+      ]
     },
     {
       "id": "m10",
@@ -605,11 +605,11 @@
       "year": 2023,
       "doi": "10.1067/j.cpradiol.2022.07.004",
       "pmid": "36050135",
-      "topics": [
-        "medical-imaging-informatics-data"
-      ],
       "url": "https://doi.org/10.1067/j.cpradiol.2022.07.004",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "medical-imaging-informatics-data"
+      ]
     },
     {
       "id": "m17",
@@ -618,11 +618,11 @@
       "year": 2023,
       "doi": "10.1016/j.jacr.2023.06.014",
       "pmid": "37453602",
-      "topics": [
-        "trustworthy-human-ai"
-      ],
       "url": "https://doi.org/10.1016/j.jacr.2023.06.014",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "trustworthy-human-ai"
+      ]
     },
     {
       "id": "m16",
@@ -631,11 +631,11 @@
       "year": 2023,
       "doi": "10.1177/2732501623117161",
       "pmid": null,
-      "topics": [
-        "medical-imaging-informatics-data"
-      ],
       "url": "https://doi.org/10.1177/2732501623117161",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "medical-imaging-informatics-data"
+      ]
     },
     {
       "id": "m11",
@@ -644,11 +644,11 @@
       "year": 2022,
       "doi": "10.2214/AJR.22.27536",
       "pmid": "35417186",
-      "topics": [
-        "medical-imaging-informatics-data"
-      ],
       "url": "https://doi.org/10.2214/AJR.22.27536",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "medical-imaging-informatics-data"
+      ]
     },
     {
       "id": "c1",
@@ -657,9 +657,9 @@
       "year": 2022,
       "doi": "10.1016/j.clinimag.2022.05.012",
       "pmid": "36064645",
-      "topics": [],
       "url": "https://doi.org/10.1016/j.clinimag.2022.05.012",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": []
     },
     {
       "id": "m12",
@@ -668,12 +668,12 @@
       "year": 2022,
       "doi": "10.1016/j.jacr.2022.06.008",
       "pmid": "35964688",
-      "topics": [
+      "url": "https://doi.org/10.1016/j.jacr.2022.06.008",
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
         "trustworthy-human-ai",
         "medical-imaging-informatics-data"
-      ],
-      "url": "https://doi.org/10.1016/j.jacr.2022.06.008",
-      "source": "CV (Sep 12, 2026)"
+      ]
     },
     {
       "id": "m9",
@@ -682,11 +682,11 @@
       "year": 2021,
       "doi": "10.3390/tomography7040049",
       "pmid": "34698270",
-      "topics": [
-        "medical-imaging-informatics-data"
-      ],
       "url": "https://doi.org/10.3390/tomography7040049",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "medical-imaging-informatics-data"
+      ]
     },
     {
       "id": "m6",
@@ -695,11 +695,11 @@
       "year": 2021,
       "doi": "10.1016/j.clinimag.2020.07.007",
       "pmid": "32707411",
-      "topics": [
-        "medical-imaging-informatics-data"
-      ],
       "url": "https://doi.org/10.1016/j.clinimag.2020.07.007",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "medical-imaging-informatics-data"
+      ]
     },
     {
       "id": "m8",
@@ -708,11 +708,11 @@
       "year": 2021,
       "doi": "10.1016/j.clinimag.2020.11.023",
       "pmid": "33307372",
-      "topics": [
-        "medical-imaging-informatics-data"
-      ],
       "url": "https://doi.org/10.1016/j.clinimag.2020.11.023",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "medical-imaging-informatics-data"
+      ]
     },
     {
       "id": "m7",
@@ -721,11 +721,11 @@
       "year": 2020,
       "doi": "10.1016/j.echo.2020.08.014",
       "pmid": "32919857",
-      "topics": [
-        "medical-imaging-informatics-data"
-      ],
       "url": "https://doi.org/10.1016/j.echo.2020.08.014",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "medical-imaging-informatics-data"
+      ]
     },
     {
       "id": "m5",
@@ -734,11 +734,11 @@
       "year": 2020,
       "doi": "10.1097/RTI.0000000000000546",
       "pmid": "33956718",
-      "topics": [
-        "medical-imaging-informatics-data"
-      ],
       "url": "https://doi.org/10.1097/RTI.0000000000000546",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "medical-imaging-informatics-data"
+      ]
     },
     {
       "id": "m4",
@@ -747,11 +747,11 @@
       "year": 2019,
       "doi": "10.2214/AJR.19.21686",
       "pmid": "31414889",
-      "topics": [
-        "medical-imaging-informatics-data"
-      ],
       "url": "https://doi.org/10.2214/AJR.19.21686",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "medical-imaging-informatics-data"
+      ]
     },
     {
       "id": "m3",
@@ -760,9 +760,9 @@
       "year": 2016,
       "doi": null,
       "pmid": "27473156",
-      "topics": [],
       "url": "https://pubmed.ncbi.nlm.nih.gov/27473156/",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": []
     },
     {
       "id": "m2",
@@ -771,9 +771,9 @@
       "year": 2015,
       "doi": null,
       "pmid": null,
-      "topics": [],
       "url": null,
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": []
     },
     {
       "id": "m1",
@@ -782,9 +782,9 @@
       "year": 2014,
       "doi": null,
       "pmid": "25238889",
-      "topics": [],
       "url": "https://pubmed.ncbi.nlm.nih.gov/25238889/",
-      "source": "CV (Sep 12, 2026)"
+      "source": "CV (Sep 12, 2026)",
+      "tags": []
     }
   ]
 }

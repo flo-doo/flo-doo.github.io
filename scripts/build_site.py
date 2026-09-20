@@ -79,14 +79,14 @@ def pub_url(pub: dict) -> str:
     return ""
 
 
-def effective_topics(pub: dict, cfg: dict) -> list[str]:
+def effective_tags(pub: dict, cfg: dict) -> list[str]:
     doi_key = norm_doi(pub.get("doi"))
     if doi_key and doi_key in cfg.get("overrides", {}):
         return list(cfg["overrides"][doi_key])
     title_key = norm_title(pub.get("title", ""))
     if title_key in cfg.get("titleOverrides", {}):
         return list(cfg["titleOverrides"][title_key])
-    return list(pub.get("topics") or [])
+    return list(pub.get("tags") or pub.get("topics") or [])
 
 
 def replace_block(text: str, name: str, content: str) -> str:
@@ -100,20 +100,20 @@ def replace_block(text: str, name: str, content: str) -> str:
 
 
 def pub_article(pub: dict, labels: dict[str, str]) -> str:
-    topics = pub.get("_topics", [])
-    tags = "".join(f'<span class="pub-tag">{esc(labels[t])}</span>' for t in topics if t in labels)
+    tags_list = pub.get("_tags", [])
+    tag_html = "".join(f'<span class="pub-tag">{esc(labels[t])}</span>' for t in tags_list if t in labels)
     url = pub_url(pub)
     title = esc(pub.get("title"))
     title_html = f'<a href="{esc(url)}" target="_blank" rel="noreferrer">{title} ↗</a>' if url else title
     ident = pub.get("id") or norm_doi(pub.get("doi")) or norm_title(pub.get("title", ""))[:28]
     ident = re.sub(r"[^a-zA-Z0-9_-]+", "-", str(ident)).strip("-") or "publication"
-    data_topics = ",".join(topics)
+    data_tags = ",".join(tags_list)
     return (
-        f'<article class="pub-item" id="pub-{esc(ident)}" data-topics="{esc(data_topics)}">'
+        f'<article class="pub-item" id="pub-{esc(ident)}" data-tags="{esc(data_tags)}">'
         f'<div class="pub-year"><time datetime="{esc(pub.get("year"))}">{esc(pub.get("year"))}</time></div>'
         f'<div><h2 class="pub-title">{title_html}</h2>'
         f'<p class="pub-citation">{highlight_self(pub.get("citation") or "")}</p>'
-        f'{f"<div class=\"pub-tags\">{tags}</div>" if tags else ""}'
+        f'{f"<div class=\"pub-tags\">{tag_html}</div>" if tag_html else ""}'
         f'</div></article>'
     )
 
@@ -152,7 +152,7 @@ def main() -> None:
     labels = cfg.get("labels", {})
     pubs = list(data.get("publications") or [])
     for p in pubs:
-        p["_topics"] = effective_topics(p, cfg)
+        p["_tags"] = effective_tags(p, cfg)
     pubs.sort(key=lambda p: ((p.get("year") or 0), p.get("title") or ""), reverse=True)
 
     # Homepage: static latest publications and static publication count.
@@ -177,11 +177,12 @@ def main() -> None:
 
     # Publications page: filters, complete publication list, and scholarly JSON-LD.
     page = PUBLICATIONS.read_text(encoding="utf-8")
+    tag_counts = {key: sum(1 for p in pubs if key in p.get("_tags", [])) for key in labels}
     filter_html = [
-        '<a class="topic-filter" href="publications.html" data-topic="all">All</a>'
+        f'<a class="topic-filter" href="publications.html" data-topic="all">All <span>{len(pubs)}</span></a>'
     ]
     filter_html += [
-        f'<a class="topic-filter" href="publications.html?topic={esc(key)}" data-topic="{esc(key)}">{esc(label)}</a>'
+        f'<a class="topic-filter" href="publications.html?topic={esc(key)}" data-topic="{esc(key)}">{esc(label)} <span>{tag_counts[key]}</span></a>'
         for key, label in labels.items()
     ]
     page = replace_block(page, "PUBLICATION-FILTERS", "\n".join(filter_html))

@@ -489,6 +489,7 @@ footer {
 }
 .logo-link img { display: block; max-height: 72px; max-width: min(100%, 390px); width: auto; }
 .logo-link.umsom img { max-height: 64px; }
+.logo-link.cmns img { max-height: 54px; max-width: min(100%, 430px); }
 .theme-logo--light { display: none !important; }
 html[data-theme="light"] .theme-logo--dark { display: none !important; }
 html[data-theme="light"] .theme-logo--light { display: block !important; }
@@ -883,4 +884,44 @@ footer {
   .speaking-map-heading,
   .speaking-upcoming-head { align-items: flex-start; flex-direction: column; gap: 3px; }
   .speaking-counts { margin-bottom: 18px; }
+}
+
+
+/* 2026-09-20: formal publication tags + no-key speaking map */
+.topic-filter span {
+  color: var(--faint);
+  font-size: .88em;
+  margin-left: 3px;
+}
+.topic-filter.active span { color: var(--accent); }
+.pub-title {
+  font-size: 15.2px;
+  line-height: 1.42;
+  font-weight: 630;
+}
+.pub-citation {
+  font-size: 14.9px;
+  line-height: 1.5;
+}
+/* OSM standard tiles: no API key. Slightly subdued so the map remains secondary. */
+html[data-theme="dark"] .leaflet-tile-pane {
+  filter: brightness(.62) saturate(.55) contrast(1.08);
+}
+html[data-theme="light"] .leaflet-tile-pane {
+  filter: saturate(.72) contrast(.96);
+}
+.speaking-map { min-height: 430px; }
+.speaking-upcoming .event-list--scroll {
+  border-top: 1px solid var(--rule);
+}
+@media (max-width: 600px) {
+  .logo-link.cmns img { max-height: 46px; }
+  .pub-title { font-size: 15px; }
+  .pub-citation { font-size: 14.7px; }
+}
+
+.logo-row .logo-link.cmns { flex: 1 1 420px; }
+.logo-row .logo-link.cmns img { width: min(100%, 520px); }
+@media (max-width: 900px) {
+  .logo-row .logo-link.cmns { flex-basis: 100%; }
 }
