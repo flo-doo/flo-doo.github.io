@@ -1499,3 +1499,22 @@ html[data-theme="light"] .hero-background img { opacity: .13; filter: saturate(.
   .nav { flex-wrap: wrap; row-gap: 12px; }
   .nav-menu { left: 0; }
 }
+
+
+/* 2026-09-20g: explicit Home navigation + robust hero artwork stacking */
+.hero-background {
+  z-index: 0 !important;
+}
+.hero-background img {
+  opacity: .34;
+}
+.hero::after {
+  z-index: 1 !important;
+}
+.hero-copy,
+.portrait-wrap {
+  z-index: 2 !important;
+}
+html[data-theme="light"] .hero-background img {
+  opacity: .16;
+}
