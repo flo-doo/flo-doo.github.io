@@ -18,6 +18,7 @@
       "location": "Strasbourg, France",
       "type": "Opening keynote",
       "title": "AMPLIFAI: Annotated Multi-Phase Liver Imaging For Artificial Intelligence",
+      "url": "https://um-ihc-ca2i.github.io/amplifai-challenge/timeline.html",
       "scope": "international"
     },
     {
@@ -27,6 +28,8 @@
       "location": "Crete, Greece",
       "type": "Keynote",
       "title": "Sustainable Intelligence: Can Radiology AI be Green, Global, and Generational?",
+      "time": "14:00–14:45 keynote · 14:45–15:30 roundtable",
+      "url": " https://www.eusomii-annualmeeting2026.com/",
       "scope": "international"
     },
     {
@@ -46,6 +49,7 @@
       "type": "Invited course session",
       "title": "Integrating Research into Your Career",
       "note": "Introduction to Academic Radiology Course for Junior Faculty (ITARJF)",
+      "time": "1:15–2:15 PM",
       "scope": "national"
     },
     {
@@ -55,6 +59,7 @@
       "location": "Chicago, IL",
       "type": "Invited session",
       "title": "Contested Ground: Debating the Future of Artificial Intelligence in Radiology",
+      "time": "1:30–2:30 PM",
       "scope": "national"
     },
     {
@@ -68,37 +73,41 @@
     {
       "date": "2027-03-01",
       "displayDate": "Mar 1, 2027",
-      "event": "Society of Abdominal Radiology Annual Meeting",
+      "event": "Society of Abdominal Radiology (SAR) Annual Meeting",
       "location": "Carlsbad, CA",
       "type": "Invited talk",
       "title": "You vs. the Machine: A Case-based Introduction to Trustworthy Abdominal Imaging AI",
       "time": "11:45 AM–12:15 PM",
+      "url": "https://abdominalradiology.org/sar-subpages/annual-meeting/",
       "scope": "national"
     },
     {
       "date": "2027-04-14",
       "displayDate": "Apr 14, 2027",
-      "event": "Association for Academic Radiology Annual Meeting",
+      "event": "Association for Academic Radiology (AAR) Annual Meeting",
       "type": "Invited session",
       "title": "When AI Fails, Who Is Accountable?",
       "time": "9:30–10:30 AM",
+      "url": "https://www.aur.org/annual-meeting",
       "scope": "national"
     },
     {
       "date": "2027-04-14",
       "displayDate": "Apr 14, 2027",
-      "event": "Association for Academic Radiology Annual Meeting",
+      "event": "Association for Academic Radiology (AAR) Annual Meeting",
       "type": "Invited session",
       "title": "AI for Coding and Data Analysis: From Dataset to Insight",
       "time": "4:30–6:00 PM",
+      "url": "https://www.aur.org/annual-meeting",
       "scope": "national"
     },
     {
       "date": "2027-04-16",
       "displayDate": "Apr 16, 2027",
-      "event": "Association for Academic Radiology Annual Meeting",
+      "event": "Association for Academic Radiology (AAR) Annual Meeting",
       "type": "Robert Novelline Lecture",
       "title": "Did the Patient Get Better?",
+      "url": "https://www.aur.org/annual-meeting",
       "time": "9:30–10:30 AM",
       "scope": "national"
     },
