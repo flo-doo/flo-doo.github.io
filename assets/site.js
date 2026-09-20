@@ -159,19 +159,61 @@
         if (!upcoming.length) {
           eventsEl.innerHTML = '<p class="empty-state">No upcoming public appearances currently listed.</p>';
         } else {
-          eventsEl.innerHTML = upcoming.map(e => {
-            const details = [
-              e.type && e.event ? `${e.type} · ${e.event}` : (e.type || e.event),
-              e.note,
-              e.time,
-              e.location
-            ].filter(Boolean).map(esc);
-            const inner = `<div class="event-date">${esc(e.displayDate || e.date)}</div>` +
-              `<span class="event-title">${esc(e.title)}</span>` +
-              (details.length ? `<div class="event-meta">${details.join('<br>')}</div>` : '');
-            return e.url
-              ? `<a class="event-item" href="${esc(e.url)}" target="_blank" rel="noreferrer">${inner}</a>`
-              : `<div class="event-item">${inner}</div>`;
+          const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+          const shortDate = (iso, includeYear = false) => {
+            const [y,m,d] = iso.split('-').map(Number);
+            return `${monthNames[m - 1]} ${d}${includeYear ? `, ${y}` : ''}`;
+          };
+          const groupDateLabel = (items) => {
+            const first = items[0].date;
+            const last = items[items.length - 1].date;
+            if (first === last) return shortDate(first, true);
+            const [fy,fm,fd] = first.split('-').map(Number);
+            const [ly,lm,ld] = last.split('-').map(Number);
+            if (fy === ly && fm === lm) return `${monthNames[fm - 1]} ${fd}–${ld}, ${fy}`;
+            if (fy === ly) return `${monthNames[fm - 1]} ${fd}–${monthNames[lm - 1]} ${ld}, ${fy}`;
+            return `${shortDate(first, true)}–${shortDate(last, true)}`;
+          };
+
+          const groups = [];
+          const byName = new Map();
+          upcoming.forEach(e => {
+            const name = e.conference || e.event || e.title;
+            if (!byName.has(name)) {
+              const group = {name, url: e.conferenceUrl || '', items: []};
+              byName.set(name, group);
+              groups.push(group);
+            }
+            const group = byName.get(name);
+            if (!group.url && e.conferenceUrl) group.url = e.conferenceUrl;
+            group.items.push(e);
+          });
+
+          eventsEl.innerHTML = groups.map(group => {
+            const items = group.items.slice().sort((a,b) => a.date.localeCompare(b.date));
+            const locations = [...new Set(items.map(e => e.conferenceLocation || e.location).filter(Boolean))];
+            const groupMeta = [groupDateLabel(items), locations.join(' / ')].filter(Boolean).map(esc).join(' · ');
+            const groupName = group.url
+              ? `<a class="event-conference-link" href="${esc(group.url)}" target="_blank" rel="noreferrer">${esc(group.name)} ↗</a>`
+              : esc(group.name);
+
+            const sessions = items.map(e => {
+              const eventLabel = e.event && e.event !== group.name ? e.event : '';
+              const details = [
+                e.type && eventLabel ? `${e.type} · ${eventLabel}` : (e.type || eventLabel),
+                e.note,
+                e.time
+              ].filter(Boolean).map(esc);
+              const inner = `<div class="event-session-date">${esc(e.displayDate || e.date)}</div>` +
+                `<div class="event-session-body"><span class="event-title">${esc(e.title)}</span>` +
+                (details.length ? `<div class="event-meta">${details.join('<br>')}</div>` : '') +
+                `</div>`;
+              return e.url
+                ? `<a class="event-session" href="${esc(e.url)}" target="_blank" rel="noreferrer">${inner}</a>`
+                : `<div class="event-session">${inner}</div>`;
+            }).join('');
+
+            return `<section class="event-group"><div class="event-group-head"><div class="event-conference">${groupName}</div><div class="event-group-meta">${groupMeta}</div></div><div class="event-group-sessions">${sessions}</div></section>`;
           }).join('');
         }
       }

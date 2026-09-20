@@ -29,7 +29,9 @@
       "url": "https://faimi-workshop.github.io/2026-miccai/",
       "scope": "international",
       "lat": 48.5734,
-      "lng": 7.7521
+      "lng": 7.7521,
+      "conference": "MICCAI 2026",
+      "conferenceLocation": "Strasbourg, France"
     },
     {
       "date": "2026-10-01",
@@ -41,7 +43,9 @@
       "url": "https://um-ihc-ca2i.github.io/amplifai-challenge/timeline.html",
       "scope": "international",
       "lat": 48.5734,
-      "lng": 7.7521
+      "lng": 7.7521,
+      "conference": "MICCAI 2026",
+      "conferenceLocation": "Strasbourg, France"
     },
     {
       "date": "2026-10-09",
@@ -54,7 +58,9 @@
       "url": "https://www.eusomii-annualmeeting2026.com/",
       "scope": "international",
       "lat": 35.2401,
-      "lng": 24.8093
+      "lng": 24.8093,
+      "conference": "EuSoMII Annual Meeting 2026",
+      "conferenceUrl": "https://www.eusomii-annualmeeting2026.com/"
     },
     {
       "date": "2026-11-06",
@@ -66,7 +72,8 @@
       "scope": "national",
       "location": "Burlington, VT",
       "lat": 44.4759,
-      "lng": -73.2121
+      "lng": -73.2121,
+      "conference": "University of Vermont"
     },
     {
       "date": "2026-12-01",
@@ -80,7 +87,9 @@
       "scope": "national",
       "lat": 41.8781,
       "lng": -87.6298,
-      "url": "https://cattendee.abstractsonline.com/meeting/21552/meeting-info"
+      "url": "https://cattendee.abstractsonline.com/meeting/21552/meeting-info",
+      "conference": "RSNA Annual Meeting 2026",
+      "conferenceUrl": "https://cattendee.abstractsonline.com/meeting/21552/meeting-info"
     },
     {
       "date": "2026-12-03",
@@ -93,7 +102,9 @@
       "scope": "national",
       "lat": 41.8781,
       "lng": -87.6298,
-      "url": "https://cattendee.abstractsonline.com/meeting/21552/meeting-info"
+      "url": "https://cattendee.abstractsonline.com/meeting/21552/meeting-info",
+      "conference": "RSNA Annual Meeting 2026",
+      "conferenceUrl": "https://cattendee.abstractsonline.com/meeting/21552/meeting-info"
     },
     {
       "date": "2027-02-11",
@@ -104,7 +115,8 @@
       "scope": "national",
       "location": "Baltimore, MD",
       "lat": 39.2904,
-      "lng": -76.6122
+      "lng": -76.6122,
+      "conference": "Johns Hopkins"
     },
     {
       "date": "2027-03-01",
@@ -117,7 +129,9 @@
       "url": "https://abdominalradiology.org/sar-subpages/annual-meeting/",
       "scope": "national",
       "lat": 33.1581,
-      "lng": -117.3506
+      "lng": -117.3506,
+      "conference": "Society of Abdominal Radiology (SAR) Annual Meeting 2027",
+      "conferenceUrl": "https://abdominalradiology.org/sar-subpages/annual-meeting/"
     },
     {
       "date": "2027-04-14",
@@ -130,7 +144,9 @@
       "url": "https://www.aur.org/annual-meeting",
       "scope": "national",
       "lat": 40.7608,
-      "lng": -111.891
+      "lng": -111.891,
+      "conference": "Association for Academic Radiology (AAR) Annual Meeting 2027",
+      "conferenceUrl": "https://www.aur.org/annual-meeting"
     },
     {
       "date": "2027-04-14",
@@ -143,7 +159,9 @@
       "url": "https://www.aur.org/annual-meeting",
       "scope": "national",
       "lat": 40.7608,
-      "lng": -111.891
+      "lng": -111.891,
+      "conference": "Association for Academic Radiology (AAR) Annual Meeting 2027",
+      "conferenceUrl": "https://www.aur.org/annual-meeting"
     },
     {
       "date": "2027-04-16",
@@ -156,7 +174,9 @@
       "url": "https://www.aur.org/annual-meeting",
       "scope": "national",
       "lat": 40.7608,
-      "lng": -111.891
+      "lng": -111.891,
+      "conference": "Association for Academic Radiology (AAR) Annual Meeting 2027",
+      "conferenceUrl": "https://www.aur.org/annual-meeting"
     },
     {
       "date": "2027-05-12",
@@ -167,7 +187,8 @@
       "scope": "national",
       "location": "Providence, RI",
       "lat": 41.824,
-      "lng": -71.4128
+      "lng": -71.4128,
+      "conference": "Brown University"
     }
   ],
   "speakingLocations": [
