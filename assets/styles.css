@@ -1518,3 +1518,129 @@ html[data-theme="light"] .hero-background img { opacity: .13; filter: saturate(.
 html[data-theme="light"] .hero-background img {
   opacity: .16;
 }
+
+
+/* 2026-09-20h: full top-stage artwork + normalized appointment lockups */
+.hero-stage {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #071626;
+}
+.hero-stage-background {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  overflow: hidden;
+}
+.hero-stage-background picture,
+.hero-stage-background img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.hero-stage-background img {
+  object-fit: cover;
+  object-position: center center;
+  opacity: 1;
+  filter: saturate(.96) contrast(1.02);
+}
+.hero-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg,
+      rgba(7,22,38,.84) 0%,
+      rgba(7,22,38,.76) 32%,
+      rgba(7,22,38,.56) 58%,
+      rgba(7,22,38,.36) 78%,
+      rgba(7,22,38,.30) 100%),
+    linear-gradient(180deg, rgba(7,22,38,.22) 0%, rgba(7,22,38,.42) 100%);
+}
+.hero-stage .site-header,
+.hero-stage .hero {
+  position: relative;
+  z-index: 1;
+}
+.hero-stage .site-header {
+  background: color-mix(in srgb, #071626 22%, transparent);
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+}
+.hero-stage .hero {
+  background: transparent !important;
+}
+.hero-stage .hero::before,
+.hero-stage .hero::after,
+.hero-stage .hero-background {
+  display: none !important;
+}
+
+html[data-theme="light"] .hero-stage {
+  background: #f8fbff;
+}
+html[data-theme="light"] .hero-stage-background img {
+  opacity: .60;
+  filter: saturate(.72) contrast(.92) brightness(1.10);
+}
+html[data-theme="light"] .hero-stage::after {
+  background:
+    linear-gradient(90deg,
+      rgba(248,251,255,.91) 0%,
+      rgba(248,251,255,.86) 36%,
+      rgba(248,251,255,.70) 62%,
+      rgba(248,251,255,.56) 82%,
+      rgba(248,251,255,.52) 100%),
+    linear-gradient(180deg, rgba(248,251,255,.20) 0%, rgba(248,251,255,.40) 100%);
+}
+html[data-theme="light"] .hero-stage .site-header {
+  background: color-mix(in srgb, #f8fbff 34%, transparent);
+}
+
+/* Appointment lockups: equal visual presence despite very different logo aspect ratios. */
+.appointment-group {
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 52px);
+  min-height: 126px;
+}
+.appointment-logo {
+  width: 300px;
+  min-height: 82px;
+  justify-content: center;
+}
+.appointment-logo img {
+  width: auto;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  object-position: center center;
+}
+.appointment-logo--umsom img { width: 255px; max-width: 255px; }
+.appointment-logo--umihc img { width: 260px; max-width: 260px; }
+.appointment-logo--cmns img { width: 295px; max-width: 295px; }
+.appointment-role--shared .appointment-title + .appointment-title {
+  margin-top: 4px;
+}
+.appointment-role--shared .appointment-org {
+  margin-top: 8px;
+}
+
+@media (max-width: 900px) {
+  .hero-stage::after {
+    background:
+      linear-gradient(180deg, rgba(7,22,38,.82) 0%, rgba(7,22,38,.64) 62%, rgba(7,22,38,.48) 100%);
+  }
+  html[data-theme="light"] .hero-stage::after {
+    background: linear-gradient(180deg, rgba(248,251,255,.92) 0%, rgba(248,251,255,.78) 62%, rgba(248,251,255,.66) 100%);
+  }
+  .appointment-group { grid-template-columns: 1fr; min-height: 0; }
+  .appointment-logo { width: min(100%, 320px); justify-content: flex-start; }
+  .appointment-logo img { object-position: left center; }
+  .appointment-logo--umsom img { width: min(255px, 100%); }
+  .appointment-logo--umihc img { width: min(260px, 100%); }
+  .appointment-logo--cmns img { width: min(295px, 100%); }
+}
