@@ -48,13 +48,15 @@
       "title": "Human Judgment and the Limits of Artificial Intelligence for Automated Rank Order Lists in Diagnostic Radiology Residency Selection",
       "citation": "Savage C, Hossain R, Tonascia J, Pavlou A, Resnik CS, Doo FX*, Smith EB* (co-senior). Human Judgment and the Limits of Artificial Intelligence for Automated Rank Order Lists in Diagnostic Radiology Residency Selection. Journal of the American College of Radiology, Accepted, in press.",
       "year": 2026,
-      "doi": null,
-      "pmid": null,
-      "url": null,
+      "doi": "10.1016/j.jacr.2026.09.006",
+      "pmid": "42727622",
+      "url": "https://doi.org/10.1016/j.jacr.2026.09.006",
       "source": "CV (Sep 12, 2026)",
       "tags": [
         "trustworthy-human-ai"
-      ]
+      ],
+      "date": "2026-09-11",
+      "status": "published"
     },
     {
       "id": "c6",
@@ -88,14 +90,16 @@
       "title": "Effect of Deep Learning Training Policy on Greenhouse Gas Emissions and Carbon Efficiency for Chest Radiograph Classification",
       "citation": "Dietrich N, McShannon DM, Huisman M, Doo FX, Hanneman K. Effect of Deep Learning Training Policy on Greenhouse Gas Emissions and Carbon Efficiency for Chest Radiograph Classification. Canadian Association of Radiologists Journal. Accepted July 22 2026.",
       "year": 2026,
-      "doi": null,
-      "pmid": null,
-      "url": null,
+      "doi": "10.1177/08465371261475319",
+      "pmid": "42584018",
+      "url": "https://doi.org/10.1177/08465371261475319",
       "source": "CV (Sep 12, 2026)",
       "tags": [
         "sustainable-ai-radiology",
         "medical-imaging-informatics-data"
-      ]
+      ],
+      "date": "2026-08-12",
+      "status": "published"
     },
     {
       "id": "m47",
@@ -183,14 +187,15 @@
       "title": "AMPLIFAI: Annotated Multi-Phase Liver Imaging For Artificial Intelligence",
       "citation": "Shah N, Kulkarni P, Suryavanshi A, Delfino J, Tonascia J, Lane BF, Wong J, Chirico J, Huang H, Doo FX. AMPLIFAI: Annotated Multi-Phase Liver Imaging For Artificial Intelligence. Challenge In: Medical Image Computing and Computer Assisted Interventions (MICCAI) Society. 1 Oct 2026.",
       "year": 2026,
-      "doi": null,
+      "doi": "10.5281/zenodo.19848293",
       "pmid": null,
-      "url": null,
+      "url": "https://doi.org/10.5281/zenodo.19848293",
       "source": "CV (Sep 12, 2026)",
       "tags": [
         "frontier-clinical-intelligence",
         "medical-imaging-informatics-data"
-      ]
+      ],
+      "date": "2026-04-28"
     },
     {
       "id": "m46",
@@ -295,12 +300,13 @@
       "year": 2025,
       "doi": null,
       "pmid": null,
-      "url": null,
+      "url": "https://openreview.net/forum?id=BfYx29Lqeu",
       "source": "CV (Sep 12, 2026)",
       "tags": [
         "trustworthy-human-ai",
         "frontier-clinical-intelligence"
-      ]
+      ],
+      "date": "2025-03-06"
     },
     {
       "id": "m40",
@@ -349,7 +355,7 @@
       "year": 2025,
       "doi": null,
       "pmid": null,
-      "url": null,
+      "url": "https://proceedings.mlr.press/v301/shah26a.html",
       "source": "CV (Sep 12, 2026)",
       "tags": [
         "frontier-clinical-intelligence",
@@ -375,14 +381,15 @@
       "title": "Development, Evaluation, and Assessment of Large Language Models (DEAL) Checklist: A Technical Report",
       "citation": "Tripathi S, Alkhulaifat D, Doo FX, Rajpurkar P, McBeth R, Daye D, Cook TS. Development, Evaluation, and Assessment of Large Language Models (DEAL) Checklist: A Technical Report. New England Journal of Medicine Artificial Intelligence (NEJM AI). 2025 May 9. https://ai.nejm.org/doi/full/10.1056/AIp2401106.",
       "year": 2025,
-      "doi": null,
+      "doi": "10.1056/AIp2401106",
       "pmid": null,
-      "url": null,
+      "url": "https://doi.org/10.1056/AIp2401106",
       "source": "CV (Sep 12, 2026)",
       "tags": [
         "trustworthy-human-ai",
         "frontier-clinical-intelligence"
-      ]
+      ],
+      "date": "2025-05-09"
     },
     {
       "id": "c2",
@@ -483,13 +490,14 @@
       "title": "Dynamic Digital Radiography Pulmonary Function Testing: A Machine Learning Lung Study Alternative",
       "citation": "Santibanez VC*, Pisano TJ*, Doo FX, Salvatore M, Padilla M, Braun N, Concepcion J, O’Sullivan MM. Dynamic Digital Radiography Pulmonary Function Testing: A Machine Learning Lung Study Alternative. CHEST Pulmonary. Epub 29 Mar 2024. (*co-first authors).",
       "year": 2024,
-      "doi": null,
-      "pmid": null,
-      "url": null,
+      "doi": "10.1016/j.chpulm.2024.100052",
+      "pmid": "42548400",
+      "url": "https://doi.org/10.1016/j.chpulm.2024.100052",
       "source": "CV (Sep 12, 2026)",
       "tags": [
         "medical-imaging-informatics-data"
-      ]
+      ],
+      "date": "2024-03-29"
     },
     {
       "id": "m28",
@@ -769,11 +777,12 @@
       "title": "Outcomes After Neoadjuvant or Definitive Chemoradiation Therapy for Esophageal/Gastroesophageal Junction Carcinoma",
       "citation": "Zamdborg L, Lee KC, Harris A, Doo F, Gersten DB, Grills IS, Robertson J. Outcomes After Neoadjuvant or Definitive Chemoradiation Therapy for Esophageal/Gastroesophageal Junction Carcinoma. International Journal of Radiation Oncology Biology Physics. Nov 2015. 93:3 Supl E180.",
       "year": 2015,
-      "doi": null,
+      "doi": "10.1016/j.ijrobp.2015.07.1008",
       "pmid": null,
-      "url": null,
+      "url": "https://doi.org/10.1016/j.ijrobp.2015.07.1008",
       "source": "CV (Sep 12, 2026)",
-      "tags": []
+      "tags": [],
+      "date": "2015-10-17"
     },
     {
       "id": "m1",

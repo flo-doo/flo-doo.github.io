@@ -1426,3 +1426,76 @@ html[data-theme="light"] .hero::after {
   .profile-icon-links { grid-template-columns: 1fr 1fr; gap: 8px 12px; }
   .connect-text { font-size: 13px; }
 }
+
+
+/* 2026-09-20f: clearer primary navigation and robust hero artwork loading */
+.nav { gap: 22px; }
+.nav-dropdown { position: relative; }
+.nav-dropdown summary {
+  list-style: none;
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 16px;
+  font-weight: 520;
+  user-select: none;
+}
+.nav-dropdown summary::-webkit-details-marker { display: none; }
+.nav-dropdown summary::after {
+  content: "⌄";
+  display: inline-block;
+  margin-left: 5px;
+  color: var(--faint);
+  font-size: .82em;
+  transform: translateY(-1px);
+}
+.nav-dropdown summary:hover,
+.nav-dropdown summary:focus-visible,
+.nav-dropdown summary.active { color: var(--text); outline: none; }
+.nav-menu {
+  position: absolute;
+  z-index: 50;
+  top: calc(100% + 12px);
+  left: -14px;
+  min-width: 190px;
+  padding: 8px;
+  border: 1px solid var(--rule);
+  background: color-mix(in srgb, var(--bg-soft) 96%, transparent);
+  box-shadow: 0 12px 32px rgba(0,0,0,.18);
+}
+.nav-menu a {
+  display: block;
+  padding: 8px 10px;
+  color: var(--muted);
+  font-size: 14.5px;
+  white-space: nowrap;
+}
+.nav-menu a:hover,
+.nav-menu a:focus-visible,
+.nav-menu a.active { color: var(--text); background: color-mix(in srgb, var(--accent) 10%, transparent); }
+.nav-dropdown:not([open]) .nav-menu { display: none; }
+@media (hover: hover) and (pointer: fine) {
+  .nav-dropdown:hover .nav-menu { display: block; }
+}
+
+.hero-background {
+  position: absolute;
+  z-index: -2;
+  inset: 0 calc(-1 * var(--pad));
+  overflow: hidden;
+  pointer-events: none;
+}
+.hero-background img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+  opacity: .30;
+}
+.hero::before { display: none !important; }
+html[data-theme="light"] .hero-background img { opacity: .13; filter: saturate(.78) contrast(.92); }
+
+@media (max-width: 900px) {
+  .nav { flex-wrap: wrap; row-gap: 12px; }
+  .nav-menu { left: 0; }
+}

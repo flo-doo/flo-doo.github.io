@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css" />
-  <link rel="stylesheet" href="assets/styles.css?v=20260920e" />
+  <link rel="stylesheet" href="assets/styles.css?v=20260920f" />
   <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -122,10 +122,16 @@
     <a class="wordmark" href="#top">Florence X. Doo</a>
     <div class="header-actions">
       <nav class="nav" aria-label="Primary navigation">
-        <a href="#research">Research</a>
-        <a href="publications.html">Publications</a>
+        <details class="nav-dropdown">
+          <summary>Research</summary>
+          <div class="nav-menu">
+            <a href="#research">Research overview</a>
+            <a href="publications.html">Publications</a>
+          </div>
+        </details>
         <a href="#speaking">Speaking</a>
         <a href="#about">About</a>
+        <a href="#connect">Connect</a>
       </nav>
       <button class="theme-toggle" type="button" data-theme-toggle>View in light mode</button>
     </div>
@@ -133,6 +139,7 @@
 
   <main id="main">
     <section class="hero" id="top">
+      <div class="hero-background" aria-hidden="true"><img src="assets/images/clinical-ai-background.webp" alt="" /></div>
       <div class="hero-copy">
         <p class="hero-name">Florence X. Doo, MD, MA</p>
         <p class="kicker">Radiologist · Clinical AI Researcher · Physician Innovator</p>
@@ -177,11 +184,11 @@
         </header>
         <div id="latest-publications" class="latest-list latest-list--research" aria-live="polite">
 <!-- AUTO:INDEX-LATEST-PUBLICATIONS:START -->
-<div class="latest-item"><div class="latest-meta">2026</div><span class="latest-title">Human Judgment and the Limits of Artificial Intelligence for Automated Rank Order Lists in Diagnostic Radiology Residency Selection</span><div class="latest-authors">Savage C, Hossain R, Tonascia J, Pavlou A, Resnik CS, <span class="self-author">Doo FX</span>*, Smith EB* (co-senior)</div></div>
-<div class="latest-item"><div class="latest-meta">2026</div><span class="latest-title">Decoding the Image: Finding Diagnostic Signals in Multi-Modality Abdominal Artifacts</span><div class="latest-authors">Dickerson G, Chirico J, Loening AM, Wong-You-Cheong J, Lane BF, <span class="self-author">Doo FX</span></div></div>
-<div class="latest-item"><div class="latest-meta">2026</div><span class="latest-title">Effect of Deep Learning Training Policy on Greenhouse Gas Emissions and Carbon Efficiency for Chest Radiograph Classification</span><div class="latest-authors">Dietrich N, McShannon DM, Huisman M, <span class="self-author">Doo FX</span>, Hanneman K</div></div>
-<div class="latest-item"><div class="latest-meta">2026</div><span class="latest-title">AMPLIFAI: Annotated Multi-Phase Liver Imaging For Artificial Intelligence</span><div class="latest-authors">Shah N, Kulkarni P, Suryavanshi A, Delfino J, Tonascia J, Lane BF, Wong J, Chirico J, Huang H, <span class="self-author">Doo FX</span></div></div>
+<a class="latest-item" href="https://scholar.google.com/scholar?q=%22Decoding+the+Image%3A+Finding+Diagnostic+Signals+in+Multi-Modality+Abdominal+Artifacts%22" target="_blank" rel="noreferrer"><div class="latest-meta">2026</div><span class="latest-title">Decoding the Image: Finding Diagnostic Signals in Multi-Modality Abdominal Artifacts</span><div class="latest-authors">Dickerson G, Chirico J, Loening AM, Wong-You-Cheong J, Lane BF, <span class="self-author">Doo FX</span></div></a>
+<a class="latest-item" href="https://doi.org/10.1016/j.jacr.2026.09.006" target="_blank" rel="noreferrer"><div class="latest-meta">2026</div><span class="latest-title">Human Judgment and the Limits of Artificial Intelligence for Automated Rank Order Lists in Diagnostic Radiology Residency Selection</span><div class="latest-authors">Savage C, Hossain R, Tonascia J, Pavlou A, Resnik CS, <span class="self-author">Doo FX</span>*, Smith EB* (co-senior)</div></a>
 <a class="latest-item" href="https://arxiv.org/abs/2608.14778v2" target="_blank" rel="noreferrer"><div class="latest-meta">2026</div><span class="latest-title">AMPLIFAI: A Multiphase CT Dataset for Benchmarking Clinical Reasoning in LI-RADS Assessment of Liver Lesions</span><div class="latest-authors">Kulkarni P, Shah N, Suryavanshi A, Delfino J, Tonascia J, Wong J, Lane BF, Chirico J, Hirsch JD, Li A, Huang H, <span class="self-author">Doo FX</span></div></a>
+<a class="latest-item" href="https://doi.org/10.1177/08465371261475319" target="_blank" rel="noreferrer"><div class="latest-meta">2026</div><span class="latest-title">Effect of Deep Learning Training Policy on Greenhouse Gas Emissions and Carbon Efficiency for Chest Radiograph Classification</span><div class="latest-authors">Dietrich N, McShannon DM, Huisman M, <span class="self-author">Doo FX</span>, Hanneman K</div></a>
+<a class="latest-item" href="https://doi.org/10.1016/j.jacr.2026.07.014" target="_blank" rel="noreferrer"><div class="latest-meta">2026</div><span class="latest-title">Capturing the Clinician-Artificial Intelligence Interaction: A Missing Prerequisite for Human-Centered Artificial Intelligence</span><div class="latest-authors">Goodman KE, <span class="self-author">Doo FX</span>, Price WN 2nd, Binkley CE</div></a>
 <!-- AUTO:INDEX-LATEST-PUBLICATIONS:END -->
         </div>
       </section>
@@ -339,6 +346,6 @@
   <footer><p>© <span id="year"></span> Florence X. Doo</p><p>Clinical AI · Radiology · Informatics</p></footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js" defer></script>
-  <script src="assets/site.js?v=20260920e" defer></script>
+  <script src="assets/site.js?v=20260920f" defer></script>
 </body>
 </html>

@@ -166,12 +166,17 @@ def author_line(pub: dict) -> str:
 
 
 def pub_url(pub: dict) -> str:
-    if pub.get("url"):
-        return str(pub["url"])
+    """Best available public link: DOI > supplied record > PubMed > Scholar title search."""
     if pub.get("doi"):
         return f"https://doi.org/{norm_doi(pub['doi'])}"
+    if pub.get("url"):
+        return str(pub["url"])
     if pub.get("pmid"):
         return f"https://pubmed.ncbi.nlm.nih.gov/{pub['pmid']}/"
+    title = str(pub.get("title") or "").strip()
+    if title:
+        from urllib.parse import quote_plus
+        return "https://scholar.google.com/scholar?q=" + quote_plus('"' + title + '"')
     return ""
 
 
