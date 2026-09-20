@@ -1250,3 +1250,179 @@ html[data-theme="light"] .speaking-map .leaflet-tile-pane { filter: saturate(.78
   .pub-title { font-size: 14.1px !important; }
   .pub-citation { font-size: 13.8px !important; }
 }
+
+/* 2026-09-20e: editorial hero treatment, labeled profile links, normalized affiliation marks */
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 650px;
+  grid-template-columns: minmax(0, 1.28fr) minmax(300px, .72fr);
+  gap: clamp(50px, 7vw, 96px);
+  padding-top: clamp(76px, 9vw, 118px);
+  padding-bottom: clamp(76px, 9vw, 118px);
+  border-bottom: 0;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: 0 calc(-1 * var(--pad));
+  background: url("images/clinical-ai-background.webp") center center / cover no-repeat;
+  opacity: .30;
+  pointer-events: none;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0 calc(-1 * var(--pad));
+  background:
+    linear-gradient(90deg, rgba(7,22,38,.98) 0%, rgba(7,22,38,.91) 42%, rgba(7,22,38,.72) 68%, rgba(7,22,38,.74) 100%),
+    linear-gradient(180deg, rgba(7,22,38,.12) 0%, rgba(7,22,38,.52) 100%);
+  pointer-events: none;
+}
+html[data-theme="light"] .hero::before { opacity: .13; filter: saturate(.78) contrast(.92); }
+html[data-theme="light"] .hero::after {
+  background: linear-gradient(90deg, rgba(248,251,255,.98) 0%, rgba(248,251,255,.94) 50%, rgba(248,251,255,.82) 72%, rgba(248,251,255,.88) 100%);
+}
+.hero-copy { position: relative; z-index: 1; }
+.hero-name {
+  margin-bottom: 8px;
+  font-size: clamp(32px, 3.3vw, 42px);
+  font-weight: 700;
+}
+.hero .kicker {
+  margin: 0 0 30px;
+  color: var(--accent-strong);
+  font-size: clamp(17px, 1.65vw, 20px);
+  font-weight: 560;
+}
+.hero h1 {
+  max-width: 760px;
+  font-size: clamp(34px, 3.55vw, 44px);
+  line-height: 1.08;
+}
+.hero .lede {
+  margin-top: 24px;
+  max-width: 700px;
+  color: color-mix(in srgb, var(--text) 77%, var(--muted));
+}
+.hero-links { margin-top: 32px; }
+.hero-explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border: 1px solid color-mix(in srgb, var(--accent-strong) 62%, var(--rule));
+  color: var(--text) !important;
+  background: color-mix(in srgb, var(--bg) 68%, transparent);
+  font-size: 16px;
+  font-weight: 590;
+  transition: transform .16s ease, border-color .16s ease, background .16s ease;
+}
+.hero-explore:hover,
+.hero-explore:focus-visible {
+  transform: translateY(-1px);
+  border-color: var(--accent-strong);
+  background: color-mix(in srgb, var(--bg-soft) 84%, transparent);
+}
+.portrait-wrap {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 365px);
+}
+.portrait {
+  box-shadow: 0 18px 50px rgba(0,0,0,.18);
+  background: var(--bg-soft);
+}
+.hero-connect {
+  margin-top: 16px;
+  display: block;
+}
+.hero-connect-label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: .09em;
+}
+.profile-icon-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 15px;
+  justify-content: stretch;
+}
+.profile-icon-links a {
+  width: auto;
+  height: auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--text);
+  font-size: 13.5px;
+  line-height: 1.25;
+}
+.profile-icon-links a:hover,
+.profile-icon-links a:focus-visible {
+  color: var(--accent-strong);
+  border-color: transparent;
+  transform: none;
+}
+.connect-icon {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  color: var(--accent-strong);
+  background: color-mix(in srgb, var(--bg-soft) 83%, transparent);
+}
+.connect-text { white-space: nowrap; }
+
+/* Normalize institution logos by visual weight rather than source-image width. */
+.appointment-group {
+  grid-template-columns: 230px minmax(0, 1fr);
+  min-height: 112px;
+}
+.appointment-logo {
+  width: 230px;
+  min-height: 72px;
+  justify-content: center;
+}
+.appointment-logo img {
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  object-position: center;
+}
+.appointment-logo--umsom img { height: 64px; max-height: 64px; max-width: 220px; }
+.appointment-logo--umihc img { height: 60px; max-height: 60px; max-width: 220px; }
+.appointment-logo--cmns img { height: 48px; max-height: 48px; max-width: 230px; }
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .portrait-wrap { justify-self: start; width: min(72vw, 330px); }
+  .appointment-group { grid-template-columns: 1fr; min-height: 0; }
+  .appointment-logo { width: min(100%, 300px); justify-content: flex-start; }
+  .appointment-logo img { object-position: left center; }
+}
+@media (max-width: 600px) {
+  .hero { padding-top: 58px; padding-bottom: 64px; }
+  .hero-name { font-size: 29px; }
+  .hero .kicker { margin-bottom: 24px; font-size: 17px; }
+  .hero h1 { font-size: clamp(30px, 9vw, 36px); }
+  .profile-icon-links { grid-template-columns: 1fr 1fr; gap: 8px 12px; }
+  .connect-text { font-size: 13px; }
+}
