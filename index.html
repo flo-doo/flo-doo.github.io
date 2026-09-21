@@ -25,7 +25,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css" rel="stylesheet"/>
-<link href="assets/styles.css?v=20260920u" rel="stylesheet"/>
+<link href="assets/styles.css?v=20260921e" rel="stylesheet"/>
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -137,13 +137,13 @@
 <div class="header-actions">
 <nav aria-label="Primary navigation" class="nav">
 <a href="#top">Home</a>
-<details class="nav-dropdown">
-<summary>Research</summary>
+<div class="nav-dropdown">
+<button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">Research</button>
 <div class="nav-menu">
 <a href="#research">Research overview</a>
-<a href="publications.html">Publications</a>
+<a href="/publications.html">Publications</a>
 </div>
-</details>
+</div>
 <a href="#speaking">Speaking</a>
 <a href="#about">About</a>
 <a href="#connect">Connect</a>
@@ -161,12 +161,12 @@
 <figure class="portrait-wrap">
 <img alt="Portrait of Florence X. Doo" class="portrait" src="assets/images/florence-doo.jpg"/>
 </figure>
-<div class="hero-action-bar" id="connect">
+<div class="hero-action-bar">
 <div class="hero-links">
 <a class="hero-explore" href="#research">Explore my work <span aria-hidden="true">↓</span></a>
 </div>
 <div class="hero-connect">
-<span class="hero-connect-label">Connect <span class="connect-direction" aria-hidden="true">→</span></span>
+<a class="hero-connect-label" href="#connect">Connect <span class="connect-direction" aria-hidden="true">→</span></a>
 <nav aria-label="Connect with Florence X. Doo" class="profile-icon-links">
 <a aria-label="Email Florence X. Doo" href="mailto:fdoo@som.umaryland.edu"><span class="connect-icon"><i aria-hidden="true" class="fa-solid fa-envelope"></i></span><span class="connect-text">Email</span></a>
 <a aria-label="LinkedIn" href="https://www.linkedin.com/in/flodoo/" rel="noreferrer" target="_blank"><span class="connect-icon"><i aria-hidden="true" class="fa-brands fa-linkedin-in"></i></span><span class="connect-text">LinkedIn</span></a>
@@ -274,8 +274,8 @@
 <div aria-label="Cumulative invited speaking counts" aria-live="polite" class="speaking-counts" id="speaking-counts"></div>
 <div class="speaking-map-block">
 <div class="speaking-map-heading">
-<span>Speaking footprint</span>
-<span class="speaking-map-note">selected past + upcoming locations · drag / zoom</span>
+<span>Speaking Locations</span>
+<span class="speaking-map-note"><span class="map-key map-key--past">Past</span><span class="map-key map-key--upcoming">Upcoming</span><span class="map-interaction">· drag / zoom</span></span>
 </div>
 <div aria-label="Interactive map of selected speaking locations" class="speaking-map" id="speaking-map" role="region"></div>
 </div>
@@ -370,22 +370,22 @@
 <h3 class="about-subhead" id="leadership-title">Selected professional leadership</h3>
 <div class="leadership-list leadership-list--cv">
 <article class="leadership-item">
-<p class="leadership-cvline"><a class="leadership-org" href="https://www.rsna.org/committees" rel="noreferrer" target="_blank">Radiological Society of North America (RSNA)</a> <span class="leadership-dash">—</span> <strong>Member</strong>, Artificial Intelligence Committee, Radiology Informatics Council <span class="leadership-dot">·</span> Government Relations Committee</p>
+<p class="leadership-cvline"><a class="leadership-org" href="https://www.rsna.org/committees" rel="noreferrer" target="_blank">Radiological Society of North America (RSNA)</a> <span class="leadership-dash">—</span> <strong>Member</strong><span class="leadership-detail">, Artificial Intelligence Committee, Radiology Informatics Council <span class="leadership-dot">·</span> Government Relations Committee</span></p>
 </article>
 <article class="leadership-item">
-<p class="leadership-cvline"><a class="leadership-org" href="https://advisory.eib.org/future-finance-programme/ria-horizon-europe-research-and-innovation-actions" rel="noreferrer" target="_blank">Horizon Europe Research and Innovation Action</a> <span class="leadership-dash">—</span> <strong>Member</strong>, External Scientific Advisory Board, <a href="https://twin-x.eu/" rel="noreferrer" target="_blank">TWIN-X</a></p>
+<p class="leadership-cvline"><a class="leadership-org" href="https://advisory.eib.org/future-finance-programme/ria-horizon-europe-research-and-innovation-actions" rel="noreferrer" target="_blank">Horizon Europe Research and Innovation Action</a> <span class="leadership-dash">—</span> <strong>Member</strong><span class="leadership-detail">, External Scientific Advisory Board, <a class="leadership-inline-link" href="https://twin-x.eu/" rel="noreferrer" target="_blank">TWIN-X ↗</a></span></p>
 </article>
 <article class="leadership-item">
-<p class="leadership-cvline"><a class="leadership-org" href="https://um-ihc-ca2i.github.io/ai2practice/about.html" rel="noreferrer" target="_blank">Association for Academic Radiology (AAR) / Radiology Research Alliance (RRA)</a> <span class="leadership-dash">—</span> <strong>Founding Chair</strong>, Committee on Data Science and Artificial Intelligence (DSAI)</p>
+<p class="leadership-cvline"><a class="leadership-org" href="https://um-ihc-ca2i.github.io/ai2practice/about.html" rel="noreferrer" target="_blank">Association for Academic Radiology (AAR) / Radiology Research Alliance (RRA)</a> <span class="leadership-dash">—</span> <strong>Founding Chair</strong><span class="leadership-detail">, Committee on Data Science and Artificial Intelligence (DSAI)</span></p>
 </article>
 <article class="leadership-item">
-<p class="leadership-cvline"><a class="leadership-org" href="https://ccos-cc.ctsa.io/groups/working-groups/principles-for-ai-translation-in-healthcare" rel="noreferrer" target="_blank">NIH Clinical and Translational Science Awards (CTSA) Working Group</a> <span class="leadership-dash">—</span> <strong>Lead Team Member</strong>, Principles for AI Translation in Healthcare (PATH)</p>
+<p class="leadership-cvline"><a class="leadership-org" href="https://ccos-cc.ctsa.io/groups/working-groups/principles-for-ai-translation-in-healthcare" rel="noreferrer" target="_blank">NIH Clinical and Translational Science Awards (CTSA) Working Group</a> <span class="leadership-dash">—</span> <strong>Lead Team Member</strong><span class="leadership-detail">, Principles for AI Translation in Healthcare (PATH)</span></p>
 </article>
 <article class="leadership-item">
-<p class="leadership-cvline"><a class="leadership-org" href="https://sabiradiology.org/SABI-AIRE" rel="noreferrer" target="_blank">Society for Advanced Body Imaging (SABI)–AI in Radiology Education (AIRE)</a> <span class="leadership-dash">—</span> <strong>Vice President</strong>, AI Literacy Course</p>
+<p class="leadership-cvline"><a class="leadership-org" href="https://sabiradiology.org/SABI-AIRE" rel="noreferrer" target="_blank">Society for Advanced Body Imaging (SABI)–AI in Radiology Education (AIRE)</a> <span class="leadership-dash">—</span> <strong>Vice President</strong><span class="leadership-detail">, AI Literacy Course</span></p>
 </article>
 <article class="leadership-item">
-<p class="leadership-cvline"><a class="leadership-org" href="https://www.acr.org/" rel="noreferrer" target="_blank">American College of Radiology (ACR)</a> <span class="leadership-dash">—</span> <strong>Member</strong>, Committee on Sustainability</p>
+<p class="leadership-cvline"><a class="leadership-org" href="https://www.acr.org/" rel="noreferrer" target="_blank">American College of Radiology (ACR)</a> <span class="leadership-dash">—</span> <strong>Member</strong><span class="leadership-detail">, <a class="leadership-inline-link" href="https://www.acr.org/Clinical-Resources/Publications-and-Research/ACR-Bulletin/2026/sustainability-in-radiology" rel="noreferrer" target="_blank">Committee on Sustainability ↗</a></span></p>
 </article>
 </div>
 </section>
@@ -410,11 +410,52 @@
 </section>
 </div></div>
 </section>
+
+<section class="section connect-section" id="connect">
+<div class="section-intro section-intro--inline">
+<p class="section-label">04 /</p>
+<h2>Connect</h2>
+</div>
+<div class="connect-panel">
+<div class="connect-pathways connect-pathways--two">
+<article class="connect-pathway connect-pathway--lab">
+<h4>Work with the lab</h4>
+<div class="connect-audiences">
+<div class="connect-audience">
+<h5>Students &amp; trainees</h5>
+<p>Interested in research opportunities or joining ongoing projects?</p>
+<a class="connect-cta" href="https://docs.google.com/forms/d/e/1FAIpQLScunT4a1he1A9bxpjirguCf-Wd9Fm4MKniM1l50_UQxV0gR4A/viewform?usp=sf_link" target="_blank" rel="noreferrer">Student / trainee form →</a>
+</div>
+<div class="connect-audience">
+<h5>Faculty &amp; industry</h5>
+<p>For research collaborations, multi-site work, or academic and industry partnerships.</p>
+<a class="connect-cta" href="mailto:fdoo@som.umaryland.edu?subject=Research%20collaboration%20inquiry">Email me →</a>
+</div>
+</div>
+</article>
+<article class="connect-pathway connect-pathway--speaking">
+<h4>Invite me to speak</h4>
+<p>Keynotes, panels, grand rounds, workshops, and invited sessions on clinical AI, radiology, and emerging technologies.</p>
+<a class="connect-cta" href="mailto:fdoo@som.umaryland.edu?subject=Speaking%20invitation%20%E2%80%94%20%5Bevent%20or%20organization%5D&body=Dear%20Dr.%20Doo%2C%0A%0AI%27m%20writing%20to%20invite%20you%20to%20speak%20at%20%5Bevent%20or%20organization%5D.%0A%0ADate%3A%0ATime%3A%0ALocation%20or%20virtual%3A%0AFormat%20%28keynote%2C%20panel%2C%20grand%20rounds%2C%20workshop%2C%20etc.%29%3A%0ATopic%20or%20session%20%28if%20known%29%3A%0ATravel%20support%20or%20honorarium%20%28optional%29%3A%0A%0AAdditional%20details%3A%0A%0ABest%2C%0A%5BName%20%2F%20role%20%2F%20organization%5D">Speaking inquiry →</a>
+</article>
+</div>
+<div class="connect-profiles">
+<nav aria-label="Connect with Florence X. Doo" class="profile-icon-links">
+<a aria-label="Email Florence X. Doo" href="mailto:fdoo@som.umaryland.edu"><span class="connect-icon"><i aria-hidden="true" class="fa-solid fa-envelope"></i></span><span class="connect-text">Email</span></a>
+<a aria-label="LinkedIn" href="https://www.linkedin.com/in/flodoo/" rel="noreferrer" target="_blank"><span class="connect-icon"><i aria-hidden="true" class="fa-brands fa-linkedin-in"></i></span><span class="connect-text">LinkedIn</span></a>
+<a aria-label="X / Twitter" href="https://twitter.com/flo_doo" rel="noreferrer" target="_blank"><span class="connect-icon"><i aria-hidden="true" class="fa-brands fa-x-twitter"></i></span><span class="connect-text">Twitter</span></a>
+<a aria-label="Google Scholar" href="https://scholar.google.com/citations?user=B7Ig9cwAAAAJ&amp;hl=en" rel="noreferrer" target="_blank"><span class="connect-icon"><i aria-hidden="true" class="fa-solid fa-graduation-cap"></i></span><span class="connect-text">Google Scholar</span></a>
+<a aria-label="ORCID" href="https://orcid.org/0000-0001-6519-5222" rel="noreferrer" target="_blank"><span class="connect-icon"><i aria-hidden="true" class="fa-brands fa-orcid"></i></span><span class="connect-text">ORCID</span></a>
+<a aria-label="ResearchGate" href="https://www.researchgate.net/profile/Florence-Doo" rel="noreferrer" target="_blank"><span class="connect-icon"><i aria-hidden="true" class="fa-brands fa-researchgate"></i></span><span class="connect-text">ResearchGate</span></a>
+</nav>
+</div>
+</div>
+</section>
 </main>
 <footer><p>© <span id="year"></span> Florence X. Doo</p><p>Clinical AI · Radiology · Informatics</p></footer>
 <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
 <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
 <script defer="" src="assets/hero-particles.js?v=20260920h"></script>
-<script defer="" src="assets/site.js?v=20260920k"></script>
+<script defer="" src="assets/site.js?v=20260921c"></script>
 </body>
 </html>

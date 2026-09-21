@@ -2723,3 +2723,562 @@ html[data-theme="light"] .hero-particles { opacity: .46; }
   .event-group-meta { justify-content: flex-start; text-align: left; }
   .event-session { grid-template-columns: 74px minmax(0,1fr); gap: 10px; padding-left: 11px; }
 }
+
+/* 2026-09-21a: navigation, leadership, speaking, appointment actions, and portrait refinements */
+
+/* Keep the Research hover menu physically connected to its trigger so Publications remains clickable. */
+.nav-dropdown .nav-menu {
+  top: 100%;
+  margin-top: 0;
+}
+
+/* Current-appointment secondary actions use the same quiet action language as View related. */
+.appointment-groups--compact .appointment-links {
+  gap: 7px;
+  margin-top: 9px;
+}
+.appointment-groups--compact .appointment-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 26px;
+  padding: 4px 9px 5px;
+  border: 1px solid color-mix(in srgb, var(--accent-strong) 43%, var(--rule));
+  background: color-mix(in srgb, var(--accent) 5%, transparent);
+  color: var(--accent-strong);
+  font-size: 11.5px;
+  line-height: 1;
+  font-weight: 660;
+  letter-spacing: .01em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.appointment-groups--compact .appointment-links a:hover,
+.appointment-groups--compact .appointment-links a:focus-visible {
+  border-color: var(--accent-strong);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+/* Leadership hierarchy mirrors the Current appointments hierarchy: org, role, then quieter detail. */
+.about-column--boxed .leadership-cvline {
+  color: var(--text);
+}
+.about-column--boxed .leadership-detail {
+  color: var(--muted);
+  font-weight: 430;
+}
+.about-column--boxed .leadership-inline-link {
+  color: var(--accent-strong);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent-strong) 55%, transparent);
+  text-underline-offset: 2px;
+}
+.about-column--boxed .leadership-inline-link:hover,
+.about-column--boxed .leadership-inline-link:focus-visible {
+  color: var(--text);
+  text-decoration-color: var(--accent-strong);
+}
+
+/* More legible portrait separation in dark mode without a heavy drop shadow. */
+html:not([data-theme="light"]) .portrait {
+  box-shadow:
+    0 20px 52px rgba(0, 0, 0, .20),
+    0 0 0 1px rgba(185, 217, 255, .16),
+    0 0 32px rgba(141, 192, 255, .13);
+}
+html[data-theme="light"] .portrait {
+  box-shadow: 0 18px 42px rgba(16, 36, 59, .15);
+}
+
+/* Speaking map label and explicit past/upcoming legend. */
+.speaking-map-note {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.map-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+.map-key::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  display: inline-block;
+}
+.map-key--past::before {
+  background: #5e86aa;
+  box-shadow: 0 0 0 1px rgba(94,134,170,.32);
+}
+.map-key--upcoming::before {
+  width: 9px;
+  height: 9px;
+  background: #69dfff;
+  box-shadow: 0 0 0 2px rgba(105,223,255,.20), 0 0 10px rgba(105,223,255,.28);
+}
+.map-interaction { color: var(--faint); }
+
+/* Past vs upcoming locations are intentionally distinct rather than only different sizes. */
+.speaking-dot {
+  background: #5e86aa;
+  border-color: color-mix(in srgb, var(--bg) 86%, transparent);
+  box-shadow: 0 0 0 1px rgba(94,134,170,.38);
+}
+.speaking-dot--upcoming {
+  background: #69dfff;
+  border-color: color-mix(in srgb, var(--bg) 82%, transparent);
+  box-shadow: 0 0 0 2px rgba(105,223,255,.25), 0 0 12px rgba(105,223,255,.30);
+}
+html[data-theme="light"] .speaking-dot {
+  background: #416d95;
+  border-color: rgba(255,255,255,.92);
+}
+html[data-theme="light"] .speaking-dot--upcoming {
+  background: #007fa8;
+  border-color: rgba(255,255,255,.94);
+  box-shadow: 0 0 0 2px rgba(0,127,168,.18);
+}
+
+/* Conference is the primary orienting label; individual linked talk titles are secondary blue. */
+.event-conference,
+.event-conference-link {
+  color: var(--text);
+}
+.event-conference-link:hover,
+.event-conference-link:focus-visible {
+  color: var(--accent-strong);
+}
+.event-session .event-title {
+  color: var(--accent-strong);
+  font-weight: 610;
+}
+.event-title-arrow {
+  display: inline-block;
+  margin-left: .22em;
+  font-size: .88em;
+  color: var(--accent);
+}
+.event-session:hover .event-title,
+.event-session:focus-visible .event-title {
+  color: var(--text);
+}
+
+/* Sessions in the same conference are grouped by whitespace, not internal divider bars. */
+.event-session + .event-session {
+  border-top: 0;
+}
+.event-session {
+  padding-top: 9px;
+  padding-bottom: 10px;
+}
+.event-group-sessions {
+  gap: 2px;
+}
+
+@media (max-width: 600px) {
+  .speaking-map-note { justify-content: flex-start; gap: 6px 8px; }
+}
+
+
+/* 2026-09-21b: reliable hover-to-click Research dropdown + action-oriented Connect section */
+.nav-dropdown {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+}
+.nav-dropdown-toggle {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 16px;
+  font-weight: 520;
+  cursor: pointer;
+}
+.nav-dropdown-toggle::after {
+  content: "⌄";
+  display: inline-block;
+  margin-left: 5px;
+  color: var(--faint);
+  font-size: .82em;
+  transform: translateY(-1px);
+}
+.nav-dropdown-toggle:hover,
+.nav-dropdown-toggle:focus-visible,
+.nav-dropdown-toggle.active,
+.nav-dropdown[aria-expanded="true"] .nav-dropdown-toggle {
+  color: var(--text);
+  outline: none;
+}
+.nav-dropdown .nav-menu {
+  display: none;
+  top: 100%;
+  left: -14px;
+  margin-top: 0;
+}
+/* Invisible hover bridge prevents the pointer from falling through between trigger and menu. */
+.nav-dropdown .nav-menu::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -10px;
+  height: 10px;
+}
+.nav-dropdown:hover .nav-menu,
+.nav-dropdown:focus-within .nav-menu,
+.nav-dropdown.is-open .nav-menu {
+  display: block;
+}
+
+.hero-action-bar .hero-connect-label {
+  cursor: pointer;
+}
+.hero-action-bar .hero-connect-label:hover,
+.hero-action-bar .hero-connect-label:focus-visible {
+  color: var(--accent-strong);
+  outline: none;
+}
+
+.connect-section { scroll-margin-top: 84px; }
+.connect-panel {
+  padding: clamp(24px, 3vw, 36px);
+  border: 1px solid var(--rule);
+  background: color-mix(in srgb, var(--bg-soft) 78%, transparent);
+}
+.connect-panel-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid color-mix(in srgb, var(--rule) 78%, transparent);
+}
+.connect-panel-heading h3 {
+  margin: 0;
+  font-size: clamp(20px, 2vw, 25px);
+}
+.connect-panel-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13.5px;
+}
+.connect-pathways {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 4px;
+}
+.connect-pathway {
+  min-width: 0;
+  padding: 24px 24px 22px 0;
+}
+.connect-pathway + .connect-pathway {
+  padding-left: 24px;
+  border-left: 1px solid color-mix(in srgb, var(--rule) 76%, transparent);
+}
+.connect-pathway h4 {
+  margin: 0 0 8px;
+  color: var(--text);
+  font-size: 16px;
+}
+.connect-pathway p {
+  margin: 0;
+  min-height: 5.4em;
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+.connect-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  min-height: 30px;
+  padding: 6px 11px 7px;
+  border: 1px solid color-mix(in srgb, var(--accent-strong) 43%, var(--rule));
+  background: color-mix(in srgb, var(--accent) 5%, transparent);
+  color: var(--accent-strong);
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 660;
+  text-decoration: none;
+}
+.connect-cta:hover,
+.connect-cta:focus-visible {
+  border-color: var(--accent-strong);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+.connect-profiles {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 22px;
+  padding-top: 20px;
+  border-top: 1px solid color-mix(in srgb, var(--rule) 78%, transparent);
+}
+.connect-profiles-label {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12.5px;
+  font-weight: 650;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.connect-profiles .profile-icon-links {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  justify-content: end;
+  column-gap: clamp(12px, 1.6vw, 20px);
+  row-gap: 9px;
+}
+
+@media (max-width: 900px) {
+  .connect-panel-heading { align-items: flex-start; flex-direction: column; gap: 6px; }
+  .connect-pathways { grid-template-columns: 1fr; }
+  .connect-pathway { padding: 20px 0; }
+  .connect-pathway + .connect-pathway { padding-left: 0; border-left: 0; border-top: 1px solid color-mix(in srgb, var(--rule) 76%, transparent); }
+  .connect-pathway p { min-height: 0; }
+  .connect-profiles { grid-template-columns: 1fr; gap: 13px; }
+  .connect-profiles .profile-icon-links { grid-template-columns: repeat(3, max-content); justify-content: start; }
+}
+@media (max-width: 560px) {
+  .connect-panel { padding: 20px 16px; }
+  .connect-profiles .profile-icon-links { width: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 14px; }
+  .connect-profiles .profile-icon-links a { justify-content: flex-start; }
+}
+
+/* Ensure legacy <details> dropdown rules cannot suppress the new hover/tap menu. */
+.nav-dropdown > .nav-menu { display: none !important; }
+.nav-dropdown:hover > .nav-menu,
+.nav-dropdown:focus-within > .nav-menu,
+.nav-dropdown.is-open > .nav-menu { display: block !important; }
+.nav-dropdown-toggle[aria-expanded="true"] { color: var(--text); }
+
+
+/* 2026-09-21c: harden Research hover menu + simplify Connect footer */
+/* Header must paint above the hero; otherwise the hero stacking context can intercept the submenu. */
+.hero-stage .site-header {
+  z-index: 40 !important;
+  overflow: visible;
+}
+.hero-stage .hero { z-index: 3 !important; }
+.nav-dropdown {
+  z-index: 60;
+  overflow: visible;
+}
+.nav-dropdown .nav-menu {
+  z-index: 1000;
+  top: calc(100% - 1px);
+  pointer-events: auto;
+}
+/* A small invisible hover corridor makes diagonal pointer movement forgiving. */
+.nav-dropdown::after {
+  content: "";
+  position: absolute;
+  z-index: 999;
+  left: -14px;
+  right: -14px;
+  top: calc(100% - 2px);
+  height: 12px;
+  pointer-events: auto;
+}
+.nav-dropdown .nav-menu { margin-top: 8px; }
+.nav-dropdown .nav-menu::before {
+  top: -9px;
+  height: 9px;
+}
+
+/* Connect: no redundant intro label; profile links mirror the centered hero treatment. */
+.connect-pathways { margin-top: 0; }
+.connect-profiles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+  border-top: 1px solid color-mix(in srgb, var(--rule) 78%, transparent);
+}
+.connect-profiles .profile-icon-links {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  align-items: center;
+  justify-content: center;
+  column-gap: clamp(12px, 1.6vw, 20px);
+  row-gap: 9px;
+}
+.connect-profiles .profile-icon-links a { min-width: 0; }
+@media (max-width: 720px) {
+  .connect-profiles .profile-icon-links {
+    grid-template-columns: repeat(3, max-content);
+    column-gap: 14px;
+  }
+}
+@media (max-width: 480px) {
+  .connect-profiles .profile-icon-links {
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 8px;
+  }
+  .connect-profiles .profile-icon-links a {
+    justify-content: center;
+    gap: 5px;
+  }
+}
+
+/* 2026-09-21d: simplify Connect to two primary routes */
+.connect-pathways--two {
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, .85fr);
+}
+.connect-pathways--two .connect-pathway p {
+  min-height: 0;
+}
+.connect-audiences {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 14px;
+}
+.connect-audience {
+  min-width: 0;
+}
+.connect-audience + .connect-audience {
+  padding-left: 18px;
+  border-left: 1px solid color-mix(in srgb, var(--rule) 68%, transparent);
+}
+.connect-audience h5 {
+  margin: 0 0 6px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 700;
+}
+.connect-audience p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.connect-pathway--speaking > p {
+  max-width: 34em;
+}
+@media (max-width: 900px) {
+  .connect-pathways--two { grid-template-columns: 1fr; }
+  .connect-audiences { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .connect-audiences { grid-template-columns: 1fr; gap: 16px; }
+  .connect-audience + .connect-audience {
+    padding-left: 0;
+    padding-top: 16px;
+    border-left: 0;
+    border-top: 1px solid color-mix(in srgb, var(--rule) 68%, transparent);
+  }
+}
+
+
+/* 2026-09-21e: rebalance Connect + quiet inline leadership links */
+/* Inline project/committee links should read as detail text, not as organization headings. */
+.about-column--boxed .leadership-inline-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, currentColor 48%, transparent);
+  text-underline-offset: 2px;
+}
+.about-column--boxed .leadership-inline-link:hover,
+.about-column--boxed .leadership-inline-link:focus-visible {
+  color: var(--text);
+  text-decoration-color: currentColor;
+}
+
+/* Two true peer panels: equal width, aligned/centered primary headings. */
+.connect-pathways--two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+}
+.connect-pathways--two .connect-pathway {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 26px 28px 24px;
+}
+.connect-pathways--two .connect-pathway:first-child {
+  padding-left: 0;
+}
+.connect-pathways--two .connect-pathway:last-child {
+  padding-right: 0;
+}
+.connect-pathways--two .connect-pathway + .connect-pathway {
+  padding-left: 28px;
+  border-left: 1px solid color-mix(in srgb, var(--rule) 76%, transparent);
+}
+.connect-pathways--two .connect-pathway > h4 {
+  margin: 0 0 18px;
+  text-align: center;
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+/* Lab audiences are subordinate to the major route, without another divider. */
+.connect-audiences {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(22px, 2.8vw, 38px);
+  margin-top: 0;
+  align-items: start;
+}
+.connect-audience + .connect-audience {
+  padding-left: 0;
+  border-left: 0;
+}
+.connect-audience h5 {
+  margin: 0 0 7px;
+  color: var(--accent-strong);
+  font-size: 12px;
+  line-height: 1.25;
+  font-weight: 720;
+  letter-spacing: .055em;
+  text-transform: uppercase;
+}
+.connect-audience p {
+  min-height: 3.1em;
+}
+
+/* Keep the speaking route visually aligned with the lab route. */
+.connect-pathway--speaking > p {
+  max-width: 36em;
+  margin-left: 0;
+  margin-right: 0;
+  min-height: 3.1em;
+}
+.connect-pathway--speaking .connect-cta {
+  align-self: flex-start;
+}
+
+@media (max-width: 900px) {
+  .connect-pathways--two { grid-template-columns: 1fr; }
+  .connect-pathways--two .connect-pathway,
+  .connect-pathways--two .connect-pathway:first-child,
+  .connect-pathways--two .connect-pathway:last-child {
+    padding: 22px 0;
+  }
+  .connect-pathways--two .connect-pathway + .connect-pathway {
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid color-mix(in srgb, var(--rule) 76%, transparent);
+  }
+  .connect-pathways--two .connect-pathway > h4 { text-align: left; margin-bottom: 14px; }
+}
+@media (max-width: 560px) {
+  .connect-audiences { grid-template-columns: 1fr; gap: 18px; }
+  .connect-audience + .connect-audience {
+    padding-top: 0;
+    border-top: 0;
+  }
+  .connect-audience p { min-height: 0; }
+}

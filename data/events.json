@@ -68,7 +68,7 @@
       "displayDate": "Nov 6, 2026",
       "event": "University of Vermont",
       "title": "Grand Rounds",
-      "note": "Faculty and resident sessions",
+      "note": "Department of Radiology",
       "scope": "national",
       "location": "Burlington, VT",
       "lat": 44.4759,
@@ -115,7 +115,8 @@
       "location": "Baltimore, MD",
       "lat": 39.2904,
       "lng": -76.6122,
-      "conference": "Johns Hopkins"
+      "conference": "Johns Hopkins",
+      "note": "Department of Radiology"
     },
     {
       "date": "2027-03-01",
@@ -186,7 +187,8 @@
       "location": "Providence, RI",
       "lat": 41.824,
       "lng": -71.4128,
-      "conference": "Brown University"
+      "conference": "Brown University",
+      "note": "Department of Radiology"
     }
   ],
   "speakingLocations": [

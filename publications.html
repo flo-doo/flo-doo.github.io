@@ -17,7 +17,7 @@
   <script>
     try { if (localStorage.getItem('florence-doo-theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (_) {}
   </script>
-  <link rel="stylesheet" href="assets/styles.css?v=20260920u" />
+  <link rel="stylesheet" href="assets/styles.css?v=20260921e" />
   <!-- AUTO:PUBLICATIONS-JSONLD:START -->
 <script type="application/ld+json">
 {
@@ -867,13 +867,13 @@
     <div class="header-actions">
       <nav class="nav" aria-label="Primary navigation">
         <a href="index.html">Home</a>
-        <details class="nav-dropdown">
-          <summary class="active">Research</summary>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle active" type="button" aria-expanded="false" aria-haspopup="true">Research</button>
           <div class="nav-menu">
             <a href="index.html#research">Research overview</a>
-            <a class="active" href="publications.html">Publications</a>
+            <a class="active" href="/publications.html">Publications</a>
           </div>
-        </details>
+        </div>
         <a href="index.html#speaking">Speaking</a>
         <a href="index.html#about">About</a>
         <a href="index.html#connect">Connect</a>
@@ -976,6 +976,6 @@
   </main>
 
   <footer><p>© <span id="year"></span> Florence X. Doo</p><p><a href="index.html">Home</a></p></footer>
-  <script src="assets/site.js?v=20260920k" defer></script>
+  <script src="assets/site.js?v=20260921c" defer></script>
 </body>
 </html>

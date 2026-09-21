@@ -28,6 +28,36 @@
 
   document.querySelectorAll('#year').forEach(el => { el.textContent = new Date().getFullYear(); });
 
+  // Research remains the intentional gateway to Publications: hover on desktop, tap/click on touch/keyboard.
+  // Keep the menu open briefly while the pointer moves from the trigger into the submenu.
+  document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+    const toggleButton = dropdown.querySelector('.nav-dropdown-toggle');
+    const menu = dropdown.querySelector('.nav-menu');
+    if (!toggleButton || !menu) return;
+    let closeTimer = null;
+    const setOpen = (open) => {
+      if (closeTimer) { window.clearTimeout(closeTimer); closeTimer = null; }
+      dropdown.classList.toggle('is-open', open);
+      toggleButton.setAttribute('aria-expanded', String(open));
+    };
+    const scheduleClose = () => {
+      if (closeTimer) window.clearTimeout(closeTimer);
+      closeTimer = window.setTimeout(() => {
+        if (!dropdown.matches(':hover') && !dropdown.contains(document.activeElement)) setOpen(false);
+      }, 240);
+    };
+    toggleButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      setOpen(!dropdown.classList.contains('is-open'));
+    });
+    dropdown.addEventListener('mouseenter', () => setOpen(true));
+    dropdown.addEventListener('mouseleave', scheduleClose);
+    menu.addEventListener('mouseenter', () => setOpen(true));
+    menu.addEventListener('mouseleave', scheduleClose);
+    dropdown.addEventListener('focusin', () => setOpen(true));
+    dropdown.addEventListener('focusout', scheduleClose);
+  });
+
   const esc = (s = '') => String(s).replace(/[&<>'"]/g, c => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
   }[c]));
@@ -200,8 +230,11 @@
                 e.note,
                 e.time
               ].filter(Boolean).map(esc);
+              const titleMarkup = e.url
+                ? `<span class="event-title">${esc(e.title)} <span class="event-title-arrow" aria-hidden="true">↗</span></span>`
+                : `<span class="event-title">${esc(e.title)}</span>`;
               const inner = `<div class="event-session-date">${esc(e.displayDate || e.date)}</div>` +
-                `<div class="event-session-body"><span class="event-title">${esc(e.title)}</span>` +
+                `<div class="event-session-body">${titleMarkup}` +
                 (details.length ? `<div class="event-meta">${details.join('<br>')}</div>` : '') +
                 `</div>`;
               return e.url
