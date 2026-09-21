@@ -113,19 +113,64 @@
     } catch (_) {}
 
     const points = [];
-    const historicalSeen = new Set();
-    const addPoint = (lat, lng, label, scope, isUpcoming = false, title = '') => {
-      const y = Number(lat), x = Number(lng);
-      if (!Number.isFinite(y) || !Number.isFinite(x)) return;
-      // Historical footprint is one dot per city; upcoming events may share a city and cluster.
-      const historicalKey = `${y.toFixed(3)},${x.toFixed(3)}`;
-      if (!isUpcoming && historicalSeen.has(historicalKey)) return;
-      if (!isUpcoming) historicalSeen.add(historicalKey);
-      points.push({lat: y, lng: x, label, scope, upcoming: isUpcoming, title});
-    };
+    const coordinateKey = (lat, lng) => `${Number(lat).toFixed(3)},${Number(lng).toFixed(3)}`;
 
-    (data.speakingLocations || []).forEach(p => addPoint(p.lat, p.lng, p.label, p.scope, false, ''));
-    upcoming.forEach(e => addPoint(e.lat, e.lng, e.location || e.event, e.scope, true, e.title || e.event));
+    // Upcoming talks are aggregated by physical location before markers are created.
+    // This prevents multiple talks at the same conference/city from spiderfying apart and
+    // lets the map orient visitors to conferences rather than individual talk titles.
+    const upcomingByLocation = new Map();
+    upcoming.forEach(e => {
+      const y = Number(e.lat), x = Number(e.lng);
+      if (!Number.isFinite(y) || !Number.isFinite(x)) return;
+      const key = coordinateKey(y, x);
+      if (!upcomingByLocation.has(key)) {
+        upcomingByLocation.set(key, {
+          lat: y,
+          lng: x,
+          location: e.conferenceLocation || e.location || '',
+          scope: e.scope,
+          conferences: new Map()
+        });
+      }
+      const group = upcomingByLocation.get(key);
+      const conference = e.conference || e.event || e.title || 'Upcoming appearance';
+      const current = group.conferences.get(conference) || {name: conference, count: 0};
+      current.count += 1;
+      group.conferences.set(conference, current);
+      if (!group.location && (e.conferenceLocation || e.location)) group.location = e.conferenceLocation || e.location;
+    });
+
+    const upcomingKeys = new Set(upcomingByLocation.keys());
+    const historicalSeen = new Set();
+
+    // Keep one historical marker per city. If that same city has an upcoming appearance,
+    // the upcoming marker supersedes the historical marker so the two never overlap/spiderfy.
+    (data.speakingLocations || []).forEach(p => {
+      const y = Number(p.lat), x = Number(p.lng);
+      if (!Number.isFinite(y) || !Number.isFinite(x)) return;
+      const key = coordinateKey(y, x);
+      if (historicalSeen.has(key) || upcomingKeys.has(key)) return;
+      historicalSeen.add(key);
+      points.push({
+        lat: y,
+        lng: x,
+        label: p.label,
+        scope: p.scope,
+        upcoming: false,
+        conferences: []
+      });
+    });
+
+    upcomingByLocation.forEach(group => {
+      points.push({
+        lat: group.lat,
+        lng: group.lng,
+        label: group.location,
+        scope: group.scope,
+        upcoming: true,
+        conferences: Array.from(group.conferences.values())
+      });
+    });
 
     const dotIcon = (upcomingFlag) => L.divIcon({
       className: 'speaking-dot-wrap',
@@ -152,10 +197,17 @@
 
     points.forEach(p => {
       const marker = L.marker([p.lat, p.lng], {icon: dotIcon(p.upcoming), keyboard: true});
-      const status = p.upcoming ? '<br><em>Upcoming</em>' : '';
-      const body = p.title
-        ? `<strong>${esc(p.label)}</strong><br>${esc(p.title)}${status}`
-        : `<strong>${esc(p.label)}</strong>${status}`;
+      let body;
+      if (p.upcoming && p.conferences?.length) {
+        const conferenceLines = p.conferences.map(c => {
+          const talkLabel = c.count === 1 ? '1 talk' : `${c.count} talks`;
+          return `<strong>${esc(c.name)}</strong> <span class="map-talk-count">(${talkLabel})</span>`;
+        }).join('<br>');
+        const locationLine = p.label ? `<br><span class="map-tooltip-location">${esc(p.label)}</span>` : '';
+        body = `${conferenceLines}${locationLine}<br><em>Upcoming</em>`;
+      } else {
+        body = `<strong>${esc(p.label)}</strong>`;
+      }
       marker.bindTooltip(body, {direction: 'top', opacity: 1});
       marker.bindPopup(body);
       speakingMarkerLayer.addLayer(marker);
