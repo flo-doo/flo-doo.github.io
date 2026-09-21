@@ -1,34 +1,37 @@
 {
-  "updated": "2026-09-20",
-  "count": 59,
+  "updated": "2026-09-21",
+  "count": 102,
   "publications": [
     {
-      "id": "m38",
-      "title": "Trustworthy Clinical Thinking in MLLMs: Hierarchical Energy-based Reasoning for interpretable MEdical Scans (HERMES)",
-      "citation": "Doo FX, Han H, Maron BA, Huang H. Trustworthy Clinical Thinking in MLLMs: Hierarchical Energy- based Reasoning for interpretable MEdical Scans (HERMES). In: Qiu, J, et al. AI for Clinical Applications. International Workshop on Multimodal Large Language Models in Clinical Practice @ The Medical Image Computing and Computer Assisted Interventions (MICCAI) Society. Lecture Notes in Computer Science, vol 16147. Springer. 2025. https://doi.org/10.1007/978-3-032-06004-4_24",
-      "year": 2025,
-      "doi": "10.1007/978-3-032-06004-4_24",
-      "pmid": null,
-      "url": "https://doi.org/10.1007/978-3-032-06004-4_24",
-      "source": "MICCAI 2025 / Springer proceedings; CV index",
+      "id": "m48",
+      "title": "Human Judgment and the Limits of Artificial Intelligence for Automated Rank Order Lists in Diagnostic Radiology Residency Selection",
+      "citation": "Savage C, Hossain R, Tonascia J, Pavlou A, Resnik CS, Doo FX*, Smith EB* (co-senior). Human Judgment and the Limits of Artificial Intelligence for Automated Rank Order Lists in Diagnostic Radiology Residency Selection. Journal of the American College of Radiology, Accepted, in press.",
+      "year": 2026,
+      "doi": "10.1016/j.jacr.2026.09.006",
+      "pmid": "42727622",
+      "url": "https://doi.org/10.1016/j.jacr.2026.09.006",
+      "source": "CV (Sep 12, 2026) + ORCID",
       "tags": [
-        "frontier-clinical-intelligence",
-        "trustworthy-human-ai",
-        "medical-imaging-informatics-data"
-      ]
+        "trustworthy-human-ai"
+      ],
+      "date": "2026-09-11",
+      "status": "published"
     },
     {
-      "id": "c8",
-      "title": "Teleradiology, Edge Computing, and the Internet of Things in Radiology: A RRA Perspective on Decentralized Diagnostics",
-      "citation": "Viswanathan VS, Zhu D, Polat D, Doo F, Straus C, Rozenshtein A, Retrouvey M. Teleradiology, Edge Computing, and the Internet of Things in Radiology: A RRA Perspective on Decentralized Diagnostics. Academic Radiology, 2026 Mar 6; 33(3):646–652. doi: 10.1016/j.acra.2025.12.040",
+      "id": "m44",
+      "title": "Effect of Deep Learning Training Policy on Greenhouse Gas Emissions and Carbon Efficiency for Chest Radiograph Classification",
+      "citation": "Dietrich N, McShannon DM, Huisman M, Doo FX, Hanneman K. Effect of Deep Learning Training Policy on Greenhouse Gas Emissions and Carbon Efficiency for Chest Radiograph Classification. Canadian Association of Radiologists Journal. Accepted July 22 2026.",
       "year": 2026,
-      "doi": "10.1016/j.acra.2025.12.040",
-      "pmid": null,
-      "url": "https://doi.org/10.1016/j.acra.2025.12.040",
-      "source": "CV (Sep 12, 2026)",
+      "doi": "10.1177/08465371261475319",
+      "pmid": "42584018",
+      "url": "https://doi.org/10.1177/08465371261475319",
+      "source": "CV (Sep 12, 2026) + ORCID + Crossref",
       "tags": [
+        "sustainable-ai-radiology",
         "medical-imaging-informatics-data"
-      ]
+      ],
+      "date": "2026-08-12",
+      "status": "published"
     },
     {
       "id": "m43",
@@ -38,24 +41,94 @@
       "doi": "10.1016/j.jacr.2026.05.014",
       "pmid": "42107677",
       "url": "https://doi.org/10.1016/j.jacr.2026.05.014",
-      "source": "CV (Sep 12, 2026)",
+      "source": "CV (Sep 12, 2026) + ORCID",
       "tags": [
         "medical-imaging-informatics-data"
-      ]
+      ],
+      "date": "2026-08-01"
     },
     {
-      "id": "m48",
-      "title": "Human Judgment and the Limits of Artificial Intelligence for Automated Rank Order Lists in Diagnostic Radiology Residency Selection",
-      "citation": "Savage C, Hossain R, Tonascia J, Pavlou A, Resnik CS, Doo FX*, Smith EB* (co-senior). Human Judgment and the Limits of Artificial Intelligence for Automated Rank Order Lists in Diagnostic Radiology Residency Selection. Journal of the American College of Radiology, Accepted, in press.",
+      "id": "m45",
+      "title": "Capturing the Clinician-Artificial Intelligence Interaction: A Missing Prerequisite for Human-Centered Artificial Intelligence",
+      "citation": "Goodman KE, Doo FX, Price WN 2nd, Binkley CE. Capturing the Clinician-Artificial Intelligence Interaction: A Missing Prerequisite for Human-Centered Artificial Intelligence. J Am Coll Radiol. 2026 Jul 30:S1546-1440(26)00376-5. doi: 10.1016/j.jacr.2026.07.014. Epub ahead of print. PMID: 42532247.",
       "year": 2026,
-      "doi": "10.1016/j.jacr.2026.09.006",
-      "pmid": "42727622",
-      "url": "https://doi.org/10.1016/j.jacr.2026.09.006",
-      "source": "CV (Sep 12, 2026)",
+      "doi": "10.1016/j.jacr.2026.07.014",
+      "pmid": "42532247",
+      "url": "https://doi.org/10.1016/j.jacr.2026.07.014",
+      "source": "CV (Sep 12, 2026) + Crossref",
       "tags": [
         "trustworthy-human-ai"
       ],
-      "date": "2026-09-11",
+      "date": "2026-07-01",
+      "status": "published"
+    },
+    {
+      "id": "c10",
+      "title": "Alignment of Policy, Practice, and Patient Safety for Trustworthy AI in Radiology",
+      "citation": "Doo FX, Davis MA, Poff J, Lui YW, Haines K, Towbin AJ. Alignment of Policy, Practice, and Patient Safety for Trustworthy AI in Radiology. Radiol Artif Intell. 2026 Jul;8(4):e250982. doi: 10.1148/ryai.250982. PMID: 42200797; PMCID: PMC13349408.",
+      "year": 2026,
+      "doi": "10.1148/ryai.250982",
+      "pmid": "42200797",
+      "url": "https://doi.org/10.1148/ryai.250982",
+      "source": "CV (Sep 12, 2026) + ORCID + Crossref",
+      "tags": [
+        "trustworthy-human-ai"
+      ],
+      "date": "2026-07-01",
+      "status": "published"
+    },
+    {
+      "id": "c11",
+      "title": "AMPLIFAI: Annotated Multi-Phase Liver Imaging For Artificial Intelligence",
+      "citation": "Shah N, Kulkarni P, Suryavanshi A, Delfino J, Tonascia J, Lane BF, Wong J, Chirico J, Huang H, Doo FX. AMPLIFAI: Annotated Multi-Phase Liver Imaging For Artificial Intelligence. Challenge In: Medical Image Computing and Computer Assisted Interventions (MICCAI) Society. 1 Oct 2026.",
+      "year": 2026,
+      "doi": "10.5281/zenodo.19848293",
+      "pmid": null,
+      "url": "https://doi.org/10.5281/zenodo.19848293",
+      "source": "CV (Sep 12, 2026)",
+      "tags": [
+        "frontier-clinical-intelligence",
+        "medical-imaging-informatics-data"
+      ],
+      "date": "2026-04-28"
+    },
+    {
+      "title": "Sustainability as Radiology’s Triple Helix: Value, Patient Care, and the Planet",
+      "year": 2026,
+      "date": "2026-04-01",
+      "doi": "10.1016/j.jacr.2026.02.021",
+      "pmid": null,
+      "url": "https://doi.org/10.1016/j.jacr.2026.02.021",
+      "citation": "Sustainability as Radiology’s Triple Helix: Value, Patient Care, and the Planet",
+      "source": "ORCID",
+      "tags": [],
+      "status": "published"
+    },
+    {
+      "title": "61 COMPASS: Comprehensive multimodal performance assessment for safe vascular AI systems using Curie8, an LLM-based medical imaging data pipeline",
+      "year": 2026,
+      "date": "2026-04-01",
+      "doi": "10.1017/cts.2026.10288",
+      "pmid": null,
+      "url": "https://doi.org/10.1017/cts.2026.10288",
+      "citation": "61 COMPASS: Comprehensive multimodal performance assessment for safe vascular AI systems using Curie8, an LLM-based medical imaging data pipeline",
+      "source": "ORCID",
+      "tags": [],
+      "status": "published"
+    },
+    {
+      "id": "c8",
+      "title": "Teleradiology, Edge Computing, and the Internet of Things in Radiology: A RRA Perspective on Decentralized Diagnostics",
+      "citation": "Viswanathan VS, Zhu D, Polat D, Doo F, Straus C, Rozenshtein A, Retrouvey M. Teleradiology, Edge Computing, and the Internet of Things in Radiology: A RRA Perspective on Decentralized Diagnostics. Academic Radiology, 2026 Mar 6; 33(3):646–652. doi: 10.1016/j.acra.2025.12.040",
+      "year": 2026,
+      "doi": "10.1016/j.acra.2025.12.040",
+      "pmid": null,
+      "url": "https://doi.org/10.1016/j.acra.2025.12.040",
+      "source": "CV (Sep 12, 2026) + ORCID + Crossref",
+      "tags": [
+        "medical-imaging-informatics-data"
+      ],
+      "date": "2026-03-01",
       "status": "published"
     },
     {
@@ -66,11 +139,12 @@
       "doi": "10.1016/j.acra.2026.01.039",
       "pmid": null,
       "url": "https://doi.org/10.1016/j.acra.2026.01.039",
-      "source": "CV (Sep 12, 2026)",
+      "source": "CV (Sep 12, 2026) + ORCID",
       "tags": [
         "frontier-clinical-intelligence",
         "medical-imaging-informatics-data"
-      ]
+      ],
+      "date": "2026-03-01"
     },
     {
       "id": "c4",
@@ -80,26 +154,70 @@
       "doi": "10.1016/j.acra.2025.11.018",
       "pmid": "41781096",
       "url": "https://doi.org/10.1016/j.acra.2025.11.018",
-      "source": "CV (Sep 12, 2026)",
+      "source": "CV (Sep 12, 2026) + ORCID",
       "tags": [
         "frontier-clinical-intelligence"
-      ]
+      ],
+      "date": "2026-03-01"
     },
     {
-      "id": "m44",
-      "title": "Effect of Deep Learning Training Policy on Greenhouse Gas Emissions and Carbon Efficiency for Chest Radiograph Classification",
-      "citation": "Dietrich N, McShannon DM, Huisman M, Doo FX, Hanneman K. Effect of Deep Learning Training Policy on Greenhouse Gas Emissions and Carbon Efficiency for Chest Radiograph Classification. Canadian Association of Radiologists Journal. Accepted July 22 2026.",
+      "id": "c5",
+      "title": "An RRA Perspective on Quantum Computing and Blockchain in Radiology: Emerging Paradigms for Data Integrity and Advanced Computation",
+      "citation": "Hadi M, Brown J, Doo FX, Straus C, Rozenshtein A, Retrouvey M. An RRA Perspective on Quantum Computing and Blockchain in Radiology: Emerging Paradigms for Data Integrity and Advanced Computation. Academic Radiology, 2026 Mar 6; 33(3):653–661. doi: 10.1016/j.acra.2026.01.034.",
       "year": 2026,
-      "doi": "10.1177/08465371261475319",
-      "pmid": "42584018",
-      "url": "https://doi.org/10.1177/08465371261475319",
-      "source": "CV (Sep 12, 2026)",
+      "doi": "10.1016/j.acra.2026.01.034",
+      "pmid": null,
+      "url": "https://doi.org/10.1016/j.acra.2026.01.034",
+      "source": "CV (Sep 12, 2026) + ORCID + Crossref",
       "tags": [
-        "sustainable-ai-radiology",
+        "frontier-clinical-intelligence",
         "medical-imaging-informatics-data"
       ],
-      "date": "2026-08-12",
+      "date": "2026-03-01",
       "status": "published"
+    },
+    {
+      "id": "c7",
+      "title": "A RRA Perspective on AI and Machine Learning Applications in Radiology: From Experimental to Clinically Viable Solutions",
+      "citation": "Brown J, Dashevsky BZ, Polat D, Doo F, Straus C, Rozenshtein A, Retrouvey M. A RRA Perspective on AI and Machine Learning Applications in Radiology: From Experimental to Clinically Viable Solutions. Academic Radiology, 2026 Mar 6; 33(3):617–629. doi: 10.1016/j.acra.2025.11.021",
+      "year": 2026,
+      "doi": "10.1016/j.acra.2025.11.021",
+      "pmid": null,
+      "url": "https://doi.org/10.1016/j.acra.2025.11.021",
+      "source": "CV (Sep 12, 2026) + ORCID + Crossref",
+      "tags": [
+        "frontier-clinical-intelligence",
+        "medical-imaging-informatics-data"
+      ],
+      "date": "2026-03-01",
+      "status": "published"
+    },
+    {
+      "title": "TVF 2026 - Public Good - Disaster Relief : Introduction",
+      "year": 2026,
+      "date": "2026-01-27",
+      "doi": "10.4050/sm_evtol_2026-5228",
+      "pmid": null,
+      "url": "https://doi.org/10.4050/sm_evtol_2026-5228",
+      "citation": "TVF 2026 - Public Good - Disaster Relief : Introduction. Proceedings of the Vertical Flight Society Electric VTOL Symposium - San Jose, California, Jan 2026.",
+      "source": "Crossref",
+      "status": "published",
+      "tags": []
+    },
+    {
+      "id": "m46",
+      "title": "AMPLIFAI: A Multiphase CT Dataset for Benchmarking Clinical Reasoning in LI-RADS Assessment of Liver Lesions",
+      "citation": "Kulkarni P, Shah N, Suryavanshi A, Delfino J, Tonascia J, Wong J, Lane BF, Chirico J, Hirsch JD, Li A, Huang H, Doo FX. AMPLIFAI: A Multiphase CT Dataset for Benchmarking Clinical Reasoning in LI- RADS Assessment of Liver Lesions. Preprint 14 Aug 2026: https://arxiv.org/abs/2608.14778v2",
+      "year": 2026,
+      "doi": "10.48550/arxiv.2608.14778",
+      "pmid": null,
+      "url": "https://arxiv.org/abs/2608.14778v2",
+      "source": "CV (Sep 12, 2026) + ORCID",
+      "tags": [
+        "frontier-clinical-intelligence",
+        "medical-imaging-informatics-data"
+      ],
+      "date": "2026-01-01"
     },
     {
       "id": "m47",
@@ -112,19 +230,6 @@
       "source": "CV (Sep 12, 2026)",
       "tags": [
         "medical-imaging-informatics-data"
-      ]
-    },
-    {
-      "id": "m45",
-      "title": "Capturing the Clinician-Artificial Intelligence Interaction: A Missing Prerequisite for Human-Centered Artificial Intelligence",
-      "citation": "Goodman KE, Doo FX, Price WN 2nd, Binkley CE. Capturing the Clinician-Artificial Intelligence Interaction: A Missing Prerequisite for Human-Centered Artificial Intelligence. J Am Coll Radiol. 2026 Jul 30:S1546-1440(26)00376-5. doi: 10.1016/j.jacr.2026.07.014. Epub ahead of print. PMID: 42532247.",
-      "year": 2026,
-      "doi": "10.1016/j.jacr.2026.07.014",
-      "pmid": "42532247",
-      "url": "https://doi.org/10.1016/j.jacr.2026.07.014",
-      "source": "CV (Sep 12, 2026)",
-      "tags": [
-        "trustworthy-human-ai"
       ]
     },
     {
@@ -156,76 +261,6 @@
       ]
     },
     {
-      "id": "c5",
-      "title": "An RRA Perspective on Quantum Computing and Blockchain in Radiology: Emerging Paradigms for Data Integrity and Advanced Computation",
-      "citation": "Hadi M, Brown J, Doo FX, Straus C, Rozenshtein A, Retrouvey M. An RRA Perspective on Quantum Computing and Blockchain in Radiology: Emerging Paradigms for Data Integrity and Advanced Computation. Academic Radiology, 2026 Mar 6; 33(3):653–661. doi: 10.1016/j.acra.2026.01.034.",
-      "year": 2026,
-      "doi": "10.1016/j.acra.2026.01.034",
-      "pmid": null,
-      "url": "https://doi.org/10.1016/j.acra.2026.01.034",
-      "source": "CV (Sep 12, 2026)",
-      "tags": [
-        "frontier-clinical-intelligence",
-        "medical-imaging-informatics-data"
-      ]
-    },
-    {
-      "id": "c10",
-      "title": "Alignment of Policy, Practice, and Patient Safety for Trustworthy AI in Radiology",
-      "citation": "Doo FX, Davis MA, Poff J, Lui YW, Haines K, Towbin AJ. Alignment of Policy, Practice, and Patient Safety for Trustworthy AI in Radiology. Radiol Artif Intell. 2026 Jul;8(4):e250982. doi: 10.1148/ryai.250982. PMID: 42200797; PMCID: PMC13349408.",
-      "year": 2026,
-      "doi": "10.1148/ryai.250982",
-      "pmid": "42200797",
-      "url": "https://doi.org/10.1148/ryai.250982",
-      "source": "CV (Sep 12, 2026)",
-      "tags": [
-        "trustworthy-human-ai"
-      ]
-    },
-    {
-      "id": "c11",
-      "title": "AMPLIFAI: Annotated Multi-Phase Liver Imaging For Artificial Intelligence",
-      "citation": "Shah N, Kulkarni P, Suryavanshi A, Delfino J, Tonascia J, Lane BF, Wong J, Chirico J, Huang H, Doo FX. AMPLIFAI: Annotated Multi-Phase Liver Imaging For Artificial Intelligence. Challenge In: Medical Image Computing and Computer Assisted Interventions (MICCAI) Society. 1 Oct 2026.",
-      "year": 2026,
-      "doi": "10.5281/zenodo.19848293",
-      "pmid": null,
-      "url": "https://doi.org/10.5281/zenodo.19848293",
-      "source": "CV (Sep 12, 2026)",
-      "tags": [
-        "frontier-clinical-intelligence",
-        "medical-imaging-informatics-data"
-      ],
-      "date": "2026-04-28"
-    },
-    {
-      "id": "m46",
-      "title": "AMPLIFAI: A Multiphase CT Dataset for Benchmarking Clinical Reasoning in LI-RADS Assessment of Liver Lesions",
-      "citation": "Kulkarni P, Shah N, Suryavanshi A, Delfino J, Tonascia J, Wong J, Lane BF, Chirico J, Hirsch JD, Li A, Huang H, Doo FX. AMPLIFAI: A Multiphase CT Dataset for Benchmarking Clinical Reasoning in LI- RADS Assessment of Liver Lesions. Preprint 14 Aug 2026: https://arxiv.org/abs/2608.14778v2",
-      "year": 2026,
-      "doi": null,
-      "pmid": null,
-      "url": "https://arxiv.org/abs/2608.14778v2",
-      "source": "CV (Sep 12, 2026)",
-      "tags": [
-        "frontier-clinical-intelligence",
-        "medical-imaging-informatics-data"
-      ]
-    },
-    {
-      "id": "c7",
-      "title": "A RRA Perspective on AI and Machine Learning Applications in Radiology: From Experimental to Clinically Viable Solutions",
-      "citation": "Brown J, Dashevsky BZ, Polat D, Doo F, Straus C, Rozenshtein A, Retrouvey M. A RRA Perspective on AI and Machine Learning Applications in Radiology: From Experimental to Clinically Viable Solutions. Academic Radiology, 2026 Mar 6; 33(3):617–629. doi: 10.1016/j.acra.2025.11.021",
-      "year": 2026,
-      "doi": "10.1016/j.acra.2025.11.021",
-      "pmid": null,
-      "url": "https://doi.org/10.1016/j.acra.2025.11.021",
-      "source": "CV (Sep 12, 2026)",
-      "tags": [
-        "frontier-clinical-intelligence",
-        "medical-imaging-informatics-data"
-      ]
-    },
-    {
       "id": "m39",
       "title": "The Iodine Opportunity for Sustainable Radiology: Quantifying Supply-Chain Strategies to Cut Contrast's Carbon and Costs",
       "citation": "Nghiem DX, Yahyavi-Firouz-Abadi N, Hwang GL, Zafari Z, Moy L, Carlos RC, Doo FX. The Iodine Opportunity for Sustainable Radiology: Quantifying Supply-Chain Strategies to Cut Contrast's Carbon and Costs. J Am Coll Radiol. 2025 Oct 3:S1546-1440(25)00573-3. doi: 10.1016/j.jacr.2025.09.027. Epub ahead of print. PMID: 41046992.",
@@ -233,10 +268,23 @@
       "doi": "10.1016/j.jacr.2025.09.027",
       "pmid": "41046992",
       "url": "https://doi.org/10.1016/j.jacr.2025.09.027",
-      "source": "CV (Sep 12, 2026)",
+      "source": "CV (Sep 12, 2026) + ORCID",
       "tags": [
         "sustainable-ai-radiology"
-      ]
+      ],
+      "date": "2026-04-01"
+    },
+    {
+      "title": "Sustainability in Clinical AI",
+      "year": 2025,
+      "date": "2025-12-09",
+      "doi": "10.1201/9781032709956-14",
+      "pmid": null,
+      "url": "https://doi.org/10.1201/9781032709956-14",
+      "citation": "Sustainability in Clinical AI",
+      "source": "ORCID",
+      "tags": [],
+      "status": "published"
     },
     {
       "id": "m41",
@@ -246,10 +294,40 @@
       "doi": "10.1016/j.jacr.2025.09.019",
       "pmid": "41338714",
       "url": "https://doi.org/10.1016/j.jacr.2025.09.019",
-      "source": "CV (Sep 12, 2026)",
+      "source": "CV (Sep 12, 2026) + ORCID",
       "tags": [
         "medical-imaging-informatics-data"
-      ]
+      ],
+      "date": "2025-12-01"
+    },
+    {
+      "title": "Wing-in-Ground Effect Vehicles: From Modern Military and Commercial\n                    Development to Global Disaster Response",
+      "year": 2025,
+      "date": "2025-11-24",
+      "doi": "10.4271/epr2025017",
+      "pmid": null,
+      "url": "https://doi.org/10.4271/epr2025017",
+      "citation": "Wing-in-Ground Effect Vehicles: From Modern Military and Commercial\n                    Development to Global Disaster Response",
+      "source": "Crossref",
+      "status": "published",
+      "tags": []
+    },
+    {
+      "id": "m38",
+      "title": "Trustworthy Clinical Thinking in MLLMs: Hierarchical Energy-based Reasoning for interpretable MEdical Scans (HERMES)",
+      "citation": "Doo FX, Han H, Maron BA, Huang H. Trustworthy Clinical Thinking in MLLMs: Hierarchical Energy- based Reasoning for interpretable MEdical Scans (HERMES). In: Qiu, J, et al. AI for Clinical Applications. International Workshop on Multimodal Large Language Models in Clinical Practice @ The Medical Image Computing and Computer Assisted Interventions (MICCAI) Society. Lecture Notes in Computer Science, vol 16147. Springer. 2025. https://doi.org/10.1007/978-3-032-06004-4_24",
+      "year": 2025,
+      "doi": "10.1007/978-3-032-06004-4_24",
+      "pmid": null,
+      "url": "https://doi.org/10.1007/978-3-032-06004-4_24",
+      "source": "MICCAI 2025 / Springer proceedings; CV index",
+      "tags": [
+        "frontier-clinical-intelligence",
+        "trustworthy-human-ai",
+        "medical-imaging-informatics-data"
+      ],
+      "date": "2025-09-22",
+      "status": "published"
     },
     {
       "id": "m34",
@@ -259,39 +337,29 @@
       "doi": "10.1007/s10278-025-01541-3",
       "pmid": "40442564",
       "url": "https://doi.org/10.1007/s10278-025-01541-3",
-      "source": "CV (Sep 12, 2026)",
+      "source": "CV (Sep 12, 2026) + ORCID + Crossref",
       "tags": [
         "medical-imaging-informatics-data",
         "frontier-clinical-intelligence"
-      ]
+      ],
+      "date": "2025-05-29",
+      "status": "published"
     },
     {
-      "id": "m30",
-      "title": "Sex-Based Bias in Artificial Intelligence-Based Segmentation Models in Clinical Oncology",
-      "citation": "Doo FX*, Naranjo WG* (co-first), Kapouranis T, Thor M, Chao M, Yang X, Marshall DC. Sex-Based Bias in Artificial Intelligence-Based Segmentation Models in Clinical Oncology. Clin Oncol (R Coll Radiol). 2025 Mar; 39:103758. doi: 10.1016/j.clon.2025.103758. PMID: 39874747; PMCID: PMC11850178.",
+      "id": "m35",
+      "title": "Development, Evaluation, and Assessment of Large Language Models (DEAL) Checklist: A Technical Report",
+      "citation": "Tripathi S, Alkhulaifat D, Doo FX, Rajpurkar P, McBeth R, Daye D, Cook TS. Development, Evaluation, and Assessment of Large Language Models (DEAL) Checklist: A Technical Report. New England Journal of Medicine Artificial Intelligence (NEJM AI). 2025 May 9. https://ai.nejm.org/doi/full/10.1056/AIp2401106.",
       "year": 2025,
-      "doi": "10.1016/j.clon.2025.103758",
-      "pmid": "39874747",
-      "url": "https://doi.org/10.1016/j.clon.2025.103758",
-      "source": "CV (Sep 12, 2026)",
+      "doi": "10.1056/AIp2401106",
+      "pmid": null,
+      "url": "https://doi.org/10.1056/AIp2401106",
+      "source": "CV (Sep 12, 2026) + ORCID + Crossref",
       "tags": [
         "trustworthy-human-ai",
-        "medical-imaging-informatics-data"
-      ]
-    },
-    {
-      "id": "m31",
-      "title": "Open-Source Large Language Models in Radiology: A Review and Tutorial for Practical Research and Clinical Deployment",
-      "citation": "Savage CH, Kanhere A, Parekh V, Langlotz CP, Joshi A, Huang H, Doo FX. Open-Source Large Language Models in Radiology: A Review and Tutorial for Practical Research and Clinical Deployment. Radiology. 2025 Jan;314(1):e241073. doi: 10.1148/radiol.241073. PMID: 39873598; PMCID: PMC11783163.",
-      "year": 2025,
-      "doi": "10.1148/radiol.241073",
-      "pmid": "39873598",
-      "url": "https://doi.org/10.1148/radiol.241073",
-      "source": "CV (Sep 12, 2026)",
-      "tags": [
-        "frontier-clinical-intelligence",
-        "medical-imaging-informatics-data"
-      ]
+        "frontier-clinical-intelligence"
+      ],
+      "date": "2025-05-09",
+      "status": "published"
     },
     {
       "id": "m33",
@@ -309,6 +377,48 @@
       "date": "2025-03-06"
     },
     {
+      "id": "m30",
+      "title": "Sex-Based Bias in Artificial Intelligence-Based Segmentation Models in Clinical Oncology",
+      "citation": "Doo FX*, Naranjo WG* (co-first), Kapouranis T, Thor M, Chao M, Yang X, Marshall DC. Sex-Based Bias in Artificial Intelligence-Based Segmentation Models in Clinical Oncology. Clin Oncol (R Coll Radiol). 2025 Mar; 39:103758. doi: 10.1016/j.clon.2025.103758. PMID: 39874747; PMCID: PMC11850178.",
+      "year": 2025,
+      "doi": "10.1016/j.clon.2025.103758",
+      "pmid": "39874747",
+      "url": "https://doi.org/10.1016/j.clon.2025.103758",
+      "source": "CV (Sep 12, 2026) + ORCID",
+      "tags": [
+        "trustworthy-human-ai",
+        "medical-imaging-informatics-data"
+      ],
+      "date": "2025-03-01"
+    },
+    {
+      "title": "Pearls and Pitfalls of Integrating Artificial Intelligence Into Radiology Education",
+      "year": 2025,
+      "date": "2025-01-01",
+      "doi": "10.1016/j.jacr.2025.06.026",
+      "pmid": null,
+      "url": "https://doi.org/10.1016/j.jacr.2025.06.026",
+      "citation": "Pearls and Pitfalls of Integrating Artificial Intelligence Into Radiology Education",
+      "source": "ORCID",
+      "tags": [],
+      "status": "published"
+    },
+    {
+      "id": "m31",
+      "title": "Open-Source Large Language Models in Radiology: A Review and Tutorial for Practical Research and Clinical Deployment",
+      "citation": "Savage CH, Kanhere A, Parekh V, Langlotz CP, Joshi A, Huang H, Doo FX. Open-Source Large Language Models in Radiology: A Review and Tutorial for Practical Research and Clinical Deployment. Radiology. 2025 Jan;314(1):e241073. doi: 10.1148/radiol.241073. PMID: 39873598; PMCID: PMC11783163.",
+      "year": 2025,
+      "doi": "10.1148/radiol.241073",
+      "pmid": "39873598",
+      "url": "https://doi.org/10.1148/radiol.241073",
+      "source": "CV (Sep 12, 2026) + ORCID",
+      "tags": [
+        "frontier-clinical-intelligence",
+        "medical-imaging-informatics-data"
+      ],
+      "date": "2025-01-01"
+    },
+    {
       "id": "m40",
       "title": "Medical Imaging Contrast Media Use",
       "citation": "Doo FX, Lee R, Rockall A, Rula EY, Moy L. Medical Imaging Contrast Media Use. JAMA Netw Open. 2025 Dec 1;8(12):e2547304. doi: 10.1001/jamanetworkopen.2025.47304. PMID: 41348361; PMCID: PMC12681031.",
@@ -316,10 +426,12 @@
       "doi": "10.1001/jamanetworkopen.2025.47304",
       "pmid": "41348361",
       "url": "https://doi.org/10.1001/jamanetworkopen.2025.47304",
-      "source": "CV (Sep 12, 2026)",
+      "source": "CV (Sep 12, 2026) + ORCID + Crossref",
       "tags": [
         "sustainable-ai-radiology"
-      ]
+      ],
+      "date": "2025-01-01",
+      "status": "published"
     },
     {
       "id": "m37",
@@ -329,10 +441,11 @@
       "doi": "10.1016/j.athoracsur.2025.07.001",
       "pmid": "40691924",
       "url": "https://doi.org/10.1016/j.athoracsur.2025.07.001",
-      "source": "CV (Sep 12, 2026)",
+      "source": "CV (Sep 12, 2026) + ORCID",
       "tags": [
         "medical-imaging-informatics-data"
-      ]
+      ],
+      "date": "2025-01-01"
     },
     {
       "id": "m32",
@@ -342,11 +455,38 @@
       "doi": "10.37765/ajmc.2025.89695",
       "pmid": "40053403",
       "url": "https://doi.org/10.37765/ajmc.2025.89695",
-      "source": "CV (Sep 12, 2026)",
+      "source": "CV (Sep 12, 2026) + ORCID",
       "tags": [
         "trustworthy-human-ai",
         "frontier-clinical-intelligence"
-      ]
+      ],
+      "date": "2025-01-01"
+    },
+    {
+      "id": "c3",
+      "title": "Digital health and artificial intelligence innovations for oncology in sub-Saharan Africa",
+      "citation": "Dako F, Moraes FY, Doo F, Abed M, Anazodo U, Patrick L, Favorito FM, Fouad E, Alabi A, Avery S, Scott A, Ngwa W, Hricak H. Digital health and artificial intelligence innovations for oncology in sub- Saharan Africa. Lancet Oncol. 2025 Oct;26(10):e547-e557. doi: 10.1016/S1470-2045(25)00360-2. PMID: 41038203.",
+      "year": 2025,
+      "doi": "10.1016/S1470-2045(25)00360-2",
+      "pmid": "41038203",
+      "url": "https://doi.org/10.1016/S1470-2045(25)00360-2",
+      "source": "CV (Sep 12, 2026) + ORCID + ORCID",
+      "tags": [
+        "frontier-clinical-intelligence",
+        "medical-imaging-informatics-data"
+      ],
+      "date": "2025-01-01"
+    },
+    {
+      "title": "Detecting and Monitoring Bias for Subgroups in Breast Cancer Detection AI",
+      "year": 2025,
+      "date": "2025-01-01",
+      "doi": "10.48550/arxiv.2502.10562",
+      "pmid": null,
+      "url": "https://doi.org/10.48550/arxiv.2502.10562",
+      "citation": "Detecting and Monitoring Bias for Subgroups in Breast Cancer Detection AI",
+      "source": "ORCID",
+      "tags": []
     },
     {
       "id": "m36",
@@ -363,143 +503,6 @@
       ]
     },
     {
-      "id": "c3",
-      "title": "Digital health and artificial intelligence innovations for oncology in sub-Saharan Africa",
-      "citation": "Dako F, Moraes FY, Doo F, Abed M, Anazodo U, Patrick L, Favorito FM, Fouad E, Alabi A, Avery S, Scott A, Ngwa W, Hricak H. Digital health and artificial intelligence innovations for oncology in sub- Saharan Africa. Lancet Oncol. 2025 Oct;26(10):e547-e557. doi: 10.1016/S1470-2045(25)00360-2. PMID: 41038203.",
-      "year": 2025,
-      "doi": "10.1016/S1470-2045(25)00360-2",
-      "pmid": "41038203",
-      "url": "https://doi.org/10.1016/S1470-2045(25)00360-2",
-      "source": "CV (Sep 12, 2026)",
-      "tags": [
-        "frontier-clinical-intelligence",
-        "medical-imaging-informatics-data"
-      ]
-    },
-    {
-      "id": "m35",
-      "title": "Development, Evaluation, and Assessment of Large Language Models (DEAL) Checklist: A Technical Report",
-      "citation": "Tripathi S, Alkhulaifat D, Doo FX, Rajpurkar P, McBeth R, Daye D, Cook TS. Development, Evaluation, and Assessment of Large Language Models (DEAL) Checklist: A Technical Report. New England Journal of Medicine Artificial Intelligence (NEJM AI). 2025 May 9. https://ai.nejm.org/doi/full/10.1056/AIp2401106.",
-      "year": 2025,
-      "doi": "10.1056/AIp2401106",
-      "pmid": null,
-      "url": "https://doi.org/10.1056/AIp2401106",
-      "source": "CV (Sep 12, 2026)",
-      "tags": [
-        "trustworthy-human-ai",
-        "frontier-clinical-intelligence"
-      ],
-      "date": "2025-05-09"
-    },
-    {
-      "id": "c2",
-      "title": "Proceedings from the 2022 ACR-RSNA Workshop on Safety, Effectiveness, Reliability, and Transparency in AI",
-      "citation": "Larson DB, Doo FX, Allen B Jr, Mongan J, Flanders AE, Wald C. Proceedings from the 2022 ACR-RSNA Workshop on Safety, Effectiveness, Reliability, and Transparency in AI. J Am Coll Radiol. 2024 Feb 12:S1546-1440(24)00137-6. doi: 10.1016/j.jacr.2024.01.024. PMID: 38354844.",
-      "year": 2024,
-      "doi": "10.1016/j.jacr.2024.01.024",
-      "pmid": "38354844",
-      "url": "https://doi.org/10.1016/j.jacr.2024.01.024",
-      "source": "CV (Sep 12, 2026)",
-      "tags": [
-        "trustworthy-human-ai"
-      ]
-    },
-    {
-      "id": "m24",
-      "title": "Planetary Health and Radiology: Why We Should Care and What We Can Do",
-      "citation": "McKee H, Brown MJ, Kim HHR, Doo FX, Panet H, Rockall AG, Omary RA, Hanneman K. Planetary Health and Radiology: Why We Should Care and What We Can Do. Radiology. 2024 Apr;311(1):e240219. doi: 10.1148/radiol.240219. PMID: 38652030.",
-      "year": 2024,
-      "doi": "10.1148/radiol.240219",
-      "pmid": "38652030",
-      "url": "https://doi.org/10.1148/radiol.240219",
-      "source": "CV (Sep 12, 2026)",
-      "tags": [
-        "sustainable-ai-radiology"
-      ]
-    },
-    {
-      "id": "m27",
-      "title": "Optimal Large Language Model Characteristics to Balance Accuracy and Energy Use for Sustainable Medical Applications",
-      "citation": "Doo FX*, Savani D*, Kanhere A, Carlos RC, Joshi A, Yi PH, Parekh VS. (*co-first) Optimal Large Language Model Characteristics to Balance Accuracy and Energy Use for Sustainable Medical Applications. Radiology. 2024 Aug;312(2):e240320. doi: 10.1148/radiol.240320. PMID: 39189909.",
-      "year": 2024,
-      "doi": "10.1148/radiol.240320",
-      "pmid": "39189909",
-      "url": "https://doi.org/10.1148/radiol.240320",
-      "source": "CV (Sep 12, 2026)",
-      "tags": [
-        "sustainable-ai-radiology",
-        "frontier-clinical-intelligence"
-      ]
-    },
-    {
-      "id": "m26",
-      "title": "Imaging the acute complications of gender-affirming surgeries: a primer for radiologists in the emergency setting",
-      "citation": "Hegde S, Carroll EF, Doo FX, Drzewiecki B, Jensen KK, Sertic M, Pierce TT. Imaging the acute complications of gender-affirming surgeries: a primer for radiologists in the emergency setting. Abdom Radiol (NY). 2024 Jun 4. doi: 10.1007/s00261-024-04385-7. PMID: 38832942.",
-      "year": 2024,
-      "doi": "10.1007/s00261-024-04385-7",
-      "pmid": "38832942",
-      "url": "https://doi.org/10.1007/s00261-024-04385-7",
-      "source": "CV (Sep 12, 2026)",
-      "tags": [
-        "medical-imaging-informatics-data"
-      ]
-    },
-    {
-      "id": "m21",
-      "title": "General-Purpose Large Language Models Versus a Domain-Specific Natural Language Processing Tool for Label Extraction From Chest Radiograph Reports",
-      "citation": "Savage CH, Park H, Kwak K, Smith AD, Rothenberg SA, Parekh VS, Doo FX, Yi PH. General-Purpose Large Language Models Versus a Domain-Specific Natural Language Processing Tool for Label Extraction From Chest Radiograph Reports. AJR Am J Roentgenol. 2024 Jan 17. doi: 10.2214/AJR.23.30573. PMID: 38230901.",
-      "year": 2024,
-      "doi": "10.2214/AJR.23.30573",
-      "pmid": "38230901",
-      "url": "https://doi.org/10.2214/AJR.23.30573",
-      "source": "CV (Sep 12, 2026)",
-      "tags": [
-        "frontier-clinical-intelligence",
-        "medical-imaging-informatics-data"
-      ]
-    },
-    {
-      "id": "m25",
-      "title": "Evaluation of Multimodal ChatGPT (GPT-4V) in Describing Mammography Image Features",
-      "citation": "Haver HL, Bahl M, Doo FX, Kamel PI, Parekh VS, Jeudy J, Yi PH. Evaluation of Multimodal ChatGPT (GPT-4V) in Describing Mammography Image Features. Can Assoc Radiol J. 2024 Apr 6:8465371241247043. doi: 10.1177/08465371241247043. PMID: 38581353.",
-      "year": 2024,
-      "doi": "10.1177/08465371241247043",
-      "pmid": "38581353",
-      "url": "https://doi.org/10.1177/08465371241247043",
-      "source": "CV (Sep 12, 2026)",
-      "tags": [
-        "frontier-clinical-intelligence",
-        "medical-imaging-informatics-data"
-      ]
-    },
-    {
-      "id": "m22",
-      "title": "Environmental Sustainability and AI in Radiology: A Double-Edged Sword",
-      "citation": "Doo FX, Vosshenrich J, Cook TS, Moy L, Almeida EPRP, Woolen SA, Gichoya JW, Heye T, Hanneman K. Environmental Sustainability and AI in Radiology: A Double-Edged Sword. Radiology. 2024 Feb;310(2):e232030. doi: 10.1148/radiol.232030. PMID: 38411520.",
-      "year": 2024,
-      "doi": "10.1148/radiol.232030",
-      "pmid": "38411520",
-      "url": "https://doi.org/10.1148/radiol.232030",
-      "source": "CV (Sep 12, 2026)",
-      "tags": [
-        "sustainable-ai-radiology"
-      ]
-    },
-    {
-      "id": "m23",
-      "title": "Dynamic Digital Radiography Pulmonary Function Testing: A Machine Learning Lung Study Alternative",
-      "citation": "Santibanez VC*, Pisano TJ*, Doo FX, Salvatore M, Padilla M, Braun N, Concepcion J, O’Sullivan MM. Dynamic Digital Radiography Pulmonary Function Testing: A Machine Learning Lung Study Alternative. CHEST Pulmonary. Epub 29 Mar 2024. (*co-first authors).",
-      "year": 2024,
-      "doi": "10.1016/j.chpulm.2024.100052",
-      "pmid": "42548400",
-      "url": "https://doi.org/10.1016/j.chpulm.2024.100052",
-      "source": "CV (Sep 12, 2026)",
-      "tags": [
-        "medical-imaging-informatics-data"
-      ],
-      "date": "2024-03-29"
-    },
-    {
       "id": "m28",
       "title": "Diversity, Equity, Inclusion in US Radiology: Current Status and Legislative Trends",
       "citation": "Doo FX, Perchik JD, Hindman NM, Yee J, Flores EJ, Bradshaw ML, McFarland EG. Diversity, Equity, Inclusion in US Radiology: Current Status and Legislative Trends. J Am Coll Radiol. 2024 Aug 26:S1546-1440(24)00699-9. doi: 10.1016/j.jacr.2024.07.028. PMID: 39197697.",
@@ -507,10 +510,11 @@
       "doi": "10.1016/j.jacr.2024.07.028",
       "pmid": "39197697",
       "url": "https://doi.org/10.1016/j.jacr.2024.07.028",
-      "source": "CV (Sep 12, 2026)",
+      "source": "CV (Sep 12, 2026) + ORCID",
       "tags": [
         "sustainable-ai-radiology"
-      ]
+      ],
+      "date": "2025-02-01"
     },
     {
       "id": "m29",
@@ -520,63 +524,212 @@
       "doi": "10.1007/s10278-024-01273-w",
       "pmid": "39299957",
       "url": "https://doi.org/10.1007/s10278-024-01273-w",
-      "source": "CV (Sep 12, 2026)",
+      "source": "CV (Sep 12, 2026) + ORCID",
       "tags": [
         "trustworthy-human-ai",
         "medical-imaging-informatics-data"
-      ]
+      ],
+      "date": "2025-01-01"
     },
     {
-      "id": "m13",
-      "title": "Repeat Annual Lung Cancer Screening After Baseline Screening Among Screen-Negative Individuals: No-Cost Coverage Is Not Enough",
-      "citation": "Tailor TD, Bell S, Doo FX, Carlos RC. Repeat Annual Lung Cancer Screening After Baseline Screening Among Screen-Negative Individuals: No-Cost Coverage Is Not Enough. Journal of the American College of Radiology (JACR). doi: 10.1016/j.jacr.2022.11.005. 2023 Jan;20(1):29-36. PMID: 36436778.",
-      "year": 2023,
-      "doi": "10.1016/j.jacr.2022.11.005",
-      "pmid": "36436778",
-      "url": "https://doi.org/10.1016/j.jacr.2022.11.005",
-      "source": "CV (Sep 12, 2026)",
+      "title": "Beyond Aviation: Embedded Gaming, Artificial Intelligence, Training,\n                    and Recruitment for the Advanced Air Mobility Industry",
+      "year": 2024,
+      "date": "2024-12-12",
+      "doi": "10.4271/epr2024028",
+      "pmid": null,
+      "url": "https://doi.org/10.4271/epr2024028",
+      "citation": "Beyond Aviation: Embedded Gaming, Artificial Intelligence, Training,\n                    and Recruitment for the Advanced Air Mobility Industry",
+      "source": "Crossref",
+      "status": "published",
+      "tags": []
+    },
+    {
+      "title": "Pengaruh Pemanfaatan Teknologi Informasi Terhadap Penghayatan Iman Katolik Bagi Generasi Muda Deiyai Di Papua Tengah",
+      "year": 2024,
+      "date": "2024-12-09",
+      "doi": "10.70343/q8tqp120",
+      "pmid": null,
+      "url": "https://doi.org/10.70343/q8tqp120",
+      "citation": "Pengaruh Pemanfaatan Teknologi Informasi Terhadap Penghayatan Iman Katolik Bagi Generasi Muda Deiyai Di Papua Tengah. JURNAL PASTORAL KATEKETIK.",
+      "source": "Crossref",
+      "status": "published",
+      "tags": []
+    },
+    {
+      "title": "Node Bearing Vector System: Advance in 3D/2D Vector Storage and Mesh Design",
+      "year": 2024,
+      "date": "2024-12-05",
+      "doi": "10.1109/icir64558.2024.10976748",
+      "pmid": null,
+      "url": "https://doi.org/10.1109/icir64558.2024.10976748",
+      "citation": "Node Bearing Vector System: Advance in 3D/2D Vector Storage and Mesh Design. 2024 IEEE 3rd International Conference on Intelligent Reality (ICIR).",
+      "source": "Crossref",
+      "status": "published",
+      "tags": []
+    },
+    {
+      "title": "Conflicts of Interest in Radiology Publishing",
+      "year": 2024,
+      "date": "2024-09-01",
+      "doi": "10.1016/j.jacr.2024.03.014",
+      "pmid": null,
+      "url": "https://doi.org/10.1016/j.jacr.2024.03.014",
+      "citation": "Conflicts of Interest in Radiology Publishing",
+      "source": "ORCID",
+      "tags": [],
+      "status": "published"
+    },
+    {
+      "id": "m27",
+      "title": "Optimal Large Language Model Characteristics to Balance Accuracy and Energy Use for Sustainable Medical Applications",
+      "citation": "Doo FX*, Savani D*, Kanhere A, Carlos RC, Joshi A, Yi PH, Parekh VS. (*co-first) Optimal Large Language Model Characteristics to Balance Accuracy and Energy Use for Sustainable Medical Applications. Radiology. 2024 Aug;312(2):e240320. doi: 10.1148/radiol.240320. PMID: 39189909.",
+      "year": 2024,
+      "doi": "10.1148/radiol.240320",
+      "pmid": "39189909",
+      "url": "https://doi.org/10.1148/radiol.240320",
+      "source": "CV (Sep 12, 2026) + ORCID",
+      "tags": [
+        "sustainable-ai-radiology",
+        "frontier-clinical-intelligence"
+      ],
+      "date": "2024-08-01"
+    },
+    {
+      "id": "c2",
+      "title": "Proceedings from the 2022 ACR-RSNA Workshop on Safety, Effectiveness, Reliability, and Transparency in AI",
+      "citation": "Larson DB, Doo FX, Allen B Jr, Mongan J, Flanders AE, Wald C. Proceedings from the 2022 ACR-RSNA Workshop on Safety, Effectiveness, Reliability, and Transparency in AI. J Am Coll Radiol. 2024 Feb 12:S1546-1440(24)00137-6. doi: 10.1016/j.jacr.2024.01.024. PMID: 38354844.",
+      "year": 2024,
+      "doi": "10.1016/j.jacr.2024.01.024",
+      "pmid": "38354844",
+      "url": "https://doi.org/10.1016/j.jacr.2024.01.024",
+      "source": "CV (Sep 12, 2026) + ORCID + Crossref",
+      "tags": [
+        "trustworthy-human-ai"
+      ],
+      "date": "2024-07-01",
+      "status": "published"
+    },
+    {
+      "title": "Decentralization of Gaming Server with P2P Service for the MMO",
+      "year": 2024,
+      "date": "2024-06-05",
+      "doi": "10.1109/gem61861.2024.10585540",
+      "pmid": null,
+      "url": "https://doi.org/10.1109/gem61861.2024.10585540",
+      "citation": "Decentralization of Gaming Server with P2P Service for the MMO. 2024 IEEE Gaming, Entertainment, and Media Conference (GEM).",
+      "source": "Crossref",
+      "status": "published",
+      "tags": []
+    },
+    {
+      "id": "m26",
+      "title": "Imaging the acute complications of gender-affirming surgeries: a primer for radiologists in the emergency setting",
+      "citation": "Hegde S, Carroll EF, Doo FX, Drzewiecki B, Jensen KK, Sertic M, Pierce TT. Imaging the acute complications of gender-affirming surgeries: a primer for radiologists in the emergency setting. Abdom Radiol (NY). 2024 Jun 4. doi: 10.1007/s00261-024-04385-7. PMID: 38832942.",
+      "year": 2024,
+      "doi": "10.1007/s00261-024-04385-7",
+      "pmid": "38832942",
+      "url": "https://doi.org/10.1007/s00261-024-04385-7",
+      "source": "CV (Sep 12, 2026) + ORCID",
       "tags": [
         "medical-imaging-informatics-data"
-      ]
+      ],
+      "date": "2024-06-04"
     },
     {
-      "id": "m15",
-      "title": "Prevalence of Diversity Statements and Disability Inclusion Among Radiology Residency Program Websites",
-      "citation": "Dhanani Z, Doo FX, Spalluto LB, Yee J, Flores EJ, Meltzer CC, Poullos PD. Prevalence of Diversity Statements and Disability Inclusion Among Radiology Residency Program Websites. J Am Coll Radiol. 2023 Apr 5:S1546-1440(23)00266-1. doi: 10.1016/j.jacr.2023.02.027. PMID: 37028498.",
-      "year": 2023,
-      "doi": "10.1016/j.jacr.2023.02.027",
-      "pmid": "37028498",
-      "url": "https://doi.org/10.1016/j.jacr.2023.02.027",
-      "source": "CV (Sep 12, 2026)",
+      "id": "m25",
+      "title": "Evaluation of Multimodal ChatGPT (GPT-4V) in Describing Mammography Image Features",
+      "citation": "Haver HL, Bahl M, Doo FX, Kamel PI, Parekh VS, Jeudy J, Yi PH. Evaluation of Multimodal ChatGPT (GPT-4V) in Describing Mammography Image Features. Can Assoc Radiol J. 2024 Apr 6:8465371241247043. doi: 10.1177/08465371241247043. PMID: 38581353.",
+      "year": 2024,
+      "doi": "10.1177/08465371241247043",
+      "pmid": "38581353",
+      "url": "https://doi.org/10.1177/08465371241247043",
+      "source": "CV (Sep 12, 2026) + ORCID",
+      "tags": [
+        "frontier-clinical-intelligence",
+        "medical-imaging-informatics-data"
+      ],
+      "date": "2024-04-06"
+    },
+    {
+      "id": "m24",
+      "title": "Planetary Health and Radiology: Why We Should Care and What We Can Do",
+      "citation": "McKee H, Brown MJ, Kim HHR, Doo FX, Panet H, Rockall AG, Omary RA, Hanneman K. Planetary Health and Radiology: Why We Should Care and What We Can Do. Radiology. 2024 Apr;311(1):e240219. doi: 10.1148/radiol.240219. PMID: 38652030.",
+      "year": 2024,
+      "doi": "10.1148/radiol.240219",
+      "pmid": "38652030",
+      "url": "https://doi.org/10.1148/radiol.240219",
+      "source": "CV (Sep 12, 2026) + ORCID",
       "tags": [
         "sustainable-ai-radiology"
-      ]
+      ],
+      "date": "2024-04-01"
     },
     {
-      "id": "m14",
-      "title": "Periumbilical Anatomy of Scarpa’s Fascia: Rationale Behind a “Modified Scarpa’s” Abdominal Closure Technique",
-      "citation": "Uchechukwu A, Doo F, Kuruvilla A, Kagen A, Henderson P. Periumbilical Anatomy of Scarpa’s Fascia: Rationale Behind a “Modified Scarpa’s” Abdominal Closure Technique. Annals of Plastic Surgery. 2023 Jan 31. doi: 10.1097/SAP.0000000000003404. PMID: 36752536.",
-      "year": 2023,
-      "doi": "10.1097/SAP.0000000000003404",
-      "pmid": "36752536",
-      "url": "https://doi.org/10.1097/SAP.0000000000003404",
-      "source": "CV (Sep 12, 2026)",
+      "id": "m21",
+      "title": "General-Purpose Large Language Models Versus a Domain-Specific Natural Language Processing Tool for Label Extraction From Chest Radiograph Reports",
+      "citation": "Savage CH, Park H, Kwak K, Smith AD, Rothenberg SA, Parekh VS, Doo FX, Yi PH. General-Purpose Large Language Models Versus a Domain-Specific Natural Language Processing Tool for Label Extraction From Chest Radiograph Reports. AJR Am J Roentgenol. 2024 Jan 17. doi: 10.2214/AJR.23.30573. PMID: 38230901.",
+      "year": 2024,
+      "doi": "10.2214/AJR.23.30573",
+      "pmid": "38230901",
+      "url": "https://doi.org/10.2214/AJR.23.30573",
+      "source": "CV (Sep 12, 2026) + ORCID",
+      "tags": [
+        "frontier-clinical-intelligence",
+        "medical-imaging-informatics-data"
+      ],
+      "date": "2024-04-01"
+    },
+    {
+      "id": "m23",
+      "title": "Dynamic Digital Radiography Pulmonary Function Testing: A Machine Learning Lung Study Alternative",
+      "citation": "Santibanez VC*, Pisano TJ*, Doo FX, Salvatore M, Padilla M, Braun N, Concepcion J, O’Sullivan MM. Dynamic Digital Radiography Pulmonary Function Testing: A Machine Learning Lung Study Alternative. CHEST Pulmonary. Epub 29 Mar 2024. (*co-first authors).",
+      "year": 2024,
+      "doi": "10.1016/j.chpulm.2024.100052",
+      "pmid": "42548400",
+      "url": "https://doi.org/10.1016/j.chpulm.2024.100052",
+      "source": "CV (Sep 12, 2026) + ORCID + ORCID",
       "tags": [
         "medical-imaging-informatics-data"
-      ]
+      ],
+      "date": "2024-03-29"
     },
     {
-      "id": "m18",
-      "title": "Exploring the Clinical Translation of Generative Models like ChatGPT: Promise and Pitfalls in Radiology, from Patients to Population Health",
-      "citation": "Doo FX, Cook T, Siegel E, Joshi A, Parekh V, Elahi A, Yi PH. Exploring the Clinical Translation of Generative Models like ChatGPT: Promise and Pitfalls in Radiology, from Patients to Population Health. J Am Coll Radiol. 2023 Jul 17:S1546-1440(23)00516-1. doi: 10.1016/j.jacr.2023.07.007. PMID: 37467871.",
-      "year": 2023,
-      "doi": "10.1016/j.jacr.2023.07.007",
-      "pmid": "37467871",
-      "url": "https://doi.org/10.1016/j.jacr.2023.07.007",
-      "source": "CV (Sep 12, 2026)",
+      "id": "m22",
+      "title": "Environmental Sustainability and AI in Radiology: A Double-Edged Sword",
+      "citation": "Doo FX, Vosshenrich J, Cook TS, Moy L, Almeida EPRP, Woolen SA, Gichoya JW, Heye T, Hanneman K. Environmental Sustainability and AI in Radiology: A Double-Edged Sword. Radiology. 2024 Feb;310(2):e232030. doi: 10.1148/radiol.232030. PMID: 38411520.",
+      "year": 2024,
+      "doi": "10.1148/radiol.232030",
+      "pmid": "38411520",
+      "url": "https://doi.org/10.1148/radiol.232030",
+      "source": "CV (Sep 12, 2026) + ORCID",
       "tags": [
-        "frontier-clinical-intelligence"
-      ]
+        "sustainable-ai-radiology"
+      ],
+      "date": "2024-02-01"
+    },
+    {
+      "title": "Beyond the AJR: Early Applications of Generative Artificial Intelligence for Radiology Report Interpretation",
+      "year": 2024,
+      "date": "2024-01-01",
+      "doi": "10.2214/ajr.23.30696",
+      "pmid": null,
+      "url": "https://doi.org/10.2214/ajr.23.30696",
+      "citation": "Beyond the AJR: Early Applications of Generative Artificial Intelligence for Radiology Report Interpretation",
+      "source": "ORCID",
+      "tags": [],
+      "status": "published"
+    },
+    {
+      "title": "Artificial Intelligence (AI) in Abdominal Imaging",
+      "year": 2024,
+      "date": "2024-01-01",
+      "doi": "10.1007/978-3-031-76624-4_11",
+      "pmid": null,
+      "url": "https://doi.org/10.1007/978-3-031-76624-4_11",
+      "citation": "Artificial Intelligence (AI) in Abdominal Imaging",
+      "source": "ORCID",
+      "tags": [],
+      "status": "published"
     },
     {
       "id": "m19",
@@ -586,11 +739,12 @@
       "doi": "10.1016/j.jacr.2023.11.019",
       "pmid": "38043630",
       "url": "https://doi.org/10.1016/j.jacr.2023.11.019",
-      "source": "CV (Sep 12, 2026)",
+      "source": "CV (Sep 12, 2026) + ORCID",
       "tags": [
         "sustainable-ai-radiology",
         "medical-imaging-informatics-data"
-      ]
+      ],
+      "date": "2024-02-01"
     },
     {
       "id": "m20",
@@ -600,24 +754,38 @@
       "doi": "10.1016/j.jacr.2023.11.011",
       "pmid": "38072221",
       "url": "https://doi.org/10.1016/j.jacr.2023.11.011",
-      "source": "CV (Sep 12, 2026)",
+      "source": "CV (Sep 12, 2026) + ORCID",
       "tags": [
         "sustainable-ai-radiology",
         "medical-imaging-informatics-data"
-      ]
+      ],
+      "date": "2024-02-01"
     },
     {
-      "id": "m10",
-      "title": "Developing a Comprehensive Resident-driven Research Training Pathway: A Chief Resident's Perspective",
-      "citation": "Lakhani DA, Doo FX, Chung C. Developing a Comprehensive Resident-driven Research Training Pathway: A Chief Resident's Perspective. Curr Probl Diagn Radiol. 2022 Jul 30:S0363- 0188(22)00105-0. doi: 10.1067/j.cpradiol.2022.07.004. 2023 Mar-Apr;52(2):93-96. PMID: 36050135.",
+      "title": "The Use of eVTOL Aircraft for First Responder, Police, and Medical Transport Applications",
       "year": 2023,
-      "doi": "10.1067/j.cpradiol.2022.07.004",
-      "pmid": "36050135",
-      "url": "https://doi.org/10.1067/j.cpradiol.2022.07.004",
-      "source": "CV (Sep 12, 2026)",
+      "date": "2023-09-26",
+      "doi": "10.4271/epr2023020",
+      "pmid": null,
+      "url": "https://doi.org/10.4271/epr2023020",
+      "citation": "The Use of eVTOL Aircraft for First Responder, Police, and Medical Transport Applications",
+      "source": "Crossref",
+      "status": "published",
+      "tags": []
+    },
+    {
+      "id": "m18",
+      "title": "Exploring the Clinical Translation of Generative Models like ChatGPT: Promise and Pitfalls in Radiology, from Patients to Population Health",
+      "citation": "Doo FX, Cook T, Siegel E, Joshi A, Parekh V, Elahi A, Yi PH. Exploring the Clinical Translation of Generative Models like ChatGPT: Promise and Pitfalls in Radiology, from Patients to Population Health. J Am Coll Radiol. 2023 Jul 17:S1546-1440(23)00516-1. doi: 10.1016/j.jacr.2023.07.007. PMID: 37467871.",
+      "year": 2023,
+      "doi": "10.1016/j.jacr.2023.07.007",
+      "pmid": "37467871",
+      "url": "https://doi.org/10.1016/j.jacr.2023.07.007",
+      "source": "CV (Sep 12, 2026) + ORCID",
       "tags": [
-        "medical-imaging-informatics-data"
-      ]
+        "frontier-clinical-intelligence"
+      ],
+      "date": "2023-09-01"
     },
     {
       "id": "m17",
@@ -627,10 +795,104 @@
       "doi": "10.1016/j.jacr.2023.06.014",
       "pmid": "37453602",
       "url": "https://doi.org/10.1016/j.jacr.2023.06.014",
-      "source": "CV (Sep 12, 2026)",
+      "source": "CV (Sep 12, 2026) + ORCID + Crossref",
       "tags": [
         "trustworthy-human-ai"
-      ]
+      ],
+      "date": "2023-09-01",
+      "status": "published"
+    },
+    {
+      "title": "A Study on Pilates Effect Through Pilates Motion Analysis",
+      "year": 2023,
+      "date": "2023-08-31",
+      "doi": "10.31152/jb.2023.08.8.4.63",
+      "pmid": null,
+      "url": "https://doi.org/10.31152/jb.2023.08.8.4.63",
+      "citation": "A Study on Pilates Effect Through Pilates Motion Analysis. Journal of Business Convergence.",
+      "source": "Crossref",
+      "status": "published",
+      "tags": []
+    },
+    {
+      "id": "m15",
+      "title": "Prevalence of Diversity Statements and Disability Inclusion Among Radiology Residency Program Websites",
+      "citation": "Dhanani Z, Doo FX, Spalluto LB, Yee J, Flores EJ, Meltzer CC, Poullos PD. Prevalence of Diversity Statements and Disability Inclusion Among Radiology Residency Program Websites. J Am Coll Radiol. 2023 Apr 5:S1546-1440(23)00266-1. doi: 10.1016/j.jacr.2023.02.027. PMID: 37028498.",
+      "year": 2023,
+      "doi": "10.1016/j.jacr.2023.02.027",
+      "pmid": "37028498",
+      "url": "https://doi.org/10.1016/j.jacr.2023.02.027",
+      "source": "CV (Sep 12, 2026) + ORCID",
+      "tags": [
+        "sustainable-ai-radiology"
+      ],
+      "date": "2023-04-05"
+    },
+    {
+      "id": "m13",
+      "title": "Repeat Annual Lung Cancer Screening After Baseline Screening Among Screen-Negative Individuals: No-Cost Coverage Is Not Enough",
+      "citation": "Tailor TD, Bell S, Doo FX, Carlos RC. Repeat Annual Lung Cancer Screening After Baseline Screening Among Screen-Negative Individuals: No-Cost Coverage Is Not Enough. Journal of the American College of Radiology (JACR). doi: 10.1016/j.jacr.2022.11.005. 2023 Jan;20(1):29-36. PMID: 36436778.",
+      "year": 2023,
+      "doi": "10.1016/j.jacr.2022.11.005",
+      "pmid": "36436778",
+      "url": "https://doi.org/10.1016/j.jacr.2022.11.005",
+      "source": "CV (Sep 12, 2026) + ORCID + Crossref",
+      "tags": [
+        "medical-imaging-informatics-data"
+      ],
+      "date": "2023-01-01",
+      "status": "published"
+    },
+    {
+      "id": "m14",
+      "title": "Periumbilical Anatomy of Scarpa’s Fascia: Rationale Behind a “Modified Scarpa’s” Abdominal Closure Technique",
+      "citation": "Uchechukwu A, Doo F, Kuruvilla A, Kagen A, Henderson P. Periumbilical Anatomy of Scarpa’s Fascia: Rationale Behind a “Modified Scarpa’s” Abdominal Closure Technique. Annals of Plastic Surgery. 2023 Jan 31. doi: 10.1097/SAP.0000000000003404. PMID: 36752536.",
+      "year": 2023,
+      "doi": "10.1097/SAP.0000000000003404",
+      "pmid": "36752536",
+      "url": "https://doi.org/10.1097/SAP.0000000000003404",
+      "source": "CV (Sep 12, 2026) + ORCID",
+      "tags": [
+        "medical-imaging-informatics-data"
+      ],
+      "date": "2023-01-01"
+    },
+    {
+      "id": "m10",
+      "title": "Developing a Comprehensive Resident-driven Research Training Pathway: A Chief Resident's Perspective",
+      "citation": "Lakhani DA, Doo FX, Chung C. Developing a Comprehensive Resident-driven Research Training Pathway: A Chief Resident's Perspective. Curr Probl Diagn Radiol. 2022 Jul 30:S0363- 0188(22)00105-0. doi: 10.1067/j.cpradiol.2022.07.004. 2023 Mar-Apr;52(2):93-96. PMID: 36050135.",
+      "year": 2023,
+      "doi": "10.1067/j.cpradiol.2022.07.004",
+      "pmid": "36050135",
+      "url": "https://doi.org/10.1067/j.cpradiol.2022.07.004",
+      "source": "CV (Sep 12, 2026) + ORCID + Crossref",
+      "tags": [
+        "medical-imaging-informatics-data"
+      ],
+      "date": "2023-01-01",
+      "status": "published"
+    },
+    {
+      "title": "A Plastic Surgeon’s Guide to the Temporomandibular Joint: Part II, Pathophysiology and Diagnosis",
+      "year": 2023,
+      "date": "2023-01-01",
+      "doi": "10.1177/27325016231162871",
+      "pmid": null,
+      "url": "https://doi.org/10.1177/27325016231162871",
+      "citation": "A Plastic Surgeon’s Guide to the Temporomandibular Joint: Part II, Pathophysiology and Diagnosis",
+      "source": "ORCID",
+      "tags": []
+    },
+    {
+      "title": "A Plastic Surgeon’s Guide to the Temporomandibular Joint: Part I, Anatomy",
+      "year": 2023,
+      "date": "2023-01-01",
+      "doi": "10.1177/27325016231171619",
+      "pmid": null,
+      "url": "https://doi.org/10.1177/27325016231171619",
+      "citation": "A Plastic Surgeon’s Guide to the Temporomandibular Joint: Part I, Anatomy",
+      "source": "ORCID",
+      "tags": []
     },
     {
       "id": "m16",
@@ -646,27 +908,26 @@
       ]
     },
     {
-      "id": "m11",
-      "title": "Turning a Page in the Yellow Journal: Figure Legends and Gender-Inclusive Patient Descriptors",
-      "citation": "Doo FX, Zavaletta V, Carroll E, Ellis K, Rosenkrantz AB. Turning a Page in the Yellow Journal: Figure Legends and Gender-Inclusive Patient Descriptors. American Journal of Roentgenology (AJR). 2022 Jul;219(1):1-2. doi: 10.2214/AJR.22.27536. Epub 2022 Apr 13. PMID: 35417186.",
+      "title": "The Use of eVTOL Aircraft for Military Applications: Last-mile\n Transport and Logistics",
       "year": 2022,
-      "doi": "10.2214/AJR.22.27536",
-      "pmid": "35417186",
-      "url": "https://doi.org/10.2214/AJR.22.27536",
-      "source": "CV (Sep 12, 2026)",
-      "tags": [
-        "medical-imaging-informatics-data"
-      ]
+      "date": "2022-11-15",
+      "doi": "10.4271/epr2022025",
+      "pmid": null,
+      "url": "https://doi.org/10.4271/epr2022025",
+      "citation": "The Use of eVTOL Aircraft for Military Applications: Last-mile\n Transport and Logistics",
+      "source": "Crossref",
+      "status": "published",
+      "tags": []
     },
     {
-      "id": "c1",
-      "title": "Radiologists staunchly support patient safety and autonomy, in opposition to the SCOTUS draft",
-      "citation": "Andreotti RF, Arleo EK, Arora SS, Broder JC, Brook O, Canon CL, Chen MM, Cooke EA, Davis MA, Doo FX, Dodelzon K, Englander MJ, Everett C, Farooq A, Fischbein NJ, Fleming M, Fleischer A, Frederick-Dyer K, Gerson RF, Gruen D, Hecht EM, Pisano E, Heyneman LE, Katzen JT, Kemp J, Kotsenas AL, Ladd LM, Lui Y, McGinty G, Meltzer CC, Oliveira A, Phillips C, Porter KK, Rhyner P, Roberts A, Robson C, Senter A, Shah AA, Shatzkes D, Solberg A, Spalluto LB, Sun M, Tomblinson C, Vincoff NS, Wood MJ, Zigmund B. Radiologists staunchly support patient safety and autonomy, in opposition to the SCOTUS draft. Clinical Imaging. 2022 Sep;89:95-96. doi: 10.1016/j.clinimag.2022.05.012. Epub 2022 Jun 10. PMID: 36064645.",
+      "title": "Radiologists staunchly support patient safety and autonomy, in opposition to the SCOTUS decision to overturn Roe v Wade.",
       "year": 2022,
-      "doi": "10.1016/j.clinimag.2022.05.012",
+      "date": "2022-08-12",
+      "doi": "10.1016/j.clinimag.2022.07.011",
       "pmid": "36064645",
-      "url": "https://doi.org/10.1016/j.clinimag.2022.05.012",
-      "source": "CV (Sep 12, 2026)",
+      "url": "https://doi.org/10.1016/j.clinimag.2022.07.011",
+      "citation": "Radiologists staunchly support patient safety and autonomy, in opposition to the SCOTUS decision to overturn Roe v Wade.",
+      "source": "ORCID",
       "tags": []
     },
     {
@@ -677,11 +938,99 @@
       "doi": "10.1016/j.jacr.2022.06.008",
       "pmid": "35964688",
       "url": "https://doi.org/10.1016/j.jacr.2022.06.008",
-      "source": "CV (Sep 12, 2026)",
+      "source": "CV (Sep 12, 2026) + ORCID",
       "tags": [
         "trustworthy-human-ai",
         "medical-imaging-informatics-data"
-      ]
+      ],
+      "date": "2022-08-11"
+    },
+    {
+      "id": "m11",
+      "title": "Turning a Page in the Yellow Journal: Figure Legends and Gender-Inclusive Patient Descriptors",
+      "citation": "Doo FX, Zavaletta V, Carroll E, Ellis K, Rosenkrantz AB. Turning a Page in the Yellow Journal: Figure Legends and Gender-Inclusive Patient Descriptors. American Journal of Roentgenology (AJR). 2022 Jul;219(1):1-2. doi: 10.2214/AJR.22.27536. Epub 2022 Apr 13. PMID: 35417186.",
+      "year": 2022,
+      "doi": "10.2214/AJR.22.27536",
+      "pmid": "35417186",
+      "url": "https://doi.org/10.2214/AJR.22.27536",
+      "source": "CV (Sep 12, 2026) + ORCID + Crossref",
+      "tags": [
+        "medical-imaging-informatics-data"
+      ],
+      "date": "2022-07-01",
+      "status": "published"
+    },
+    {
+      "id": "c1",
+      "title": "Radiologists staunchly support patient safety and autonomy, in opposition to the SCOTUS draft",
+      "citation": "Andreotti RF, Arleo EK, Arora SS, Broder JC, Brook O, Canon CL, Chen MM, Cooke EA, Davis MA, Doo FX, Dodelzon K, Englander MJ, Everett C, Farooq A, Fischbein NJ, Fleming M, Fleischer A, Frederick-Dyer K, Gerson RF, Gruen D, Hecht EM, Pisano E, Heyneman LE, Katzen JT, Kemp J, Kotsenas AL, Ladd LM, Lui Y, McGinty G, Meltzer CC, Oliveira A, Phillips C, Porter KK, Rhyner P, Roberts A, Robson C, Senter A, Shah AA, Shatzkes D, Solberg A, Spalluto LB, Sun M, Tomblinson C, Vincoff NS, Wood MJ, Zigmund B. Radiologists staunchly support patient safety and autonomy, in opposition to the SCOTUS draft. Clinical Imaging. 2022 Sep;89:95-96. doi: 10.1016/j.clinimag.2022.05.012. Epub 2022 Jun 10. PMID: 36064645.",
+      "year": 2022,
+      "doi": "10.1016/j.clinimag.2022.05.012",
+      "pmid": "36064645",
+      "url": "https://doi.org/10.1016/j.clinimag.2022.05.012",
+      "source": "CV (Sep 12, 2026) + ORCID",
+      "tags": [],
+      "date": "2022-06-10"
+    },
+    {
+      "title": "Geriatrics Fellow-led Educational Session for Nursing Home Staff About High-Risk Medications",
+      "year": 2022,
+      "date": "2022-06-01",
+      "doi": "10.1016/j.jamda.2022.04.024",
+      "pmid": null,
+      "url": "https://doi.org/10.1016/j.jamda.2022.04.024",
+      "citation": "Geriatrics Fellow-led Educational Session for Nursing Home Staff About High-Risk Medications. Journal of the American Medical Directors Association.",
+      "source": "Crossref",
+      "status": "published",
+      "tags": []
+    },
+    {
+      "title": "3-year-old girl • fever • cervical lymphadenopathy • leukocytosis • Dx?",
+      "year": 2022,
+      "date": "2022-03-01",
+      "doi": "10.12788/jfp.0352",
+      "pmid": null,
+      "url": "https://doi.org/10.12788/jfp.0352",
+      "citation": "3-year-old girl • fever • cervical lymphadenopathy • leukocytosis • Dx?. The Journal of Family Practice.",
+      "source": "Crossref",
+      "status": "published",
+      "tags": []
+    },
+    {
+      "title": "Unsettled Issues Regarding the Use of eVTOL Aircraft during Natural\n Disasters",
+      "year": 2022,
+      "date": "2022-01-27",
+      "doi": "10.4271/epr2022001",
+      "pmid": null,
+      "url": "https://doi.org/10.4271/epr2022001",
+      "citation": "Unsettled Issues Regarding the Use of eVTOL Aircraft during Natural\n Disasters",
+      "source": "Crossref",
+      "status": "published",
+      "tags": []
+    },
+    {
+      "title": "Self-employment as a form of realization of the constitutional right to freedom of entrepreneurial activity: problems of legal regulation",
+      "year": 2022,
+      "date": "2022-01-01",
+      "doi": "10.47643/1815-1337_2022_12_164",
+      "pmid": null,
+      "url": "https://doi.org/10.47643/1815-1337_2022_12_164",
+      "citation": "Self-employment as a form of realization of the constitutional right to freedom of entrepreneurial activity: problems of legal regulation. Право и государство: теория и практика.",
+      "source": "Crossref",
+      "status": "published",
+      "tags": []
+    },
+    {
+      "title": "Competence of arbitration courts in cases of administrative offenses: problems of terminology",
+      "year": 2022,
+      "date": "2022-01-01",
+      "doi": "10.47643/1815-1337_2022_10_168",
+      "pmid": null,
+      "url": "https://doi.org/10.47643/1815-1337_2022_10_168",
+      "citation": "Competence of arbitration courts in cases of administrative offenses: problems of terminology. Право и государство: теория и практика.",
+      "source": "Crossref",
+      "status": "published",
+      "tags": []
     },
     {
       "id": "m9",
@@ -691,23 +1040,23 @@
       "doi": "10.3390/tomography7040049",
       "pmid": "34698270",
       "url": "https://doi.org/10.3390/tomography7040049",
-      "source": "CV (Sep 12, 2026)",
+      "source": "CV (Sep 12, 2026) + ORCID",
       "tags": [
         "medical-imaging-informatics-data"
-      ]
+      ],
+      "date": "2021-12-01"
     },
     {
-      "id": "m6",
-      "title": "Rare presentations of COVID-19: PRES-like leukoencephalopathy and carotid thrombosis",
-      "citation": "Doo FX, Kassim G, Lefton DR, Patterson S, Pham H, Belani P. Rare presentations of COVID-19: PRES-like leukoencephalopathy and carotid thrombosis. Clin Imaging. 2021 Jan; 69:94-101. doi: 10.1016/j.clinimag.2020.07.007. Epub 2020 Jul 16. PMID: 32707411; PMCID: PMC7365057.",
+      "title": "Unsettled Issues Concerning eVTOL for Rapid-response, On-demand\n                    Firefighting",
       "year": 2021,
-      "doi": "10.1016/j.clinimag.2020.07.007",
-      "pmid": "32707411",
-      "url": "https://doi.org/10.1016/j.clinimag.2020.07.007",
-      "source": "CV (Sep 12, 2026)",
-      "tags": [
-        "medical-imaging-informatics-data"
-      ]
+      "date": "2021-08-26",
+      "doi": "10.4271/epr2021017",
+      "pmid": null,
+      "url": "https://doi.org/10.4271/epr2021017",
+      "citation": "Unsettled Issues Concerning eVTOL for Rapid-response, On-demand\n                    Firefighting",
+      "source": "Crossref",
+      "status": "published",
+      "tags": []
     },
     {
       "id": "m8",
@@ -717,10 +1066,27 @@
       "doi": "10.1016/j.clinimag.2020.11.023",
       "pmid": "33307372",
       "url": "https://doi.org/10.1016/j.clinimag.2020.11.023",
-      "source": "CV (Sep 12, 2026)",
+      "source": "CV (Sep 12, 2026) + ORCID + Crossref",
       "tags": [
         "medical-imaging-informatics-data"
-      ]
+      ],
+      "date": "2021-05-01",
+      "status": "published"
+    },
+    {
+      "id": "m6",
+      "title": "Rare presentations of COVID-19: PRES-like leukoencephalopathy and carotid thrombosis",
+      "citation": "Doo FX, Kassim G, Lefton DR, Patterson S, Pham H, Belani P. Rare presentations of COVID-19: PRES-like leukoencephalopathy and carotid thrombosis. Clin Imaging. 2021 Jan; 69:94-101. doi: 10.1016/j.clinimag.2020.07.007. Epub 2020 Jul 16. PMID: 32707411; PMCID: PMC7365057.",
+      "year": 2021,
+      "doi": "10.1016/j.clinimag.2020.07.007",
+      "pmid": "32707411",
+      "url": "https://doi.org/10.1016/j.clinimag.2020.07.007",
+      "source": "CV (Sep 12, 2026) + ORCID + Crossref",
+      "tags": [
+        "medical-imaging-informatics-data"
+      ],
+      "date": "2021-01-01",
+      "status": "published"
     },
     {
       "id": "m7",
@@ -730,10 +1096,11 @@
       "doi": "10.1016/j.echo.2020.08.014",
       "pmid": "32919857",
       "url": "https://doi.org/10.1016/j.echo.2020.08.014",
-      "source": "CV (Sep 12, 2026)",
+      "source": "CV (Sep 12, 2026) + ORCID",
       "tags": [
         "medical-imaging-informatics-data"
-      ]
+      ],
+      "date": "2020-11-01"
     },
     {
       "id": "m5",
@@ -743,10 +1110,23 @@
       "doi": "10.1097/RTI.0000000000000546",
       "pmid": "33956718",
       "url": "https://doi.org/10.1097/RTI.0000000000000546",
-      "source": "CV (Sep 12, 2026)",
+      "source": "CV (Sep 12, 2026) + ORCID",
       "tags": [
         "medical-imaging-informatics-data"
-      ]
+      ],
+      "date": "2020-11-01"
+    },
+    {
+      "title": "Unsettled Issues Concerning the Opportunities and Challenges of eVTOL Applications during a Global Pandemic",
+      "year": 2020,
+      "date": "2020-10-30",
+      "doi": "10.4271/epr2020022",
+      "pmid": null,
+      "url": "https://doi.org/10.4271/epr2020022",
+      "citation": "Unsettled Issues Concerning the Opportunities and Challenges of eVTOL Applications during a Global Pandemic",
+      "source": "Crossref",
+      "status": "published",
+      "tags": []
     },
     {
       "id": "m4",
@@ -756,10 +1136,107 @@
       "doi": "10.2214/AJR.19.21686",
       "pmid": "31414889",
       "url": "https://doi.org/10.2214/AJR.19.21686",
-      "source": "CV (Sep 12, 2026)",
+      "source": "CV (Sep 12, 2026) + ORCID + Crossref",
       "tags": [
         "medical-imaging-informatics-data"
-      ]
+      ],
+      "date": "2019-12-01",
+      "status": "published"
+    },
+    {
+      "title": "Prevention",
+      "year": 2019,
+      "date": "2019-01-01",
+      "doi": "10.1007/978-3-030-24025-7_5",
+      "pmid": null,
+      "url": "https://doi.org/10.1007/978-3-030-24025-7_5",
+      "citation": "Prevention",
+      "source": "ORCID",
+      "tags": [],
+      "status": "published"
+    },
+    {
+      "title": "The effectiveness of parent-child interaction therapy for children with autism spectrum disorder and their parents",
+      "year": 2018,
+      "date": "2018-06-30",
+      "doi": "10.23931/kacp.2018.13.2.51",
+      "pmid": null,
+      "url": "https://doi.org/10.23931/kacp.2018.13.2.51",
+      "citation": "The effectiveness of parent-child interaction therapy for children with autism spectrum disorder and their parents. Korean Journal of Child Psychotherapy.",
+      "source": "Crossref",
+      "status": "published",
+      "tags": []
+    },
+    {
+      "title": "The Association between Sleep Duration and 25-Hydroxyvitamin D Concentration with Obesity in an Elderly Korean Population: A Cross-Sectional Study",
+      "year": 2018,
+      "date": "2018-05-08",
+      "doi": "10.3390/nu10050575",
+      "pmid": null,
+      "url": "https://doi.org/10.3390/nu10050575",
+      "citation": "The Association between Sleep Duration and 25-Hydroxyvitamin D Concentration with Obesity in an Elderly Korean Population: A Cross-Sectional Study. Nutrients.",
+      "source": "Crossref",
+      "status": "published",
+      "tags": []
+    },
+    {
+      "title": "Associations of daily sleep duration and dietary macronutrient consumption with obesity and dyslipidemia in Koreans",
+      "year": 2016,
+      "date": "2016-11-01",
+      "doi": "10.1097/md.0000000000005360",
+      "pmid": null,
+      "url": "https://doi.org/10.1097/md.0000000000005360",
+      "citation": "Associations of daily sleep duration and dietary macronutrient consumption with obesity and dyslipidemia in Koreans. Medicine.",
+      "source": "Crossref",
+      "status": "published",
+      "tags": []
+    },
+    {
+      "title": "Health behavior and status associated with junk food consumption in adolescents: Data from the Korea youth risk behavior web-based survey",
+      "year": 2016,
+      "date": "2016-06-30",
+      "doi": "10.14367/kjhep.2016.33.2.15",
+      "pmid": null,
+      "url": "https://doi.org/10.14367/kjhep.2016.33.2.15",
+      "citation": "Health behavior and status associated with junk food consumption in adolescents: Data from the Korea youth risk behavior web-based survey. Korean Journal of Health Education and Promotion.",
+      "source": "Crossref",
+      "status": "published",
+      "tags": []
+    },
+    {
+      "title": "Associations between Subjective Stress Level, Health-Related Habits, and Obesity according to Gender (Korean J Obes 2015;24:156-65)",
+      "year": 2016,
+      "date": "2016-03-31",
+      "doi": "10.7570/kjo.2016.25.1.43",
+      "pmid": null,
+      "url": "https://doi.org/10.7570/kjo.2016.25.1.43",
+      "citation": "Associations between Subjective Stress Level, Health-Related Habits, and Obesity according to Gender (Korean J Obes 2015;24:156-65). The Korean Journal of Obesity.",
+      "source": "Crossref",
+      "status": "published",
+      "tags": []
+    },
+    {
+      "title": "Predictors of Esophageal Stricture After Definitive Chemoradiation Therapy for Esophageal/Gastroesophageal Junction Carcinoma",
+      "year": 2016,
+      "date": "2016-01-01",
+      "doi": "10.1016/j.ijrobp.2016.06.967",
+      "pmid": null,
+      "url": "https://doi.org/10.1016/j.ijrobp.2016.06.967",
+      "citation": "Predictors of Esophageal Stricture After Definitive Chemoradiation Therapy for Esophageal/Gastroesophageal Junction Carcinoma",
+      "source": "ORCID",
+      "tags": []
+    },
+    {
+      "title": "A cross-sectional study in the USA of the epidemiology and quality of life of underactive bladder symptoms",
+      "year": 2016,
+      "date": "2016-01-01",
+      "doi": "10.1007/s11255-016-1382-0",
+      "pmid": null,
+      "url": "https://doi.org/10.1007/s11255-016-1382-0",
+      "citation": "A cross-sectional study in the USA of the epidemiology and quality of life of underactive bladder symptoms",
+      "source": "ORCID",
+      "tags": [],
+      "status": "published"
     },
     {
       "id": "m3",
@@ -780,19 +1257,116 @@
       "doi": "10.1016/j.ijrobp.2015.07.1008",
       "pmid": null,
       "url": "https://doi.org/10.1016/j.ijrobp.2015.07.1008",
-      "source": "CV (Sep 12, 2026)",
+      "source": "CV (Sep 12, 2026) + ORCID",
       "tags": [],
       "date": "2015-10-17"
+    },
+    {
+      "title": "Associations between Subjective Stress Level, Health-Related Habits, and Obesity according to Gender",
+      "year": 2015,
+      "date": "2015-09-30",
+      "doi": "10.7570/kjo.2015.24.3.156",
+      "pmid": null,
+      "url": "https://doi.org/10.7570/kjo.2015.24.3.156",
+      "citation": "Associations between Subjective Stress Level, Health-Related Habits, and Obesity according to Gender. The Korean Journal of Obesity.",
+      "source": "Crossref",
+      "status": "published",
+      "tags": []
     },
     {
       "id": "m1",
       "title": "Epidemiology and demographics of the underactive bladder: A cross-sectional survey",
       "citation": "Valente S, DuBeau C, Chancellor D, Okonski J, Vereecke A, Doo F, Lajiness M, Diokno A, Chancellor M. Epidemiology and demographics of the underactive bladder: A cross-sectional survey. Int Urol Nephrol. Sep 2014; 46 Spul 1:S7-10. PMID: 25238889.",
       "year": 2014,
-      "doi": null,
+      "doi": "10.1007/s11255-014-0811-1",
       "pmid": "25238889",
       "url": "https://pubmed.ncbi.nlm.nih.gov/25238889/",
-      "source": "CV (Sep 12, 2026)",
+      "source": "CV (Sep 12, 2026) + ORCID",
+      "tags": [],
+      "date": "2014-01-01"
+    },
+    {
+      "title": "Epidemiology and immunopathogenesis of chronic hepatitis B virus infection",
+      "year": 2003,
+      "date": "2003-06-01",
+      "doi": "10.1007/s11901-003-0024-z",
+      "pmid": null,
+      "url": "https://doi.org/10.1007/s11901-003-0024-z",
+      "citation": "Epidemiology and immunopathogenesis of chronic hepatitis B virus infection. Current Hepatitis Reports.",
+      "source": "Crossref",
+      "status": "published",
+      "tags": []
+    },
+    {
+      "title": "Framework for results: implementing a power-station information-management system across a multilocation environment",
+      "year": 1993,
+      "date": "1993-08-01",
+      "doi": "10.1016/0263-7863(93)90050-w",
+      "pmid": null,
+      "url": "https://doi.org/10.1016/0263-7863(93)90050-w",
+      "citation": "Framework for results: implementing a power-station information-management system across a multilocation environment. International Journal of Project Management.",
+      "source": "Crossref",
+      "status": "published",
+      "tags": []
+    },
+    {
+      "title": "Microcomputers for Gifted Microtots",
+      "year": 1983,
+      "date": "1983-09-01",
+      "doi": "10.1177/107621758300300523",
+      "pmid": null,
+      "url": "https://doi.org/10.1177/107621758300300523",
+      "citation": "Microcomputers for Gifted Microtots. G/C/T.",
+      "source": "Crossref",
+      "status": "published",
+      "tags": []
+    },
+    {
+      "title": "Basic radiography 1-basic theory and practice",
+      "year": 1969,
+      "date": "1969-08-01",
+      "doi": "10.1016/0029-1021(69)90107-8",
+      "pmid": null,
+      "url": "https://doi.org/10.1016/0029-1021(69)90107-8",
+      "citation": "Basic radiography 1-basic theory and practice. Non-Destructive Testing.",
+      "source": "Crossref",
+      "status": "published",
+      "tags": []
+    },
+    {
+      "title": "Silicon nitride, a new diffusion mask",
+      "year": 1966,
+      "date": "1966-07-01",
+      "doi": "10.1109/t-ed.1966.15735",
+      "pmid": null,
+      "url": "https://doi.org/10.1109/t-ed.1966.15735",
+      "citation": "Silicon nitride, a new diffusion mask. IEEE Transactions on Electron Devices.",
+      "source": "Crossref",
+      "status": "published",
+      "tags": []
+    },
+    {
+      "title": "Thin Silicon Film Growth on Polycrystalline Alumina Ceramic",
+      "year": 1964,
+      "date": "1964-01-01",
+      "doi": "10.1149/1.2425954",
+      "pmid": null,
+      "url": "https://doi.org/10.1149/1.2425954",
+      "citation": "Thin Silicon Film Growth on Polycrystalline Alumina Ceramic. Journal of The Electrochemical Society.",
+      "source": "Crossref",
+      "status": "published",
+      "tags": []
+    },
+    {
+      "title": "Polygonization of 31% alpha-brass",
+      "year": 1960,
+      "date": "1960-02-01",
+      "doi": "10.1016/0001-6160(60)90091-2",
+      "pmid": null,
+      "url": "https://doi.org/10.1016/0001-6160(60)90091-2",
+      "citation": "Polygonization of 31% alpha-brass. Acta Metallurgica.",
+      "source": "Crossref",
+      "status": "published",
       "tags": []
     }
   ]

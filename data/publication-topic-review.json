@@ -1,4 +1,275 @@
 {
-  "count": 0,
-  "items": []
+  "count": 45,
+  "items": [
+    {
+      "key": "doi:10.4050/sm_evtol_2026-5228",
+      "year": 2026,
+      "title": "TVF 2026 - Public Good - Disaster Relief : Introduction",
+      "doi": "10.4050/sm_evtol_2026-5228"
+    },
+    {
+      "key": "doi:10.1016/j.jacr.2026.02.021",
+      "year": 2026,
+      "title": "Sustainability as Radiology’s Triple Helix: Value, Patient Care, and the Planet",
+      "doi": "10.1016/j.jacr.2026.02.021"
+    },
+    {
+      "key": "doi:10.1017/cts.2026.10288",
+      "year": 2026,
+      "title": "61 COMPASS: Comprehensive multimodal performance assessment for safe vascular AI systems using Curie8, an LLM-based medical imaging data pipeline",
+      "doi": "10.1017/cts.2026.10288"
+    },
+    {
+      "key": "doi:10.4271/epr2025017",
+      "year": 2025,
+      "title": "Wing-in-Ground Effect Vehicles: From Modern Military and Commercial\n                    Development to Global Disaster Response",
+      "doi": "10.4271/epr2025017"
+    },
+    {
+      "key": "doi:10.1201/9781032709956-14",
+      "year": 2025,
+      "title": "Sustainability in Clinical AI",
+      "doi": "10.1201/9781032709956-14"
+    },
+    {
+      "key": "doi:10.1016/j.jacr.2025.06.026",
+      "year": 2025,
+      "title": "Pearls and Pitfalls of Integrating Artificial Intelligence Into Radiology Education",
+      "doi": "10.1016/j.jacr.2025.06.026"
+    },
+    {
+      "key": "doi:10.48550/arxiv.2502.10562",
+      "year": 2025,
+      "title": "Detecting and Monitoring Bias for Subgroups in Breast Cancer Detection AI",
+      "doi": "10.48550/arxiv.2502.10562"
+    },
+    {
+      "key": "doi:10.70343/q8tqp120",
+      "year": 2024,
+      "title": "Pengaruh Pemanfaatan Teknologi Informasi Terhadap Penghayatan Iman Katolik Bagi Generasi Muda Deiyai Di Papua Tengah",
+      "doi": "10.70343/q8tqp120"
+    },
+    {
+      "key": "doi:10.1109/icir64558.2024.10976748",
+      "year": 2024,
+      "title": "Node Bearing Vector System: Advance in 3D/2D Vector Storage and Mesh Design",
+      "doi": "10.1109/icir64558.2024.10976748"
+    },
+    {
+      "key": "doi:10.1109/gem61861.2024.10585540",
+      "year": 2024,
+      "title": "Decentralization of Gaming Server with P2P Service for the MMO",
+      "doi": "10.1109/gem61861.2024.10585540"
+    },
+    {
+      "key": "doi:10.1016/j.jacr.2024.03.014",
+      "year": 2024,
+      "title": "Conflicts of Interest in Radiology Publishing",
+      "doi": "10.1016/j.jacr.2024.03.014"
+    },
+    {
+      "key": "doi:10.2214/ajr.23.30696",
+      "year": 2024,
+      "title": "Beyond the AJR: Early Applications of Generative Artificial Intelligence for Radiology Report Interpretation",
+      "doi": "10.2214/ajr.23.30696"
+    },
+    {
+      "key": "doi:10.4271/epr2024028",
+      "year": 2024,
+      "title": "Beyond Aviation: Embedded Gaming, Artificial Intelligence, Training,\n                    and Recruitment for the Advanced Air Mobility Industry",
+      "doi": "10.4271/epr2024028"
+    },
+    {
+      "key": "doi:10.1007/978-3-031-76624-4_11",
+      "year": 2024,
+      "title": "Artificial Intelligence (AI) in Abdominal Imaging",
+      "doi": "10.1007/978-3-031-76624-4_11"
+    },
+    {
+      "key": "doi:10.4271/epr2023020",
+      "year": 2023,
+      "title": "The Use of eVTOL Aircraft for First Responder, Police, and Medical Transport Applications",
+      "doi": "10.4271/epr2023020"
+    },
+    {
+      "key": "doi:10.31152/jb.2023.08.8.4.63",
+      "year": 2023,
+      "title": "A Study on Pilates Effect Through Pilates Motion Analysis",
+      "doi": "10.31152/jb.2023.08.8.4.63"
+    },
+    {
+      "key": "doi:10.1177/27325016231162871",
+      "year": 2023,
+      "title": "A Plastic Surgeon’s Guide to the Temporomandibular Joint: Part II, Pathophysiology and Diagnosis",
+      "doi": "10.1177/27325016231162871"
+    },
+    {
+      "key": "doi:10.1177/27325016231171619",
+      "year": 2023,
+      "title": "A Plastic Surgeon’s Guide to the Temporomandibular Joint: Part I, Anatomy",
+      "doi": "10.1177/27325016231171619"
+    },
+    {
+      "key": "doi:10.4271/epr2022001",
+      "year": 2022,
+      "title": "Unsettled Issues Regarding the Use of eVTOL Aircraft during Natural\n Disasters",
+      "doi": "10.4271/epr2022001"
+    },
+    {
+      "key": "doi:10.4271/epr2022025",
+      "year": 2022,
+      "title": "The Use of eVTOL Aircraft for Military Applications: Last-mile\n Transport and Logistics",
+      "doi": "10.4271/epr2022025"
+    },
+    {
+      "key": "doi:10.47643/1815-1337_2022_12_164",
+      "year": 2022,
+      "title": "Self-employment as a form of realization of the constitutional right to freedom of entrepreneurial activity: problems of legal regulation",
+      "doi": "10.47643/1815-1337_2022_12_164"
+    },
+    {
+      "key": "doi:10.1016/j.clinimag.2022.07.011",
+      "year": 2022,
+      "title": "Radiologists staunchly support patient safety and autonomy, in opposition to the SCOTUS decision to overturn Roe v Wade.",
+      "doi": "10.1016/j.clinimag.2022.07.011"
+    },
+    {
+      "key": "doi:10.1016/j.jamda.2022.04.024",
+      "year": 2022,
+      "title": "Geriatrics Fellow-led Educational Session for Nursing Home Staff About High-Risk Medications",
+      "doi": "10.1016/j.jamda.2022.04.024"
+    },
+    {
+      "key": "doi:10.47643/1815-1337_2022_10_168",
+      "year": 2022,
+      "title": "Competence of arbitration courts in cases of administrative offenses: problems of terminology",
+      "doi": "10.47643/1815-1337_2022_10_168"
+    },
+    {
+      "key": "doi:10.12788/jfp.0352",
+      "year": 2022,
+      "title": "3-year-old girl • fever • cervical lymphadenopathy • leukocytosis • Dx?",
+      "doi": "10.12788/jfp.0352"
+    },
+    {
+      "key": "doi:10.4271/epr2021017",
+      "year": 2021,
+      "title": "Unsettled Issues Concerning eVTOL for Rapid-response, On-demand\n                    Firefighting",
+      "doi": "10.4271/epr2021017"
+    },
+    {
+      "key": "doi:10.4271/epr2020022",
+      "year": 2020,
+      "title": "Unsettled Issues Concerning the Opportunities and Challenges of eVTOL Applications during a Global Pandemic",
+      "doi": "10.4271/epr2020022"
+    },
+    {
+      "key": "doi:10.1007/978-3-030-24025-7_5",
+      "year": 2019,
+      "title": "Prevention",
+      "doi": "10.1007/978-3-030-24025-7_5"
+    },
+    {
+      "key": "doi:10.23931/kacp.2018.13.2.51",
+      "year": 2018,
+      "title": "The effectiveness of parent-child interaction therapy for children with autism spectrum disorder and their parents",
+      "doi": "10.23931/kacp.2018.13.2.51"
+    },
+    {
+      "key": "doi:10.3390/nu10050575",
+      "year": 2018,
+      "title": "The Association between Sleep Duration and 25-Hydroxyvitamin D Concentration with Obesity in an Elderly Korean Population: A Cross-Sectional Study",
+      "doi": "10.3390/nu10050575"
+    },
+    {
+      "key": "doi:10.1016/j.ijrobp.2016.06.967",
+      "year": 2016,
+      "title": "Predictors of Esophageal Stricture After Definitive Chemoradiation Therapy for Esophageal/Gastroesophageal Junction Carcinoma",
+      "doi": "10.1016/j.ijrobp.2016.06.967"
+    },
+    {
+      "key": "doi:10.14367/kjhep.2016.33.2.15",
+      "year": 2016,
+      "title": "Health behavior and status associated with junk food consumption in adolescents: Data from the Korea youth risk behavior web-based survey",
+      "doi": "10.14367/kjhep.2016.33.2.15"
+    },
+    {
+      "key": "doi:10.1097/md.0000000000005360",
+      "year": 2016,
+      "title": "Associations of daily sleep duration and dietary macronutrient consumption with obesity and dyslipidemia in Koreans",
+      "doi": "10.1097/md.0000000000005360"
+    },
+    {
+      "key": "doi:10.7570/kjo.2016.25.1.43",
+      "year": 2016,
+      "title": "Associations between Subjective Stress Level, Health-Related Habits, and Obesity according to Gender (Korean J Obes 2015;24:156-65)",
+      "doi": "10.7570/kjo.2016.25.1.43"
+    },
+    {
+      "key": "doi:10.1007/s11255-016-1382-0",
+      "year": 2016,
+      "title": "A cross-sectional study in the USA of the epidemiology and quality of life of underactive bladder symptoms",
+      "doi": "10.1007/s11255-016-1382-0"
+    },
+    {
+      "key": "doi:10.1016/j.ijrobp.2015.07.1008",
+      "year": 2015,
+      "title": "Outcomes After Neoadjuvant or Definitive Chemoradiation Therapy for Esophageal/Gastroesophageal Junction Carcinoma",
+      "doi": "10.1016/j.ijrobp.2015.07.1008"
+    },
+    {
+      "key": "doi:10.7570/kjo.2015.24.3.156",
+      "year": 2015,
+      "title": "Associations between Subjective Stress Level, Health-Related Habits, and Obesity according to Gender",
+      "doi": "10.7570/kjo.2015.24.3.156"
+    },
+    {
+      "key": "doi:10.1007/s11255-014-0811-1",
+      "year": 2014,
+      "title": "Epidemiology and demographics of the underactive bladder: A cross-sectional survey",
+      "doi": "10.1007/s11255-014-0811-1"
+    },
+    {
+      "key": "doi:10.1007/s11901-003-0024-z",
+      "year": 2003,
+      "title": "Epidemiology and immunopathogenesis of chronic hepatitis B virus infection",
+      "doi": "10.1007/s11901-003-0024-z"
+    },
+    {
+      "key": "doi:10.1016/0263-7863(93)90050-w",
+      "year": 1993,
+      "title": "Framework for results: implementing a power-station information-management system across a multilocation environment",
+      "doi": "10.1016/0263-7863(93)90050-w"
+    },
+    {
+      "key": "doi:10.1177/107621758300300523",
+      "year": 1983,
+      "title": "Microcomputers for Gifted Microtots",
+      "doi": "10.1177/107621758300300523"
+    },
+    {
+      "key": "doi:10.1016/0029-1021(69)90107-8",
+      "year": 1969,
+      "title": "Basic radiography 1-basic theory and practice",
+      "doi": "10.1016/0029-1021(69)90107-8"
+    },
+    {
+      "key": "doi:10.1109/t-ed.1966.15735",
+      "year": 1966,
+      "title": "Silicon nitride, a new diffusion mask",
+      "doi": "10.1109/t-ed.1966.15735"
+    },
+    {
+      "key": "doi:10.1149/1.2425954",
+      "year": 1964,
+      "title": "Thin Silicon Film Growth on Polycrystalline Alumina Ceramic",
+      "doi": "10.1149/1.2425954"
+    },
+    {
+      "key": "doi:10.1016/0001-6160(60)90091-2",
+      "year": 1960,
+      "title": "Polygonization of 31% alpha-brass",
+      "doi": "10.1016/0001-6160(60)90091-2"
+    }
+  ]
 }
