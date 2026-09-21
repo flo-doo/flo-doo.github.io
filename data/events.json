@@ -196,163 +196,190 @@
       "label": "New York, NY",
       "lat": 40.7128,
       "lng": -74.006,
-      "scope": "national"
+      "scope": "national",
+      "talkCount": 8
     },
     {
       "label": "Palo Alto, CA",
       "lat": 37.4419,
       "lng": -122.143,
-      "scope": "national"
+      "scope": "national",
+      "talkCount": 3
     },
     {
       "label": "Baltimore, MD",
       "lat": 39.2904,
       "lng": -76.6122,
-      "scope": "local"
+      "scope": "local",
+      "talkCount": 13
     },
     {
       "label": "North Bethesda, MD",
       "lat": 39.0446,
       "lng": -77.1189,
-      "scope": "local"
+      "scope": "local",
+      "talkCount": 3
     },
     {
       "label": "Washington, DC",
       "lat": 38.9072,
       "lng": -77.0369,
-      "scope": "national"
+      "scope": "national",
+      "talkCount": 9
     },
     {
       "label": "San Diego, CA",
       "lat": 32.7157,
       "lng": -117.1611,
-      "scope": "national"
+      "scope": "national",
+      "talkCount": 6
     },
     {
       "label": "Chicago, IL",
       "lat": 41.8781,
       "lng": -87.6298,
-      "scope": "national"
+      "scope": "national",
+      "talkCount": 16
     },
     {
       "label": "Austin, TX",
       "lat": 30.2672,
       "lng": -97.7431,
-      "scope": "national"
+      "scope": "national",
+      "talkCount": 1
     },
     {
       "label": "Birmingham, AL",
       "lat": 33.5186,
       "lng": -86.8104,
-      "scope": "national"
+      "scope": "national",
+      "talkCount": 3
     },
     {
       "label": "Miami, FL",
       "lat": 25.7617,
       "lng": -80.1918,
-      "scope": "national"
+      "scope": "national",
+      "talkCount": 2
     },
     {
       "label": "Boston, MA",
       "lat": 42.3601,
       "lng": -71.0589,
-      "scope": "national"
+      "scope": "national",
+      "talkCount": 4
     },
     {
       "label": "Pleasanton, CA",
       "lat": 37.6624,
       "lng": -121.8747,
-      "scope": "national"
+      "scope": "national",
+      "talkCount": 1
     },
     {
       "label": "Richmond, VA",
       "lat": 37.5407,
       "lng": -77.436,
-      "scope": "national"
+      "scope": "national",
+      "talkCount": 1
     },
     {
       "label": "Royal Oak, MI",
       "lat": 42.4895,
       "lng": -83.1446,
-      "scope": "national"
+      "scope": "national",
+      "talkCount": 2
     },
     {
       "label": "Ann Arbor, MI",
       "lat": 42.2808,
       "lng": -83.743,
-      "scope": "national"
+      "scope": "national",
+      "talkCount": 1
     },
     {
       "label": "Atlanta, GA",
       "lat": 33.749,
       "lng": -84.388,
-      "scope": "national"
+      "scope": "national",
+      "talkCount": 1
     },
     {
       "label": "Los Angeles, CA",
       "lat": 34.0522,
       "lng": -118.2437,
-      "scope": "national"
+      "scope": "national",
+      "talkCount": 3
     },
     {
       "label": "Pittsburgh, PA",
       "lat": 40.4406,
       "lng": -79.9959,
-      "scope": "national"
+      "scope": "national",
+      "talkCount": 5
     },
     {
       "label": "East Lansing, MI",
       "lat": 42.73698,
       "lng": -84.48387,
-      "scope": "national"
+      "scope": "national",
+      "talkCount": 2
     },
     {
       "label": "Nashville, TN",
       "lat": 36.1627,
       "lng": -86.7816,
-      "scope": "national"
+      "scope": "national",
+      "talkCount": 2
     },
     {
       "label": "Accra, Ghana",
       "lat": 5.6037,
       "lng": -0.187,
-      "scope": "international"
+      "scope": "international",
+      "talkCount": 1
     },
     {
       "label": "Toronto, Canada",
       "lat": 43.6532,
       "lng": -79.3832,
-      "scope": "international"
+      "scope": "international",
+      "talkCount": 1
     },
     {
       "label": "Cambridge, United Kingdom",
       "lat": 52.2053,
       "lng": 0.1218,
-      "scope": "international"
+      "scope": "international",
+      "talkCount": 1
     },
     {
       "label": "Vienna, Austria",
       "lat": 48.2082,
       "lng": 16.3738,
-      "scope": "international"
+      "scope": "international",
+      "talkCount": 4
     },
     {
       "label": "Montreal, Canada",
       "lat": 45.5017,
       "lng": -73.5673,
-      "scope": "international"
+      "scope": "international",
+      "talkCount": 1
     },
     {
       "label": "Daejeon, South Korea",
       "lat": 36.3504,
       "lng": 127.3845,
-      "scope": "international"
+      "scope": "international",
+      "talkCount": 1
     },
     {
       "label": "Sydney, Australia",
       "lat": -33.8688,
       "lng": 151.2093,
-      "scope": "international"
+      "scope": "international",
+      "talkCount": 1
     },
     {
       "label": "Strasbourg, France",

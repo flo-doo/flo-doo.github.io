@@ -20,6 +20,7 @@ TOPICS = ROOT / "data" / "publication-topics.json"
 INDEX = ROOT / "index.html"
 PUBLICATIONS = ROOT / "publications.html"
 SITEMAP = ROOT / "sitemap.xml"
+SITE_META = ROOT / "data" / "site-meta.json"
 
 
 def esc(value) -> str:
@@ -231,7 +232,7 @@ def latest_item(pub: dict) -> str:
     return f'<div class="latest-item">{inner}</div>'
 
 
-def scholarly_item(pub: dict, position: int) -> dict:
+def scholarly_article(pub: dict) -> dict:
     priority, parsed = publication_sort_meta(pub)
     item = {
         "@type": "ScholarlyArticle",
@@ -244,8 +245,29 @@ def scholarly_item(pub: dict, position: int) -> dict:
         item["url"] = url
     if pub.get("doi"):
         item["identifier"] = f"https://doi.org/{norm_doi(pub['doi'])}"
-    item = {k: v for k, v in item.items() if v not in (None, "")}
-    return {"@type": "ListItem", "position": position, "item": item}
+    return {k: v for k, v in item.items() if v not in (None, "")}
+
+
+def scholarly_item(pub: dict, position: int) -> dict:
+    return {"@type": "ListItem", "position": position, "item": scholarly_article(pub)}
+
+
+def update_profile_jsonld(index: str, lastmod: str, latest_pubs: list[dict]) -> str:
+    """Refresh ProfilePage dateModified and expose recent scholarly work via hasPart."""
+    pattern = re.compile(r'(<script type="application/ld\+json">\s*)(\{.*?\})(\s*</script>)', re.S)
+    matches = list(pattern.finditer(index))
+    for match in matches:
+        try:
+            schema = json.loads(match.group(2))
+        except json.JSONDecodeError:
+            continue
+        if schema.get("@type") != "ProfilePage":
+            continue
+        schema["dateModified"] = lastmod
+        schema["hasPart"] = [scholarly_article(p) for p in latest_pubs]
+        replacement = match.group(1) + json.dumps(schema, ensure_ascii=False, indent=2) + match.group(3)
+        return index[:match.start()] + replacement + index[match.end():]
+    return index
 
 
 def main() -> None:
@@ -259,13 +281,10 @@ def main() -> None:
 
     # Homepage: static latest publications and static publication count.
     index = INDEX.read_text(encoding="utf-8")
-    lastmod = str(data.get("updated") or dt.date.today().isoformat())
-    index = re.sub(
-        r'("dateModified"\s*:\s*")[0-9]{4}-[0-9]{2}-[0-9]{2}(" )?',
-        lambda m: m.group(1) + lastmod + (m.group(2) or ""),
-        index,
-        count=1,
-    )
+    site_meta = json.loads(SITE_META.read_text(encoding="utf-8")) if SITE_META.exists() else {}
+    candidate_dates = [str(x) for x in (data.get("updated"), site_meta.get("updated")) if x]
+    lastmod = max(candidate_dates) if candidate_dates else dt.date.today().isoformat()
+    index = update_profile_jsonld(index, lastmod, pubs[:5])
     index = re.sub(
         r'(<strong id="publication-count">).*?(</strong>)',
         rf'\g<1>{len(pubs)}\2',
@@ -304,6 +323,7 @@ def main() -> None:
         "url": "https://flo-doo.github.io/publications.html",
         "name": "Publications | Florence X. Doo, MD, MA",
         "description": "Publication record for Florence X. Doo, MD, MA, spanning trustworthy human-AI systems, frontier clinical intelligence, sustainable AI and radiology, and medical imaging, informatics, and data systems.",
+        "dateModified": lastmod,
         "about": {"@id": "https://flo-doo.github.io/#florence-doo"},
         "mainEntity": {
             "@type": "ItemList",

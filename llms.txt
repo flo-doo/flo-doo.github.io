@@ -1,0 +1,32 @@
+# Florence X. Doo, MD, MA
+
+> Personal site for Florence X. Doo, a radiologist, clinical AI researcher, and physician innovator focused on safely translating emerging AI systems into clinical practice.
+
+## Core pages
+
+- [Home](https://flo-doo.github.io/): Research, invited speaking, current appointments, professional leadership, education and training, collaboration pathways, and contact links.
+- [Publications](https://flo-doo.github.io/publications.html): Full publication record with research-area filters and DOI or public-record linkouts.
+
+## Research focus
+
+- Trustworthy Human–AI Systems: evaluation, reliability, human–AI interaction, clinician reliance, fairness, validation, safety, and monitoring.
+- Frontier Clinical Intelligence: multimodal AI, generative AI, foundation models, agents, predictive models, and digital twins.
+- Sustainable AI & Radiology: efficiency, compute, energy, water, cloud infrastructure, sustainable imaging, and resource use.
+- Medical Imaging, Informatics, & Data Systems: imaging informatics, multimodal health data, datasets, interoperability, annotation, benchmarking, and workflow.
+
+## Professional context
+
+Florence Doo is an academic radiologist with current appointments at the University of Maryland School of Medicine, the University of Maryland Institute for Health Computing / Center for Applied AI, and the University of Maryland College of Computer, Mathematical, and Natural Sciences. The site also lists selected national and international professional leadership and invited speaking appearances.
+
+## Identity and scholarly profiles
+
+- [University of Maryland faculty profile](https://www.medschool.umaryland.edu/profiles/doo-florence-xini/)
+- [ORCID](https://orcid.org/0000-0001-6519-5222)
+- [Google Scholar](https://scholar.google.com/citations?user=B7Ig9cwAAAAJ&hl=en)
+- [ResearchGate](https://www.researchgate.net/profile/Florence-Doo)
+- [LinkedIn](https://www.linkedin.com/in/flodoo/)
+
+## Contact
+
+- Email: fdoo@som.umaryland.edu
+- Collaboration / trainee inquiries: https://docs.google.com/forms/d/e/1FAIpQLScunT4a1he1A9bxpjirguCf-Wd9Fm4MKniM1l50_UQxV0gR4A/viewform?usp=sf_link

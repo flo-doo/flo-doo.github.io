@@ -129,10 +129,12 @@
           lng: x,
           location: e.conferenceLocation || e.location || '',
           scope: e.scope,
-          conferences: new Map()
+          conferences: new Map(),
+          talkCount: 0
         });
       }
       const group = upcomingByLocation.get(key);
+      group.talkCount += 1;
       const conference = e.conference || e.event || e.title || 'Upcoming appearance';
       const current = group.conferences.get(conference) || {name: conference, count: 0};
       current.count += 1;
@@ -142,6 +144,14 @@
 
     const upcomingKeys = new Set(upcomingByLocation.keys());
     const historicalSeen = new Set();
+    const historicalCountsByKey = new Map();
+
+    (data.speakingLocations || []).forEach(p => {
+      const y = Number(p.lat), x = Number(p.lng);
+      if (!Number.isFinite(y) || !Number.isFinite(x)) return;
+      const key = coordinateKey(y, x);
+      historicalCountsByKey.set(key, Number(p.talkCount || p.count || 0) || 0);
+    });
 
     // Keep one historical marker per city. If that same city has an upcoming appearance,
     // the upcoming marker supersedes the historical marker so the two never overlap/spiderfy.
@@ -157,27 +167,38 @@
         label: p.label,
         scope: p.scope,
         upcoming: false,
-        conferences: []
+        conferences: [],
+        talkCount: Number(p.talkCount || p.count || 0) || 0
       });
     });
 
     upcomingByLocation.forEach(group => {
+      const key = coordinateKey(group.lat, group.lng);
       points.push({
         lat: group.lat,
         lng: group.lng,
         label: group.location,
         scope: group.scope,
         upcoming: true,
-        conferences: Array.from(group.conferences.values())
+        conferences: Array.from(group.conferences.values()),
+        talkCount: group.talkCount,
+        priorTalkCount: historicalCountsByKey.get(key) || 0
       });
     });
 
-    const dotIcon = (upcomingFlag) => L.divIcon({
-      className: 'speaking-dot-wrap',
-      html: `<span class="speaking-dot${upcomingFlag ? ' speaking-dot--upcoming' : ''}"></span>`,
-      iconSize: upcomingFlag ? [14, 14] : [10, 10],
-      iconAnchor: upcomingFlag ? [7, 7] : [5, 5]
-    });
+    const dotIcon = (upcomingFlag, talkCount = 0) => {
+      // Keep historical city markers visually quiet; counts are shown in the tooltip.
+      // Upcoming locations retain a count badge when multiple talks share one city.
+      const showCount = upcomingFlag && Number(talkCount) > 1;
+      const size = showCount ? 22 : (upcomingFlag ? 14 : 10);
+      const countText = showCount ? `<span class="speaking-dot-count">${talkCount}</span>` : '';
+      return L.divIcon({
+        className: 'speaking-dot-wrap',
+        html: `<span class="speaking-dot${upcomingFlag ? ' speaking-dot--upcoming' : ''}${showCount ? ' speaking-dot--has-count' : ''}">${countText}</span>`,
+        iconSize: [size, size],
+        iconAnchor: [size / 2, size / 2]
+      });
+    };
 
     const clusterAvailable = typeof L.markerClusterGroup === 'function';
     speakingMarkerLayer = clusterAvailable
@@ -196,17 +217,24 @@
       : L.layerGroup();
 
     points.forEach(p => {
-      const marker = L.marker([p.lat, p.lng], {icon: dotIcon(p.upcoming), keyboard: true});
+      const marker = L.marker([p.lat, p.lng], {icon: dotIcon(p.upcoming, p.talkCount), keyboard: true});
       let body;
       if (p.upcoming && p.conferences?.length) {
         const conferenceLines = p.conferences.map(c => {
           const talkLabel = c.count === 1 ? '1 talk' : `${c.count} talks`;
           return `<strong>${esc(c.name)}</strong> <span class="map-talk-count">(${talkLabel})</span>`;
         }).join('<br>');
-        const locationLine = p.label ? `<br><span class="map-tooltip-location">${esc(p.label)}</span>` : '';
+        const cityTalkLabel = p.talkCount === 1 ? '1 talk' : `${p.talkCount} talks`;
+        const priorLabel = Number(p.priorTalkCount) > 0
+          ? ` · ${p.priorTalkCount === 1 ? '1 prior talk' : `${p.priorTalkCount} prior talks`}`
+          : '';
+        const locationLine = p.label ? `<br><span class="map-tooltip-location">${esc(p.label)} · ${cityTalkLabel}${priorLabel}</span>` : '';
         body = `${conferenceLines}${locationLine}<br><em>Upcoming</em>`;
       } else {
-        body = `<strong>${esc(p.label)}</strong>`;
+        const historicalCount = p.talkCount > 0
+          ? ` · ${p.talkCount === 1 ? '1 talk' : `${p.talkCount} talks`}`
+          : '';
+        body = `<strong>${esc(p.label)}${historicalCount}</strong>`;
       }
       marker.bindTooltip(body, {direction: 'top', opacity: 1});
       marker.bindPopup(body);

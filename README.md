@@ -1,20 +1,14 @@
-# Florence X. Doo - Personal Research Website
+# Florence X. Doo — Personal Site
 
-Personal academic and research website for **Florence X. Doo, MD, MA**.
+Personal site for **Florence X. Doo, MD, MA** — radiologist, clinical AI researcher, and physician innovator. It brings together research, publications, invited speaking, professional leadership, education and training, and ways to connect or collaborate.
 
 **Live site:** https://flo-doo.github.io/
 
-## Research areas
+## Research focus
 
-- Trustworthy Human-AI Systems
+- Trustworthy Human–AI Systems
 - Frontier Clinical Intelligence
 - Sustainable AI & Radiology
 - Medical Imaging, Informatics, & Data Systems
-
-## Site content
-
-The site highlights selected research, a categorized publication record, upcoming invited talks, current academic and research appointments, professional affiliations, and research profiles.
-
-Publication metadata is synchronized from public scholarly sources and curated into research themes.
 
 Hosted with GitHub Pages.
