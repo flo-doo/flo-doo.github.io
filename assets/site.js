@@ -41,34 +41,100 @@
     new ResizeObserver(syncHeaderHeight).observe(siteHeader);
   }
 
-  // Research remains the intentional gateway to Publications: hover on desktop, tap/click on touch/keyboard.
-  // Keep the menu open briefly while the pointer moves from the trigger into the submenu.
-  document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+  // Header dropdowns: hover on pointer devices, click/tap to pin open, click again to close.
+  // An explicit second click wins over hover so the menu can always be minimized.
+  const navDropdowns = [...document.querySelectorAll('.nav-dropdown')];
+  const closeNavDropdown = new Map();
+  navDropdowns.forEach(dropdown => {
     const toggleButton = dropdown.querySelector('.nav-dropdown-toggle');
     const menu = dropdown.querySelector('.nav-menu');
     if (!toggleButton || !menu) return;
+
     let closeTimer = null;
-    const setOpen = (open) => {
-      if (closeTimer) { window.clearTimeout(closeTimer); closeTimer = null; }
-      dropdown.classList.toggle('is-open', open);
+    let pinnedOpen = false;
+    let suppressHover = false;
+
+    const syncExpanded = () => {
+      const open = pinnedOpen || dropdown.classList.contains('is-hover-open');
+      dropdown.classList.toggle('is-open', pinnedOpen);
       toggleButton.setAttribute('aria-expanded', String(open));
     };
-    const scheduleClose = () => {
+
+    const close = ({ suppress = false } = {}) => {
+      if (closeTimer) { window.clearTimeout(closeTimer); closeTimer = null; }
+      pinnedOpen = false;
+      suppressHover = suppress;
+      dropdown.classList.remove('is-open', 'is-hover-open');
+      toggleButton.setAttribute('aria-expanded', 'false');
+    };
+
+    closeNavDropdown.set(dropdown, close);
+
+    const scheduleHoverClose = () => {
       if (closeTimer) window.clearTimeout(closeTimer);
       closeTimer = window.setTimeout(() => {
-        if (!dropdown.matches(':hover') && !dropdown.contains(document.activeElement)) setOpen(false);
-      }, 240);
+        dropdown.classList.remove('is-hover-open');
+        suppressHover = false;
+        syncExpanded();
+      }, 220);
     };
-    toggleButton.addEventListener('click', (event) => {
+
+    toggleButton.addEventListener('click', event => {
       event.preventDefault();
-      setOpen(!dropdown.classList.contains('is-open'));
+      event.stopPropagation();
+
+      if (pinnedOpen) {
+        close({suppress: true});
+        return;
+      }
+
+      // If the menu is only visible because of hover, the first click pins it.
+      pinnedOpen = true;
+      suppressHover = false;
+      dropdown.classList.remove('is-hover-open');
+      navDropdowns.forEach(other => {
+        if (other === dropdown) return;
+        closeNavDropdown.get(other)?.();
+      });
+      syncExpanded();
     });
-    dropdown.addEventListener('mouseenter', () => setOpen(true));
-    dropdown.addEventListener('mouseleave', scheduleClose);
-    menu.addEventListener('mouseenter', () => setOpen(true));
-    menu.addEventListener('mouseleave', scheduleClose);
-    dropdown.addEventListener('focusin', () => setOpen(true));
-    dropdown.addEventListener('focusout', scheduleClose);
+
+    dropdown.addEventListener('mouseenter', () => {
+      if (suppressHover || pinnedOpen) return;
+      if (closeTimer) { window.clearTimeout(closeTimer); closeTimer = null; }
+      dropdown.classList.add('is-hover-open');
+      syncExpanded();
+    });
+    dropdown.addEventListener('mouseleave', () => {
+      suppressHover = false;
+      if (!pinnedOpen) scheduleHoverClose();
+    });
+
+    // Keep a pinned menu open while tabbing through it; close after focus leaves.
+    dropdown.addEventListener('focusout', event => {
+      if (!dropdown.contains(event.relatedTarget) && !pinnedOpen) close();
+    });
+
+    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => close()));
+
+    toggleButton.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        close();
+        toggleButton.focus();
+      }
+    });
+  });
+
+  document.addEventListener('click', event => {
+    navDropdowns.forEach(dropdown => {
+      if (dropdown.contains(event.target)) return;
+      closeNavDropdown.get(dropdown)?.();
+    });
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+    navDropdowns.forEach(dropdown => closeNavDropdown.get(dropdown)?.());
   });
 
   const esc = (s = '') => String(s).replace(/[&<>'"]/g, c => ({

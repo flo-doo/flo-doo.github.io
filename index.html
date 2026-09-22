@@ -29,7 +29,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css" rel="stylesheet"/>
-<link href="assets/styles.css?v=20260922e" rel="stylesheet"/>
+<link href="assets/styles.css?v=20260922h" rel="stylesheet"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -140,6 +140,7 @@
       "Generative AI",
       "Foundation models",
       "Agentic AI",
+      "World models",
       "Sustainable AI",
       "Radiology sustainability",
       "Medical imaging",
@@ -218,7 +219,17 @@
 </div>
 <a href="#speaking">Speaking</a>
 <a href="#about">About</a>
-<a href="#connect">Connect</a>
+<div class="nav-dropdown nav-dropdown--connect">
+<button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">Connect</button>
+<div class="nav-menu nav-menu--connect">
+<a href="mailto:fdoo@som.umaryland.edu">Email</a>
+<a href="https://www.linkedin.com/in/flodoo/" rel="noreferrer" target="_blank">LinkedIn ↗</a>
+<a href="https://twitter.com/flo_doo" rel="noreferrer" target="_blank">X / Twitter ↗</a>
+<a href="https://scholar.google.com/citations?user=B7Ig9cwAAAAJ&amp;hl=en" rel="noreferrer" target="_blank">Google Scholar ↗</a>
+<a href="https://orcid.org/0000-0001-6519-5222" rel="noreferrer" target="_blank">ORCID ↗</a>
+<a href="https://www.researchgate.net/profile/Florence-Doo" rel="noreferrer" target="_blank">ResearchGate ↗</a>
+</div>
+</div>
 </nav>
 <button class="theme-toggle" data-theme-toggle="" type="button">View in light mode</button>
 </div>
@@ -247,7 +258,7 @@
 <a class="hero-explore" href="#research">Explore my work <span aria-hidden="true">↓</span></a>
 </div>
 <div class="hero-connect">
-<a class="hero-connect-label" href="#connect">Connect <span class="connect-direction" aria-hidden="true">→</span></a>
+<span class="hero-connect-label">Connect <span class="connect-direction" aria-hidden="true">→</span></span>
 <nav aria-label="Connect with Florence X. Doo" class="profile-icon-links">
 <a aria-label="Email Florence X. Doo" href="mailto:fdoo@som.umaryland.edu"><span class="connect-icon"><i aria-hidden="true" class="fa-solid fa-envelope"></i></span><span class="connect-text">Email</span></a>
 <a aria-label="LinkedIn" href="https://www.linkedin.com/in/flodoo/" rel="noreferrer" target="_blank"><span class="connect-icon"><i aria-hidden="true" class="fa-brands fa-linkedin-in"></i></span><span class="connect-text">LinkedIn</span></a>
@@ -271,7 +282,7 @@
 <header class="research-recent-head">
 <div>
 <h3 id="recent-publications-title">Recent publications</h3>
-<p>Please <a class="inline-link" href="#connect">contact me</a> if you'd like a copy of a paper or are interested in collaborating.</p>
+<p>Please <a class="inline-link" href="mailto:fdoo@som.umaryland.edu?subject=Research%20inquiry">contact me</a> if you'd like a copy of a paper or are interested in collaborating.</p>
 </div>
 <div class="research-recent-links">
 <a href="publications.html">All publications →</a>
@@ -289,14 +300,14 @@
 </section>
 <section aria-labelledby="research-areas-title" class="research-areas-panel">
 <div class="research-areas-head">
-<h3 id="research-areas-title">Research areas</h3>
+<h3 id="research-areas-title">Active Research Areas</h3>
 </div>
 <div class="research-grid">
 <article class="research-column">
 <div class="research-top">
 <h3>Trustworthy Human–AI Systems</h3>
-<p class="research-question">How can AI systems work reliably with clinicians in real clinical environments?</p>
-<p class="topics">evaluation · reliability · human–AI interaction · clinician reliance · fairness · validation · safety · monitoring</p>
+<p class="research-question">How can AI systems work safely with clinicians in real-world clinical environments?</p>
+<p class="topics">regulatory science · evaluation · reliability · human–AI interaction · fairness · validation · safety · monitoring</p>
 </div>
 <div class="selected-work">
 <div class="selected-work-head"><p class="small-label">Selected work</p><a class="related-button" href="publications.html?topic=trustworthy-human-ai">View related →</a></div>
@@ -307,8 +318,8 @@
 <article class="research-column">
 <div class="research-top">
 <h3>Frontier Clinical Intelligence</h3>
-<p class="research-question">How can emerging AI capabilities expand clinical reasoning, prediction, and care?</p>
-<p class="topics">multimodal AI · generative AI · foundation models · agents · predictive models · digital twins</p>
+<p class="research-question">How can emerging AI capabilities expand clinical reasoning, prediction, and care delivery?</p>
+<p class="topics">multimodal AI · generative AI · foundation models · agents · world models · predictive models · digital twins</p>
 </div>
 <div class="selected-work">
 <div class="selected-work-head"><p class="small-label">Selected work</p><a class="related-button" href="publications.html?topic=frontier-clinical-intelligence">View related →</a></div>
@@ -319,7 +330,7 @@
 <article class="research-column">
 <div class="research-top">
 <h3>Sustainable AI &amp; Radiology</h3>
-<p class="research-question">How can AI, imaging, and radiology workflows become more computationally and environmentally efficient?</p>
+<p class="research-question">How can AI and medical imaging workflows become more computationally and environmentally efficient?</p>
 <p class="topics">efficiency · compute · energy · water · cloud infrastructure · contrast media · imaging sustainability · resource use</p>
 </div>
 <div class="selected-work">
@@ -331,7 +342,7 @@
 <article class="research-column">
 <div class="research-top">
 <h3>Medical Imaging, Informatics, &amp; Data Systems</h3>
-<p class="research-question">How can imaging and multimodal clinical data be structured, connected, and used more effectively?</p>
+<p class="research-question">How can medical imaging, multimodal data, and scalable architectures help improve medicine?</p>
 <p class="topics">imaging informatics · multimodal health data · datasets · interoperability · annotation · benchmarking · workflow</p>
 </div>
 <div class="selected-work">
@@ -342,6 +353,13 @@
 </article>
 </div>
 </section>
+</div>
+<div class="section-utility section-utility--research" aria-label="Research opportunities and collaboration">
+<p class="section-utility-title">Work with the lab</p>
+<div class="section-utility-items">
+<p><strong>Students &amp; trainees.</strong> Interested in research opportunities or joining ongoing projects? <a href="https://docs.google.com/forms/d/e/1FAIpQLScunT4a1he1A9bxpjirguCf-Wd9Fm4MKniM1l50_UQxV0gR4A/viewform?usp=sf_link" target="_blank" rel="noreferrer">Student / trainee form →</a></p>
+<p><strong>Faculty &amp; industry.</strong> For research collaborations, multi-site work, or academic and industry partnerships. <a href="mailto:fdoo@som.umaryland.edu?subject=Research%20collaboration%20inquiry">Email me →</a></p>
+</div>
 </div>
 </section>
 <section class="section" id="speaking">
@@ -368,6 +386,10 @@
 </div>
 <div aria-live="polite" class="event-list event-list--scroll" id="upcoming-events"><p class="loading">Loading upcoming appearances…</p></div>
 </section>
+</div>
+<div class="section-utility section-utility--speaking" aria-label="Speaking inquiries">
+<p class="section-utility-title">Invite me to speak</p>
+<p>Keynotes, panels, grand rounds, workshops, and invited sessions on clinical AI, radiology, and emerging technologies. <a href="mailto:fdoo@som.umaryland.edu?subject=Speaking%20invitation%20%E2%80%94%20%5Bevent%20or%20organization%5D&amp;body=Dear%20Dr.%20Doo%2C%0A%0AI%27m%20writing%20to%20invite%20you%20to%20speak%20at%20%5Bevent%20or%20organization%5D.%0A%0ADate%3A%0ATime%3A%0ALocation%20or%20virtual%3A%0AFormat%20%28keynote%2C%20panel%2C%20grand%20rounds%2C%20workshop%2C%20etc.%29%3A%0ATopic%20or%20session%20%28if%20known%29%3A%0ATravel%20support%20or%20honorarium%20%28optional%29%3A%0A%0AAdditional%20details%3A%0A%0ABest%2C%0A%5BName%20%2F%20role%20%2F%20organization%5D">Speaking inquiry →</a></p>
 </div>
 </section>
 <section class="section about-section" id="about">
@@ -492,51 +514,11 @@
 </div></div>
 </section>
 
-<section class="section connect-section" id="connect">
-<div class="section-intro section-intro--inline">
-<p class="section-label">04 /</p>
-<h2>Connect</h2>
-</div>
-<div class="connect-panel">
-<div class="connect-pathways connect-pathways--two">
-<article class="connect-pathway connect-pathway--lab">
-<h4>Work with the lab</h4>
-<div class="connect-audiences">
-<div class="connect-audience">
-<h5>Students &amp; trainees</h5>
-<p>Interested in research opportunities or joining ongoing projects?</p>
-<a class="connect-cta" href="https://docs.google.com/forms/d/e/1FAIpQLScunT4a1he1A9bxpjirguCf-Wd9Fm4MKniM1l50_UQxV0gR4A/viewform?usp=sf_link" target="_blank" rel="noreferrer">Student / trainee form →</a>
-</div>
-<div class="connect-audience">
-<h5>Faculty &amp; industry</h5>
-<p>For research collaborations, multi-site work, or academic and industry partnerships.</p>
-<a class="connect-cta" href="mailto:fdoo@som.umaryland.edu?subject=Research%20collaboration%20inquiry">Email me →</a>
-</div>
-</div>
-</article>
-<article class="connect-pathway connect-pathway--speaking">
-<h4>Invite me to speak</h4>
-<p>Keynotes, panels, grand rounds, workshops, and invited sessions on clinical AI, radiology, and emerging technologies.</p>
-<a class="connect-cta" href="mailto:fdoo@som.umaryland.edu?subject=Speaking%20invitation%20%E2%80%94%20%5Bevent%20or%20organization%5D&body=Dear%20Dr.%20Doo%2C%0A%0AI%27m%20writing%20to%20invite%20you%20to%20speak%20at%20%5Bevent%20or%20organization%5D.%0A%0ADate%3A%0ATime%3A%0ALocation%20or%20virtual%3A%0AFormat%20%28keynote%2C%20panel%2C%20grand%20rounds%2C%20workshop%2C%20etc.%29%3A%0ATopic%20or%20session%20%28if%20known%29%3A%0ATravel%20support%20or%20honorarium%20%28optional%29%3A%0A%0AAdditional%20details%3A%0A%0ABest%2C%0A%5BName%20%2F%20role%20%2F%20organization%5D">Speaking inquiry →</a>
-</article>
-</div>
-<div class="connect-profiles">
-<nav aria-label="Connect with Florence X. Doo" class="profile-icon-links">
-<a aria-label="Email Florence X. Doo" href="mailto:fdoo@som.umaryland.edu"><span class="connect-icon"><i aria-hidden="true" class="fa-solid fa-envelope"></i></span><span class="connect-text">Email</span></a>
-<a aria-label="LinkedIn" href="https://www.linkedin.com/in/flodoo/" rel="noreferrer" target="_blank"><span class="connect-icon"><i aria-hidden="true" class="fa-brands fa-linkedin-in"></i></span><span class="connect-text">LinkedIn</span></a>
-<a aria-label="X / Twitter" href="https://twitter.com/flo_doo" rel="noreferrer" target="_blank"><span class="connect-icon"><i aria-hidden="true" class="fa-brands fa-x-twitter"></i></span><span class="connect-text">Twitter</span></a>
-<a aria-label="Google Scholar" href="https://scholar.google.com/citations?user=B7Ig9cwAAAAJ&amp;hl=en" rel="noreferrer" target="_blank"><span class="connect-icon"><i aria-hidden="true" class="fa-solid fa-graduation-cap"></i></span><span class="connect-text">Google Scholar</span></a>
-<a aria-label="ORCID" href="https://orcid.org/0000-0001-6519-5222" rel="noreferrer" target="_blank"><span class="connect-icon"><i aria-hidden="true" class="fa-brands fa-orcid"></i></span><span class="connect-text">ORCID</span></a>
-<a aria-label="ResearchGate" href="https://www.researchgate.net/profile/Florence-Doo" rel="noreferrer" target="_blank"><span class="connect-icon"><i aria-hidden="true" class="fa-brands fa-researchgate"></i></span><span class="connect-text">ResearchGate</span></a>
-</nav>
-</div>
-</div>
-</section>
 </main>
 <footer><p>© <span id="year"></span> Florence X. Doo</p><p>Clinical AI · Radiology · Informatics</p></footer>
 <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
 <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
 <script defer="" src="assets/hero-particles.js?v=20260922a"></script>
-<script defer="" src="assets/site.js?v=20260922e"></script>
+<script defer="" src="assets/site.js?v=20260922g"></script>
 </body>
 </html>
