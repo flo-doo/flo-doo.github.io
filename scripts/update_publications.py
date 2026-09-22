@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Refresh publication metadata while preserving the curated CV-based index.
+"""Refresh publication metadata while preserving the human-curated publication index.
 
 Discovery policy (deliberately conservative):
   1. ORCID is the only automated discovery source for new publications.
   2. Crossref is used only to enrich an exact DOI already supplied by ORCID.
-  3. Existing curated records are preserved when network sources fail.
+  3. Every run starts from the human-reviewed canonical publication file; only
+     ORCID-discovered records may be carried forward from the mutable cache.
 
 This avoids author-name web/API searches, which can attribute publications from
 other authors with similar names. Newly discovered ORCID works remain untagged
@@ -26,6 +27,7 @@ from pathlib import Path
 ORCID = "0000-0001-6519-5222"
 ROOT = Path(__file__).resolve().parents[1]
 PUBS = ROOT / "data" / "publications.json"
+CURATED = ROOT / "data" / "publications-curated.json"
 TOPICS = ROOT / "data" / "publication-topics.json"
 REVIEW = ROOT / "data" / "publication-topic-review.json"
 UA = "florence-doo-site/1.1 (mailto:fdoo@som.umaryland.edu)"
@@ -79,10 +81,31 @@ def iso_from_parts(parts):
         return None
 
 
-def load_existing():
-    if not PUBS.exists():
+def load_publication_file(path: Path):
+    if not path.exists():
         return []
-    return json.loads(PUBS.read_text(encoding="utf-8")).get("publications", [])
+    return json.loads(path.read_text(encoding="utf-8")).get("publications", [])
+
+
+def load_trusted_existing():
+    """Return only records whose provenance is trusted.
+
+    The human-reviewed canonical publication file is always authoritative. The mutable
+    publication cache may contribute prior ORCID-discovered records, but never
+    records discovered by the retired Crossref author-name search. This means a
+    bad historical workflow run cannot permanently contaminate the site.
+    """
+    curated = load_publication_file(CURATED)
+    current = load_publication_file(PUBS)
+
+    # Keep only previous additions that were actually discovered from this ORCID.
+    prior_orcid = []
+    for item in current:
+        source = str(item.get("source") or "").strip().lower()
+        if source.startswith("orcid"):
+            prior_orcid.append(item)
+
+    return merge(curated, prior_orcid)
 
 
 def load_topic_config():
@@ -369,7 +392,7 @@ def enrich_orcid_with_crossref(orcid_items, existing):
 def remove_unverified_legacy_crossref_discovery(existing, orcid_items, orcid_available):
     """Remove records created solely by the retired Crossref author-name search.
 
-    Curated CV records are never touched. A legacy item whose source is exactly
+    Human-curated records are never touched. A legacy item whose source is exactly
     Crossref is retained only when the current ORCID record independently verifies
     the same DOI/title. Cleanup runs only when ORCID was successfully retrieved.
     """
@@ -411,9 +434,8 @@ def merge(existing, discovered):
             for key in ("year", "date", "doi", "pmid", "url", "status"):
                 if not old.get(key) and new_item.get(key):
                     old[key] = new_item[key]
-            if old.get("source", "").startswith("CV") and new_item.get("source"):
-                if new_item["source"] not in old["source"]:
-                    old["source"] = old["source"] + " + " + new_item["source"]
+            # Preserve the curated provenance label. ORCID is discovery/enrichment only.
+            # The canonical curated record remains the source of truth.
         else:
             new_item.setdefault("tags", [])
             items.append(new_item)
@@ -435,21 +457,11 @@ def merge(existing, discovered):
 
 
 def main():
-    existing = load_existing()
+    # Rebuild from the trusted human-reviewed canonical publication file on every run. The current cache
+    # is allowed to contribute only records previously discovered from this ORCID.
+    # This intentionally discards historical broad Crossref/name-search results.
+    existing = load_trusted_existing()
     orcid, orcid_source = fetch_orcid()
-
-    # Clean up only legacy records that were created *solely* by the retired broad
-    # Crossref author search, and only after ORCID has been successfully retrieved.
-    existing, removed_legacy = remove_unverified_legacy_crossref_discovery(
-        existing, orcid, bool(orcid_source)
-    )
-    if removed_legacy:
-        print(
-            f"Removed {len(removed_legacy)} unverified legacy Crossref-only publication(s):",
-            file=sys.stderr,
-        )
-        for item in removed_legacy:
-            print(f"  - {item.get('title')}", file=sys.stderr)
 
     enriched_orcid, doi_lookups = enrich_orcid_with_crossref(orcid, existing)
     merged = merge(existing, enriched_orcid)
@@ -479,7 +491,7 @@ def main():
 
     print(
         f"Wrote {len(merged)} publications "
-        f"({len(existing)} cached after cleanup, {len(orcid)} ORCID-discovered, "
+        f"({len(existing)} trusted curated/cache records, {len(orcid)} ORCID-discovered, "
         f"{doi_lookups} exact-DOI Crossref enrichment lookup(s))."
     )
     if not orcid_source:

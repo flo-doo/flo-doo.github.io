@@ -1,10 +1,14 @@
 name: Update publications
+
 on:
   workflow_dispatch:
   schedule:
     - cron: "17 8 * * 1"
+
 permissions:
   contents: write
+  issues: write
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -15,14 +19,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Preserve prior topic-review state
-        shell: bash
-        run: |
-          if [ -f data/publication-topic-review.json ]; then
-            cp data/publication-topic-review.json /tmp/publication-topic-review-old.json
-          else
-            printf '{"count":0,"items":[]}\n' > /tmp/publication-topic-review-old.json
-          fi
       - name: Refresh ORCID-backed publication cache
         run: python scripts/update_publications.py
       - name: Commit changes if needed
@@ -38,26 +34,22 @@ jobs:
             git pull --rebase origin main
             git push origin HEAD:main
           fi
-      - name: Flag newly unclassified publications
+      - name: Create review issues for unclassified ORCID publications
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/sync_publication_review_issues.py
+      - name: Publication review summary
         shell: bash
         run: |
           python - <<'PY'
           import json, os
-          old=json.load(open('/tmp/publication-topic-review-old.json'))
-          new=json.load(open('data/publication-topic-review.json'))
-          old_keys={x['key'] for x in old.get('items',[])}
-          added=[x for x in new.get('items',[]) if x['key'] not in old_keys]
-          if not added:
-              print('No newly unclassified publications.')
-              raise SystemExit(0)
+          review=json.load(open('data/publication-topic-review.json'))
+          count=review.get('count',0)
           summary=os.environ.get('GITHUB_STEP_SUMMARY')
-          lines=['## Publication topic review needed','',f'{len(added)} new ORCID publication(s) were added without a research-topic tag:','']
-          lines += [f"- {x.get('year') or ''}: {x.get('title')}" for x in added]
-          lines += ['', 'Edit `data/publication-topics.json` to assign one or more topic tags.']
+          lines=['## Publication update','',f'Pending research-area review: **{count}** publication(s).']
+          if count:
+              lines += ['', 'Review issue(s) were created/updated and assigned to the repository owner. Use the `pub:` labels in each issue to classify the publication.']
           if summary:
               with open(summary,'a',encoding='utf-8') as f: f.write('\n'.join(lines)+'\n')
-          print('::warning::New ORCID publications need topic review. See the workflow summary and data/publication-topic-review.json.')
-          # Fail only on the first run that sees a new unclassified item. The review file
-          # is already committed, so later scheduled runs will not repeat the failure.
-          raise SystemExit(1)
+          print('\n'.join(lines))
           PY

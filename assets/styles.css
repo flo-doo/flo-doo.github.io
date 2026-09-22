@@ -3299,3 +3299,50 @@ html[data-theme="light"] .speaking-dot--upcoming {
   letter-spacing: -0.02em;
 }
 html[data-theme="light"] .speaking-dot-count { color: #fff; }
+
+/* 2026-09-22c: persistent navigation with responsive offset */
+:root { --header-h: 84px; }
+.site-header {
+  position: fixed !important;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3000 !important;
+  isolation: isolate;
+  overflow: visible !important;
+  background: transparent !important;
+}
+.site-header::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background: color-mix(in srgb, var(--bg) 91%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--rule) 88%, transparent);
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+  backdrop-filter: blur(14px) saturate(1.08);
+  -webkit-backdrop-filter: blur(14px) saturate(1.08);
+}
+.home-page .hero-stage {
+  padding-top: var(--header-h);
+}
+body:not(.home-page) {
+  padding-top: var(--header-h);
+}
+section[id], .connect-section, #main {
+  scroll-margin-top: calc(var(--header-h) + 18px) !important;
+}
+/* The hero artwork remains visible behind the fixed navbar on the home page. */
+.home-page .site-header::before {
+  background: color-mix(in srgb, #071626 86%, transparent);
+}
+html[data-theme="light"] .home-page .site-header::before {
+  background: color-mix(in srgb, #f8fbff 90%, transparent);
+}
+@media (max-width: 900px) {
+  .site-header::before { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+}

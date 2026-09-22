@@ -28,6 +28,19 @@
 
   document.querySelectorAll('#year').forEach(el => { el.textContent = new Date().getFullYear(); });
 
+  // Keep the navigation available while scrolling. Measure its real height so
+  // wrapped mobile navigation never obscures the section it jumps to.
+  const siteHeader = document.querySelector('.site-header');
+  const syncHeaderHeight = () => {
+    if (!siteHeader) return;
+    document.documentElement.style.setProperty('--header-h', `${Math.ceil(siteHeader.getBoundingClientRect().height)}px`);
+  };
+  syncHeaderHeight();
+  window.addEventListener('resize', syncHeaderHeight, {passive: true});
+  if (siteHeader && 'ResizeObserver' in window) {
+    new ResizeObserver(syncHeaderHeight).observe(siteHeader);
+  }
+
   // Research remains the intentional gateway to Publications: hover on desktop, tap/click on touch/keyboard.
   // Keep the menu open briefly while the pointer moves from the trigger into the submenu.
   document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
