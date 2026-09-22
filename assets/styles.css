@@ -3346,4 +3346,87 @@ html[data-theme="light"] .home-page .site-header::before {
 @media (max-width: 900px) {
   .site-header::before { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
 }
-\n\n/* 2026-09-22d: fixed-nav stacking + compact mobile header */\n/* hero-stage creates a stacking context for the fixed header; keep that context above Leaflet. */\n.home-page .hero-stage {\n  z-index: 4000;\n}\n.speaking-map {\n  position: relative;\n  z-index: 0;\n}\n\n@media (max-width: 600px) {\n  /* First row: wordmark + theme toggle. Second row: navigation. */\n  .site-header {\n    display: grid !important;\n    grid-template-columns: minmax(0, 1fr) auto;\n    grid-template-rows: auto auto;\n    column-gap: 12px;\n    row-gap: 12px;\n    align-items: center !important;\n    padding-top: 12px;\n    padding-bottom: 12px;\n  }\n  .site-header > .wordmark {\n    grid-column: 1;\n    grid-row: 1;\n    align-self: center;\n  }\n  .site-header > .header-actions {\n    display: contents;\n  }\n  .site-header .theme-toggle {\n    grid-column: 2;\n    grid-row: 1;\n    justify-self: end;\n    align-self: center;\n    font-size: 12.5px;\n    line-height: 1.2;\n    padding: 6px 8px;\n    white-space: nowrap;\n  }\n  .site-header .nav {\n    grid-column: 1 / -1;\n    grid-row: 2;\n    width: 100%;\n    justify-content: space-between;\n    align-items: center;\n    gap: 8px 10px;\n  }\n  .site-header .nav a,\n  .site-header .nav-dropdown-toggle {\n    font-size: 13.5px;\n  }\n}\n
+
+
+/* 2026-09-22e: root-level fixed header + true two-row mobile navigation */
+.site-header {
+  position: fixed !important;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000 !important;
+  overflow: visible !important;
+}
+
+/* Keep every Leaflet layer below the root-level fixed navigation. */
+.speaking-map,
+.speaking-map .leaflet-container,
+.speaking-map .leaflet-pane,
+.speaking-map .leaflet-control-container {
+  z-index: auto;
+}
+.speaking-map { position: relative; z-index: 0 !important; }
+
+@media (max-width: 600px) {
+  /* Exactly two rows: name + theme toggle, then primary navigation. */
+  .site-header {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    grid-template-rows: auto auto !important;
+    align-items: center !important;
+    gap: 9px 10px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+  .site-header > .wordmark {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    align-self: center !important;
+    min-width: 0;
+    font-size: 16px;
+  }
+  .site-header > .header-actions {
+    display: contents !important;
+    width: auto !important;
+  }
+  .site-header .theme-toggle {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    justify-self: end !important;
+    align-self: center !important;
+    margin: 0 !important;
+    font-size: 11.5px !important;
+    line-height: 1.15 !important;
+    padding: 5px 7px !important;
+    white-space: nowrap !important;
+  }
+  .site-header .nav {
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 5px !important;
+    min-width: 0;
+  }
+  .site-header .nav > a,
+  .site-header .nav-dropdown-toggle {
+    font-size: 12px !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .site-header .nav-dropdown { flex: 0 0 auto; }
+  .site-header .nav-menu { min-width: 158px; }
+}
+
+@media (max-width: 390px) {
+  .site-header > .wordmark { font-size: 15px; }
+  .site-header .theme-toggle { font-size: 10.5px !important; padding: 5px 6px !important; }
+  .site-header .nav > a,
+  .site-header .nav-dropdown-toggle { font-size: 11.25px !important; }
+}
