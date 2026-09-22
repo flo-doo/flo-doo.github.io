@@ -23,7 +23,9 @@
     dpr: 1,
     visible: true,
     running: true,
-    last: performance.now(),
+    lastPaint: performance.now(),
+    artRect: null,
+    paths: null,
     mouseX: 0.5,
     mouseY: 0.5,
     mouseActive: false,
@@ -34,7 +36,7 @@
   const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
   const lerp = (a, b, t) => a + (b - a) * t;
 
-  function artPlacement() {
+  function computeArtPlacement() {
     const iw = (art && art.naturalWidth) || 1662;
     const ih = (art && art.naturalHeight) || 936;
     let boxX = 0;
@@ -59,7 +61,12 @@
     const h = ih * scale;
     const centerX = boxX + (boxW - w) / 2;
     const centerY = fit === 'cover' ? boxY + (boxH - h) / 2 : boxY;
-    return { x: centerX, y: centerY, width: w, height: h };
+    state.artRect = { x: centerX, y: centerY, width: w, height: h };
+    return state.artRect;
+  }
+
+  function artPlacement() {
+    return state.artRect || computeArtPlacement();
   }
 
   function mapArt(u, v) {
@@ -154,7 +161,7 @@
     return state.width < 760;
   }
 
-  function curveSet() {
+  function computeCurveSet() {
     if (isMobile()) {
       // Match the upward sweep already present in the artwork. On narrow screens
       // keep the streams in the upper/middle hero rather than through the full stack.
@@ -169,6 +176,10 @@
       [[-0.06, 0.63], [0.24, 0.53], [0.58, 0.42], [1.06, 0.18]],
       [[0.01, 0.43], [0.31, 0.36], [0.67, 0.30], [1.04, 0.12]],
     ];
+  }
+
+  function curveSet() {
+    return state.paths || (state.paths = computeCurveSet());
   }
 
   function bezier(points, t) {
@@ -205,6 +216,7 @@
       this.phase = Math.random() * Math.PI * 2;
       this.jitter = 2 + Math.random() * 9;
       this.hue = Math.random() < 0.72 ? '92, 204, 255' : '185, 224, 255';
+      this.glow = i % 6 === 0;
     }
 
     update(dt) {
@@ -245,23 +257,24 @@
       const tx = p.x - p.tan.x * tail;
       const ty = p.y - p.tan.y * tail;
 
-      const grad = ctx.createLinearGradient(tx, ty, p.x, p.y);
-      grad.addColorStop(0, `rgba(${this.hue}, 0)`);
-      grad.addColorStop(1, `rgba(${this.hue}, ${this.alpha * 0.65})`);
-      ctx.strokeStyle = grad;
-      ctx.lineWidth = Math.max(0.55, this.radius * 0.6);
+      // A solid low-alpha tail is much cheaper than constructing a gradient for
+      // every particle on every frame, while retaining the same directional flow.
+      ctx.strokeStyle = `rgba(${this.hue}, ${this.alpha * 0.28})`;
+      ctx.lineWidth = Math.max(0.55, this.radius * 0.58);
       ctx.beginPath();
       ctx.moveTo(tx, ty);
       ctx.lineTo(p.x, p.y);
       ctx.stroke();
 
       ctx.fillStyle = `rgba(${this.hue}, ${this.alpha})`;
-      ctx.shadowColor = `rgba(${this.hue}, ${this.alpha * 0.9})`;
-      ctx.shadowBlur = 5 + this.radius * 3;
+      if (this.glow) {
+        ctx.shadowColor = `rgba(${this.hue}, ${this.alpha * 0.78})`;
+        ctx.shadowBlur = 5 + this.radius * 2;
+      }
       ctx.beginPath();
       ctx.arc(p.x, p.y, this.radius, 0, Math.PI * 2);
       ctx.fill();
-      ctx.shadowBlur = 0;
+      if (this.glow) ctx.shadowBlur = 0;
     }
   }
 
@@ -427,9 +440,17 @@
   }
 
   function particleTarget() {
-    if (state.width < 560) return 46;
-    if (state.width < 900) return 76;
-    return 138;
+    if (state.width < 560) return 36;
+    if (state.width < 900) return 62;
+    return 104;
+  }
+
+  function targetFps() {
+    if (state.width < 560) return 30;
+    if (state.width < 900) return 34;
+    const lowPower = (navigator.deviceMemory && navigator.deviceMemory <= 4)
+      || (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4);
+    return lowPower ? 32 : 40;
   }
 
   function seed() {
@@ -448,29 +469,47 @@
     canvas.style.width = `${state.width}px`;
     canvas.style.height = `${state.height}px`;
     ctx.setTransform(state.dpr, 0, 0, state.dpr, 0, 0);
+    state.artRect = null;
+    state.paths = computeCurveSet();
+    computeArtPlacement();
+    state.lastPaint = performance.now();
     seed();
   }
 
   function frame(now) {
     if (!state.running) return;
-    const dt = Math.min(0.05, Math.max(0.001, (now - state.last) / 1000));
-    state.last = now;
 
-    if (state.visible && !document.hidden) {
-      ctx.clearRect(0, 0, state.width, state.height);
-      ctx.globalCompositeOperation = 'lighter';
-      drawGridGlow(now);
-      drawNetworkGlow(now);
-      for (const p of state.particles) {
-        p.update(dt);
-        p.draw();
-      }
-      for (const pulse of state.pulses) {
-        pulse.update(dt);
-        pulse.draw();
-      }
-      ctx.globalCompositeOperation = 'source-over';
+    if (!state.visible || document.hidden) {
+      state.lastPaint = now;
+      requestAnimationFrame(frame);
+      return;
     }
+
+    // Slow atmospheric motion does not benefit perceptibly from a forced 60 fps.
+    // Throttling the canvas to 30-40 fps reduces CPU/GPU work substantially while
+    // requestAnimationFrame still keeps it synchronized with the browser.
+    const minInterval = 1000 / targetFps();
+    const elapsed = now - state.lastPaint;
+    if (elapsed < minInterval) {
+      requestAnimationFrame(frame);
+      return;
+    }
+    const dt = Math.min(0.06, Math.max(0.001, elapsed / 1000));
+    state.lastPaint = now;
+
+    ctx.clearRect(0, 0, state.width, state.height);
+    ctx.globalCompositeOperation = 'lighter';
+    drawGridGlow(now);
+    drawNetworkGlow(now);
+    for (const p of state.particles) {
+      p.update(dt);
+      p.draw();
+    }
+    for (const pulse of state.pulses) {
+      pulse.update(dt);
+      pulse.draw();
+    }
+    ctx.globalCompositeOperation = 'source-over';
     requestAnimationFrame(frame);
   }
 
@@ -482,6 +521,13 @@
       state.mouseActive = true;
     }, { passive: true });
     stage.addEventListener('pointerleave', () => { state.mouseActive = false; }, { passive: true });
+  }
+
+  if (art && !art.complete) {
+    art.addEventListener('load', () => {
+      state.artRect = null;
+      computeArtPlacement();
+    }, { once: true });
   }
 
   const observer = new IntersectionObserver((entries) => {

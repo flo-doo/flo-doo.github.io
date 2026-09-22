@@ -23,7 +23,7 @@ jobs:
           else
             printf '{"count":0,"items":[]}\n' > /tmp/publication-topic-review-old.json
           fi
-      - name: Refresh publication cache
+      - name: Refresh ORCID-backed publication cache
         run: python scripts/update_publications.py
       - name: Commit changes if needed
         shell: bash
@@ -34,7 +34,7 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add data/publications.json data/publication-topic-review.json index.html publications.html sitemap.xml
-            git commit -m "Update publication index"
+            git commit -m "Update ORCID-backed publication index"
             git pull --rebase origin main
             git push origin HEAD:main
           fi
@@ -42,7 +42,7 @@ jobs:
         shell: bash
         run: |
           python - <<'PY'
-          import json, os, sys
+          import json, os
           old=json.load(open('/tmp/publication-topic-review-old.json'))
           new=json.load(open('data/publication-topic-review.json'))
           old_keys={x['key'] for x in old.get('items',[])}
@@ -51,12 +51,12 @@ jobs:
               print('No newly unclassified publications.')
               raise SystemExit(0)
           summary=os.environ.get('GITHUB_STEP_SUMMARY')
-          lines=['## Publication topic review needed','',f'{len(added)} new publication(s) were added without a research-topic tag:','']
+          lines=['## Publication topic review needed','',f'{len(added)} new ORCID publication(s) were added without a research-topic tag:','']
           lines += [f"- {x.get('year') or ''}: {x.get('title')}" for x in added]
           lines += ['', 'Edit `data/publication-topics.json` to assign one or more topic tags.']
           if summary:
               with open(summary,'a',encoding='utf-8') as f: f.write('\n'.join(lines)+'\n')
-          print('::warning::New publications need topic review. See the workflow summary and data/publication-topic-review.json.')
+          print('::warning::New ORCID publications need topic review. See the workflow summary and data/publication-topic-review.json.')
           # Fail only on the first run that sees a new unclassified item. The review file
           # is already committed, so later scheduled runs will not repeat the failure.
           raise SystemExit(1)
