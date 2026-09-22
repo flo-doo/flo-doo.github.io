@@ -3579,3 +3579,15 @@ html[data-theme="light"] .home-page .site-header::before {
     width: min(140px, 42vw);
   }
 }
+
+/* 2026-09-22i: subtle identity sentence for search/entity consistency */
+.about-identity {
+  max-width: 860px;
+  margin: -10px 0 30px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+@media (max-width: 720px) {
+  .about-identity { margin-top: -6px; margin-bottom: 26px; }
+}

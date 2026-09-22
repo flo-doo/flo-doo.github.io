@@ -20,6 +20,7 @@ TOPICS = ROOT / "data" / "publication-topics.json"
 INDEX = ROOT / "index.html"
 PUBLICATIONS = ROOT / "publications.html"
 SITEMAP = ROOT / "sitemap.xml"
+SITEMAP_TEXT = ROOT / "sitemap.txt"
 SITE_META = ROOT / "data" / "site-meta.json"
 
 
@@ -321,6 +322,7 @@ def main() -> None:
         "@type": "CollectionPage",
         "@id": "https://flo-doo.github.io/publications.html#page",
         "url": "https://flo-doo.github.io/publications.html",
+        "isPartOf": {"@id": "https://flo-doo.github.io/#website"},
         "name": "Publications | Florence X. Doo, MD, MA",
         "description": "Publication record for Florence X. Doo, MD, MA, spanning trustworthy human-AI systems, frontier clinical intelligence, sustainable AI and radiology, and medical imaging, informatics, and data systems.",
         "dateModified": lastmod,
@@ -338,6 +340,10 @@ def main() -> None:
     # Both index and publications change when the publication cache changes.
     sitemap = f'''<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>https://flo-doo.github.io/</loc>\n    <lastmod>{esc(lastmod)}</lastmod>\n  </url>\n  <url>\n    <loc>https://flo-doo.github.io/publications.html</loc>\n    <lastmod>{esc(lastmod)}</lastmod>\n  </url>\n</urlset>\n'''
     SITEMAP.write_text(sitemap, encoding="utf-8")
+    SITEMAP_TEXT.write_text(
+        "https://flo-doo.github.io/\nhttps://flo-doo.github.io/publications.html\n",
+        encoding="utf-8",
+    )
     print(f"Built static HTML for {len(pubs)} publications; sitemap lastmod={lastmod}.")
 
 

@@ -1,0 +1,47 @@
+name: Notify IndexNow
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "index.html"
+      - "publications.html"
+      - "assets/**"
+      - "data/**"
+      - "sitemap.xml"
+      - "sitemap.txt"
+      - "robots.txt"
+      - "llms.txt"
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Allow GitHub Pages time to publish
+        run: sleep 60
+      - name: Notify IndexNow of updated public pages
+        env:
+          INDEXNOW_KEY: "1e7a55f445354ef5a3773fba83612989"
+        shell: bash
+        run: |
+          payload=$(cat <<EOF
+          {
+            "host": "flo-doo.github.io",
+            "key": "$INDEXNOW_KEY",
+            "keyLocation": "https://flo-doo.github.io/$INDEXNOW_KEY.txt",
+            "urlList": [
+              "https://flo-doo.github.io/",
+              "https://flo-doo.github.io/publications.html"
+            ]
+          }
+          EOF
+          )
+          curl --fail-with-body --retry 3 --retry-delay 15 \
+            -H "Content-Type: application/json; charset=utf-8" \
+            --data "$payload" \
+            https://api.indexnow.org/indexnow
