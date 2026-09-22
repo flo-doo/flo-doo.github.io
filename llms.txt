@@ -4,7 +4,7 @@
 
 ## Core pages
 
-- [Home](https://flo-doo.github.io/): Research, invited speaking, current appointments, professional leadership, education and training, collaboration pathways, and contact links.
+- [Home](https://flo-doo.github.io/): Research, invited talks, current appointments, professional leadership, education and training, collaboration pathways, and contact links.
 - [Publications](https://flo-doo.github.io/publications.html): Full publication record with research-area filters and DOI or public-record linkouts.
 
 ## Research focus
@@ -16,7 +16,7 @@
 
 ## Professional context
 
-Florence Doo is an academic radiologist with current appointments at the University of Maryland School of Medicine, the University of Maryland Institute for Health Computing / Center for Applied AI, and the University of Maryland College of Computer, Mathematical, and Natural Sciences. The site also lists selected national and international professional leadership and invited speaking appearances.
+Florence Doo is an academic radiologist with current appointments at the University of Maryland School of Medicine, the University of Maryland Institute for Health Computing / Center for Applied AI, and the University of Maryland College of Computer, Mathematical, and Natural Sciences. The site also lists selected national and international professional leadership and invited talks.
 
 ## Identity and scholarly profiles
 

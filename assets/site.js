@@ -427,7 +427,7 @@
     } catch (err) {
       console.error(err);
       if (eventsEl) eventsEl.innerHTML = '<p class="empty-state">Upcoming appearances could not be loaded.</p>';
-      if (mapEl) mapEl.innerHTML = '<p class="empty-state">Speaking map could not be loaded.</p>';
+      if (mapEl) mapEl.innerHTML = '<p class="empty-state">Talk map could not be loaded.</p>';
     }
   }
 
