@@ -254,7 +254,7 @@ def scholarly_item(pub: dict, position: int) -> dict:
 
 
 def update_profile_jsonld(index: str, lastmod: str, latest_pubs: list[dict]) -> str:
-    """Refresh ProfilePage dateModified and expose recent scholarly work via hasPart."""
+    """Expose recent scholarly work via hasPart; keep ProfilePage dateModified manual."""
     pattern = re.compile(r'(<script type="application/ld\+json">\s*)(\{.*?\})(\s*</script>)', re.S)
     matches = list(pattern.finditer(index))
     for match in matches:
@@ -264,7 +264,9 @@ def update_profile_jsonld(index: str, lastmod: str, latest_pubs: list[dict]) -> 
             continue
         if schema.get("@type") != "ProfilePage":
             continue
-        schema["dateModified"] = lastmod
+        # Google expects ProfilePage.dateModified to be a full ISO 8601 DateTime.
+        # Keep that value in index.html as a manual human-edited profile timestamp
+        # rather than replacing it with the publication cache's date-only value.
         schema["hasPart"] = [scholarly_article(p) for p in latest_pubs]
         replacement = match.group(1) + json.dumps(schema, ensure_ascii=False, indent=2) + match.group(3)
         return index[:match.start()] + replacement + index[match.end():]
@@ -325,7 +327,6 @@ def main() -> None:
         "isPartOf": {"@id": "https://flo-doo.github.io/#website"},
         "name": "Publications | Florence X. Doo, MD, MA",
         "description": "Publication record for Florence X. Doo, MD, MA, spanning trustworthy human-AI systems, frontier clinical intelligence, sustainable AI and radiology, and medical imaging, informatics, and data systems.",
-        "dateModified": lastmod,
         "about": {"@id": "https://flo-doo.github.io/#florence-doo"},
         "mainEntity": {
             "@type": "ItemList",
