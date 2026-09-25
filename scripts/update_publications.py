@@ -70,6 +70,42 @@ def clean_citation(value):
     return text
 
 
+def is_in_press(publication):
+    status = str(publication.get("status") or "").strip().lower()
+    citation = clean_citation(publication.get("citation") or "")
+    return status in {"accepted", "in press", "in-press"} or bool(
+        re.search(r"\bAccepted\b|\bin press\b", citation, re.I)
+    )
+
+
+def human_date(iso_date):
+    try:
+        parsed = datetime.date.fromisoformat(str(iso_date))
+    except Exception:
+        return None
+    return f"{parsed.strftime('%B')} {parsed.day}, {parsed.year}"
+
+
+def promote_citation_to_published(citation, metadata):
+    """Replace a stale accepted/in-press suffix after exact-DOI publication verification."""
+    text = clean_citation(citation)
+    # Keep the human-curated authors/title/journal text; only remove the stale
+    # publication-status suffix. This intentionally does not try to synthesize
+    # volume/issue/pages before the publisher has assigned them.
+    text = re.sub(
+        r"\s*(?:[,.]?\s*Accepted\b.*|[,.]?\s*\(?in[ -]?press\)?\.?)\s*$",
+        "",
+        text,
+        flags=re.I,
+    ).rstrip(" .,;")
+    if text:
+        text += "."
+    published = human_date(metadata.get("date"))
+    if published:
+        text += f" Published online {published}."
+    return text.strip()
+
+
 def iso_from_parts(parts):
     try:
         values = list(parts or [])
@@ -297,9 +333,11 @@ def parse_crossref_message(work):
     """Convert one exact-DOI Crossref record into enrichment metadata."""
     title = (work.get("title") or [""])[0]
     doi = norm_doi(work.get("DOI"))
+    # Prefer the first-online/version-of-record date for web publication status.
+    # Print issue assignment may occur later for online-first journal articles.
     date_parts = (
-        work.get("published-print")
-        or work.get("published-online")
+        work.get("published-online")
+        or work.get("published-print")
         or work.get("issued")
         or {}
     ).get("date-parts", [[None]])
@@ -368,6 +406,7 @@ def enrich_orcid_with_crossref(orcid_items, existing):
             or not old.get("date")
             or not old.get("url")
             or clean_citation(old.get("citation")) in ("", old.get("title") or "")
+            or is_in_press(old)
         )
 
         if doi and needs_enrichment:
@@ -376,9 +415,16 @@ def enrich_orcid_with_crossref(orcid_items, existing):
                 exact_doi_lookups += 1
                 # ORCID establishes identity/discovery; Crossref only fills blanks or
                 # improves the machine-generated citation for a newly found work.
-                for key in ("year", "date", "url", "status"):
-                    if not item.get(key) and metadata.get(key):
-                        item[key] = metadata[key]
+                # An exact DOI is strong enough to let Crossref promote a record
+                # from accepted/in-press to published and supply the publication date.
+                if metadata.get("status") == "published":
+                    for key in ("year", "date", "url", "status"):
+                        if metadata.get(key):
+                            item[key] = metadata[key]
+                else:
+                    for key in ("year", "date", "url", "status"):
+                        if not item.get(key) and metadata.get(key):
+                            item[key] = metadata[key]
                 if not item.get("title") and metadata.get("title"):
                     item["title"] = metadata["title"]
                 if item.get("citation") in (None, "", item.get("title")) and metadata.get("citation"):
@@ -430,12 +476,25 @@ def merge(existing, discovered):
         title = norm_title(new_item.get("title"))
         old = (by_doi.get(doi) if doi else None) or by_title.get(title)
         if old:
-            # Enrich without replacing curated citation or tags.
+            # Preserve curated authors/title/tags, but allow an exact-DOI Crossref
+            # record to promote stale accepted/in-press metadata to published.
+            verified_published = (
+                bool(doi)
+                and str(new_item.get("status") or "").lower() == "published"
+            )
+            was_in_press = is_in_press(old)
             for key in ("year", "date", "doi", "pmid", "url", "status"):
-                if not old.get(key) and new_item.get(key):
+                if verified_published and key in {"year", "date", "doi", "url", "status"}:
+                    if new_item.get(key):
+                        old[key] = new_item[key]
+                elif not old.get(key) and new_item.get(key):
                     old[key] = new_item[key]
+            if verified_published and was_in_press:
+                old["citation"] = promote_citation_to_published(
+                    old.get("citation") or "", new_item
+                )
             # Preserve the curated provenance label. ORCID is discovery/enrichment only.
-            # The canonical curated record remains the source of truth.
+            # The canonical curated record remains the source of truth for authors/tags.
         else:
             new_item.setdefault("tags", [])
             items.append(new_item)
@@ -479,8 +538,18 @@ def main():
         reverse=True,
     )
 
+    try:
+        previous_output = json.loads(PUBS.read_text(encoding="utf-8")) if PUBS.exists() else {}
+    except Exception:
+        previous_output = {}
+    publications_changed = previous_output.get("publications") != merged
+    updated = (
+        datetime.date.today().isoformat()
+        if publications_changed
+        else previous_output.get("updated") or datetime.date.today().isoformat()
+    )
     output = {
-        "updated": datetime.date.today().isoformat(),
+        "updated": updated,
         "count": len(merged),
         "publications": merged,
     }
