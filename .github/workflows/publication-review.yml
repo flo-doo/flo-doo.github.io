@@ -2,7 +2,7 @@ name: Apply publication topic labels
 
 on:
   issues:
-    types: [labeled, unlabeled]
+    types: [labeled, unlabeled, closed, reopened]
 
 permissions:
   contents: write
@@ -29,11 +29,48 @@ jobs:
         run: |
           if git diff --quiet -- data/publications-curated.json data/publications.json data/publication-topics.json data/publication-topic-review.json index.html publications.html sitemap.xml; then
             echo "No publication-classification changes to commit."
-            exit 0
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/publications-curated.json data/publications.json data/publication-topics.json data/publication-topic-review.json index.html publications.html sitemap.xml
+            git commit -m "Apply publication research-area review"
+            git pull --rebase origin main
+            git push origin HEAD:main
           fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/publications-curated.json data/publications.json data/publication-topics.json data/publication-topic-review.json index.html publications.html sitemap.xml
-          git commit -m "Apply publication research-area review"
-          git pull --rebase origin main
-          git push origin HEAD:main
+      - name: Keep publication-review issue state in sync
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os, re, subprocess
+
+          with open(os.environ['GITHUB_EVENT_PATH'], encoding='utf-8') as f:
+              event = json.load(f)
+          issue = event.get('issue') or {}
+          body = issue.get('body') or ''
+          marker = re.search(r'<!--\s*publication-review-key:(.*?)\s*-->', body)
+          if not marker:
+              raise SystemExit(0)
+
+          labels = {label.get('name', '') for label in issue.get('labels', [])}
+          decided = any(name.startswith('pub:') for name in labels)
+          state = str(issue.get('state') or '').lower()
+          number = str(issue.get('number') or '')
+          repo = os.environ.get('GITHUB_REPOSITORY', '')
+
+          if decided and state == 'open':
+              subprocess.run(['gh', 'issue', 'close', number, '--repo', repo], check=True)
+              raise SystemExit(0)
+
+          if not decided and state == 'closed':
+              try:
+                  with open('data/publication-topic-review.json', encoding='utf-8') as f:
+                      pending = json.load(f).get('items', [])
+              except FileNotFoundError:
+                  pending = []
+              pending_keys = {item.get('key') for item in pending}
+              if marker.group(1).strip() in pending_keys:
+                  subprocess.run(['gh', 'issue', 'reopen', number, '--repo', repo], check=True)
+          PY

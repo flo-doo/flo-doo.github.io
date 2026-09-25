@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""Create GitHub review issues for ORCID works that still need topic classification.
+"""Keep GitHub publication-review issues aligned with the pending review queue.
 
-The workflow assigns each issue to the repository owner so normal GitHub issue
-notifications can deliver an email/push alert. Research-area labels are created
-once and then used as the review UI; selecting those labels is handled by
-apply_publication_review.py.
+Unresolved publications have one open issue. Selecting a `pub:` decision label
+resolves the issue automatically; if an unresolved issue is manually closed, the
+daily sync reopens it. Historical issues remain as an audit trail.
 """
 from __future__ import annotations
 
 import json
 import os
+import re
 import subprocess
 import tempfile
 from pathlib import Path
@@ -23,11 +23,13 @@ OWNER = os.environ.get("GITHUB_REPOSITORY_OWNER", "")
 REVIEW_LABEL = "publication-review"
 TOPIC_PREFIX = "pub:"
 NO_TOPIC_LABEL = "pub:no-topic"
+MARKER_RE = re.compile(r"<!--\s*publication-review-key:(.*?)\s*-->")
+TITLE_RE = re.compile(r"^\*\*Title:\*\*\s*(.+?)\s*$", re.M)
+DOI_RE = re.compile(r"^\*\*DOI:\*\*\s*`([^`]+)`\s*$", re.M)
 
 
 def gh(*args: str, capture: bool = False) -> str:
-    cmd = ["gh", *args]
-    result = subprocess.run(cmd, check=True, text=True, capture_output=capture)
+    result = subprocess.run(["gh", *args], check=True, text=True, capture_output=capture)
     return result.stdout if capture else ""
 
 
@@ -53,6 +55,45 @@ def marker(key: str) -> str:
     return f"<!-- publication-review-key:{key} -->"
 
 
+def marker_key(body: str) -> str | None:
+    match = MARKER_RE.search(body or "")
+    return match.group(1).strip() if match else None
+
+
+def norm_title(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "", str(value or "").lower())
+
+
+def norm_doi(value: str | None) -> str:
+    if not value:
+        return ""
+    return re.sub(r"^https?://(?:dx\.)?doi\.org/", "", str(value).strip(), flags=re.I).lower().rstrip(".")
+
+
+def issue_title(body: str) -> str:
+    match = TITLE_RE.search(body or "")
+    return match.group(1).strip() if match else ""
+
+
+def issue_doi(body: str) -> str:
+    match = DOI_RE.search(body or "")
+    return norm_doi(match.group(1)) if match else ""
+
+
+def label_names(issue: dict) -> set[str]:
+    return {label.get("name", "") for label in issue.get("labels", [])}
+
+
+def has_decision(issue: dict, valid_topics: set[str]) -> bool:
+    names = label_names(issue)
+    return NO_TOPIC_LABEL in names or any(
+        name.startswith(TOPIC_PREFIX)
+        and name != NO_TOPIC_LABEL
+        and name[len(TOPIC_PREFIX):] in valid_topics
+        for name in names
+    )
+
+
 def issue_body(item: dict, labels: dict[str, str]) -> str:
     lines = [
         marker(item["key"]),
@@ -74,7 +115,7 @@ def issue_body(item: dict, labels: dict[str, str]) -> str:
     lines += [
         f"- `{NO_TOPIC_LABEL}` — intentionally leave this publication untagged",
         "",
-        "Each label change is applied to the site automatically. Select all applicable research-area labels, then close this issue when finished.",
+        "Selecting a research-area label (or `pub:no-topic`) updates the site and closes this issue automatically.",
     ]
     return "\n".join(lines) + "\n"
 
@@ -85,28 +126,55 @@ def main() -> None:
     review = json.loads(REVIEW.read_text(encoding="utf-8")) if REVIEW.exists() else {"items": []}
     topic_config = json.loads(TOPICS.read_text(encoding="utf-8"))
     labels = topic_config.get("labels", {})
+    valid_topics = set(labels.keys())
     ensure_labels(labels)
 
+    # Scan all issues rather than filtering by publication-review label. Historical
+    # review issues may have had that label removed during manual cleanup.
     issues = json.loads(
         gh(
-            "issue", "list", "--repo", REPO, "--state", "all", "--limit", "200",
-            "--label", REVIEW_LABEL, "--json", "number,title,body,state", capture=True,
+            "issue", "list", "--repo", REPO, "--state", "all", "--limit", "300",
+            "--json", "number,title,body,state,labels", capture=True,
         ) or "[]"
     )
 
     by_key: dict[str, dict] = {}
+    by_title: dict[str, dict] = {}
+    by_doi: dict[str, dict] = {}
     for issue in issues:
         body = issue.get("body") or ""
-        for item in review.get("items", []):
-            if marker(item["key"]) in body:
-                by_key[item["key"]] = issue
+        key = marker_key(body)
+        if not key:
+            continue
+        by_key[key] = issue
+        title_key = norm_title(issue_title(body))
+        doi = issue_doi(body)
+        if title_key:
+            by_title[title_key] = issue
+        if doi:
+            by_doi[doi] = issue
 
+    pending = {item["key"]: item for item in review.get("items", [])}
     created = 0
     reopened = 0
-    for item in review.get("items", []):
-        existing = by_key.get(item["key"])
+    closed = 0
+    matched_issue_numbers: set[int] = set()
+
+    for key, item in pending.items():
+        existing = by_key.get(key)
+        if existing is None and item.get("doi"):
+            existing = by_doi.get(norm_doi(item.get("doi")))
+        if existing is None and item.get("title"):
+            existing = by_title.get(norm_title(item.get("title")))
         if existing:
-            if str(existing.get("state", "")).upper() == "CLOSED":
+            if existing.get("number") is not None:
+                matched_issue_numbers.add(int(existing["number"]))
+            decided = has_decision(existing, valid_topics)
+            state = str(existing.get("state", "")).upper()
+            if decided and state == "OPEN":
+                gh("issue", "close", str(existing["number"]), "--repo", REPO)
+                closed += 1
+            elif not decided and state == "CLOSED":
                 gh("issue", "reopen", str(existing["number"]), "--repo", REPO)
                 reopened += 1
             continue
@@ -130,7 +198,19 @@ def main() -> None:
         Path(body_path).unlink(missing_ok=True)
         created += 1
 
-    print(f"Publication-review issues: {created} created, {reopened} reopened, {len(review.get('items', []))} pending.")
+    # Anything no longer in the pending queue is resolved or obsolete.
+    for key, issue in by_key.items():
+        number = issue.get("number")
+        if key in pending or (number is not None and int(number) in matched_issue_numbers):
+            continue
+        if str(issue.get("state", "")).upper() == "OPEN":
+            gh("issue", "close", str(issue["number"]), "--repo", REPO)
+            closed += 1
+
+    print(
+        f"Publication-review issues: {created} created, {reopened} reopened, "
+        f"{closed} closed, {len(pending)} pending."
+    )
 
 
 if __name__ == "__main__":

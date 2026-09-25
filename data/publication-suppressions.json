@@ -1,0 +1,10 @@
+{
+  "records": [
+    {
+      "id": "m16",
+      "doi": "10.1177/2732501623117161",
+      "title": "A Plastic Surgeon’s Guide to the Temporomandibular Joint: Part I, Anatomy, and Part II, Pathophysiology and Diagnosis",
+      "reason": "Legacy aggregate entry combining two separately published FACE articles; retain the distinct Part I and Part II records instead."
+    }
+  ]
+}
