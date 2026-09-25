@@ -1,83 +1,11 @@
 {
-  "count": 13,
+  "count": 1,
   "items": [
-    {
-      "key": "doi:10.1016/j.jacr.2026.02.021",
-      "year": 2026,
-      "title": "Sustainability as Radiology’s Triple Helix: Value, Patient Care, and the Planet",
-      "doi": "10.1016/j.jacr.2026.02.021"
-    },
-    {
-      "key": "doi:10.1017/cts.2026.10288",
-      "year": 2026,
-      "title": "61 COMPASS: Comprehensive multimodal performance assessment for safe vascular AI systems using Curie8, an LLM-based medical imaging data pipeline",
-      "doi": "10.1017/cts.2026.10288"
-    },
-    {
-      "key": "doi:10.1201/9781032709956-14",
-      "year": 2025,
-      "title": "Sustainability in Clinical AI",
-      "doi": "10.1201/9781032709956-14"
-    },
-    {
-      "key": "doi:10.1016/j.jacr.2025.06.026",
-      "year": 2025,
-      "title": "Pearls and Pitfalls of Integrating Artificial Intelligence Into Radiology Education",
-      "doi": "10.1016/j.jacr.2025.06.026"
-    },
-    {
-      "key": "doi:10.1007/978-3-031-76624-4_11",
-      "year": 2025,
-      "title": "Artificial Intelligence (AI) in Abdominal Imaging",
-      "doi": "10.1007/978-3-031-76624-4_11"
-    },
-    {
-      "key": "doi:10.1016/j.jacr.2024.03.014",
-      "year": 2024,
-      "title": "Conflicts of Interest in Radiology Publishing",
-      "doi": "10.1016/j.jacr.2024.03.014"
-    },
-    {
-      "key": "doi:10.2214/ajr.23.30696",
-      "year": 2024,
-      "title": "Beyond the AJR: Early Applications of Generative Artificial Intelligence for Radiology Report Interpretation",
-      "doi": "10.2214/ajr.23.30696"
-    },
-    {
-      "key": "doi:10.1177/27325016231162871",
-      "year": 2023,
-      "title": "A Plastic Surgeon’s Guide to the Temporomandibular Joint: Part II, Pathophysiology and Diagnosis",
-      "doi": "10.1177/27325016231162871"
-    },
-    {
-      "key": "doi:10.1177/27325016231171619",
-      "year": 2023,
-      "title": "A Plastic Surgeon’s Guide to the Temporomandibular Joint: Part I, Anatomy",
-      "doi": "10.1177/27325016231171619"
-    },
     {
       "key": "doi:10.1016/j.ijrobp.2016.06.967",
       "year": 2016,
       "title": "Predictors of Esophageal Stricture After Definitive Chemoradiation Therapy for Esophageal/Gastroesophageal Junction Carcinoma",
       "doi": "10.1016/j.ijrobp.2016.06.967"
-    },
-    {
-      "key": "doi:10.1007/s11255-016-1382-0",
-      "year": 2016,
-      "title": "A cross-sectional study in the USA of the epidemiology and quality of life of underactive bladder symptoms",
-      "doi": "10.1007/s11255-016-1382-0"
-    },
-    {
-      "key": "doi:10.1016/j.ijrobp.2015.07.1008",
-      "year": 2015,
-      "title": "Outcomes After Neoadjuvant or Definitive Chemoradiation Therapy for Esophageal/Gastroesophageal Junction Carcinoma",
-      "doi": "10.1016/j.ijrobp.2015.07.1008"
-    },
-    {
-      "key": "doi:10.1007/s11255-014-0811-1",
-      "year": 2014,
-      "title": "Epidemiology and demographics of the underactive bladder: A cross-sectional survey",
-      "doi": "10.1007/s11255-014-0811-1"
     }
   ]
 }

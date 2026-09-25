@@ -1,6 +1,6 @@
 {
   "updated": "2026-09-25",
-  "count": 60,
+  "count": 69,
   "publications": [
     {
       "id": "m38",
@@ -633,19 +633,6 @@
       ]
     },
     {
-      "id": "m16",
-      "title": "A Plastic Surgeon’s Guide to the Temporomandibular Joint: Part I, Anatomy, and Part II, Pathophysiology and Diagnosis",
-      "citation": "Buller M, Ibelli T, Platt S, Doo F, Mantilla Rivas, E, Crowder H, Nasser J, Rogers G; Taub P; Rottgers SA. A Plastic Surgeon’s Guide to the Temporomandibular Joint: Part I, Anatomy, and Part II, Pathophysiology and Diagnosis. FACE: Journal of the American Society of Maxillofacial Surgeons. 21 Apr 2023. https://doi.org/10.1177/2732501623117161 and /27325016231162871.",
-      "year": 2023,
-      "doi": "10.1177/2732501623117161",
-      "pmid": null,
-      "url": "https://doi.org/10.1177/2732501623117161",
-      "source": "Curated bibliography (verified Sep 2026)",
-      "tags": [
-        "medical-imaging-informatics-data"
-      ]
-    },
-    {
       "id": "m11",
       "title": "Turning a Page in the Yellow Journal: Figure Legends and Gender-Inclusive Patient Descriptors",
       "citation": "Doo FX, Zavaletta V, Carroll E, Ellis K, Rosenkrantz AB. Turning a Page in the Yellow Journal: Figure Legends and Gender-Inclusive Patient Descriptors. American Journal of Roentgenology (AJR). 2022 Jul;219(1):1-2. doi: 10.2214/AJR.22.27536. Epub 2022 Apr 13. PMID: 35417186.",
@@ -780,7 +767,7 @@
       "doi": "10.1016/j.ijrobp.2015.07.1008",
       "pmid": null,
       "url": "https://doi.org/10.1016/j.ijrobp.2015.07.1008",
-      "source": "Curated bibliography (verified Sep 2026)",
+      "source": "Curated bibliography (human-reviewed)",
       "tags": [],
       "date": "2015-10-17"
     },
@@ -792,7 +779,7 @@
       "doi": null,
       "pmid": "25238889",
       "url": "https://pubmed.ncbi.nlm.nih.gov/25238889/",
-      "source": "Curated bibliography (verified Sep 2026)",
+      "source": "Curated bibliography (human-reviewed)",
       "tags": []
     },
     {
@@ -806,6 +793,150 @@
       "work_type": "book-chapter",
       "source": "Curated bibliography (human-reviewed)",
       "tags": [],
+      "status": "published"
+    },
+    {
+      "title": "A cross-sectional study in the USA of the epidemiology and quality of life of underactive bladder symptoms",
+      "year": 2016,
+      "date": "2016-07-29",
+      "doi": "10.1007/s11255-016-1382-0",
+      "pmid": null,
+      "url": "https://doi.org/10.1007/s11255-016-1382-0",
+      "citation": "Faraj K, Doo F, Boura J, Vereecke A, Chancellor MB. A cross-sectional study in the USA of the epidemiology and quality of life of underactive bladder symptoms. International Urology and Nephrology. 2016 Nov;48(11):1797-1802. doi: 10.1007/s11255-016-1382-0.",
+      "work_type": "journal-article",
+      "source": "Curated bibliography (human-reviewed)",
+      "tags": [],
+      "status": "published"
+    },
+    {
+      "title": "A Plastic Surgeon’s Guide to the Temporomandibular Joint: Part I, Anatomy",
+      "year": 2023,
+      "date": "2023-04-21",
+      "doi": "10.1177/27325016231171619",
+      "pmid": null,
+      "url": "https://doi.org/10.1177/27325016231171619",
+      "citation": "Buller M, Ibelli TJ, Mantilla-Rivas E, Platt S, Doo F, Crowder HR, Nasser JS, Rogers GF, Taub PJ, Alex Rottgers S. A Plastic Surgeon’s Guide to the Temporomandibular Joint: Part I, Anatomy. FACE. 2023 Jun;4(2):228-231. doi: 10.1177/27325016231171619.",
+      "work_type": "journal-article",
+      "source": "Curated bibliography (human-reviewed)",
+      "tags": [],
+      "status": "published"
+    },
+    {
+      "title": "A Plastic Surgeon’s Guide to the Temporomandibular Joint: Part II, Pathophysiology and Diagnosis",
+      "year": 2023,
+      "date": "2023-04-21",
+      "doi": "10.1177/27325016231162871",
+      "pmid": null,
+      "url": "https://doi.org/10.1177/27325016231162871",
+      "citation": "Ibelli TJ, Greer M, Le JM, Platt S, Doo F, Mantilla-Rivas E, Rottgers SA, Buller M, Crowder H, Nasser JS, Rogers GF, Taub PJ. A Plastic Surgeon’s Guide to the Temporomandibular Joint: Part II, Pathophysiology and Diagnosis. FACE. 2023 Jun;4(2):232-238. doi: 10.1177/27325016231162871.",
+      "work_type": "journal-article",
+      "source": "Curated bibliography (human-reviewed)",
+      "tags": [],
+      "status": "published"
+    },
+    {
+      "title": "Artificial Intelligence (AI) in Abdominal Imaging",
+      "year": 2025,
+      "date": "2025-02-25",
+      "doi": "10.1007/978-3-031-76624-4_11",
+      "pmid": null,
+      "url": "https://doi.org/10.1007/978-3-031-76624-4_11",
+      "citation": "Doo FX. Artificial Intelligence (AI) in Abdominal Imaging. In: What Radiology Residents Need to Know. Springer Nature Switzerland. 2025 Feb 25. pp. 347-359. doi: 10.1007/978-3-031-76624-4_11.",
+      "work_type": "book-chapter",
+      "source": "Curated bibliography (human-reviewed)",
+      "tags": [
+        "medical-imaging-informatics-data"
+      ],
+      "status": "published"
+    },
+    {
+      "title": "Beyond the AJR: Early Applications of Generative Artificial Intelligence for Radiology Report Interpretation",
+      "year": 2024,
+      "date": "2024-08-01",
+      "doi": "10.2214/ajr.23.30696",
+      "pmid": null,
+      "url": "https://doi.org/10.2214/ajr.23.30696",
+      "citation": "Doo FX, Parekh VS. Beyond the AJR: Early Applications of Generative Artificial Intelligence for Radiology Report Interpretation. American Journal of Roentgenology. 2024 Aug;223(2):e2330696. doi: 10.2214/ajr.23.30696.",
+      "work_type": "journal-article",
+      "source": "Curated bibliography (human-reviewed)",
+      "tags": [
+        "medical-imaging-informatics-data",
+        "trustworthy-human-ai"
+      ],
+      "status": "published"
+    },
+    {
+      "title": "Conflicts of Interest in Radiology Publishing",
+      "year": 2024,
+      "date": "2024-09-01",
+      "doi": "10.1016/j.jacr.2024.03.014",
+      "pmid": null,
+      "url": "https://doi.org/10.1016/j.jacr.2024.03.014",
+      "citation": "Doo FX, Siegel EL. Conflicts of Interest in Radiology Publishing. Journal of the American College of Radiology. 2024 Sep;21(9):1534-1536. doi: 10.1016/j.jacr.2024.03.014.",
+      "work_type": "journal-article",
+      "source": "Curated bibliography (human-reviewed)",
+      "tags": [],
+      "status": "published"
+    },
+    {
+      "title": "Pearls and Pitfalls of Integrating Artificial Intelligence Into Radiology Education",
+      "year": 2025,
+      "date": "2025-11-01",
+      "doi": "10.1016/j.jacr.2025.06.026",
+      "pmid": null,
+      "url": "https://doi.org/10.1016/j.jacr.2025.06.026",
+      "citation": "Slanetz PJ, Bala W, Doo FX, Cook TS. Pearls and Pitfalls of Integrating Artificial Intelligence Into Radiology Education. Journal of the American College of Radiology. 2025 Nov;22(11):1438-1440. doi: 10.1016/j.jacr.2025.06.026.",
+      "work_type": "journal-article",
+      "source": "Curated bibliography (human-reviewed)",
+      "tags": [
+        "medical-imaging-informatics-data"
+      ],
+      "status": "published"
+    },
+    {
+      "title": "Sustainability in Clinical AI",
+      "year": 2025,
+      "date": "2025-12-09",
+      "doi": "10.1201/9781032709956-14",
+      "pmid": null,
+      "url": "https://doi.org/10.1201/9781032709956-14",
+      "citation": "Nghiem D, Dogra S, Doo FX. Sustainability in Clinical AI. In: Digital Healthcare and Artificial Intelligence. CRC Press. 2025 Dec 9. pp. 130-141. doi: 10.1201/9781032709956-14.",
+      "work_type": "book-chapter",
+      "source": "Curated bibliography (human-reviewed)",
+      "tags": [
+        "sustainable-ai-radiology"
+      ],
+      "status": "published"
+    },
+    {
+      "title": "61 COMPASS: Comprehensive multimodal performance assessment for safe vascular AI systems using Curie8, an LLM-based medical imaging data pipeline",
+      "year": 2026,
+      "date": "2026-05-08",
+      "doi": "10.1017/cts.2026.10288",
+      "pmid": null,
+      "url": "https://doi.org/10.1017/cts.2026.10288",
+      "citation": "Doo F, Doo FX, Jeudy J, Shah N, Kulkarni P, Suryavanshi A, Davis EM, Maron BA, Huang H. 61 COMPASS: Comprehensive multimodal performance assessment for safe vascular AI systems using Curie8, an LLM-based medical imaging data pipeline. Journal of Clinical and Translational Science. 2026 Apr;10(s1):19-19. doi: 10.1017/cts.2026.10288.",
+      "work_type": "journal-article",
+      "source": "Curated bibliography (human-reviewed)",
+      "tags": [
+        "medical-imaging-informatics-data",
+        "trustworthy-human-ai"
+      ],
+      "status": "published"
+    },
+    {
+      "title": "Sustainability as Radiology’s Triple Helix: Value, Patient Care, and the Planet",
+      "year": 2026,
+      "date": "2026-04-01",
+      "doi": "10.1016/j.jacr.2026.02.021",
+      "pmid": null,
+      "url": "https://doi.org/10.1016/j.jacr.2026.02.021",
+      "citation": "Doo FX. Sustainability as Radiology’s Triple Helix: Value, Patient Care, and the Planet. Journal of the American College of Radiology. 2026 Apr;23(4):491-494. doi: 10.1016/j.jacr.2026.02.021.",
+      "work_type": "journal-article",
+      "source": "Curated bibliography (human-reviewed)",
+      "tags": [
+        "sustainable-ai-radiology"
+      ],
       "status": "published"
     }
   ]

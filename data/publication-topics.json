@@ -162,6 +162,26 @@
     ],
     "10.2214/ajr.22.27536": [
       "medical-imaging-informatics-data"
+    ],
+    "10.1007/978-3-031-76624-4_11": [
+      "medical-imaging-informatics-data"
+    ],
+    "10.2214/ajr.23.30696": [
+      "medical-imaging-informatics-data",
+      "trustworthy-human-ai"
+    ],
+    "10.1016/j.jacr.2025.06.026": [
+      "medical-imaging-informatics-data"
+    ],
+    "10.1201/9781032709956-14": [
+      "sustainable-ai-radiology"
+    ],
+    "10.1017/cts.2026.10288": [
+      "medical-imaging-informatics-data",
+      "trustworthy-human-ai"
+    ],
+    "10.1016/j.jacr.2026.02.021": [
+      "sustainable-ai-radiology"
     ]
   },
   "titleOverrides": {
@@ -201,7 +221,13 @@
   },
   "reviewedUntagged": [
     "doi:10.1007/978-3-030-24025-7_5",
+    "doi:10.1007/s11255-014-0811-1",
+    "doi:10.1007/s11255-016-1382-0",
     "doi:10.1016/j.clinimag.2022.05.012",
+    "doi:10.1016/j.ijrobp.2015.07.1008",
+    "doi:10.1016/j.jacr.2024.03.014",
+    "doi:10.1177/27325016231162871",
+    "doi:10.1177/27325016231171619",
     "title:epidemiologyanddemographicsoftheunderactivebladderacrosssectionalsurvey",
     "title:epidemiologyandqualityoflifeoftheunderactivebladderacrosssectionalstudyinunitedstates",
     "title:outcomesafterneoadjuvantordefinitivechemoradiationtherapyforesophagealgastroesophagealjunctioncarcinoma"
