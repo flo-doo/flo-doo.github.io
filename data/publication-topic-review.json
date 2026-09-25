@@ -1,5 +1,5 @@
 {
-  "count": 16,
+  "count": 14,
   "items": [
     {
       "key": "doi:10.1016/j.jacr.2026.02.021",
@@ -26,10 +26,10 @@
       "doi": "10.1016/j.jacr.2025.06.026"
     },
     {
-      "key": "doi:10.48550/arxiv.2502.10562",
+      "key": "doi:10.1007/978-3-031-76624-4_11",
       "year": 2025,
-      "title": "Detecting and Monitoring Bias for Subgroups in Breast Cancer Detection AI",
-      "doi": "10.48550/arxiv.2502.10562"
+      "title": "Artificial Intelligence (AI) in Abdominal Imaging",
+      "doi": "10.1007/978-3-031-76624-4_11"
     },
     {
       "key": "doi:10.1016/j.jacr.2024.03.014",
@@ -44,12 +44,6 @@
       "doi": "10.2214/ajr.23.30696"
     },
     {
-      "key": "doi:10.1007/978-3-031-76624-4_11",
-      "year": 2024,
-      "title": "Artificial Intelligence (AI) in Abdominal Imaging",
-      "doi": "10.1007/978-3-031-76624-4_11"
-    },
-    {
       "key": "doi:10.1177/27325016231162871",
       "year": 2023,
       "title": "A Plastic Surgeon’s Guide to the Temporomandibular Joint: Part II, Pathophysiology and Diagnosis",
@@ -62,16 +56,10 @@
       "doi": "10.1177/27325016231171619"
     },
     {
-      "key": "doi:10.1016/j.clinimag.2022.07.011",
-      "year": 2022,
-      "title": "Radiologists staunchly support patient safety and autonomy, in opposition to the SCOTUS decision to overturn Roe v Wade.",
-      "doi": "10.1016/j.clinimag.2022.07.011"
-    },
-    {
-      "key": "title:prevention",
+      "key": "doi:10.1007/978-3-030-24025-7_5",
       "year": 2019,
       "title": "Prevention",
-      "doi": null
+      "doi": "10.1007/978-3-030-24025-7_5"
     },
     {
       "key": "doi:10.1016/j.ijrobp.2016.06.967",
