@@ -24,12 +24,21 @@ jobs:
       - name: Commit changes if needed
         shell: bash
         run: |
-          if git diff --quiet -- data/publications.json data/publication-topic-review.json index.html publications.html sitemap.xml sitemap.txt; then
+          FILES=(
+            data/publications.json
+            data/publication-topic-review.json
+            data/publication-metadata-review.json
+            index.html
+            publications.html
+            sitemap.xml
+            sitemap.txt
+          )
+          if [[ -z "$(git status --porcelain -- "${FILES[@]}")" ]]; then
             echo "No publication changes."
           else
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add data/publications.json data/publication-topic-review.json index.html publications.html sitemap.xml sitemap.txt
+            git add "${FILES[@]}"
             git commit -m "Update ORCID-backed publication index"
             git pull --rebase origin main
             git push origin HEAD:main
@@ -43,13 +52,34 @@ jobs:
         run: |
           python - <<'PY'
           import json, os
-          review=json.load(open('data/publication-topic-review.json'))
-          count=review.get('count',0)
-          summary=os.environ.get('GITHUB_STEP_SUMMARY')
-          lines=['## Publication update','',f'Pending research-area review: **{count}** publication(s).']
-          if count:
-              lines += ['', 'Review issue(s) were created/updated and assigned to the repository owner. Use the `pub:` labels in each issue to classify the publication.']
+
+          def load(path):
+              try:
+                  with open(path, encoding='utf-8') as f:
+                      return json.load(f)
+              except FileNotFoundError:
+                  return {'count': 0, 'items': []}
+
+          topic = load('data/publication-topic-review.json')
+          metadata = load('data/publication-metadata-review.json')
+          topic_count = topic.get('count', 0)
+          metadata_count = metadata.get('count', 0)
+          summary = os.environ.get('GITHUB_STEP_SUMMARY')
+
+          lines = [
+              '## Publication update',
+              '',
+              f'Pending research-area review: **{topic_count}** publication(s).',
+              f'Held back for incomplete metadata: **{metadata_count}** ORCID work(s).',
+          ]
+          if topic_count:
+              lines += ['', 'Use the `pub:` labels in the review issue(s) to classify newly published records.']
+          if metadata_count:
+              lines += ['', 'Incomplete ORCID records were **not** added to the public site.']
+              for item in metadata.get('items', [])[:10]:
+                  lines.append(f"- {item.get('title') or '[untitled]'} — {item.get('reason')}")
           if summary:
-              with open(summary,'a',encoding='utf-8') as f: f.write('\n'.join(lines)+'\n')
+              with open(summary, 'a', encoding='utf-8') as f:
+                  f.write('\n'.join(lines) + '\n')
           print('\n'.join(lines))
           PY

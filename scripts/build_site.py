@@ -295,6 +295,12 @@ def main() -> None:
         count=1,
         flags=re.S,
     )
+    index = re.sub(
+        r'(<a href="publications\.html">)All publications(?: \(\d+\))? →(</a>)',
+        rf'\g<1>All publications ({len(pubs)}) →\2',
+        index,
+        count=1,
+    )
     latest_html = "\n".join(latest_item(p) for p in pubs[:5])
     index = replace_block(index, "INDEX-LATEST-PUBLICATIONS", latest_html)
     INDEX.write_text(index, encoding="utf-8")
