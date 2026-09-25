@@ -1,6 +1,6 @@
 {
-  "updated": "2026-09-20",
-  "count": 59,
+  "updated": "2026-09-25",
+  "count": 60,
   "publications": [
     {
       "id": "m38",
@@ -794,6 +794,19 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/25238889/",
       "source": "Curated bibliography (verified Sep 2026)",
       "tags": []
+    },
+    {
+      "title": "Prevention",
+      "year": 2019,
+      "date": "2019-11-02",
+      "doi": "10.1007/978-3-030-24025-7_5",
+      "pmid": null,
+      "url": "https://doi.org/10.1007/978-3-030-24025-7_5",
+      "citation": "Nuyen BA, Doo F, Hannan P, Hayon R. Prevention. In: The Equal Curriculum. Springer International Publishing. 2019 Nov 2. pp. 71-90. doi: 10.1007/978-3-030-24025-7_5.",
+      "work_type": "book-chapter",
+      "source": "Curated bibliography (human-reviewed)",
+      "tags": [],
+      "status": "published"
     }
   ]
 }
