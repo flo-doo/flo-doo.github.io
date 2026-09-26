@@ -1,6 +1,6 @@
 {
-  "updated": "2026-09-25",
-  "count": 69,
+  "updated": "2026-09-26",
+  "count": 70,
   "publications": [
     {
       "id": "m38",
@@ -937,6 +937,19 @@
       "tags": [
         "sustainable-ai-radiology"
       ],
+      "status": "published"
+    },
+    {
+      "title": "Predictors of Esophageal Stricture After Definitive Chemoradiation Therapy for Esophageal/Gastroesophageal Junction Carcinoma",
+      "year": 2016,
+      "date": "2016-01-01",
+      "doi": "10.1016/j.ijrobp.2016.06.967",
+      "pmid": null,
+      "url": "https://doi.org/10.1016/j.ijrobp.2016.06.967",
+      "citation": "Zamdborg L, Lee KC, Harris A, Doo F, Bazil T, Xu Y, Gersten DB, Grills IS, Robertson J, Stromberg JS. Predictors of Esophageal Stricture After Definitive Chemoradiation Therapy for Esophageal/Gastroesophageal Junction Carcinoma. International Journal of Radiation Oncology*Biology*Physics. 2016 Oct;96(2):E150. doi: 10.1016/j.ijrobp.2016.06.967.",
+      "work_type": "journal-article",
+      "source": "Curated bibliography (human-reviewed)",
+      "tags": [],
       "status": "published"
     }
   ]
