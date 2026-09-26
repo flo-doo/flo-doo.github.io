@@ -755,6 +755,22 @@
       "work_type": "journal-article"
     },
     {
+      "id": "m15",
+      "title": "Prevalence of Diversity Statements and Disability Inclusion Among Radiology Residency Program Websites",
+      "citation": "Dhanani Z, Doo FX, Spalluto LB, Yee J, Flores EJ, Meltzer CC, Poullos PD. Prevalence of Diversity Statements and Disability Inclusion Among Radiology Residency Program Websites. J Am Coll Radiol. 2023 Apr 5:S1546-1440(23)00266-1. doi: 10.1016/j.jacr.2023.02.027. PMID: 37028498.",
+      "year": 2023,
+      "doi": "10.1016/j.jacr.2023.02.027",
+      "pmid": "37028498",
+      "url": "https://doi.org/10.1016/j.jacr.2023.02.027",
+      "source": "Curated bibliography (verified Sep 2026)",
+      "tags": [
+        "sustainable-ai-radiology"
+      ],
+      "date": "2023-09-01",
+      "status": "published",
+      "work_type": "journal-article"
+    },
+    {
       "id": "m18",
       "title": "Exploring the Clinical Translation of Generative Models like ChatGPT: Promise and Pitfalls in Radiology, from Patients to Population Health",
       "citation": "Doo FX, Cook T, Siegel E, Joshi A, Parekh V, Elahi A, Yi PH. Exploring the Clinical Translation of Generative Models like ChatGPT: Promise and Pitfalls in Radiology, from Patients to Population Health. J Am Coll Radiol. 2023 Jul 17:S1546-1440(23)00516-1. doi: 10.1016/j.jacr.2023.07.007. PMID: 37467871.",
@@ -813,34 +829,18 @@
       "status": "published"
     },
     {
-      "id": "m15",
-      "title": "Prevalence of Diversity Statements and Disability Inclusion Among Radiology Residency Program Websites",
-      "citation": "Dhanani Z, Doo FX, Spalluto LB, Yee J, Flores EJ, Meltzer CC, Poullos PD. Prevalence of Diversity Statements and Disability Inclusion Among Radiology Residency Program Websites. J Am Coll Radiol. 2023 Apr 5:S1546-1440(23)00266-1. doi: 10.1016/j.jacr.2023.02.027. PMID: 37028498.",
+      "id": "m10",
+      "title": "Developing a Comprehensive Resident-driven Research Training Pathway: A Chief Resident's Perspective",
+      "citation": "Lakhani DA, Doo FX, Chung C. Developing a Comprehensive Resident-driven Research Training Pathway: A Chief Resident's Perspective. Curr Probl Diagn Radiol. 2022 Jul 30:S0363- 0188(22)00105-0. doi: 10.1067/j.cpradiol.2022.07.004. 2023 Mar-Apr;52(2):93-96. PMID: 36050135.",
       "year": 2023,
-      "doi": "10.1016/j.jacr.2023.02.027",
-      "pmid": "37028498",
-      "url": "https://doi.org/10.1016/j.jacr.2023.02.027",
-      "source": "Curated bibliography (verified Sep 2026)",
-      "tags": [
-        "sustainable-ai-radiology"
-      ],
-      "date": "2023-04-05",
-      "status": "published",
-      "work_type": "journal-article"
-    },
-    {
-      "id": "m13",
-      "title": "Repeat Annual Lung Cancer Screening After Baseline Screening Among Screen-Negative Individuals: No-Cost Coverage Is Not Enough",
-      "citation": "Tailor TD, Bell S, Doo FX, Carlos RC. Repeat Annual Lung Cancer Screening After Baseline Screening Among Screen-Negative Individuals: No-Cost Coverage Is Not Enough. Journal of the American College of Radiology (JACR). doi: 10.1016/j.jacr.2022.11.005. 2023 Jan;20(1):29-36. PMID: 36436778.",
-      "year": 2023,
-      "doi": "10.1016/j.jacr.2022.11.005",
-      "pmid": "36436778",
-      "url": "https://doi.org/10.1016/j.jacr.2022.11.005",
+      "doi": "10.1067/j.cpradiol.2022.07.004",
+      "pmid": "36050135",
+      "url": "https://doi.org/10.1067/j.cpradiol.2022.07.004",
       "source": "Curated bibliography (verified Sep 2026)",
       "tags": [
         "medical-imaging-informatics-data"
       ],
-      "date": "2023-01-01",
+      "date": "2023-03-01",
       "status": "published",
       "work_type": "journal-article"
     },
@@ -856,18 +856,18 @@
       "tags": [
         "medical-imaging-informatics-data"
       ],
-      "date": "2023-01-01",
+      "date": "2023-01-31",
       "status": "published",
       "work_type": "journal-article"
     },
     {
-      "id": "m10",
-      "title": "Developing a Comprehensive Resident-driven Research Training Pathway: A Chief Resident's Perspective",
-      "citation": "Lakhani DA, Doo FX, Chung C. Developing a Comprehensive Resident-driven Research Training Pathway: A Chief Resident's Perspective. Curr Probl Diagn Radiol. 2022 Jul 30:S0363- 0188(22)00105-0. doi: 10.1067/j.cpradiol.2022.07.004. 2023 Mar-Apr;52(2):93-96. PMID: 36050135.",
+      "id": "m13",
+      "title": "Repeat Annual Lung Cancer Screening After Baseline Screening Among Screen-Negative Individuals: No-Cost Coverage Is Not Enough",
+      "citation": "Tailor TD, Bell S, Doo FX, Carlos RC. Repeat Annual Lung Cancer Screening After Baseline Screening Among Screen-Negative Individuals: No-Cost Coverage Is Not Enough. Journal of the American College of Radiology (JACR). doi: 10.1016/j.jacr.2022.11.005. 2023 Jan;20(1):29-36. PMID: 36436778.",
       "year": 2023,
-      "doi": "10.1067/j.cpradiol.2022.07.004",
-      "pmid": "36050135",
-      "url": "https://doi.org/10.1067/j.cpradiol.2022.07.004",
+      "doi": "10.1016/j.jacr.2022.11.005",
+      "pmid": "36436778",
+      "url": "https://doi.org/10.1016/j.jacr.2022.11.005",
       "source": "Curated bibliography (verified Sep 2026)",
       "tags": [
         "medical-imaging-informatics-data"
@@ -935,7 +935,7 @@
       "tags": [
         "medical-imaging-informatics-data"
       ],
-      "date": "2021-10-10",
+      "date": "2021-12-01",
       "status": "published",
       "work_type": "journal-article"
     },
@@ -1054,7 +1054,7 @@
       "url": "https://doi.org/10.1016/j.ijrobp.2016.06.967",
       "citation": "Zamdborg L, Lee KC, Harris A, Doo F, Bazil T, Xu Y, Gersten DB, Grills IS, Robertson J, Stromberg JS. Predictors of Esophageal Stricture After Definitive Chemoradiation Therapy for Esophageal/Gastroesophageal Junction Carcinoma. International Journal of Radiation Oncology*Biology*Physics. 2016 Oct;96(2):E150. doi: 10.1016/j.ijrobp.2016.06.967.",
       "work_type": "journal-article",
-      "source": "ORCID + Crossref DOI",
+      "source": "Curated bibliography (human-reviewed)",
       "tags": [],
       "status": "published"
     },
