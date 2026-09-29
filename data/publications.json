@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-28",
+  "updated": "2026-09-29",
   "count": 70,
   "publications": [
     {
@@ -755,6 +755,22 @@
       "work_type": "journal-article"
     },
     {
+      "id": "m15",
+      "title": "Prevalence of Diversity Statements and Disability Inclusion Among Radiology Residency Program Websites",
+      "citation": "Dhanani Z, Doo FX, Spalluto LB, Yee J, Flores EJ, Meltzer CC, Poullos PD. Prevalence of Diversity Statements and Disability Inclusion Among Radiology Residency Program Websites. J Am Coll Radiol. 2023 Apr 5:S1546-1440(23)00266-1. doi: 10.1016/j.jacr.2023.02.027. PMID: 37028498.",
+      "year": 2023,
+      "doi": "10.1016/j.jacr.2023.02.027",
+      "pmid": "37028498",
+      "url": "https://doi.org/10.1016/j.jacr.2023.02.027",
+      "source": "Curated bibliography (verified Sep 2026)",
+      "tags": [
+        "sustainable-ai-radiology"
+      ],
+      "date": "2023-09-01",
+      "status": "published",
+      "work_type": "journal-article"
+    },
+    {
       "id": "m18",
       "title": "Exploring the Clinical Translation of Generative Models like ChatGPT: Promise and Pitfalls in Radiology, from Patients to Population Health",
       "citation": "Doo FX, Cook T, Siegel E, Joshi A, Parekh V, Elahi A, Yi PH. Exploring the Clinical Translation of Generative Models like ChatGPT: Promise and Pitfalls in Radiology, from Patients to Population Health. J Am Coll Radiol. 2023 Jul 17:S1546-1440(23)00516-1. doi: 10.1016/j.jacr.2023.07.007. PMID: 37467871.",
@@ -813,34 +829,18 @@
       "status": "published"
     },
     {
-      "id": "m15",
-      "title": "Prevalence of Diversity Statements and Disability Inclusion Among Radiology Residency Program Websites",
-      "citation": "Dhanani Z, Doo FX, Spalluto LB, Yee J, Flores EJ, Meltzer CC, Poullos PD. Prevalence of Diversity Statements and Disability Inclusion Among Radiology Residency Program Websites. J Am Coll Radiol. 2023 Apr 5:S1546-1440(23)00266-1. doi: 10.1016/j.jacr.2023.02.027. PMID: 37028498.",
+      "id": "m10",
+      "title": "Developing a Comprehensive Resident-driven Research Training Pathway: A Chief Resident's Perspective",
+      "citation": "Lakhani DA, Doo FX, Chung C. Developing a Comprehensive Resident-driven Research Training Pathway: A Chief Resident's Perspective. Curr Probl Diagn Radiol. 2022 Jul 30:S0363- 0188(22)00105-0. doi: 10.1067/j.cpradiol.2022.07.004. 2023 Mar-Apr;52(2):93-96. PMID: 36050135.",
       "year": 2023,
-      "doi": "10.1016/j.jacr.2023.02.027",
-      "pmid": "37028498",
-      "url": "https://doi.org/10.1016/j.jacr.2023.02.027",
-      "source": "Curated bibliography (verified Sep 2026)",
-      "tags": [
-        "sustainable-ai-radiology"
-      ],
-      "date": "2023-04-05",
-      "status": "published",
-      "work_type": "journal-article"
-    },
-    {
-      "id": "m13",
-      "title": "Repeat Annual Lung Cancer Screening After Baseline Screening Among Screen-Negative Individuals: No-Cost Coverage Is Not Enough",
-      "citation": "Tailor TD, Bell S, Doo FX, Carlos RC. Repeat Annual Lung Cancer Screening After Baseline Screening Among Screen-Negative Individuals: No-Cost Coverage Is Not Enough. Journal of the American College of Radiology (JACR). doi: 10.1016/j.jacr.2022.11.005. 2023 Jan;20(1):29-36. PMID: 36436778.",
-      "year": 2023,
-      "doi": "10.1016/j.jacr.2022.11.005",
-      "pmid": "36436778",
-      "url": "https://doi.org/10.1016/j.jacr.2022.11.005",
+      "doi": "10.1067/j.cpradiol.2022.07.004",
+      "pmid": "36050135",
+      "url": "https://doi.org/10.1067/j.cpradiol.2022.07.004",
       "source": "Curated bibliography (verified Sep 2026)",
       "tags": [
         "medical-imaging-informatics-data"
       ],
-      "date": "2023-01-01",
+      "date": "2023-03-01",
       "status": "published",
       "work_type": "journal-article"
     },
@@ -856,18 +856,18 @@
       "tags": [
         "medical-imaging-informatics-data"
       ],
-      "date": "2023-01-01",
+      "date": "2023-01-31",
       "status": "published",
       "work_type": "journal-article"
     },
     {
-      "id": "m10",
-      "title": "Developing a Comprehensive Resident-driven Research Training Pathway: A Chief Resident's Perspective",
-      "citation": "Lakhani DA, Doo FX, Chung C. Developing a Comprehensive Resident-driven Research Training Pathway: A Chief Resident's Perspective. Curr Probl Diagn Radiol. 2022 Jul 30:S0363- 0188(22)00105-0. doi: 10.1067/j.cpradiol.2022.07.004. 2023 Mar-Apr;52(2):93-96. PMID: 36050135.",
+      "id": "m13",
+      "title": "Repeat Annual Lung Cancer Screening After Baseline Screening Among Screen-Negative Individuals: No-Cost Coverage Is Not Enough",
+      "citation": "Tailor TD, Bell S, Doo FX, Carlos RC. Repeat Annual Lung Cancer Screening After Baseline Screening Among Screen-Negative Individuals: No-Cost Coverage Is Not Enough. Journal of the American College of Radiology (JACR). doi: 10.1016/j.jacr.2022.11.005. 2023 Jan;20(1):29-36. PMID: 36436778.",
       "year": 2023,
-      "doi": "10.1067/j.cpradiol.2022.07.004",
-      "pmid": "36050135",
-      "url": "https://doi.org/10.1067/j.cpradiol.2022.07.004",
+      "doi": "10.1016/j.jacr.2022.11.005",
+      "pmid": "36436778",
+      "url": "https://doi.org/10.1016/j.jacr.2022.11.005",
       "source": "Curated bibliography (verified Sep 2026)",
       "tags": [
         "medical-imaging-informatics-data"
@@ -894,6 +894,20 @@
       "work_type": "journal-article"
     },
     {
+      "id": "c1",
+      "title": "Radiologists staunchly support patient safety and autonomy, in opposition to the SCOTUS draft",
+      "citation": "Andreotti RF, Arleo EK, Arora SS, Broder JC, Brook O, Canon CL, Chen MM, Cooke EA, Davis MA, Doo FX, Dodelzon K, Englander MJ, Everett C, Farooq A, Fischbein NJ, Fleming M, Fleischer A, Frederick-Dyer K, Gerson RF, Gruen D, Hecht EM, Pisano E, Heyneman LE, Katzen JT, Kemp J, Kotsenas AL, Ladd LM, Lui Y, McGinty G, Meltzer CC, Oliveira A, Phillips C, Porter KK, Rhyner P, Roberts A, Robson C, Senter A, Shah AA, Shatzkes D, Solberg A, Spalluto LB, Sun M, Tomblinson C, Vincoff NS, Wood MJ, Zigmund B. Radiologists staunchly support patient safety and autonomy, in opposition to the SCOTUS draft. Clinical Imaging. 2022 Sep;89:95-96. doi: 10.1016/j.clinimag.2022.05.012. Epub 2022 Jun 10. PMID: 36064645.",
+      "year": 2022,
+      "doi": "10.1016/j.clinimag.2022.05.012",
+      "pmid": "35772335",
+      "url": "https://doi.org/10.1016/j.clinimag.2022.05.012",
+      "source": "Curated bibliography (verified Sep 2026)",
+      "tags": [],
+      "date": "2022-09-01",
+      "status": "published",
+      "work_type": "journal-article"
+    },
+    {
       "id": "m11",
       "title": "Turning a Page in the Yellow Journal: Figure Legends and Gender-Inclusive Patient Descriptors",
       "citation": "Doo FX, Zavaletta V, Carroll E, Ellis K, Rosenkrantz AB. Turning a Page in the Yellow Journal: Figure Legends and Gender-Inclusive Patient Descriptors. American Journal of Roentgenology (AJR). 2022 Jul;219(1):1-2. doi: 10.2214/AJR.22.27536. Epub 2022 Apr 13. PMID: 35417186.",
@@ -906,20 +920,6 @@
         "medical-imaging-informatics-data"
       ],
       "date": "2022-07-01",
-      "status": "published",
-      "work_type": "journal-article"
-    },
-    {
-      "id": "c1",
-      "title": "Radiologists staunchly support patient safety and autonomy, in opposition to the SCOTUS draft",
-      "citation": "Andreotti RF, Arleo EK, Arora SS, Broder JC, Brook O, Canon CL, Chen MM, Cooke EA, Davis MA, Doo FX, Dodelzon K, Englander MJ, Everett C, Farooq A, Fischbein NJ, Fleming M, Fleischer A, Frederick-Dyer K, Gerson RF, Gruen D, Hecht EM, Pisano E, Heyneman LE, Katzen JT, Kemp J, Kotsenas AL, Ladd LM, Lui Y, McGinty G, Meltzer CC, Oliveira A, Phillips C, Porter KK, Rhyner P, Roberts A, Robson C, Senter A, Shah AA, Shatzkes D, Solberg A, Spalluto LB, Sun M, Tomblinson C, Vincoff NS, Wood MJ, Zigmund B. Radiologists staunchly support patient safety and autonomy, in opposition to the SCOTUS draft. Clinical Imaging. 2022 Sep;89:95-96. doi: 10.1016/j.clinimag.2022.05.012. Epub 2022 Jun 10. PMID: 36064645.",
-      "year": 2022,
-      "doi": "10.1016/j.clinimag.2022.05.012",
-      "pmid": "35772335",
-      "url": "https://doi.org/10.1016/j.clinimag.2022.05.012",
-      "source": "Curated bibliography (verified Sep 2026)",
-      "tags": [],
-      "date": "2022-06-10",
       "status": "published",
       "work_type": "journal-article"
     },
