@@ -43,7 +43,7 @@
       "url": "https://doi.org/10.1016/j.jacr.2026.09.027",
       "citation": "Bumbarger NA, Telfer BA, Gjesteby LA, Doo FX. Expeditionary Radiology: Designing Human-AI Collaboration in Limited-Connectivity Military Medicine. Journal of the American College of Radiology. 2026 Sep. doi: 10.1016/j.jacr.2026.09.027.",
       "work_type": "journal-article",
-      "source": "ORCID + Crossref DOI",
+      "source": "Curated bibliography (human-reviewed)",
       "tags": [
         "trustworthy-human-ai"
       ],
@@ -904,7 +904,21 @@
         "trustworthy-human-ai",
         "medical-imaging-informatics-data"
       ],
-      "date": "2022-08-11",
+      "date": "2022-10-01",
+      "status": "published",
+      "work_type": "journal-article"
+    },
+    {
+      "id": "c1",
+      "title": "Radiologists staunchly support patient safety and autonomy, in opposition to the SCOTUS draft",
+      "citation": "Andreotti RF, Arleo EK, Arora SS, Broder JC, Brook O, Canon CL, Chen MM, Cooke EA, Davis MA, Doo FX, Dodelzon K, Englander MJ, Everett C, Farooq A, Fischbein NJ, Fleming M, Fleischer A, Frederick-Dyer K, Gerson RF, Gruen D, Hecht EM, Pisano E, Heyneman LE, Katzen JT, Kemp J, Kotsenas AL, Ladd LM, Lui Y, McGinty G, Meltzer CC, Oliveira A, Phillips C, Porter KK, Rhyner P, Roberts A, Robson C, Senter A, Shah AA, Shatzkes D, Solberg A, Spalluto LB, Sun M, Tomblinson C, Vincoff NS, Wood MJ, Zigmund B. Radiologists staunchly support patient safety and autonomy, in opposition to the SCOTUS draft. Clinical Imaging. 2022 Sep;89:95-96. doi: 10.1016/j.clinimag.2022.05.012. Epub 2022 Jun 10. PMID: 36064645.",
+      "year": 2022,
+      "doi": "10.1016/j.clinimag.2022.05.012",
+      "pmid": "35772335",
+      "url": "https://doi.org/10.1016/j.clinimag.2022.05.012",
+      "source": "Curated bibliography (verified Sep 2026)",
+      "tags": [],
+      "date": "2022-09-01",
       "status": "published",
       "work_type": "journal-article"
     },
@@ -921,20 +935,6 @@
         "medical-imaging-informatics-data"
       ],
       "date": "2022-07-01",
-      "status": "published",
-      "work_type": "journal-article"
-    },
-    {
-      "id": "c1",
-      "title": "Radiologists staunchly support patient safety and autonomy, in opposition to the SCOTUS draft",
-      "citation": "Andreotti RF, Arleo EK, Arora SS, Broder JC, Brook O, Canon CL, Chen MM, Cooke EA, Davis MA, Doo FX, Dodelzon K, Englander MJ, Everett C, Farooq A, Fischbein NJ, Fleming M, Fleischer A, Frederick-Dyer K, Gerson RF, Gruen D, Hecht EM, Pisano E, Heyneman LE, Katzen JT, Kemp J, Kotsenas AL, Ladd LM, Lui Y, McGinty G, Meltzer CC, Oliveira A, Phillips C, Porter KK, Rhyner P, Roberts A, Robson C, Senter A, Shah AA, Shatzkes D, Solberg A, Spalluto LB, Sun M, Tomblinson C, Vincoff NS, Wood MJ, Zigmund B. Radiologists staunchly support patient safety and autonomy, in opposition to the SCOTUS draft. Clinical Imaging. 2022 Sep;89:95-96. doi: 10.1016/j.clinimag.2022.05.012. Epub 2022 Jun 10. PMID: 36064645.",
-      "year": 2022,
-      "doi": "10.1016/j.clinimag.2022.05.012",
-      "pmid": "35772335",
-      "url": "https://doi.org/10.1016/j.clinimag.2022.05.012",
-      "source": "Curated bibliography (verified Sep 2026)",
-      "tags": [],
-      "date": "2022-06-10",
       "status": "published",
       "work_type": "journal-article"
     },
