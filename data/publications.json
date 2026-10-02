@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-01",
+  "updated": "2026-10-02",
   "count": 71,
   "publications": [
     {
@@ -44,7 +44,9 @@
       "citation": "Bumbarger NA, Telfer BA, Gjesteby LA, Doo FX. Expeditionary Radiology: Designing Human-AI Collaboration in Limited-Connectivity Military Medicine. Journal of the American College of Radiology. 2026 Sep. doi: 10.1016/j.jacr.2026.09.027.",
       "work_type": "journal-article",
       "source": "ORCID + Crossref DOI",
-      "tags": [],
+      "tags": [
+        "trustworthy-human-ai"
+      ],
       "status": "published"
     },
     {

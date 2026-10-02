@@ -1,6 +1,6 @@
 {
-  "updated": "2026-09-26",
-  "count": 70,
+  "updated": "2026-10-02",
+  "count": 71,
   "publications": [
     {
       "id": "m38",
@@ -950,6 +950,21 @@
       "work_type": "journal-article",
       "source": "Curated bibliography (human-reviewed)",
       "tags": [],
+      "status": "published"
+    },
+    {
+      "title": "Expeditionary Radiology: Designing Human-AI Collaboration in Limited-Connectivity Military Medicine",
+      "year": 2026,
+      "date": "2026-09-01",
+      "doi": "10.1016/j.jacr.2026.09.027",
+      "pmid": null,
+      "url": "https://doi.org/10.1016/j.jacr.2026.09.027",
+      "citation": "Bumbarger NA, Telfer BA, Gjesteby LA, Doo FX. Expeditionary Radiology: Designing Human-AI Collaboration in Limited-Connectivity Military Medicine. Journal of the American College of Radiology. 2026 Sep. doi: 10.1016/j.jacr.2026.09.027.",
+      "work_type": "journal-article",
+      "source": "Curated bibliography (human-reviewed)",
+      "tags": [
+        "trustworthy-human-ai"
+      ],
       "status": "published"
     }
   ]
