@@ -1,4 +1,11 @@
 {
-  "count": 0,
-  "items": []
+  "count": 1,
+  "items": [
+    {
+      "key": "doi:10.1038/s41746-026-03394-8",
+      "year": 2026,
+      "title": "Realizing the value of the divergence event in clinical human-AI interaction",
+      "doi": "10.1038/s41746-026-03394-8"
+    }
+  ]
 }

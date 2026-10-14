@@ -1,7 +1,20 @@
 {
-  "updated": "2026-10-13",
-  "count": 71,
+  "updated": "2026-10-14",
+  "count": 72,
   "publications": [
+    {
+      "title": "Realizing the value of the divergence event in clinical human-AI interaction",
+      "year": 2026,
+      "date": "2026-10-13",
+      "doi": "10.1038/s41746-026-03394-8",
+      "pmid": null,
+      "url": "https://doi.org/10.1038/s41746-026-03394-8",
+      "citation": "Doo FX, Brat GA, C. Rossetti S, Klitzman R, Binkley CE. Realizing the value of the divergence event in clinical human-AI interaction. npj Digital Medicine. 2026 Oct 13;9(1):788. doi: 10.1038/s41746-026-03394-8.",
+      "work_type": "journal-article",
+      "source": "ORCID + Crossref DOI",
+      "tags": [],
+      "status": "published"
+    },
     {
       "id": "m47",
       "title": "Decoding the Image: Finding Diagnostic Signals in Multi-Modality Abdominal Artifacts",
@@ -48,6 +61,22 @@
         "trustworthy-human-ai"
       ],
       "status": "published"
+    },
+    {
+      "id": "m46",
+      "title": "AMPLIFAI: A Multiphase CT Dataset for Benchmarking Clinical Reasoning in LI-RADS Assessment of Liver Lesions",
+      "citation": "Kulkarni P, Shah N, Suryavanshi A, Delfino J, Tonascia J, Wong J, Lane BF, Chirico J, Hirsch JD, Li A, Huang H, Doo FX. AMPLIFAI: A Multiphase CT Dataset for Benchmarking Clinical Reasoning in LI- RADS Assessment of Liver Lesions. Preprint 14 Aug 2026: https://arxiv.org/abs/2608.14778v2",
+      "year": 2026,
+      "doi": "10.48550/arxiv.2608.14778",
+      "pmid": null,
+      "url": "https://arxiv.org/abs/2608.14778v2",
+      "source": "Curated bibliography (verified Sep 2026)",
+      "tags": [
+        "frontier-clinical-intelligence",
+        "medical-imaging-informatics-data"
+      ],
+      "date": "2026-09-01",
+      "work_type": "journal-article"
     },
     {
       "id": "m44",
@@ -241,22 +270,6 @@
       ],
       "date": "2026-03-01",
       "status": "published",
-      "work_type": "journal-article"
-    },
-    {
-      "id": "m46",
-      "title": "AMPLIFAI: A Multiphase CT Dataset for Benchmarking Clinical Reasoning in LI-RADS Assessment of Liver Lesions",
-      "citation": "Kulkarni P, Shah N, Suryavanshi A, Delfino J, Tonascia J, Wong J, Lane BF, Chirico J, Hirsch JD, Li A, Huang H, Doo FX. AMPLIFAI: A Multiphase CT Dataset for Benchmarking Clinical Reasoning in LI- RADS Assessment of Liver Lesions. Preprint 14 Aug 2026: https://arxiv.org/abs/2608.14778v2",
-      "year": 2026,
-      "doi": "10.48550/arxiv.2608.14778",
-      "pmid": null,
-      "url": "https://arxiv.org/abs/2608.14778v2",
-      "source": "Curated bibliography (verified Sep 2026)",
-      "tags": [
-        "frontier-clinical-intelligence",
-        "medical-imaging-informatics-data"
-      ],
-      "date": "2026-01-01",
       "work_type": "journal-article"
     },
     {
@@ -904,7 +917,7 @@
         "trustworthy-human-ai",
         "medical-imaging-informatics-data"
       ],
-      "date": "2022-08-11",
+      "date": "2022-10-01",
       "status": "published",
       "work_type": "journal-article"
     },
