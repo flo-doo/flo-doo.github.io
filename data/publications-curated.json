@@ -1,6 +1,6 @@
 {
-  "updated": "2026-10-02",
-  "count": 71,
+  "updated": "2026-10-14",
+  "count": 72,
   "publications": [
     {
       "id": "m38",
@@ -960,6 +960,21 @@
       "pmid": null,
       "url": "https://doi.org/10.1016/j.jacr.2026.09.027",
       "citation": "Bumbarger NA, Telfer BA, Gjesteby LA, Doo FX. Expeditionary Radiology: Designing Human-AI Collaboration in Limited-Connectivity Military Medicine. Journal of the American College of Radiology. 2026 Sep. doi: 10.1016/j.jacr.2026.09.027.",
+      "work_type": "journal-article",
+      "source": "Curated bibliography (human-reviewed)",
+      "tags": [
+        "trustworthy-human-ai"
+      ],
+      "status": "published"
+    },
+    {
+      "title": "Realizing the value of the divergence event in clinical human-AI interaction",
+      "year": 2026,
+      "date": "2026-10-13",
+      "doi": "10.1038/s41746-026-03394-8",
+      "pmid": null,
+      "url": "https://doi.org/10.1038/s41746-026-03394-8",
+      "citation": "Doo FX, Brat GA, C. Rossetti S, Klitzman R, Binkley CE. Realizing the value of the divergence event in clinical human-AI interaction. npj Digital Medicine. 2026 Oct 13;9(1):788. doi: 10.1038/s41746-026-03394-8.",
       "work_type": "journal-article",
       "source": "Curated bibliography (human-reviewed)",
       "tags": [

@@ -12,7 +12,9 @@
       "citation": "Doo FX, Brat GA, C. Rossetti S, Klitzman R, Binkley CE. Realizing the value of the divergence event in clinical human-AI interaction. npj Digital Medicine. 2026 Oct 13;9(1):788. doi: 10.1038/s41746-026-03394-8.",
       "work_type": "journal-article",
       "source": "ORCID + Crossref DOI",
-      "tags": [],
+      "tags": [
+        "trustworthy-human-ai"
+      ],
       "status": "published"
     },
     {
