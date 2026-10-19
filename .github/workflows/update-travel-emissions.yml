@@ -1,0 +1,46 @@
+name: Update travel emissions
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "data/travel-emissions.json"
+      - "data/flight-emission-factors-2026.json"
+      - "scripts/update_travel_emissions.py"
+  schedule:
+    - cron: "47 8 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: travel-emissions-cache
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Recalculate documented talk travel
+        run: python scripts/update_travel_emissions.py
+      - name: Commit cache if changed
+        shell: bash
+        run: |
+          if git diff --quiet -- data/travel-emissions-cache.json; then
+            echo "No travel-footprint changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/travel-emissions-cache.json
+          git commit -m "Update talk travel emissions estimate"
+          git pull --rebase origin main
+          git push origin HEAD:main

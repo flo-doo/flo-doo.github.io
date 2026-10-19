@@ -1,0 +1,100 @@
+{
+  "defaults": {
+    "origin": "IAD",
+    "cabin": "ECONOMY",
+    "roundTrip": true
+  },
+  "knownCabinOverrides": {
+    "SYD": "BUSINESS"
+  },
+  "coverageNote": "Documented talk-related trips only. Earlier aggregate talk-location counts are not converted into trips until itinerary-level travel is backfilled.",
+  "trips": [
+    {
+      "id": "sydney-speaking",
+      "label": "Sydney, Australia - invited talk",
+      "status": "past",
+      "destination": "SYD",
+      "cabin": "BUSINESS",
+      "included": true,
+      "assumption": "Exact date and connection airports are not stored; estimate uses IAD-SYD great-circle distance with the published distance uplift."
+    },
+    {
+      "id": "miccai-2026-strasbourg",
+      "label": "MICCAI 2026 - Strasbourg",
+      "date": "2026-09-27",
+      "status": "past",
+      "destination": "SXB",
+      "included": true,
+      "assumption": "Temporarily represented as a separate IAD-SXB round trip; consolidate with Crete if these appearances were one multi-city itinerary."
+    },
+    {
+      "id": "eusomii-2026-crete",
+      "label": "EuSoMII 2026 - Crete",
+      "date": "2026-10-09",
+      "status": "past",
+      "destination": "HER",
+      "included": true,
+      "assumption": "Crete is represented by Heraklion (HER); consolidate with Strasbourg if these appearances were one multi-city itinerary."
+    },
+    {
+      "id": "xr-iab-2026",
+      "label": "Center for Medical Innovations in Extended Reality IAB Progress Meeting",
+      "date": "2026-10-28",
+      "status": "upcoming",
+      "mode": "ground",
+      "included": false,
+      "note": "Local/ground travel is excluded from the flight footprint."
+    },
+    {
+      "id": "uvm-2026",
+      "label": "University of Vermont Grand Rounds",
+      "date": "2026-11-06",
+      "status": "upcoming",
+      "destination": "BTV",
+      "included": true
+    },
+    {
+      "id": "rsna-2026",
+      "label": "RSNA Annual Meeting 2026",
+      "date": "2026-12-01",
+      "status": "upcoming",
+      "destination": "ORD",
+      "included": true,
+      "note": "Two listed talks are treated as one Chicago trip."
+    },
+    {
+      "id": "hopkins-2027",
+      "label": "Johns Hopkins Grand Rounds",
+      "date": "2027-02-11",
+      "status": "upcoming",
+      "mode": "ground",
+      "included": false,
+      "note": "Local/ground travel is excluded from the flight footprint."
+    },
+    {
+      "id": "sar-2027",
+      "label": "Society of Abdominal Radiology Annual Meeting 2027",
+      "date": "2027-03-01",
+      "status": "upcoming",
+      "destination": "SAN",
+      "included": true
+    },
+    {
+      "id": "aar-2027",
+      "label": "Association for Academic Radiology Annual Meeting 2027",
+      "date": "2027-04-14",
+      "status": "upcoming",
+      "destination": "SLC",
+      "included": true,
+      "note": "Three listed sessions are treated as one Salt Lake City trip."
+    },
+    {
+      "id": "brown-2027",
+      "label": "Brown University Grand Rounds",
+      "date": "2027-05-12",
+      "status": "upcoming",
+      "destination": "PVD",
+      "included": true
+    }
+  ]
+}

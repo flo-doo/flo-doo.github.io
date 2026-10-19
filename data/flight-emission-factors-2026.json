@@ -1,0 +1,29 @@
+{
+  "year": 2026,
+  "source": "UK Government greenhouse gas conversion factors for company reporting: 2026 methodology",
+  "sourceUrl": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+  "units": "g CO2e per passenger-km before distance and radiative-forcing uplifts",
+  "distanceUplift": 1.08,
+  "radiativeForcingMultiplierOnCo2": 1.7,
+  "shortHaulDistanceProxyKm": 3700,
+  "notes": [
+    "The 2026 methodology recommends an 8% uplift to great-circle distance for indirect routing, delays, congestion and circling.",
+    "The 2026 methodology provides an indicative 1.7 radiative-forcing multiplier applied to the CO2 component only; this estimate uses that optional uplift.",
+    "For this non-UK personal travel ledger, 3,700 km is used as a pragmatic distance proxy for short- versus long-haul rather than the UK-specific geographic classification.",
+    "These are direct flight-operation factors and do not add separate well-to-tank fuel lifecycle emissions."
+  ],
+  "factors": {
+    "short": {
+      "ECONOMY": {"co2": 68.0, "ch4": 0.0, "n2o": 0.6},
+      "PREMIUM_ECONOMY": {"co2": 102.0, "ch4": 0.0, "n2o": 0.9},
+      "BUSINESS": {"co2": 102.0, "ch4": 0.0, "n2o": 0.9},
+      "FIRST": {"co2": 102.0, "ch4": 0.0, "n2o": 0.9}
+    },
+    "long": {
+      "ECONOMY": {"co2": 63.2, "ch4": 0.0, "n2o": 0.5},
+      "PREMIUM_ECONOMY": {"co2": 101.1, "ch4": 0.0, "n2o": 0.9},
+      "BUSINESS": {"co2": 183.3, "ch4": 0.0, "n2o": 1.6},
+      "FIRST": {"co2": 252.8, "ch4": 0.0, "n2o": 2.1}
+    }
+  }
+}

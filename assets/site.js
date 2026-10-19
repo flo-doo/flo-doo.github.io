@@ -169,14 +169,11 @@
       attributionControl: true
     });
 
-    // AcademicPages' talk-map approach uses Leaflet with geocoded talk locations.
-    // We store coordinates directly in events.json, avoiding runtime geocoding/API keys.
-    const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(speakingMap);
 
-    // Local Natural Earth geometry gives a graceful background if raster tiles are slow or blocked.
     try {
       const land = await loadJSON('assets/ne_land_lowres.geojson');
       L.geoJSON(land, {
@@ -193,11 +190,8 @@
 
     const points = [];
     const coordinateKey = (lat, lng) => `${Number(lat).toFixed(3)},${Number(lng).toFixed(3)}`;
-
-    // Upcoming talks are aggregated by physical location before markers are created.
-    // This prevents multiple talks at the same conference/city from spiderfying apart and
-    // lets the map orient visitors to conferences rather than individual talk titles.
     const upcomingByLocation = new Map();
+
     upcoming.forEach(e => {
       const y = Number(e.lat), x = Number(e.lng);
       if (!Number.isFinite(y) || !Number.isFinite(x)) return;
@@ -228,12 +222,9 @@
     (data.speakingLocations || []).forEach(p => {
       const y = Number(p.lat), x = Number(p.lng);
       if (!Number.isFinite(y) || !Number.isFinite(x)) return;
-      const key = coordinateKey(y, x);
-      historicalCountsByKey.set(key, Number(p.talkCount || p.count || 0) || 0);
+      historicalCountsByKey.set(coordinateKey(y, x), Number(p.talkCount || p.count || 0) || 0);
     });
 
-    // Keep one historical marker per city. If that same city has an upcoming appearance,
-    // the upcoming marker supersedes the historical marker so the two never overlap/spiderfy.
     (data.speakingLocations || []).forEach(p => {
       const y = Number(p.lat), x = Number(p.lng);
       if (!Number.isFinite(y) || !Number.isFinite(x)) return;
@@ -266,10 +257,8 @@
     });
 
     const dotIcon = (upcomingFlag, talkCount = 0) => {
-      // Keep historical city markers visually quiet; counts are shown in the tooltip.
-      // Upcoming locations retain a count badge when multiple talks share one city.
       const showCount = upcomingFlag && Number(talkCount) > 1;
-      const size = showCount ? 22 : (upcomingFlag ? 14 : 10);
+      const size = showCount ? 24 : (upcomingFlag ? 16 : 10);
       const countText = showCount ? `<span class="speaking-dot-count">${talkCount}</span>` : '';
       return L.divIcon({
         className: 'speaking-dot-wrap',
@@ -279,23 +268,7 @@
       });
     };
 
-    const clusterAvailable = typeof L.markerClusterGroup === 'function';
-    speakingMarkerLayer = clusterAvailable
-      ? L.markerClusterGroup({
-          showCoverageOnHover: false,
-          spiderfyOnMaxZoom: true,
-          zoomToBoundsOnClick: true,
-          maxClusterRadius: 34,
-          iconCreateFunction: cluster => L.divIcon({
-            html: `<span class="speaking-cluster">${cluster.getChildCount()}</span>`,
-            className: 'speaking-cluster-wrap',
-            iconSize: [30, 30],
-            iconAnchor: [15, 15]
-          })
-        })
-      : L.layerGroup();
-
-    points.forEach(p => {
+    const markerFor = p => {
       const marker = L.marker([p.lat, p.lng], {icon: dotIcon(p.upcoming, p.talkCount), keyboard: true});
       let body;
       if (p.upcoming && p.conferences?.length) {
@@ -317,17 +290,108 @@
       }
       marker.bindTooltip(body, {direction: 'top', opacity: 1});
       marker.bindPopup(body);
-      speakingMarkerLayer.addLayer(marker);
+      return marker;
+    };
+
+    const newMarkerLayer = visiblePoints => {
+      const clusterAvailable = typeof L.markerClusterGroup === 'function';
+      const layer = clusterAvailable
+        ? L.markerClusterGroup({
+            showCoverageOnHover: false,
+            spiderfyOnMaxZoom: true,
+            zoomToBoundsOnClick: true,
+            maxClusterRadius: 34,
+            iconCreateFunction: cluster => L.divIcon({
+              html: `<span class="speaking-cluster">${cluster.getChildCount()}</span>`,
+              className: 'speaking-cluster-wrap',
+              iconSize: [30, 30],
+              iconAnchor: [15, 15]
+            })
+          })
+        : L.layerGroup();
+      visiblePoints.forEach(p => layer.addLayer(markerFor(p)));
+      return layer;
+    };
+
+    const upcomingPoints = points.filter(p => p.upcoming);
+    const pastSeen = new Set();
+    const pastPoints = [];
+    (data.speakingLocations || []).forEach(p => {
+      const y = Number(p.lat), x = Number(p.lng);
+      if (!Number.isFinite(y) || !Number.isFinite(x)) return;
+      const key = coordinateKey(y, x);
+      if (pastSeen.has(key)) return;
+      const historicalCount = Number(p.talkCount || p.count || 0) || 0;
+      // Keep prior speaking locations even if there is also an upcoming event there;
+      // suppress future-only placeholders that have no historical count.
+      if (upcomingKeys.has(key) && historicalCount <= 0) return;
+      pastSeen.add(key);
+      pastPoints.push({
+        lat: y,
+        lng: x,
+        label: p.label,
+        scope: p.scope,
+        upcoming: false,
+        conferences: [],
+        talkCount: historicalCount
+      });
     });
-    speakingMarkerLayer.addTo(speakingMap);
+    const controls = Array.from(document.querySelectorAll('[data-speaking-map-view]'));
+    let activeView = upcomingPoints.length ? 'upcoming' : (pastPoints.length ? 'past' : 'all');
 
-    if (points.length) {
-      const bounds = L.latLngBounds(points.map(p => [p.lat, p.lng]));
-      speakingMap.fitBounds(bounds, {padding: [26, 26], maxZoom: 2});
-    } else {
-      speakingMap.setView([25, 0], 1.5);
-    }
+    const syncControls = () => {
+      controls.forEach(button => {
+        const active = button.dataset.speakingMapView === activeView;
+        button.classList.toggle('is-active', active);
+        button.setAttribute('aria-pressed', String(active));
+      });
+    };
 
+    const fitVisible = visiblePoints => {
+      if (!visiblePoints.length) {
+        speakingMap.setView([25, 0], 1.5);
+        return;
+      }
+      if (visiblePoints.length === 1) {
+        speakingMap.setView([visiblePoints[0].lat, visiblePoints[0].lng], 5);
+        return;
+      }
+      const bounds = L.latLngBounds(visiblePoints.map(p => [p.lat, p.lng]));
+      speakingMap.fitBounds(bounds, {
+        padding: [30, 30],
+        maxZoom: activeView === 'upcoming' ? 5 : (activeView === 'past' ? 3 : 2)
+      });
+    };
+
+    const setView = (requested, {fit = true} = {}) => {
+      if (requested === 'upcoming' && upcomingPoints.length) activeView = 'upcoming';
+      else if (requested === 'past' && pastPoints.length) activeView = 'past';
+      else activeView = 'all';
+      if (speakingMarkerLayer && speakingMap.hasLayer(speakingMarkerLayer)) {
+        speakingMap.removeLayer(speakingMarkerLayer);
+      }
+      const visiblePoints = activeView === 'upcoming' ? upcomingPoints : (activeView === 'past' ? pastPoints : points);
+      speakingMarkerLayer = newMarkerLayer(visiblePoints);
+      speakingMarkerLayer.addTo(speakingMap);
+      syncControls();
+      if (fit) fitVisible(visiblePoints);
+    };
+
+    controls.forEach(button => {
+      button.addEventListener('click', () => setView(button.dataset.speakingMapView || 'all'));
+    });
+
+    window.florenceSpeakingMapFocus = (lat, lng) => {
+      const y = Number(lat), x = Number(lng);
+      if (!Number.isFinite(y) || !Number.isFinite(x)) return;
+      setView('upcoming', {fit: false});
+      const targetZoom = Math.max(speakingMap.getZoom(), 6);
+      const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+      if (reduceMotion) speakingMap.setView([y, x], targetZoom);
+      else speakingMap.flyTo([y, x], targetZoom, {duration: 0.65});
+    };
+
+    setView(activeView);
     window.setTimeout(() => speakingMap?.invalidateSize(), 180);
   }
 
@@ -366,7 +430,14 @@
           eventsEl.innerHTML = groups.map(group => {
             const items = group.items.slice().sort((a,b) => a.date.localeCompare(b.date));
             const locations = [...new Set(items.map(e => e.conferenceLocation || e.location).filter(Boolean))];
-            const groupMeta = locations.map(location => `<span class="event-location-tag">${esc(location)}</span>`).join('');
+            const groupMeta = locations.map(location => {
+              const locatedItem = items.find(e =>
+                (e.conferenceLocation || e.location) === location &&
+                Number.isFinite(Number(e.lat)) && Number.isFinite(Number(e.lng))
+              );
+              if (!locatedItem) return `<span class="event-location-tag">${esc(location)}</span>`;
+              return `<button class="event-location-tag event-location-focus" data-map-lat="${Number(locatedItem.lat)}" data-map-lng="${Number(locatedItem.lng)}" type="button">${esc(location)}</button>`;
+            }).join('');
             const groupName = group.url
               ? `<a class="event-conference-link" href="${esc(group.url)}" target="_blank" rel="noreferrer">${esc(group.name)} ↗</a>`
               : esc(group.name);
@@ -423,12 +494,37 @@
           .join('');
       }
 
-      renderSpeakingMap(data, upcoming);
+      await renderSpeakingMap(data, upcoming);
+      eventsEl?.querySelectorAll('.event-location-focus').forEach(button => {
+        button.addEventListener('click', () => {
+          window.florenceSpeakingMapFocus?.(button.dataset.mapLat, button.dataset.mapLng);
+        });
+      });
     } catch (err) {
       console.error(err);
       if (eventsEl) eventsEl.innerHTML = '<p class="empty-state">Upcoming appearances could not be loaded.</p>';
       if (mapEl) mapEl.innerHTML = '<p class="empty-state">Talk map could not be loaded.</p>';
     }
+  }
+
+  function syncSpeakingColumnHeights() {
+    const overview = document.querySelector('.speaking-overview');
+    const upcomingColumn = document.querySelector('.speaking-upcoming');
+    if (!overview || !upcomingColumn) return;
+
+    const desktop = window.matchMedia('(min-width: 1051px)');
+    const sync = () => {
+      if (!desktop.matches) {
+        upcomingColumn.style.height = '';
+        return;
+      }
+      upcomingColumn.style.height = `${Math.ceil(overview.getBoundingClientRect().height)}px`;
+    };
+
+    sync();
+    window.addEventListener('resize', sync, {passive: true});
+    desktop.addEventListener?.('change', sync);
+    if ('ResizeObserver' in window) new ResizeObserver(sync).observe(overview);
   }
 
   function enablePublicationBrowser() {
@@ -536,5 +632,6 @@
 
   organizeTimedEditorships();
   renderHomepageEvents();
+  syncSpeakingColumnHeights();
   enablePublicationBrowser();
 })();

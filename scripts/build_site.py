@@ -32,6 +32,24 @@ def norm_title(value: str) -> str:
     return re.sub(r"[^a-z0-9]+", "", (value or "").lower())
 
 
+def normalized_text_span(haystack: str, needle: str) -> tuple[int, int] | None:
+    """Locate text while ignoring punctuation/spacing differences, preserving original offsets."""
+    normalized = []
+    offsets = []
+    for idx, char in enumerate(str(haystack or "")):
+        if char.isalnum():
+            normalized.append(char.casefold())
+            offsets.append(idx)
+    target = "".join(char.casefold() for char in str(needle or "") if char.isalnum())
+    if not target:
+        return None
+    start_norm = "".join(normalized).find(target)
+    if start_norm < 0:
+        return None
+    end_norm = start_norm + len(target) - 1
+    return offsets[start_norm], offsets[end_norm] + 1
+
+
 def norm_doi(value: str | None) -> str:
     if not value:
         return ""
@@ -167,6 +185,104 @@ def author_line(pub: dict) -> str:
     return first if len(first) <= 500 else ""
 
 
+VENUE_ALIASES = {
+    "j am coll radiol": "Journal of the American College of Radiology",
+    "radiol artif intell": "Radiology: Artificial Intelligence",
+    "am j roentgenol": "American Journal of Roentgenology",
+    "ajr am j roentgenol": "American Journal of Roentgenology",
+    "acad radiol": "Academic Radiology",
+}
+
+
+def citation_venue_segment(pub: dict) -> tuple[str, int, int]:
+    """Return the journal/venue text and its span in the stored citation, when identifiable."""
+    citation = clean_citation(pub.get("citation") or "")
+    title = str(pub.get("title") or "").strip()
+    if not citation or not title:
+        return "", -1, -1
+
+    title_span = normalized_text_span(citation, title)
+    if not title_span:
+        return "", -1, -1
+    _, tail_start = title_span
+    tail = citation[tail_start:]
+    leading = len(tail) - len(tail.lstrip(" .:;"))
+    tail = tail[leading:]
+    start = tail_start + leading
+    if not tail or tail.lower().startswith("in:"):
+        return "", -1, -1
+
+    # Journal citations in the bibliography are a mix of full and abbreviated
+    # styles. Stop before publication dates/status metadata so only the venue
+    # itself is emphasized.
+    segment = tail.split(". ", 1)[0].strip(" .")
+    segment = re.split(
+        r",\s*(?:Accepted\b|Published\b|Epub\b|20\d{2}\b)|\s+20\d{2}\b",
+        segment,
+        maxsplit=1,
+        flags=re.I,
+    )[0].strip(" ,.;")
+    if not segment or re.match(r"^(?:Accepted|Published|Epub|Preprint)\b", segment, re.I):
+        return "", -1, -1
+    end = start + len(segment)
+    return citation[start:end], start, end
+
+
+def publication_venue(pub: dict) -> str:
+    """Return a compact journal/venue label for the homepage recent-publications list."""
+    for key in ("venue", "journal", "container_title", "containerTitle"):
+        value = str(pub.get(key) or "").strip()
+        if value:
+            return VENUE_ALIASES.get(value.casefold(), value)
+
+    doi = norm_doi(pub.get("doi"))
+    if doi.startswith("10.48550/arxiv."):
+        return "arXiv"
+
+    citation = clean_citation(pub.get("citation") or "")
+    if re.search(r"\bPreprint\b", citation, re.I):
+        return "Preprint"
+
+    segment, _, _ = citation_venue_segment(pub)
+    return VENUE_ALIASES.get(segment.casefold(), segment) if segment else ""
+
+
+def publication_citation_html(pub: dict) -> str:
+    """Render citation metadata without repeating the title already shown above it."""
+    citation = clean_citation(pub.get("citation") or "")
+    title = str(pub.get("title") or "").strip()
+
+    # The publication title is already the linked heading on the Publications
+    # page. Remove that same title from the citation line so each item does not
+    # visually repeat itself. Keep authors, journal/venue, date, volume/pages,
+    # DOI/PMID, and status metadata intact.
+    display = citation
+    if title:
+        title_span = normalized_text_span(citation, title)
+        if title_span:
+            title_start, title_end = title_span
+            before = citation[:title_start].rstrip(" .:;")
+            after = citation[title_end:].lstrip(" .:;")
+            if before and after:
+                display = f"{before}. {after}"
+            else:
+                display = before or after
+
+    segment, _, _ = citation_venue_segment(pub)
+    if not segment:
+        return highlight_self(display)
+
+    venue_start = display.casefold().find(segment.casefold())
+    if venue_start < 0:
+        return highlight_self(display)
+    venue_end = venue_start + len(segment)
+    return (
+        highlight_self(display[:venue_start])
+        + f'<span class="pub-venue">{esc(display[venue_start:venue_end])}</span>'
+        + highlight_self(display[venue_end:])
+    )
+
+
 def pub_url(pub: dict) -> str:
     """Best available public link: DOI > supplied record > PubMed > Scholar title search."""
     if pub.get("doi"):
@@ -215,7 +331,7 @@ def pub_article(pub: dict, labels: dict[str, str]) -> str:
         f'<article class="pub-item" id="pub-{esc(ident)}" data-tags="{esc(data_tags)}">'
         f'<div class="pub-year"><time datetime="{esc(pub.get("year"))}">{esc(pub.get("year"))}</time></div>'
         f'<div><h2 class="pub-title">{title_html}</h2>'
-        f'<p class="pub-citation">{highlight_self(clean_citation(pub.get("citation") or ""))}</p>'
+        f'<p class="pub-citation">{publication_citation_html(pub)}</p>'
         f'{f"<div class=\"pub-tags\">{tag_html}</div>" if tag_html else ""}'
         f'</div></article>'
     )
@@ -225,9 +341,11 @@ def latest_item(pub: dict) -> str:
     url = pub_url(pub)
     year = esc(pub.get("year"))
     title = esc(pub.get("title"))
+    venue = publication_venue(pub)
     authors = author_line(pub)
+    venue_html = f'<div class="latest-venue">{esc(venue)}</div>' if venue else ""
     authors_html = f'<div class="latest-authors">{highlight_self(authors)}</div>' if authors else ""
-    inner = f'<div class="latest-meta">{year}</div><span class="latest-title">{title}</span>{authors_html}'
+    inner = f'<div class="latest-meta">{year}</div><span class="latest-title">{title}</span>{venue_html}{authors_html}'
     if url:
         return f'<a class="latest-item" href="{esc(url)}" target="_blank" rel="noreferrer">{inner}</a>'
     return f'<div class="latest-item">{inner}</div>'

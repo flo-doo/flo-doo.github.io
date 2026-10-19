@@ -1,0 +1,114 @@
+name: Add or update travel trip
+
+on:
+  workflow_dispatch:
+    inputs:
+      record_id:
+        description: "Optional stable ID; leave blank for an auto-generated ID"
+        required: false
+        type: string
+      date:
+        description: "Trip / meeting date (YYYY-MM-DD)"
+        required: true
+        type: string
+      label:
+        description: "Trip label, e.g. RSNA Annual Meeting 2027"
+        required: true
+        type: string
+      destination:
+        description: "Destination airport IATA code, e.g. ORD"
+        required: true
+        type: string
+      origin:
+        description: "Origin airport IATA code"
+        required: true
+        default: "IAD"
+        type: string
+      cabin:
+        description: "Cabin"
+        required: true
+        default: "ECONOMY"
+        type: choice
+        options:
+          - ECONOMY
+          - PREMIUM_ECONOMY
+          - BUSINESS
+          - FIRST
+      status:
+        description: "Trip timing (normally inferred from the date)"
+        required: true
+        default: "upcoming"
+        type: choice
+        options:
+          - upcoming
+          - past
+      round_trip:
+        description: "Round trip"
+        required: true
+        default: true
+        type: boolean
+      included:
+        description: "Include in flight footprint"
+        required: true
+        default: true
+        type: boolean
+      note:
+        description: "Optional note"
+        required: false
+        type: string
+      destination_latitude:
+        description: "Only needed for an airport not already recognized"
+        required: false
+        type: string
+      destination_longitude:
+        description: "Only needed for an airport not already recognized"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: site-content-travel
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Add or update trip
+        env:
+          TRIP_ID: ${{ inputs.record_id }}
+          TRIP_DATE: ${{ inputs.date }}
+          TRIP_LABEL: ${{ inputs.label }}
+          TRIP_DESTINATION: ${{ inputs.destination }}
+          TRIP_ORIGIN: ${{ inputs.origin }}
+          TRIP_CABIN: ${{ inputs.cabin }}
+          TRIP_STATUS: ${{ inputs.status }}
+          TRIP_ROUND_TRIP: ${{ inputs.round_trip }}
+          TRIP_INCLUDED: ${{ inputs.included }}
+          TRIP_NOTE: ${{ inputs.note }}
+          TRIP_DESTINATION_LAT: ${{ inputs.destination_latitude }}
+          TRIP_DESTINATION_LNG: ${{ inputs.destination_longitude }}
+        run: python scripts/upsert_travel.py
+      - name: Recalculate travel footprint
+        run: python scripts/update_travel_emissions.py
+      - name: Commit travel data
+        shell: bash
+        run: |
+          if git diff --quiet -- data/travel-emissions.json data/travel-emissions-cache.json; then
+            echo "No travel changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/travel-emissions.json data/travel-emissions-cache.json
+          git commit -m "Update talk travel footprint"
+          git pull --rebase origin main
+          git push origin HEAD:main

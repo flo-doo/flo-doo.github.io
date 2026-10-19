@@ -1,0 +1,289 @@
+{
+  "status": "ready",
+  "generatedAt": "2026-10-19T01:12:50+00:00",
+  "factorYear": 2026,
+  "summary": {
+    "pastKgCo2e": 14134.4,
+    "upcomingKgCo2e": 2209.6,
+    "pastTreeSeedlings10yr": 235.6,
+    "upcomingTreeSeedlings10yr": 36.8,
+    "estimatedTrips": 8,
+    "unestimatedTrips": 0
+  },
+  "trips": [
+    {
+      "id": "sydney-speaking",
+      "label": "Sydney, Australia - invited talk",
+      "date": null,
+      "status": "past",
+      "included": true,
+      "mode": "flight",
+      "kgCo2e": 10608.8,
+      "segments": [
+        {
+          "origin": "IAD",
+          "destination": "SYD",
+          "cabin": "BUSINESS",
+          "haul": "long",
+          "greatCircleKm": 15681.0,
+          "adjustedKm": 16935.5,
+          "kgCo2e": 5304.4
+        },
+        {
+          "origin": "SYD",
+          "destination": "IAD",
+          "cabin": "BUSINESS",
+          "haul": "long",
+          "greatCircleKm": 15681.0,
+          "adjustedKm": 16935.5,
+          "kgCo2e": 5304.4
+        }
+      ],
+      "assumption": "Exact date and connection airports are not stored; estimate uses IAD-SYD great-circle distance with the published distance uplift."
+    },
+    {
+      "id": "miccai-2026-strasbourg",
+      "label": "MICCAI 2026 - Strasbourg",
+      "date": "2026-09-27",
+      "status": "past",
+      "included": true,
+      "mode": "flight",
+      "kgCo2e": 1529.2,
+      "segments": [
+        {
+          "origin": "IAD",
+          "destination": "SXB",
+          "cabin": "ECONOMY",
+          "haul": "long",
+          "greatCircleKm": 6558.9,
+          "adjustedKm": 7083.6,
+          "kgCo2e": 764.6
+        },
+        {
+          "origin": "SXB",
+          "destination": "IAD",
+          "cabin": "ECONOMY",
+          "haul": "long",
+          "greatCircleKm": 6558.9,
+          "adjustedKm": 7083.6,
+          "kgCo2e": 764.6
+        }
+      ],
+      "assumption": "Temporarily represented as a separate IAD-SXB round trip; consolidate with Crete if these appearances were one multi-city itinerary."
+    },
+    {
+      "id": "eusomii-2026-crete",
+      "label": "EuSoMII 2026 - Crete",
+      "date": "2026-10-09",
+      "status": "past",
+      "included": true,
+      "mode": "flight",
+      "kgCo2e": 1996.4,
+      "segments": [
+        {
+          "origin": "IAD",
+          "destination": "HER",
+          "cabin": "ECONOMY",
+          "haul": "long",
+          "greatCircleKm": 8562.6,
+          "adjustedKm": 9247.6,
+          "kgCo2e": 998.2
+        },
+        {
+          "origin": "HER",
+          "destination": "IAD",
+          "cabin": "ECONOMY",
+          "haul": "long",
+          "greatCircleKm": 8562.6,
+          "adjustedKm": 9247.6,
+          "kgCo2e": 998.2
+        }
+      ],
+      "assumption": "Crete is represented by Heraklion (HER); consolidate with Strasbourg if these appearances were one multi-city itinerary."
+    },
+    {
+      "id": "xr-iab-2026",
+      "label": "Center for Medical Innovations in Extended Reality IAB Progress Meeting",
+      "date": "2026-10-28",
+      "status": "upcoming",
+      "included": false,
+      "mode": "ground",
+      "kgCo2e": null,
+      "note": "Local/ground travel is excluded from the flight footprint."
+    },
+    {
+      "id": "uvm-2026",
+      "label": "University of Vermont Grand Rounds",
+      "date": "2026-11-06",
+      "status": "upcoming",
+      "included": true,
+      "mode": "flight",
+      "kgCo2e": 178.2,
+      "segments": [
+        {
+          "origin": "IAD",
+          "destination": "BTV",
+          "cabin": "ECONOMY",
+          "haul": "short",
+          "greatCircleKm": 709.8,
+          "adjustedKm": 766.6,
+          "kgCo2e": 89.1
+        },
+        {
+          "origin": "BTV",
+          "destination": "IAD",
+          "cabin": "ECONOMY",
+          "haul": "short",
+          "greatCircleKm": 709.8,
+          "adjustedKm": 766.6,
+          "kgCo2e": 89.1
+        }
+      ]
+    },
+    {
+      "id": "rsna-2026",
+      "label": "RSNA Annual Meeting 2026",
+      "date": "2026-12-01",
+      "status": "upcoming",
+      "included": true,
+      "mode": "flight",
+      "kgCo2e": 237.2,
+      "segments": [
+        {
+          "origin": "IAD",
+          "destination": "ORD",
+          "cabin": "ECONOMY",
+          "haul": "short",
+          "greatCircleKm": 945.0,
+          "adjustedKm": 1020.6,
+          "kgCo2e": 118.6
+        },
+        {
+          "origin": "ORD",
+          "destination": "IAD",
+          "cabin": "ECONOMY",
+          "haul": "short",
+          "greatCircleKm": 945.0,
+          "adjustedKm": 1020.6,
+          "kgCo2e": 118.6
+        }
+      ],
+      "note": "Two listed talks are treated as one Chicago trip."
+    },
+    {
+      "id": "hopkins-2027",
+      "label": "Johns Hopkins Grand Rounds",
+      "date": "2027-02-11",
+      "status": "upcoming",
+      "included": false,
+      "mode": "ground",
+      "kgCo2e": null,
+      "note": "Local/ground travel is excluded from the flight footprint."
+    },
+    {
+      "id": "sar-2027",
+      "label": "Society of Abdominal Radiology Annual Meeting 2027",
+      "date": "2027-03-01",
+      "status": "upcoming",
+      "included": true,
+      "mode": "flight",
+      "kgCo2e": 908.2,
+      "segments": [
+        {
+          "origin": "IAD",
+          "destination": "SAN",
+          "cabin": "ECONOMY",
+          "haul": "short",
+          "greatCircleKm": 3618.5,
+          "adjustedKm": 3908.0,
+          "kgCo2e": 454.1
+        },
+        {
+          "origin": "SAN",
+          "destination": "IAD",
+          "cabin": "ECONOMY",
+          "haul": "short",
+          "greatCircleKm": 3618.5,
+          "adjustedKm": 3908.0,
+          "kgCo2e": 454.1
+        }
+      ]
+    },
+    {
+      "id": "aar-2027",
+      "label": "Association for Academic Radiology Annual Meeting 2027",
+      "date": "2027-04-14",
+      "status": "upcoming",
+      "included": true,
+      "mode": "flight",
+      "kgCo2e": 736.4,
+      "segments": [
+        {
+          "origin": "IAD",
+          "destination": "SLC",
+          "cabin": "ECONOMY",
+          "haul": "short",
+          "greatCircleKm": 2934.2,
+          "adjustedKm": 3169.0,
+          "kgCo2e": 368.2
+        },
+        {
+          "origin": "SLC",
+          "destination": "IAD",
+          "cabin": "ECONOMY",
+          "haul": "short",
+          "greatCircleKm": 2934.2,
+          "adjustedKm": 3169.0,
+          "kgCo2e": 368.2
+        }
+      ],
+      "note": "Three listed sessions are treated as one Salt Lake City trip."
+    },
+    {
+      "id": "brown-2027",
+      "label": "Brown University Grand Rounds",
+      "date": "2027-05-12",
+      "status": "upcoming",
+      "included": true,
+      "mode": "flight",
+      "kgCo2e": 149.6,
+      "segments": [
+        {
+          "origin": "IAD",
+          "destination": "PVD",
+          "cabin": "ECONOMY",
+          "haul": "short",
+          "greatCircleKm": 596.4,
+          "adjustedKm": 644.1,
+          "kgCo2e": 74.8
+        },
+        {
+          "origin": "PVD",
+          "destination": "IAD",
+          "cabin": "ECONOMY",
+          "haul": "short",
+          "greatCircleKm": 596.4,
+          "adjustedKm": 644.1,
+          "kgCo2e": 74.8
+        }
+      ]
+    }
+  ],
+  "coverageNote": "Documented talk-related trips only. Earlier aggregate talk-location counts are not converted into trips until itinerary-level travel is backfilled.",
+  "methodology": {
+    "flightFactors": "UK Government greenhouse gas conversion factors for company reporting: 2026 methodology",
+    "flightFactorsUrl": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026",
+    "distanceUplift": 1.08,
+    "radiativeForcingMultiplierOnCo2": 1.7,
+    "shortHaulDistanceProxyKm": 3700,
+    "treeEquivalency": "U.S. EPA Greenhouse Gas Equivalencies Calculator",
+    "treeEquivalencyUrl": "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator",
+    "epaKgCo2PerUrbanTreeSeedling10yr": 60.0
+  },
+  "notes": [
+    "The 2026 methodology recommends an 8% uplift to great-circle distance for indirect routing, delays, congestion and circling.",
+    "The 2026 methodology provides an indicative 1.7 radiative-forcing multiplier applied to the CO2 component only; this estimate uses that optional uplift.",
+    "For this non-UK personal travel ledger, 3,700 km is used as a pragmatic distance proxy for short- versus long-haul rather than the UK-specific geographic classification.",
+    "These are direct flight-operation factors and do not add separate well-to-tank fuel lifecycle emissions."
+  ]
+}

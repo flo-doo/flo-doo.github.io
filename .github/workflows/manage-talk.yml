@@ -1,0 +1,148 @@
+name: Add or update talk
+
+on:
+  workflow_dispatch:
+    inputs:
+      record_id:
+        description: "Optional stable ID; leave blank for an auto-generated ID"
+        required: false
+        type: string
+      date:
+        description: "Date (YYYY-MM-DD)"
+        required: true
+        type: string
+      event:
+        description: "Conference, society, institution, or webinar"
+        required: true
+        type: string
+      title:
+        description: "Talk / panel title"
+        required: true
+        type: string
+      type:
+        description: "Role/type (Panel, Keynote, Grand Rounds, Invited talk, etc.)"
+        required: true
+        default: "Invited talk"
+        type: string
+      location:
+        description: "City, ST/country, or Virtual"
+        required: true
+        default: "Virtual"
+        type: string
+      scope:
+        description: "Talk scope"
+        required: true
+        default: "national"
+        type: choice
+        options:
+          - local
+          - national
+          - international
+      time:
+        description: "Time + timezone, e.g. 18:00-19:00 CET"
+        required: false
+        type: string
+      participants:
+        description: "Optional co-speakers / panelists, comma-separated"
+        required: false
+        type: string
+      alphabetical:
+        description: "Participant list is alphabetical"
+        required: true
+        default: false
+        type: boolean
+      moderators:
+        description: "Optional moderator(s), comma-separated"
+        required: false
+        type: string
+      show_people:
+        description: "Show co-speakers / moderators on the public site"
+        required: true
+        default: false
+        type: boolean
+      parent_session:
+        description: "Optional parent course/session, e.g. AI Enabled Radiology Research"
+        required: false
+        type: string
+      sponsor:
+        description: "Optional sponsoring committee / organization"
+        required: false
+        type: string
+      note:
+        description: "Optional additional public note"
+        required: false
+        type: string
+      url:
+        description: "Talk/session URL, if available"
+        required: false
+        type: string
+      conference:
+        description: "Grouping label; leave blank to use Event"
+        required: false
+        type: string
+      conference_url:
+        description: "Conference/event URL, if different from session URL"
+        required: false
+        type: string
+      latitude:
+        description: "Optional map latitude; leave blank for Virtual or a previously known city"
+        required: false
+        type: string
+      longitude:
+        description: "Optional map longitude"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: site-content-talks
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Add or update talk
+        env:
+          TALK_ID: ${{ inputs.record_id }}
+          TALK_DATE: ${{ inputs.date }}
+          TALK_EVENT: ${{ inputs.event }}
+          TALK_TITLE: ${{ inputs.title }}
+          TALK_TYPE: ${{ inputs.type }}
+          TALK_LOCATION: ${{ inputs.location }}
+          TALK_SCOPE: ${{ inputs.scope }}
+          TALK_TIME: ${{ inputs.time }}
+          TALK_PARTICIPANTS: ${{ inputs.participants }}
+          TALK_ALPHABETICAL: ${{ inputs.alphabetical }}
+          TALK_MODERATORS: ${{ inputs.moderators }}
+          TALK_SHOW_PEOPLE: ${{ inputs.show_people }}
+          TALK_PARENT_SESSION: ${{ inputs.parent_session }}
+          TALK_SPONSOR: ${{ inputs.sponsor }}
+          TALK_NOTE: ${{ inputs.note }}
+          TALK_URL: ${{ inputs.url }}
+          TALK_CONFERENCE: ${{ inputs.conference }}
+          TALK_CONFERENCE_URL: ${{ inputs.conference_url }}
+          TALK_LAT: ${{ inputs.latitude }}
+          TALK_LNG: ${{ inputs.longitude }}
+        run: python scripts/upsert_talk.py
+      - name: Commit talk data
+        shell: bash
+        run: |
+          if git diff --quiet -- data/events.json; then
+            echo "No talk changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/events.json
+          git commit -m "Update talk schedule"
+          git pull --rebase origin main
+          git push origin HEAD:main

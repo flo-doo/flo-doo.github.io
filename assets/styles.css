@@ -428,8 +428,18 @@ footer {
   font-size: 15.5px;
 }
 .event-meta { margin-top: 7px; line-height: 1.5; }
+.latest-venue {
+  margin-top: 7px;
+  padding-left: 10px;
+  color: var(--accent);
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.35;
+}
 .latest-authors {
-  margin-top: 6px;
+  margin-top: 5px;
+  padding-left: 10px;
   color: var(--faint);
   font-size: 14px;
   line-height: 1.45;
@@ -560,6 +570,11 @@ footer {
 }
 .pub-title { margin: 0; font-size: 18px; line-height: 1.35; font-weight: 610; }
 .pub-citation { margin: 8px 0 0; color: var(--muted); font-size: 15.5px; line-height: 1.5; }
+.pub-venue {
+  color: var(--accent);
+  font-style: italic;
+  font-weight: 400;
+}
 .pub-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 11px; }
 .pub-tag { color: var(--faint); font-size: 14.5px; }
 .metadata-note { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--rule); color: var(--faint); font-size: 14.5px; }
@@ -653,6 +668,7 @@ footer {
   border-bottom: 1px solid var(--rule);
 }
 .latest-list--research .latest-title { font-size: 15.5px; line-height: 1.38; }
+.latest-list--research .latest-venue { font-size: 13.5px; }
 .latest-list--research .latest-authors { font-size: 13.25px; -webkit-line-clamp: 3; }
 .research-areas-head { margin-bottom: 14px; }
 .research-column h3 { margin-top: 0; }
@@ -743,8 +759,8 @@ footer {
   display: grid;
   grid-template-columns: 72px minmax(0, 1fr);
   column-gap: 22px;
-  row-gap: 4px;
-  padding: 17px 0 18px;
+  row-gap: 2px;
+  padding: 14px 0 15px;
   border-right: 0;
   border-bottom: 1px solid var(--rule);
 }
@@ -752,7 +768,7 @@ footer {
   grid-column: 1;
   grid-row: 1 / span 2;
   color: var(--accent);
-  font-size: 14.5px;
+  font-size: 14px;
   font-weight: 650;
   padding-top: 1px;
 }
@@ -764,12 +780,22 @@ footer {
   line-height: 1.38;
   font-weight: 620;
 }
-.latest-list--research .latest-authors {
+.latest-list--research .latest-venue {
   grid-column: 2;
   margin-top: 1px;
+  padding-left: 8px;
+  font-size: 12.5px;
+  line-height: 1.3;
+  font-style: italic;
+  font-weight: 400;
+}
+.latest-list--research .latest-authors {
+  grid-column: 2;
+  margin-top: 0;
+  padding-left: 8px;
   color: var(--muted);
-  font-size: 14.5px;
-  line-height: 1.45;
+  font-size: 13px;
+  line-height: 1.38;
   -webkit-line-clamp: 2;
 }
 

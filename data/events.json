@@ -64,6 +64,33 @@
       "conferenceUrl": "https://www.eusomii-annualmeeting2026.com/"
     },
     {
+      "id": "xr-iab-panel-2026-10-28",
+      "date": "2026-10-28",
+      "displayDate": "Oct 28, 2026",
+      "event": "Mid-Year Industry Advisory Board (IAB) Progress Meeting",
+      "location": "North Bethesda, MD",
+      "type": "Panel",
+      "title": "AI for Extended Reality (XR) Panel",
+      "scope": "local",
+      "lat": 39.0446,
+      "lng": -77.1189,
+      "conference": "Center for Medical Innovations in Extended Reality",
+      "conferenceLocation": "North Bethesda, MD",
+      "time": "10:45 AM–12:05 PM",
+      "participants": [
+        "Doo FX",
+        "Li A",
+        "Seam N",
+        "Gao R"
+      ],
+      "moderators": [
+        "Reddy R",
+        "Murthi S"
+      ],
+      "participantOrder": "alphabetical",
+      "showPeople": false
+    },
+    {
       "date": "2026-11-06",
       "displayDate": "Nov 6, 2026",
       "event": "University of Vermont",
@@ -76,20 +103,51 @@
       "conference": "University of Vermont"
     },
     {
+      "title": "Right result, right moment: how monitoring turns radiology AI into everyday value",
+      "id": "eusomii-webinar-2026-11-12",
+      "date": "2026-11-12",
+      "displayDate": "Nov 12, 2026",
+      "event": "EuSoMII Webinar",
+      "location": "Virtual",
+      "type": "Panel",
+      "scope": "international",
+      "conference": "EuSoMII Webinar",
+      "time": "18:00–19:00 CET",
+      "participants": [
+        "Barone R",
+        "Dean G",
+        "Doo FX",
+        "Morozov S",
+        "Rizk B"
+      ],
+      "moderators": [
+        "Huisman M"
+      ],
+      "participantOrder": "alphabetical",
+      "showPeople": false
+    },
+    {
       "date": "2026-12-01",
       "displayDate": "Dec 1, 2026",
       "event": "RSNA Annual Meeting",
       "location": "Chicago, IL",
       "type": "Invited course session",
       "title": "Integrating Research into Your Career",
-      "note": "Introduction to Academic Radiology Course for Junior Faculty (ITARJF)",
+      "note": "Part of “Introduction to Academic Radiology Course for Junior Faculty (ITARJF)”",
       "time": "1:15–2:15 PM",
       "scope": "national",
       "lat": 41.8781,
       "lng": -87.6298,
       "url": "https://cattendee.abstractsonline.com/meeting/21552/meeting-info",
       "conference": "RSNA Annual Meeting 2026",
-      "conferenceUrl": "https://cattendee.abstractsonline.com/meeting/21552/meeting-info"
+      "conferenceUrl": "https://cattendee.abstractsonline.com/meeting/21552/meeting-info",
+      "participants": [
+        "Chan S",
+        "Doo FX",
+        "Simpson S"
+      ],
+      "participantOrder": "alphabetical",
+      "showPeople": false
     },
     {
       "date": "2026-12-03",
@@ -104,7 +162,40 @@
       "lng": -87.6298,
       "url": "https://cattendee.abstractsonline.com/meeting/21552/meeting-info",
       "conference": "RSNA Annual Meeting 2026",
-      "conferenceUrl": "https://cattendee.abstractsonline.com/meeting/21552/meeting-info"
+      "conferenceUrl": "https://cattendee.abstractsonline.com/meeting/21552/meeting-info",
+      "participants": [
+        "Summers R",
+        "Wald C",
+        "Patel T"
+      ],
+      "moderators": [
+        "Kundu S",
+        "Raichandani S"
+      ],
+      "sponsor": "Government Relations Committee",
+      "showPeople": false
+    },
+    {
+      "title": "What’s Happening in the “Real World” Around AI",
+      "id": "radequal-webinar-2026-12-15",
+      "date": "2026-12-15",
+      "displayDate": "Dec 15, 2026",
+      "event": "RadEqual Webinar",
+      "location": "Virtual",
+      "type": "Panel",
+      "scope": "national",
+      "conference": "RadEqual Webinar",
+      "time": "2:00–3:00 PM EST",
+      "participants": [
+        "Doo FX",
+        "Kim W",
+        "Shih G"
+      ],
+      "moderators": [
+        "Kottler N"
+      ],
+      "participantOrder": "alphabetical",
+      "showPeople": false
     },
     {
       "date": "2027-02-11",
@@ -131,22 +222,14 @@
       "lat": 33.1581,
       "lng": -117.3506,
       "conference": "Society of Abdominal Radiology (SAR) Annual Meeting 2027",
-      "conferenceUrl": "https://abdominalradiology.org/sar-subpages/annual-meeting/"
-    },
-    {
-      "date": "2027-04-14",
-      "displayDate": "Apr 14, 2027",
-      "event": "Association for Academic Radiology (AAR) Annual Meeting",
-      "location": "Salt Lake City, UT",
-      "type": "Moderator, invited session",
-      "title": "When AI Fails, Who Is Accountable?",
-      "time": "9:30–10:30 AM",
-      "url": "https://www.aur.org/annual-meeting",
-      "scope": "national",
-      "lat": 40.7608,
-      "lng": -111.891,
-      "conference": "Association for Academic Radiology (AAR) Annual Meeting 2027",
-      "conferenceUrl": "https://www.aur.org/annual-meeting"
+      "conferenceUrl": "https://abdominalradiology.org/sar-subpages/annual-meeting/",
+      "participants": [
+        "Doo FX",
+        "Lane BF",
+        "Tonascia M"
+      ],
+      "participantOrder": "alphabetical",
+      "showPeople": false
     },
     {
       "date": "2027-04-14",
@@ -161,7 +244,35 @@
       "lat": 40.7608,
       "lng": -111.891,
       "conference": "Association for Academic Radiology (AAR) Annual Meeting 2027",
-      "conferenceUrl": "https://www.aur.org/annual-meeting"
+      "conferenceUrl": "https://www.aur.org/annual-meeting",
+      "participants": [
+        "Peacock J",
+        "Richards T",
+        "Tippareddy C",
+        "Zhang ZJ"
+      ],
+      "moderators": [
+        "Faraji N",
+        "Zhang ZJ"
+      ],
+      "showPeople": false,
+      "note": "Part of “AI Enabled Radiology Research”"
+    },
+    {
+      "date": "2027-04-14",
+      "displayDate": "Apr 14, 2027",
+      "event": "Association for Academic Radiology (AAR) Annual Meeting",
+      "location": "Salt Lake City, UT",
+      "type": "Invited session",
+      "title": "When AI Fails, Who Is Accountable?",
+      "time": "9:30–10:30 AM",
+      "url": "https://www.aur.org/annual-meeting",
+      "scope": "national",
+      "lat": 40.7608,
+      "lng": -111.891,
+      "conference": "Association for Academic Radiology (AAR) Annual Meeting 2027",
+      "conferenceUrl": "https://www.aur.org/annual-meeting",
+      "showPeople": false
     },
     {
       "date": "2027-04-16",
@@ -176,7 +287,8 @@
       "lat": 40.7608,
       "lng": -111.891,
       "conference": "Association for Academic Radiology (AAR) Annual Meeting 2027",
-      "conferenceUrl": "https://www.aur.org/annual-meeting"
+      "conferenceUrl": "https://www.aur.org/annual-meeting",
+      "showPeople": false
     },
     {
       "date": "2027-05-12",
