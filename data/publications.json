@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-20",
+  "updated": "2026-10-21",
   "count": 72,
   "publications": [
     {
@@ -859,6 +859,22 @@
       "status": "published"
     },
     {
+      "id": "m10",
+      "title": "Developing a Comprehensive Resident-driven Research Training Pathway: A Chief Resident's Perspective",
+      "citation": "Lakhani DA, Doo FX, Chung C. Developing a Comprehensive Resident-driven Research Training Pathway: A Chief Resident's Perspective. Curr Probl Diagn Radiol. 2022 Jul 30:S0363- 0188(22)00105-0. doi: 10.1067/j.cpradiol.2022.07.004. 2023 Mar-Apr;52(2):93-96. PMID: 36050135.",
+      "year": 2023,
+      "doi": "10.1067/j.cpradiol.2022.07.004",
+      "pmid": "36050135",
+      "url": "https://doi.org/10.1067/j.cpradiol.2022.07.004",
+      "source": "Curated bibliography (verified Sep 2026)",
+      "tags": [
+        "medical-imaging-informatics-data"
+      ],
+      "date": "2023-03-01",
+      "status": "published",
+      "work_type": "journal-article"
+    },
+    {
       "id": "m14",
       "title": "Periumbilical Anatomy of Scarpa’s Fascia: Rationale Behind a “Modified Scarpa’s” Abdominal Closure Technique",
       "citation": "Uchechukwu A, Doo F, Kuruvilla A, Kagen A, Henderson P. Periumbilical Anatomy of Scarpa’s Fascia: Rationale Behind a “Modified Scarpa’s” Abdominal Closure Technique. Annals of Plastic Surgery. 2023 Jan 31. doi: 10.1097/SAP.0000000000003404. PMID: 36752536.",
@@ -882,22 +898,6 @@
       "doi": "10.1016/j.jacr.2022.11.005",
       "pmid": "36436778",
       "url": "https://doi.org/10.1016/j.jacr.2022.11.005",
-      "source": "Curated bibliography (verified Sep 2026)",
-      "tags": [
-        "medical-imaging-informatics-data"
-      ],
-      "date": "2023-01-01",
-      "status": "published",
-      "work_type": "journal-article"
-    },
-    {
-      "id": "m10",
-      "title": "Developing a Comprehensive Resident-driven Research Training Pathway: A Chief Resident's Perspective",
-      "citation": "Lakhani DA, Doo FX, Chung C. Developing a Comprehensive Resident-driven Research Training Pathway: A Chief Resident's Perspective. Curr Probl Diagn Radiol. 2022 Jul 30:S0363- 0188(22)00105-0. doi: 10.1067/j.cpradiol.2022.07.004. 2023 Mar-Apr;52(2):93-96. PMID: 36050135.",
-      "year": 2023,
-      "doi": "10.1067/j.cpradiol.2022.07.004",
-      "pmid": "36050135",
-      "url": "https://doi.org/10.1067/j.cpradiol.2022.07.004",
       "source": "Curated bibliography (verified Sep 2026)",
       "tags": [
         "medical-imaging-informatics-data"
@@ -965,7 +965,7 @@
       "tags": [
         "medical-imaging-informatics-data"
       ],
-      "date": "2021-12-01",
+      "date": "2021-10-10",
       "status": "published",
       "work_type": "journal-article"
     },
