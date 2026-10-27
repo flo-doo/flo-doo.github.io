@@ -1,6 +1,13 @@
 {
-  "count": 2,
+  "count": 3,
   "items": [
+    {
+      "title": "Automated screening of privacy risks in medical AI",
+      "year": 2026,
+      "doi": "10.48550/arxiv.2610.30229",
+      "pmid": null,
+      "reason": "citation is incomplete (no author/contributor segment before title)"
+    },
     {
       "title": "Detecting and Monitoring Bias for Subgroups in Breast Cancer Detection AI",
       "year": 2025,

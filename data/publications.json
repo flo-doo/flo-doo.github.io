@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-26",
+  "updated": "2026-10-27",
   "count": 72,
   "publications": [
     {
@@ -907,6 +907,20 @@
       "work_type": "journal-article"
     },
     {
+      "id": "c1",
+      "title": "Radiologists staunchly support patient safety and autonomy, in opposition to the SCOTUS draft",
+      "citation": "Andreotti RF, Arleo EK, Arora SS, Broder JC, Brook O, Canon CL, Chen MM, Cooke EA, Davis MA, Doo FX, Dodelzon K, Englander MJ, Everett C, Farooq A, Fischbein NJ, Fleming M, Fleischer A, Frederick-Dyer K, Gerson RF, Gruen D, Hecht EM, Pisano E, Heyneman LE, Katzen JT, Kemp J, Kotsenas AL, Ladd LM, Lui Y, McGinty G, Meltzer CC, Oliveira A, Phillips C, Porter KK, Rhyner P, Roberts A, Robson C, Senter A, Shah AA, Shatzkes D, Solberg A, Spalluto LB, Sun M, Tomblinson C, Vincoff NS, Wood MJ, Zigmund B. Radiologists staunchly support patient safety and autonomy, in opposition to the SCOTUS draft. Clinical Imaging. 2022 Sep;89:95-96. doi: 10.1016/j.clinimag.2022.05.012. Epub 2022 Jun 10. PMID: 36064645.",
+      "year": 2022,
+      "doi": "10.1016/j.clinimag.2022.05.012",
+      "pmid": "35772335",
+      "url": "https://doi.org/10.1016/j.clinimag.2022.05.012",
+      "source": "Curated bibliography (verified Sep 2026)",
+      "tags": [],
+      "date": "2022-09-01",
+      "status": "published",
+      "work_type": "journal-article"
+    },
+    {
       "id": "m12",
       "title": "Predicting Patient Demographics from Chest Radiographs with Deep Learning",
       "citation": "Adleberg J, Wardeh A, Doo FX; Marinelli B; Cook T; Mendelson D; Kagen A. Predicting Patient Demographics from Chest Radiographs with Deep Learning. Journal of the American College of Radiology (JACR). 2022 Oct;19(10):1151-1161. PMID: 35964688 DOI: 10.1016/j.jacr.2022.06.008.",
@@ -940,20 +954,6 @@
       "work_type": "journal-article"
     },
     {
-      "id": "c1",
-      "title": "Radiologists staunchly support patient safety and autonomy, in opposition to the SCOTUS draft",
-      "citation": "Andreotti RF, Arleo EK, Arora SS, Broder JC, Brook O, Canon CL, Chen MM, Cooke EA, Davis MA, Doo FX, Dodelzon K, Englander MJ, Everett C, Farooq A, Fischbein NJ, Fleming M, Fleischer A, Frederick-Dyer K, Gerson RF, Gruen D, Hecht EM, Pisano E, Heyneman LE, Katzen JT, Kemp J, Kotsenas AL, Ladd LM, Lui Y, McGinty G, Meltzer CC, Oliveira A, Phillips C, Porter KK, Rhyner P, Roberts A, Robson C, Senter A, Shah AA, Shatzkes D, Solberg A, Spalluto LB, Sun M, Tomblinson C, Vincoff NS, Wood MJ, Zigmund B. Radiologists staunchly support patient safety and autonomy, in opposition to the SCOTUS draft. Clinical Imaging. 2022 Sep;89:95-96. doi: 10.1016/j.clinimag.2022.05.012. Epub 2022 Jun 10. PMID: 36064645.",
-      "year": 2022,
-      "doi": "10.1016/j.clinimag.2022.05.012",
-      "pmid": "35772335",
-      "url": "https://doi.org/10.1016/j.clinimag.2022.05.012",
-      "source": "Curated bibliography (verified Sep 2026)",
-      "tags": [],
-      "date": "2022-06-10",
-      "status": "published",
-      "work_type": "journal-article"
-    },
-    {
       "id": "m9",
       "title": "Semi-Automated 3D Volumetric Renal Measurements in Polycystic Kidney Disease Using b0- Images-A Feasibility Study",
       "citation": "Roudenko A, Mahmood S, Du L, Gunio D, Barash I, Doo F, Slutzky A, Kukar N, Friedman B, Kagen A. Semi-Automated 3D Volumetric Renal Measurements in Polycystic Kidney Disease Using b0- Images-A Feasibility Study. Tomography. 2021 Oct 10;7(4):573-580. doi: 10.3390/tomography7040049. PMID: 34698270; PMCID: PMC8544696.",
@@ -965,7 +965,7 @@
       "tags": [
         "medical-imaging-informatics-data"
       ],
-      "date": "2021-10-10",
+      "date": "2021-12-01",
       "status": "published",
       "work_type": "journal-article"
     },
