@@ -1,6 +1,6 @@
 {
   "status": "ready",
-  "generatedAt": "2026-10-19T01:12:50+00:00",
+  "generatedAt": "2026-10-28T15:28:53+00:00",
   "factorYear": 2026,
   "summary": {
     "pastKgCo2e": 14134.4,
@@ -105,7 +105,7 @@
       "id": "xr-iab-2026",
       "label": "Center for Medical Innovations in Extended Reality IAB Progress Meeting",
       "date": "2026-10-28",
-      "status": "upcoming",
+      "status": "past",
       "included": false,
       "mode": "ground",
       "kgCo2e": null,
