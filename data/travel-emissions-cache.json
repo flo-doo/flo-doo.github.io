@@ -1,12 +1,12 @@
 {
   "status": "ready",
-  "generatedAt": "2026-10-28T15:28:53+00:00",
+  "generatedAt": "2026-11-06T16:18:43+00:00",
   "factorYear": 2026,
   "summary": {
-    "pastKgCo2e": 14134.4,
-    "upcomingKgCo2e": 2209.6,
-    "pastTreeSeedlings10yr": 235.6,
-    "upcomingTreeSeedlings10yr": 36.8,
+    "pastKgCo2e": 14312.6,
+    "upcomingKgCo2e": 2031.4,
+    "pastTreeSeedlings10yr": 238.5,
+    "upcomingTreeSeedlings10yr": 33.9,
     "estimatedTrips": 8,
     "unestimatedTrips": 0
   },
@@ -115,7 +115,7 @@
       "id": "uvm-2026",
       "label": "University of Vermont Grand Rounds",
       "date": "2026-11-06",
-      "status": "upcoming",
+      "status": "past",
       "included": true,
       "mode": "flight",
       "kgCo2e": 178.2,
