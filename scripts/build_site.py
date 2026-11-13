@@ -187,10 +187,25 @@ def author_line(pub: dict) -> str:
 
 VENUE_ALIASES = {
     "j am coll radiol": "Journal of the American College of Radiology",
+    "journal of the american college of radiology (jacr)": "Journal of the American College of Radiology",
     "radiol artif intell": "Radiology: Artificial Intelligence",
     "am j roentgenol": "American Journal of Roentgenology",
     "ajr am j roentgenol": "American Journal of Roentgenology",
+    "american journal of roentgenology (ajr)": "American Journal of Roentgenology",
     "acad radiol": "Academic Radiology",
+    "abdom radiol (ny)": "Abdominal Radiology",
+    "can assoc radiol j": "Canadian Association of Radiologists Journal",
+    "clin imaging": "Clinical Imaging",
+    "clin oncol (r coll radiol)": "Clinical Oncology",
+    "curr probl diagn radiol": "Current Problems in Diagnostic Radiology",
+    "j am soc echocardiogr": "Journal of the American Society of Echocardiography",
+    "j imaging inform med": "Journal of Imaging Informatics in Medicine",
+    "jama netw open": "JAMA Network Open",
+    "ann thorac surg": "The Annals of Thoracic Surgery",
+    "lancet oncol": "The Lancet Oncology",
+    "int urol nephrol": "International Urology and Nephrology",
+    "new england journal of medicine artificial intelligence (nejm ai)": "NEJM AI",
+    "nejm ai": "NEJM AI",
 }
 
 
@@ -276,9 +291,10 @@ def publication_citation_html(pub: dict) -> str:
     if venue_start < 0:
         return highlight_self(display)
     venue_end = venue_start + len(segment)
+    venue_display = VENUE_ALIASES.get(segment.casefold(), segment)
     return (
         highlight_self(display[:venue_start])
-        + f'<span class="pub-venue">{esc(display[venue_start:venue_end])}</span>'
+        + f'<span class="pub-venue">{esc(venue_display)}</span>'
         + highlight_self(display[venue_end:])
     )
 

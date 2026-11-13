@@ -1,13 +1,13 @@
 {
   "updated": "2026-11-13",
-  "count": 72,
+  "count": 71,
   "publications": [
     {
       "title": "Realizing the value of the divergence event in clinical human-AI interaction",
       "year": 2026,
       "date": "2026-10-13",
       "doi": "10.1038/s41746-026-03394-8",
-      "pmid": null,
+      "pmid": "42869984",
       "url": "https://doi.org/10.1038/s41746-026-03394-8",
       "citation": "Doo FX, Brat GA, C. Rossetti S, Klitzman R, Binkley CE. Realizing the value of the divergence event in clinical human-AI interaction. npj Digital Medicine. 2026 Oct 13;9(1):788. doi: 10.1038/s41746-026-03394-8.",
       "work_type": "journal-article",
@@ -23,7 +23,7 @@
       "citation": "Dickerson G, Chirico J, Loening AM, Wong-You-Cheong J, Lane BF, Doo FX. Decoding the Image: Finding Diagnostic Signals in Multi-Modality Abdominal Artifacts. Abdominal Radiology. Published online September 24, 2026.",
       "year": 2026,
       "doi": "10.1007/s00261-026-05800-x",
-      "pmid": null,
+      "pmid": "42782329",
       "url": "https://doi.org/10.1007/s00261-026-05800-x",
       "source": "Curated bibliography (verified Sep 2026)",
       "tags": [
@@ -54,7 +54,7 @@
       "year": 2026,
       "date": "2026-09-01",
       "doi": "10.1016/j.jacr.2026.09.027",
-      "pmid": null,
+      "pmid": "42815603",
       "url": "https://doi.org/10.1016/j.jacr.2026.09.027",
       "citation": "Bumbarger NA, Telfer BA, Gjesteby LA, Doo FX. Expeditionary Radiology: Designing Human-AI Collaboration in Limited-Connectivity Military Medicine. Journal of the American College of Radiology. 2026 Sep. doi: 10.1016/j.jacr.2026.09.027.",
       "work_type": "journal-article",
@@ -181,7 +181,7 @@
       "year": 2026,
       "date": "2026-04-01",
       "doi": "10.1016/j.jacr.2026.02.021",
-      "pmid": null,
+      "pmid": "41951316",
       "url": "https://doi.org/10.1016/j.jacr.2026.02.021",
       "citation": "Doo FX. Sustainability as Radiology’s Triple Helix: Value, Patient Care, and the Planet. Journal of the American College of Radiology. 2026 Apr;23(4):491-494. doi: 10.1016/j.jacr.2026.02.021.",
       "work_type": "journal-article",
@@ -197,7 +197,7 @@
       "citation": "Viswanathan VS, Zhu D, Polat D, Doo F, Straus C, Rozenshtein A, Retrouvey M. Teleradiology, Edge Computing, and the Internet of Things in Radiology: A RRA Perspective on Decentralized Diagnostics. Academic Radiology, 2026 Mar 6; 33(3):646–652. doi: 10.1016/j.acra.2025.12.040",
       "year": 2026,
       "doi": "10.1016/j.acra.2025.12.040",
-      "pmid": null,
+      "pmid": "41781094",
       "url": "https://doi.org/10.1016/j.acra.2025.12.040",
       "source": "Curated bibliography (verified Sep 2026)",
       "tags": [
@@ -213,7 +213,7 @@
       "citation": "Brofman N, Langman E, Sin JM, Hadi M, Brown J, Doo F, Rozenshtein A, Retrouvey M. From Hype to Implementation: RRA Perspective on Strategies for Adapting Radiology Departments to Emerging Technologies. Academic Radiology, 2026 Mar 6; 33(3):680–691. doi: 10.1016/j.acra.2026.01.039",
       "year": 2026,
       "doi": "10.1016/j.acra.2026.01.039",
-      "pmid": null,
+      "pmid": "41781097",
       "url": "https://doi.org/10.1016/j.acra.2026.01.039",
       "source": "Curated bibliography (verified Sep 2026)",
       "tags": [
@@ -246,7 +246,7 @@
       "citation": "Hadi M, Brown J, Doo FX, Straus C, Rozenshtein A, Retrouvey M. An RRA Perspective on Quantum Computing and Blockchain in Radiology: Emerging Paradigms for Data Integrity and Advanced Computation. Academic Radiology, 2026 Mar 6; 33(3):653–661. doi: 10.1016/j.acra.2026.01.034.",
       "year": 2026,
       "doi": "10.1016/j.acra.2026.01.034",
-      "pmid": null,
+      "pmid": "41781095",
       "url": "https://doi.org/10.1016/j.acra.2026.01.034",
       "source": "Curated bibliography (verified Sep 2026)",
       "tags": [
@@ -263,7 +263,7 @@
       "citation": "Brown J, Dashevsky BZ, Polat D, Doo F, Straus C, Rozenshtein A, Retrouvey M. A RRA Perspective on AI and Machine Learning Applications in Radiology: From Experimental to Clinically Viable Solutions. Academic Radiology, 2026 Mar 6; 33(3):617–629. doi: 10.1016/j.acra.2025.11.021",
       "year": 2026,
       "doi": "10.1016/j.acra.2025.11.021",
-      "pmid": null,
+      "pmid": "41781091",
       "url": "https://doi.org/10.1016/j.acra.2025.11.021",
       "source": "Curated bibliography (verified Sep 2026)",
       "tags": [
@@ -367,7 +367,7 @@
       "year": 2025,
       "date": "2025-11-01",
       "doi": "10.1016/j.jacr.2025.06.026",
-      "pmid": null,
+      "pmid": "40543531",
       "url": "https://doi.org/10.1016/j.jacr.2025.06.026",
       "citation": "Slanetz PJ, Bala W, Doo FX, Cook TS. Pearls and Pitfalls of Integrating Artificial Intelligence Into Radiology Education. Journal of the American College of Radiology. 2025 Nov;22(11):1438-1440. doi: 10.1016/j.jacr.2025.06.026.",
       "work_type": "journal-article",
@@ -451,7 +451,7 @@
       "citation": "Tripathi S, Alkhulaifat D, Doo FX, Rajpurkar P, McBeth R, Daye D, Cook TS. Development, Evaluation, and Assessment of Large Language Models (DEAL) Checklist: A Technical Report. New England Journal of Medicine Artificial Intelligence (NEJM AI). 2025 May 9. https://ai.nejm.org/doi/full/10.1056/AIp2401106.",
       "year": 2025,
       "doi": "10.1056/aip2401106",
-      "pmid": null,
+      "pmid": "42932552",
       "url": "https://doi.org/10.1056/aip2401106",
       "source": "Curated bibliography (verified Sep 2026)",
       "tags": [
@@ -611,7 +611,7 @@
       "year": 2024,
       "date": "2024-09-01",
       "doi": "10.1016/j.jacr.2024.03.014",
-      "pmid": null,
+      "pmid": "38527640",
       "url": "https://doi.org/10.1016/j.jacr.2024.03.014",
       "citation": "Doo FX, Siegel EL. Conflicts of Interest in Radiology Publishing. Journal of the American College of Radiology. 2024 Sep;21(9):1534-1536. doi: 10.1016/j.jacr.2024.03.014.",
       "work_type": "journal-article",
@@ -641,7 +641,7 @@
       "year": 2024,
       "date": "2024-08-01",
       "doi": "10.2214/ajr.23.30696",
-      "pmid": null,
+      "pmid": "38117099",
       "url": "https://doi.org/10.2214/ajr.23.30696",
       "citation": "Doo FX, Parekh VS. Beyond the AJR: Early Applications of Generative Artificial Intelligence for Radiology Report Interpretation. American Journal of Roentgenology. 2024 Aug;223(2):e2330696. doi: 10.2214/ajr.23.30696.",
       "work_type": "journal-article",
@@ -919,7 +919,7 @@
         "trustworthy-human-ai",
         "medical-imaging-informatics-data"
       ],
-      "date": "2022-10-01",
+      "date": "2022-08-11",
       "status": "published",
       "work_type": "journal-article"
     },
@@ -1076,28 +1076,18 @@
       "status": "published"
     },
     {
-      "title": "A cross-sectional study in the USA of the epidemiology and quality of life of underactive bladder symptoms",
-      "year": 2016,
-      "date": "2016-07-29",
-      "doi": "10.1007/s11255-016-1382-0",
-      "pmid": null,
-      "url": "https://doi.org/10.1007/s11255-016-1382-0",
-      "citation": "Faraj K, Doo F, Boura J, Vereecke A, Chancellor MB. A cross-sectional study in the USA of the epidemiology and quality of life of underactive bladder symptoms. International Urology and Nephrology. 2016 Nov;48(11):1797-1802. doi: 10.1007/s11255-016-1382-0.",
-      "work_type": "journal-article",
-      "source": "Curated bibliography (human-reviewed)",
-      "tags": [],
-      "status": "published"
-    },
-    {
       "id": "m3",
-      "title": "Epidemiology and quality of life of the underactive bladder: a cross-sectional study in United States",
-      "citation": "Faraj K, Doo F, Boura J, Verneecke A, Chancellor M. Epidemiology and quality of life of the underactive bladder: a cross-sectional study in United States. International Urology and Nephrology. 2016 Jul 29; 48: epub 1-6. PMID: 27473156.",
+      "title": "A cross-sectional study in the USA of the epidemiology and quality of life of underactive bladder symptoms.",
+      "citation": "Faraj K, Doo F, Boura J, Vereecke A, Chancellor MB. A cross-sectional study in the USA of the epidemiology and quality of life of underactive bladder symptoms. Int Urol Nephrol. 2016 Nov;48(11):1797-1802. doi: 10.1007/s11255-016-1382-0. PMID: 27473156.",
       "year": 2016,
-      "doi": null,
+      "doi": "10.1007/s11255-016-1382-0",
       "pmid": "27473156",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/27473156/",
+      "url": "https://doi.org/10.1007/s11255-016-1382-0",
       "source": "Curated bibliography (verified Sep 2026)",
-      "tags": []
+      "tags": [],
+      "status": "published",
+      "work_type": "journal-article",
+      "date": "2016-07-29"
     },
     {
       "id": "m2",
@@ -1115,17 +1105,17 @@
     },
     {
       "id": "m1",
-      "title": "Epidemiology and demographics of the underactive bladder: A cross-sectional survey",
-      "citation": "Valente S, DuBeau C, Chancellor D, Okonski J, Vereecke A, Doo F, Lajiness M, Diokno A, Chancellor M. Epidemiology and demographics of the underactive bladder: A cross-sectional survey. Int Urol Nephrol. Sep 2014; 46 Spul 1:S7-10. PMID: 25238889.",
+      "title": "Epidemiology and demographics of the underactive bladder: a cross-sectional survey.",
+      "citation": "Valente S, DuBeau C, Chancellor D, Okonski J, Vereecke A, Doo F, Lajiness M, Diokno A, Chancellor M. Epidemiology and demographics of the underactive bladder: a cross-sectional survey. Int Urol Nephrol. 2014 Sep;46 Suppl 1:S7-10. doi: 10.1007/s11255-014-0811-1. PMID: 25238889.",
       "year": 2014,
       "doi": "10.1007/s11255-014-0811-1",
       "pmid": "25238889",
       "url": "https://doi.org/10.1007/s11255-014-0811-1",
       "source": "Curated bibliography (human-reviewed)",
       "tags": [],
-      "date": "2014-09-20",
       "status": "published",
-      "work_type": "journal-article"
+      "work_type": "journal-article",
+      "date": "2014-09-20"
     }
   ]
 }

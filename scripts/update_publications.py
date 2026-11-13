@@ -4,13 +4,16 @@
 Discovery policy (deliberately conservative):
   1. ORCID is the only automated discovery source for new works.
   2. Exact identifiers from ORCID (DOI/PMID) may be enriched through Crossref/PubMed.
-  3. Human-curated records remain authoritative for citation wording and research tags.
-  4. Newly discovered ORCID works are published only when they have enough verified
+  3. Curated PMID/DOI gaps may be reconciled through exact PubMed identifier lookups;
+     no author-name or fuzzy-title search is used for identifier matching.
+  4. Human-curated records remain authoritative for citation wording and research tags.
+  5. Newly discovered ORCID works are published only when they have enough verified
      metadata to render as a complete citation; incomplete records are quarantined
      in data/publication-metadata-review.json instead of creating gaps on the site.
 
 No author-name search is used, so similarly named authors cannot be imported by a
-broad search. The script uses only the Python standard library.
+broad search. arXiv identifiers are kept distinct from later journal DOIs unless an
+explicit relationship is supplied. The script uses only the Python standard library.
 """
 from __future__ import annotations
 
@@ -21,6 +24,8 @@ import json
 import re
 import subprocess
 import sys
+import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -33,6 +38,11 @@ TOPICS = ROOT / "data" / "publication-topics.json"
 REVIEW = ROOT / "data" / "publication-topic-review.json"
 METADATA_REVIEW = ROOT / "data" / "publication-metadata-review.json"
 UA = "florence-doo-site/1.2 (mailto:fdoo@som.umaryland.edu)"
+NCBI_TOOL = "florence_doo_site"
+NCBI_EMAIL = "fdoo@som.umaryland.edu"
+NCBI_MIN_INTERVAL_SECONDS = 0.60
+NCBI_MAX_ATTEMPTS = 4
+_NCBI_LAST_REQUEST_AT = 0.0
 
 
 def get_json(url: str, accept: str = "application/json"):
@@ -61,6 +71,10 @@ def norm_doi(value: str | None) -> str:
 
 def norm_pmid(value: str | None) -> str:
     return re.sub(r"\D", "", str(value or ""))
+
+
+def is_arxiv_doi(value: str | None) -> bool:
+    return norm_doi(value).startswith("10.48550/arxiv.")
 
 
 CONTRIBUTION_NOTE_RE = re.compile(
@@ -581,20 +595,177 @@ def parse_pubmed_summary(record, pmid: str):
     }
 
 
+def ncbi_get_json(endpoint: str, params: dict):
+    """Call one NCBI E-utility conservatively, with pacing and transient-error retry."""
+    global _NCBI_LAST_REQUEST_AT
+
+    query = dict(params)
+    query.setdefault("tool", NCBI_TOOL)
+    query.setdefault("email", NCBI_EMAIL)
+    url = (
+        "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
+        + endpoint
+        + "?"
+        + urllib.parse.urlencode(query)
+    )
+
+    last_error = None
+    for attempt in range(NCBI_MAX_ATTEMPTS):
+        elapsed = time.monotonic() - _NCBI_LAST_REQUEST_AT
+        if elapsed < NCBI_MIN_INTERVAL_SECONDS:
+            time.sleep(NCBI_MIN_INTERVAL_SECONDS - elapsed)
+
+        _NCBI_LAST_REQUEST_AT = time.monotonic()
+        try:
+            return get_json(url)
+        except urllib.error.HTTPError as exc:
+            last_error = exc
+            if exc.code not in {429, 500, 502, 503, 504} or attempt + 1 >= NCBI_MAX_ATTEMPTS:
+                raise
+            retry_after = 0.0
+            try:
+                retry_after = float(exc.headers.get("Retry-After") or 0)
+            except (TypeError, ValueError):
+                pass
+            delay = max(retry_after, float(2 ** attempt))
+            print(
+                f"NCBI returned HTTP {exc.code}; retrying in {delay:g}s "
+                f"({attempt + 1}/{NCBI_MAX_ATTEMPTS - 1}).",
+                file=sys.stderr,
+            )
+            time.sleep(delay)
+
+    if last_error:
+        raise last_error
+    return None
+
+
 def fetch_pubmed_pmid(pmid: str):
     pmid = norm_pmid(pmid)
     if not pmid:
         return None
     try:
-        data = get_json(
-            "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?"
-            + urllib.parse.urlencode({"db": "pubmed", "id": pmid, "retmode": "json"})
+        data = ncbi_get_json(
+            "esummary.fcgi",
+            {"db": "pubmed", "id": pmid, "retmode": "json"},
         )
     except Exception as exc:
         print(f"PubMed enrichment skipped for PMID {pmid}: {exc}", file=sys.stderr)
         return None
     record = (data.get("result") or {}).get(pmid) or {}
     return parse_pubmed_summary(record, pmid) if record else None
+
+
+def fetch_pubmed_doi(doi: str):
+    """Resolve one DOI to one PMID using PubMed's exact Article Identifier field."""
+    doi = norm_doi(doi)
+    if not doi or is_arxiv_doi(doi):
+        return None
+    try:
+        data = ncbi_get_json(
+            "esearch.fcgi",
+            {
+                "db": "pubmed",
+                "term": f'"{doi}"[aid]',
+                "retmode": "json",
+                "retmax": 2,
+            },
+        )
+    except Exception as exc:
+        print(f"PubMed DOI lookup skipped for {doi}: {exc}", file=sys.stderr)
+        return None
+
+    pmids = (data.get("esearchresult") or {}).get("idlist") or []
+    if not pmids:
+        return None
+    if len(pmids) != 1:
+        print(
+            f"PubMed returned {len(pmids)} records for exact DOI {doi}; ignoring ambiguous result.",
+            file=sys.stderr,
+        )
+        return None
+
+    result = fetch_pubmed_pmid(pmids[0])
+    if not result:
+        return None
+    returned_doi = norm_doi(result.get("doi"))
+    if returned_doi != doi:
+        print(
+            f"PubMed returned DOI {returned_doi or '[none]'} for requested DOI {doi}; ignoring.",
+            file=sys.stderr,
+        )
+        return None
+    return result
+
+
+def should_lookup_pmid_from_doi(item) -> bool:
+    """Recheck recent journal articles for a PMID without probing non-journal DOIs."""
+    doi = norm_doi(item.get("doi"))
+    if not doi or norm_pmid(item.get("pmid")) or is_arxiv_doi(doi):
+        return False
+    if str(item.get("work_type") or "").strip().lower() != "journal-article":
+        return False
+    try:
+        year = int(item.get("year") or 0)
+    except Exception:
+        return False
+    return year >= datetime.date.today().year - 2
+
+
+def refresh_curated_identifiers(curated):
+    """Fill missing DOI/PMID pairs through exact PubMed identifiers, then deduplicate."""
+    refreshed = copy.deepcopy(curated)
+    lookups = 0
+
+    for item in refreshed:
+        doi = norm_doi(item.get("doi"))
+        pmid = norm_pmid(item.get("pmid"))
+
+        # A PMID is a stable identity anchor. Keep rechecking PMID-only records
+        # until PubMed supplies their DOI; this also repairs early-online titles.
+        if pmid and not doi:
+            lookups += 1
+            candidate = fetch_pubmed_pmid(pmid)
+            if candidate and norm_pmid(candidate.get("pmid")) == pmid and norm_doi(candidate.get("doi")):
+                for key in ("title", "year", "doi", "pmid", "url", "citation", "status"):
+                    if candidate.get(key):
+                        item[key] = candidate[key]
+                item.setdefault("work_type", "journal-article")
+
+        # The reverse lookup is useful for newly indexed recent articles, but
+        # deliberately excludes arXiv/book/repository DOIs and older back-catalogue.
+        elif should_lookup_pmid_from_doi(item):
+            lookups += 1
+            candidate = fetch_pubmed_doi(doi)
+            if candidate and norm_pmid(candidate.get("pmid")):
+                item["pmid"] = candidate["pmid"]
+                item["url"] = f"https://doi.org/{doi}"
+                if is_in_press(item):
+                    if candidate.get("title"):
+                        item["title"] = candidate["title"]
+                    if candidate.get("citation"):
+                        item["citation"] = candidate["citation"]
+                    item["status"] = "published"
+
+    # The refresh can create a newly shared DOI (for example an early PMID-only
+    # record plus a later final DOI record). Reuse the normal exact-ID merge so
+    # the pair collapses immediately without fuzzy title matching.
+    return merge([], refreshed), lookups
+
+
+def write_curated_publications(items) -> bool:
+    """Persist curated identifier repairs without rewriting the file when unchanged."""
+    try:
+        payload = json.loads(CURATED.read_text(encoding="utf-8"))
+    except Exception:
+        payload = {}
+    if payload.get("publications") == items:
+        return False
+    payload["updated"] = datetime.date.today().isoformat()
+    payload["count"] = len(items)
+    payload["publications"] = items
+    CURATED.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    return True
 
 
 def existing_lookup(existing):
@@ -620,6 +791,7 @@ def needs_metadata_enrichment(item) -> bool:
         or not citation
         or not citation_has_authors(item)
         or is_in_press(item)
+        or (norm_pmid(item.get("pmid")) and not norm_doi(item.get("doi")))
     )
 
 
@@ -665,8 +837,18 @@ def enrich_orcid(orcid_items, cache):
                 item["source"] = "ORCID + PubMed PMID"
                 doi = norm_doi(item.get("doi"))
 
+        # A recent DOI can acquire a PMID after the article first appears online.
+        # Search only the exact DOI and require PubMed to return that same DOI.
+        if doi and not pmid and should_lookup_pmid_from_doi(item):
+            pubmed = fetch_pubmed_doi(doi)
+            if pubmed and norm_pmid(pubmed.get("pmid")):
+                pubmed_lookups += 1
+                item["pmid"] = pubmed["pmid"]
+                item["url"] = f"https://doi.org/{doi}"
+                pmid = norm_pmid(item.get("pmid"))
+
         # DOI metadata is the preferred canonical title/link source for new works.
-        if doi and needs_metadata_enrichment(item):
+        if doi and not is_arxiv_doi(doi) and needs_metadata_enrichment(item):
             crossref = fetch_crossref_doi(doi)
             if crossref:
                 crossref_lookups += 1
@@ -721,7 +903,7 @@ def merge(existing, discovered):
                 and str(new_item.get("status") or "").lower() == "published"
             )
             was_in_press = is_in_press(old)
-            for key in ("year", "date", "doi", "pmid", "url", "status", "work_type"):
+            for key in ("id", "year", "date", "doi", "pmid", "url", "status", "work_type"):
                 if verified_published and key in {"year", "date", "doi", "pmid", "url", "status"}:
                     if new_item.get(key):
                         old[key] = new_item[key]
@@ -729,6 +911,23 @@ def merge(existing, discovered):
                     old[key] = new_item[key]
             if verified_published and was_in_press:
                 old["citation"] = promote_citation_to_published(old.get("citation") or "", new_item)
+
+            # Preserve human research-area decisions when duplicate records merge.
+            old_tags = list(old.get("tags") or old.get("topics") or [])
+            for tag in new_item.get("tags") or new_item.get("topics") or []:
+                if tag not in old_tags:
+                    old_tags.append(tag)
+            old["tags"] = old_tags
+            old.pop("topics", None)
+
+            # New identifiers discovered during this merge must participate in
+            # subsequent matches in the same run.
+            if norm_doi(old.get("doi")):
+                by_doi[norm_doi(old.get("doi"))] = old
+            if norm_pmid(old.get("pmid")):
+                by_pmid[norm_pmid(old.get("pmid"))] = old
+            if norm_title(old.get("title")):
+                by_title[norm_title(old.get("title"))] = old
         else:
             new_item.setdefault("tags", [])
             items.append(new_item)
@@ -759,10 +958,18 @@ def merge(existing, discovered):
 
 
 def main():
-    curated = load_publication_file(CURATED)
+    original_curated = load_publication_file(CURATED)
+    curated, curated_pubmed_lookups = refresh_curated_identifiers(original_curated)
+    curated_changed = write_curated_publications(curated)
     prior_auto = prior_orcid_records()
     cache = curated + prior_auto
     orcid, orcid_source = fetch_orcid()
+
+    if curated_changed:
+        print(
+            f"Refreshed curated identifiers; {len(original_curated)} records -> "
+            f"{len(curated)} after exact-ID deduplication."
+        )
 
     metadata_review = []
     if orcid_source:
@@ -851,7 +1058,8 @@ def main():
     print(
         f"Wrote {len(merged)} publications from {len(curated)} curated + verified ORCID records "
         f"({len(orcid)} ORCID works; {doi_lookups} Crossref DOI lookup(s); "
-        f"{pubmed_lookups} PubMed PMID lookup(s); {len(metadata_review)} held for metadata review)."
+        f"{pubmed_lookups + curated_pubmed_lookups} PubMed exact-ID lookup(s); "
+        f"{len(metadata_review)} held for metadata review)."
     )
     if not orcid_source:
         print("ORCID was unavailable; safe prior auto-added records were retained.", file=sys.stderr)
